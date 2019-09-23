@@ -1,0 +1,1232 @@
+<html>
+  <head>
+    <title>Code Review :: </title>
+    <style type="text/css">
+    .body{background-color:White;}
+    .summary{width:100%;font-weight:bold;background-color:White;border: thin solid #808000;color:#FAFCFE}
+    .outer{font-weight:normal;color:#6D5757;background-color:#FFDFBF}
+    .inner{font-weight:normal;color:black;}
+    .reviewTable{border: thin solid #C0C0C0; width:100%}
+    .headerRow{color:white;background-color: #800000;font-weight:bold;text-align: center}
+    .reviewRow{background-color:#FFDFBF;color:black;}
+    .rAligned{text-align:right;}
+    .data{visibility:hidden}
+  </style>
+  </head>
+  <body class="body">
+    <div class="summary">
+      <table>
+        <tr>
+          <td colspan="3" class="headerRow">Review Summary</td>
+        </tr>
+        <tr class="outer">
+          <td>Project Name : <label class="inner" /></td>
+          <td>Reviewed By : <label class="inner" /></td>
+        </tr>
+        <tr class="outer">
+          <td>Project Code : <label class="inner" /></td>
+          <td>Reviewed Date : <label class="inner" /></td>
+        </tr>
+        <tr class="outer">
+          <td>Work Product Name : <label class="inner" /></td>
+          <td>Status : <label class="inner" /></td>
+        </tr>
+        <tr class="outer">
+          <td>Work Product Version : <label class="inner" /></td>
+          <td>Review Preparation Effort : <label class="inner" /></td>
+        </tr>
+        <tr class="outer">
+          <td>Work Product Size (ekloc) : <label class="inner" /></td>
+          <td>Review effort : <label class="inner" /></td>
+        </tr>
+        <tr class="outer">
+          <td>Work Product Release Date for Review : <label class="inner" /></td>
+          <td>Rework effort : <label class="inner" /></td>
+        </tr>
+        <tr class="outer">
+          <td>Review Action Taken By : <label class="inner" /></td>
+          <td>Review Efficiency : <label class="inner">NaN</label></td>
+        </tr>
+        <tr class="outer">
+          <td>Review Action Taken Date : <label class="inner" /></td>
+          <td />
+        </tr>
+      </table>
+      <table>
+        <tr class="headerRow">
+          <td colspan="2">Review Details</td>
+          <td colspan="2">Defect Status Analysis</td>
+          <td colspan="2">Defect Type Analysis</td>
+          <td colspan="4">Defect Injected Phase Analysis</td>
+        </tr>
+        <tr class="outer">
+          <td />
+          <td />
+          <td />
+          <td />
+          <td />
+          <td />
+          <td />
+          <td>Major</td>
+          <td>Medium</td>
+          <td>Minor</td>
+        </tr>
+        <tr class="outer">
+          <td>Total No of Suggestions</td>
+          <td class="inner">0</td>
+          <td>Open</td>
+          <td class="inner">0</td>
+          <td>Logical</td>
+          <td class="inner">0</td>
+          <td>Initial Project Setup</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+        </tr>
+        <tr class="outer">
+          <td>Total No of Errors</td>
+          <td class="inner">0</td>
+          <td>On Hold</td>
+          <td class="inner">0</td>
+          <td>Incomplete</td>
+          <td class="inner">0</td>
+          <td>Project Initiation</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+        </tr>
+        <tr class="outer">
+          <td>Total</td>
+          <td class="inner">0</td>
+          <td>Closed</td>
+          <td class="inner">0</td>
+          <td>UI</td>
+          <td class="inner">0</td>
+          <td>Requirement Analysis</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+        </tr>
+        <tr class="outer">
+          <td />
+          <td />
+          <td>Rejected</td>
+          <td class="inner">0</td>
+          <td>Exception Handling</td>
+          <td class="inner">0</td>
+          <td>Architecture and Design</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+        </tr>
+        <tr class="outer">
+          <td />
+          <td />
+          <td />
+          <td />
+          <td>Documentation</td>
+          <td class="inner">0</td>
+          <td>Implementation</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+        </tr>
+        <tr class="outer">
+          <td />
+          <td />
+          <td />
+          <td />
+          <td />
+          <td class="inner" />
+          <td>QA Testing</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+        </tr>
+        <tr class="outer">
+          <td />
+          <td />
+          <td />
+          <td />
+          <td />
+          <td class="inner" />
+          <td>Transition Phase</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+        </tr>
+        <tr class="outer">
+          <td />
+          <td />
+          <td />
+          <td />
+          <td />
+          <td />
+          <td class="rAligned">Total</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+        </tr>
+      </table>
+    </div>
+    <br />
+    <table class="reviewTable">
+      <tr class="headerRow">
+        <td>#</td>
+        <td>Description</td>
+        <td>Status</td>
+        <td>DefectType</td>
+        <td>InjectedPhase</td>
+      </tr>
+    </table>
+    <div>
+      <br />
+    Created with <a href="http://visualstudiogallery.msdn.microsoft.com/d1e40c49-da36-42a5-8d5a-4ebe1feabbc9">ReviewPal</a></div>
+    <div class="data">
+      <Data id="ReviewPalData">
+        <CodeReview xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Reviews>
+            <Smell>
+              <Id>1</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>136 OrderAndStorageManagementSystem.AppDatabaseDataSet.InitializeDerivedDataSet()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>136</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.InitializeDerivedDataSet()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>2</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>145 OrderAndStorageManagementSystem.AppDatabaseDataSet.Clone()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>145</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.Clone()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>3</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>155 OrderAndStorageManagementSystem.AppDatabaseDataSet.ShouldSerializeTables()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>155</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ShouldSerializeTables()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>4</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>162 OrderAndStorageManagementSystem.AppDatabaseDataSet.ShouldSerializeRelations()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>162</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ShouldSerializeRelations()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>5</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>169 OrderAndStorageManagementSystem.AppDatabaseDataSet.ReadXmlSerializable(System.Xml.XmlReader)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>169</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ReadXmlSerializable(System.Xml.XmlReader)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>6</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>198 OrderAndStorageManagementSystem.AppDatabaseDataSet.GetSchemaSerializable()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>198</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.GetSchemaSerializable()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>7</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>208 OrderAndStorageManagementSystem.AppDatabaseDataSet.InitVars()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>208</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.InitVars()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>8</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>215 OrderAndStorageManagementSystem.AppDatabaseDataSet.InitVars(bool)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>215</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.InitVars(bool)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>9</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>229 OrderAndStorageManagementSystem.AppDatabaseDataSet.InitClass()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>229</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.InitClass()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>10</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>242 OrderAndStorageManagementSystem.AppDatabaseDataSet.ShouldSerializeProductsTable()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>242</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ShouldSerializeProductsTable()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>11</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>249 OrderAndStorageManagementSystem.AppDatabaseDataSet.SchemaChanged(object, System.ComponentModel.CollectionChangeEventArgs)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>249</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.SchemaChanged(object, System.ComponentModel.CollectionChangeEventArgs)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>12</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>259 OrderAndStorageManagementSystem.AppDatabaseDataSet.GetTypedDataSetSchema(System.Xml.Schema.XmlSchemaSet)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>259</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.GetTypedDataSetSchema(System.Xml.Schema.XmlSchemaSet)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>13</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>459 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.AddProductsTableRow(OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableRow)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>459</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.AddProductsTableRow(OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableRow)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>14</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>466 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.AddProductsTableRow(string, string, int, string)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>466</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.AddProductsTableRow(string, string, int, string)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>15</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>482 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.FindByProductId(int)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>482</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.FindByProductId(int)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>16</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>490 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.Clone()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>490</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.Clone()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>17</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>499 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.CreateInstance()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>499</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.CreateInstance()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>18</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>506 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.InitVars()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>506</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.InitVars()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>19</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>517 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.InitClass()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>517</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.InitClass()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>20</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>544 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.NewProductsTableRow()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>544</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.NewProductsTableRow()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>21</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>551 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.NewRowFromBuilder(System.Data.DataRowBuilder)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>551</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.NewRowFromBuilder(System.Data.DataRowBuilder)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>22</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>558 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.GetRowType()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>558</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.GetRowType()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>23</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>565 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.OnRowChanged(System.Data.DataRowChangeEventArgs)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>565</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.OnRowChanged(System.Data.DataRowChangeEventArgs)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>24</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>576 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.OnRowChanging(System.Data.DataRowChangeEventArgs)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>576</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.OnRowChanging(System.Data.DataRowChangeEventArgs)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>25</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>587 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.OnRowDeleted(System.Data.DataRowChangeEventArgs)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>587</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.OnRowDeleted(System.Data.DataRowChangeEventArgs)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>26</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>598 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.OnRowDeleting(System.Data.DataRowChangeEventArgs)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>598</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.OnRowDeleting(System.Data.DataRowChangeEventArgs)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>27</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>609 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.RemoveProductsTableRow(OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableRow)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>609</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.RemoveProductsTableRow(OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableRow)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>28</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>616 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.GetTypedTableSchema(System.Xml.Schema.XmlSchemaSet)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>616</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable.GetTypedTableSchema(System.Xml.Schema.XmlSchemaSet)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>29</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>804 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableRow.IsProductNameNull()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>804</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableRow.IsProductNameNull()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>30</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>811 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableRow.SetProductNameNull()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>811</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableRow.SetProductNameNull()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>31</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>818 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableRow.IsProductTypeNull()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>818</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableRow.IsProductTypeNull()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>32</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>825 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableRow.SetProductTypeNull()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>825</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableRow.SetProductTypeNull()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>33</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>832 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableRow.IsProductPriceNull()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>832</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableRow.IsProductPriceNull()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>34</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>839 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableRow.SetProductPriceNull()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>839</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableRow.SetProductPriceNull()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>35</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>846 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableRow.IsProductDescriptionNull()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>846</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableRow.IsProductDescriptionNull()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>36</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>853 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableRow.SetProductDescriptionNull()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>853</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableRow.SetProductDescriptionNull()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>37</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>1047 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.InitAdapter()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>1047</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.InitAdapter()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>38</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>1104 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.InitConnection()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>1104</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.InitConnection()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>39</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>1112 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.InitCommandCollection()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>1112</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.InitCommandCollection()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>40</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>1124 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.Fill(OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>1124</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.Fill(OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>41</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>1139 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.GetData()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>1139</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.GetData()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>42</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>1151 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.Update(OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>1151</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.Update(OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTableDataTable)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>43</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>1159 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.Update(OrderAndStorageManagementSystem.AppDatabaseDataSet)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>1159</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.Update(OrderAndStorageManagementSystem.AppDatabaseDataSet)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>44</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>1167 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.Update(System.Data.DataRow)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>1167</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.Update(System.Data.DataRow)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>45</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>1176 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.Update(System.Data.DataRow[])</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>1176</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.Update(System.Data.DataRow[])</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>46</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>1184 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.Delete(int, string, string, int?, string)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>1184</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.Delete(int, string, string, int?, string)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>47</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>1251 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.Insert(string, string, int?, string)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>1251</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.Insert(string, string, int?, string)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>48</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>1309 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.Update(string, string, int?, string, int, string, string, int?, string, int)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>1309</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.Update(string, string, int?, string, int, string, string, int?, string, int)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>49</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>1409 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.Update(string, string, int?, string, int, string, string, int?, string)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>1409</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.Update(string, string, int?, string, int, string, string, int?, string)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>50</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>1776 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.TableAdapterManager.SortSelfReferenceRows(System.Data.DataRow[], System.Data.DataRelation, bool)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>1776</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.TableAdapterManager.SortSelfReferenceRows(System.Data.DataRow[], System.Data.DataRelation, bool)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>51</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>1783 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.TableAdapterManager.MatchTableAdapterConnection(System.Data.IDbConnection)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>1783</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.TableAdapterManager.MatchTableAdapterConnection(System.Data.IDbConnection)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>52</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>1841 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer.GetRoot(System.Data.DataRow, out int)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>1841</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer.GetRoot(System.Data.DataRow, out int)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>53</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>1884 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer.Compare(System.Data.DataRow, System.Data.DataRow)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>AppDatabaseDataSet.Designer.cs</File>
+              <Line>1884</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer.Compare(System.Data.DataRow, System.Data.DataRow)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>54</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>1556 目前物件 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.TableAdapterManager，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.AppDatabaseDataSet，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable 以及 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>D:\Users\phong\Desktop\NTUT2019FallWindowsProgramming\HW1\OrderAndStorageManagementSystem (LocalSQLDatabase)\OrderAndStorageManagementSystem\AppDatabaseDataSet.Designer.cs</File>
+              <Line>1556</Line>
+              <StartLine>1555</StartLine>
+              <StartCol>21</StartCol>
+              <EndLine>1556</EndLine>
+              <EndCol>58</EndCol>
+              <Comment>目前物件 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.TableAdapterManager，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.AppDatabaseDataSet，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable 以及 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>55</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>1559 目前物件 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.TableAdapterManager，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.AppDatabaseDataSet，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable 以及 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable 以及 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>D:\Users\phong\Desktop\NTUT2019FallWindowsProgramming\HW1\OrderAndStorageManagementSystem (LocalSQLDatabase)\OrderAndStorageManagementSystem\AppDatabaseDataSet.Designer.cs</File>
+              <Line>1559</Line>
+              <StartLine>1558</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>1559</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.TableAdapterManager，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.AppDatabaseDataSet，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable 以及 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable 以及 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>56</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>1560 目前物件 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.TableAdapterManager，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.AppDatabaseDataSet，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable 以及 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable 以及 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>D:\Users\phong\Desktop\NTUT2019FallWindowsProgramming\HW1\OrderAndStorageManagementSystem (LocalSQLDatabase)\OrderAndStorageManagementSystem\AppDatabaseDataSet.Designer.cs</File>
+              <Line>1560</Line>
+              <StartLine>1559</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>1560</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.TableAdapterManager，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.AppDatabaseDataSet，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable 以及 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable 以及 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>57</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>1577 目前物件 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.TableAdapterManager，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.AppDatabaseDataSet，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable 以及 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>D:\Users\phong\Desktop\NTUT2019FallWindowsProgramming\HW1\OrderAndStorageManagementSystem (LocalSQLDatabase)\OrderAndStorageManagementSystem\AppDatabaseDataSet.Designer.cs</File>
+              <Line>1577</Line>
+              <StartLine>1576</StartLine>
+              <StartCol>21</StartCol>
+              <EndLine>1577</EndLine>
+              <EndCol>60</EndCol>
+              <Comment>目前物件 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.TableAdapterManager，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.AppDatabaseDataSet，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable 以及 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>58</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>1580 目前物件 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.TableAdapterManager，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.AppDatabaseDataSet，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable 以及 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable 以及 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>D:\Users\phong\Desktop\NTUT2019FallWindowsProgramming\HW1\OrderAndStorageManagementSystem (LocalSQLDatabase)\OrderAndStorageManagementSystem\AppDatabaseDataSet.Designer.cs</File>
+              <Line>1580</Line>
+              <StartLine>1579</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>1580</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.TableAdapterManager，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.AppDatabaseDataSet，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable 以及 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable 以及 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>59</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>1581 目前物件 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.TableAdapterManager，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.AppDatabaseDataSet，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable 以及 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable 以及 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>D:\Users\phong\Desktop\NTUT2019FallWindowsProgramming\HW1\OrderAndStorageManagementSystem (LocalSQLDatabase)\OrderAndStorageManagementSystem\AppDatabaseDataSet.Designer.cs</File>
+              <Line>1581</Line>
+              <StartLine>1580</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>1581</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.TableAdapterManager，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.AppDatabaseDataSet，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable 以及 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable 以及 OrderAndStorageManagementSystem.AppDatabaseDataSet.ProductsTable</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>60</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>1683 目前物件 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.TableAdapterManager，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.Adapter 以及 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.Adapter</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>D:\Users\phong\Desktop\NTUT2019FallWindowsProgramming\HW1\OrderAndStorageManagementSystem (LocalSQLDatabase)\OrderAndStorageManagementSystem\AppDatabaseDataSet.Designer.cs</File>
+              <Line>1683</Line>
+              <StartLine>1682</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>1683</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.TableAdapterManager，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.Adapter 以及 OrderAndStorageManagementSystem.AppDatabaseDataSetTableAdapters.ProductsTableTableAdapter.Adapter</Comment>
+              <Auto>false</Auto>
+            </Smell>
+          </Reviews>
+          <HashCodeIgnoreList />
+          <HashCodeRequestIgnoreList />
+          <AnalysisFileManager>
+            <AnalysisFiles>
+              <AnalysisFile>
+                <RelativePath>AppDatabaseDataSet.Designer.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
+                <AnalysisFileType>Designer</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>AppDefinition.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Model\AppModel.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Model\DataBaseManager.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Model\Order.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Model\Product.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>OrderForm.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
+                <AnalysisFileType>ViewOrController</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>OrderForm.Designer.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
+                <AnalysisFileType>Designer</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Program.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
+                <AnalysisFileType>ViewOrController</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Properties\AssemblyInfo.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Properties\Resources.Designer.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
+                <AnalysisFileType>Designer</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Properties\Settings.Designer.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
+                <AnalysisFileType>Designer</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>View\ProductTabPageItem.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>View\ProductTabPagesManager.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+            </AnalysisFiles>
+          </AnalysisFileManager>
+          <ProductionLoc>951</ProductionLoc>
+          <TestLoc>0</TestLoc>
+        </CodeReview>
+      </Data>
+    </div>
+  </body>
+</html>
