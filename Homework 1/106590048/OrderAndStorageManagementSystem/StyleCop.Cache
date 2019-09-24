@@ -81,6 +81,9 @@
   <project key="1900833441">
     <configuration>DEBUG;TRACE</configuration>
   </project>
+  <project key="-152290874">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
   <sourcecode name="AppDefinition.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019/09/22 14:52:05.640</styleCop>
