@@ -7,10 +7,10 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
     public partial class MainForm : Form
     {
         private MainPresentationModel _mainPresentationModel;
-        private PresentationModel _presentationModel;
+        private OrderPresentationModel _presentationModel;
         private Model _model;
 
-        public MainForm(MainPresentationModel mainPresentationModelData, PresentationModel presentationModelData, Model modelData)
+        public MainForm(MainPresentationModel mainPresentationModelData, OrderPresentationModel presentationModelData, Model modelData)
         {
             InitializeComponent();
             _mainPresentationModel = mainPresentationModelData;

@@ -67,7 +67,7 @@
     <Compile Include="ModelNamespace\Order.cs" />
     <Compile Include="PresentationModelNamespace\ControlStates.cs" />
     <Compile Include="PresentationModelNamespace\MainPresentationModel.cs" />
-    <Compile Include="PresentationModelNamespace\PresentationModel.cs" />
+    <Compile Include="PresentationModelNamespace\OrderPresentationModel.cs" />
     <Compile Include="ViewNamespace\InventoryForm.cs">
       <SubType>Form</SubType>
     </Compile>

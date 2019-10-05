@@ -2,7 +2,7 @@
 
 namespace OrderAndStorageManagementSystem.PresentationModelNamespace
 {
-    public class PresentationModel
+    public class OrderPresentationModel
     {
         public RichTextBoxStates ProductNameAndDescription
         {
@@ -38,7 +38,7 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         private ControlStates _addButton;
         private Product _currentSelectedProduct;
 
-        public PresentationModel()
+        public OrderPresentationModel()
         {
             _productNameAndDescription = new RichTextBoxStates();
             _productPrice = new RichTextBoxStates();
