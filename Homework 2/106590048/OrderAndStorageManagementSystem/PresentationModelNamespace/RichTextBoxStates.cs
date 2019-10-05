@@ -14,5 +14,10 @@
             }
         }
         private string _text;
+
+        public RichTextBoxStates()
+        {
+            /* Body intentionally empty */
+        }
     }
 }

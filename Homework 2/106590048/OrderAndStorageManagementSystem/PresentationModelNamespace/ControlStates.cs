@@ -14,5 +14,10 @@
             }
         }
         private bool _enabled;
+
+        public ControlStates()
+        {
+            _enabled = true;
+        }
     }
 }
