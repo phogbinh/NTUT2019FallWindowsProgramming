@@ -1,4 +1,5 @@
 ﻿using OrderAndStorageManagementSystem.ModelNamespace;
+using OrderAndStorageManagementSystem.PresentationModelNamespace;
 using OrderAndStorageManagementSystem.ViewNamespace;
 using System;
 using System.Windows.Forms;
@@ -15,7 +16,7 @@ namespace OrderAndStorageManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new OrderForm(new Model()));
+            Application.Run(new OrderForm(new PresentationModel(), new Model()));
         }
     }
 }
