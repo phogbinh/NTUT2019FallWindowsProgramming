@@ -11,20 +11,6 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         private const string TAB_PAGE_LAYOUT_NAME = "_productTabPageLayout";
         private const int TAB_PAGE_LAYOUT_ROW_COUNT = 2;
         private const int TAB_PAGE_LAYOUT_COLUMN_COUNT = 3;
-        public OrderPresentationModel PresentationModel
-        {
-            get
-            {
-                return _orderPresentationModel;
-            }
-        }
-        public Model Model
-        {
-            get
-            {
-                return _model;
-            }
-        }
         private OrderPresentationModel _orderPresentationModel;
         private Model _model;
         private List<Product> _products;
