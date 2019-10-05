@@ -7,14 +7,14 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
     public partial class MainForm : Form
     {
         private MainPresentationModel _mainPresentationModel;
-        private OrderPresentationModel _presentationModel;
+        private OrderPresentationModel _orderPresentationModel;
         private Model _model;
 
-        public MainForm(MainPresentationModel mainPresentationModelData, OrderPresentationModel presentationModelData, Model modelData)
+        public MainForm(MainPresentationModel mainPresentationModelData, OrderPresentationModel orderPresentationModelData, Model modelData)
         {
             InitializeComponent();
             _mainPresentationModel = mainPresentationModelData;
-            _presentationModel = presentationModelData;
+            _orderPresentationModel = orderPresentationModelData;
             _model = modelData;
             _orderSystemButton.Click += ClickOrderSystemButton;
             _inventorySystemButton.Click += ClickInventorySystemButton;
@@ -26,7 +26,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         private void ClickOrderSystemButton(object sender, System.EventArgs events)
         {
             OrderForm orderForm;
-            orderForm = new OrderForm(_presentationModel, _model);
+            orderForm = new OrderForm(_orderPresentationModel, _model);
             orderForm.FormClosed += CloseOrderForm;
             orderForm.Show();
             _mainPresentationModel.ClickOrderSystemButton();
