@@ -20,7 +20,6 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
             _orderForm = orderFormData;
             _tabPages = tabPagesData;
             InitializeTabPageIndexToProductTypeMap();
-            InitializeProductTabPageItems();
         }
 
         /// <summary>
