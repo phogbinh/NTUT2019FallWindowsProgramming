@@ -1,4 +1,4 @@
-﻿namespace OrderAndStorageManagementSystem
+﻿namespace OrderAndStorageManagementSystem.ModelNamespace
 {
     public static class AppDefinition
     {
