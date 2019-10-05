@@ -1,4 +1,4 @@
-﻿namespace OrderAndStorageManagementSystem
+﻿namespace OrderAndStorageManagementSystem.View
 {
     partial class OrderForm
     {

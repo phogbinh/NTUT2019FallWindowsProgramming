@@ -1,4 +1,5 @@
 ﻿using OrderAndStorageManagementSystem.Model;
+using OrderAndStorageManagementSystem.View;
 using System;
 using System.Windows.Forms;
 
