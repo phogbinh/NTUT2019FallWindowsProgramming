@@ -196,6 +196,27 @@
   <data name="ProductsTable" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ProductsTable.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="img_AppDatabase_ProductsTable_25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\img_AppDatabase_ProductsTable_25.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="img_AppDatabase_ProductsTable_26" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\img_AppDatabase_ProductsTable_26.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="img_AppDatabase_ProductsTable_27" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\img_AppDatabase_ProductsTable_27.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="img_AppDatabase_ProductsTable_28" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\img_AppDatabase_ProductsTable_28.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="img_AppDatabase_ProductsTable_29" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\img_AppDatabase_ProductsTable_29.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="img_AppDatabase_ProductsTable_30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\img_AppDatabase_ProductsTable_30.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="img_AppDatabase_ProductsTable_31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\img_AppDatabase_ProductsTable_31.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="img_left_arrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\img_left_arrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

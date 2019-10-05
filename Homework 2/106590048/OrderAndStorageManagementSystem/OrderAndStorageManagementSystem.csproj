@@ -170,5 +170,26 @@
   <ItemGroup>
     <None Include="Resources\img_left_arrow.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_AppDatabase_ProductsTable_25.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_AppDatabase_ProductsTable_26.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_AppDatabase_ProductsTable_27.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_AppDatabase_ProductsTable_28.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_AppDatabase_ProductsTable_29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_AppDatabase_ProductsTable_30.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_AppDatabase_ProductsTable_31.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
