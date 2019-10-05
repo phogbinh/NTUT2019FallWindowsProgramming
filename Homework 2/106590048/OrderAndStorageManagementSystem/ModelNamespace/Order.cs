@@ -4,13 +4,6 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
 {
     public class Order
     {
-        public List<Product> Products
-        {
-            get
-            {
-                return _products;
-            }
-        }
         public int TotalPrice
         {
             get
@@ -18,7 +11,6 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
                 return _totalPrice;
             }
         }
-        private List<Product> _products;
         private int _totalPrice;
 
         public Order()

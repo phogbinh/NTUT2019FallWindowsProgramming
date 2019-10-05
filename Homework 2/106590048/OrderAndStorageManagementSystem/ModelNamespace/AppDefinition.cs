@@ -13,6 +13,7 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
         public const string PRINT_PRICE = "Price: ";
         public const string PRINT_DESCRIPTION = "Description: ";
         public const string PRINT_END_MARK = ".\n";
+        public const string ERROR_TAB_PAGE_INDEX_OUT_OF_RANGE = "Tab page index is out of range.";
         // Product
         public const string PRODUCT_PRICE_TEXT = "單價： ";
         public const string PRODUCT_NAME_DESCRIPTION_SEPARATOR = "\n\n";
@@ -48,7 +49,7 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
                 case COMPUTER_SET_INDEX:
                     return COMPUTER_SET_NAME;
                 default:
-                    throw new ArgumentException("Tab page index is out of range");
+                    throw new ArgumentException(ERROR_TAB_PAGE_INDEX_OUT_OF_RANGE);
             }
         }
     }

@@ -191,39 +191,44 @@
           <AnalysisFileManager>
             <AnalysisFiles>
               <AnalysisFile>
-                <RelativePath>AppDefinition.cs</RelativePath>
+                <RelativePath>ModelNamespace\AppDefinition.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Model\AppModel.cs</RelativePath>
+                <RelativePath>ModelNamespace\DataBaseManager.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Model\DataBaseManager.cs</RelativePath>
+                <RelativePath>ModelNamespace\Model.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Model\Order.cs</RelativePath>
+                <RelativePath>ModelNamespace\Order.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Model\Product.cs</RelativePath>
+                <RelativePath>ModelNamespace\Product.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>OrderForm.cs</RelativePath>
+                <RelativePath>PresentationModelNamespace\ControlStates.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
-                <AnalysisFileType>ViewOrController</AnalysisFileType>
+                <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>OrderForm.Designer.cs</RelativePath>
+                <RelativePath>PresentationModelNamespace\PresentationModel.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
-                <AnalysisFileType>Designer</AnalysisFileType>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>PresentationModelNamespace\RichTextBoxStates.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Program.cs</RelativePath>
@@ -246,23 +251,18 @@
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>View\ProductTabControlManager.cs</RelativePath>
+                <RelativePath>ViewNamespace\OrderForm.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
+                <AnalysisFileType>ViewOrController</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>View\ProductTabPageItem.cs</RelativePath>
+                <RelativePath>ViewNamespace\OrderForm.Designer.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>View\ProductTabPagesManager.cs</RelativePath>
-                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
+                <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>961</ProductionLoc>
+          <ProductionLoc>1018</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>
