@@ -65,10 +65,10 @@
     <Compile Include="Model\AppModel.cs" />
     <Compile Include="Model\DataBaseManager.cs" />
     <Compile Include="Model\Order.cs" />
-    <Compile Include="OrderForm.cs">
+    <Compile Include="View\OrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OrderForm.Designer.cs">
+    <Compile Include="View\OrderForm.Designer.cs">
       <DependentUpon>OrderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Product.cs" />
@@ -77,7 +77,7 @@
     <Compile Include="View\ProductTabPageItem.cs" />
     <Compile Include="View\ProductTabControlManager.cs" />
     <Compile Include="View\ProductTabPagesManager.cs" />
-    <EmbeddedResource Include="OrderForm.resx">
+    <EmbeddedResource Include="View\OrderForm.resx">
       <DependentUpon>OrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
