@@ -36,6 +36,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             _presentationModel = presentationModelData;
             _model = modelData;
             _products = _model.Products;
+            _addButton.Click += ClickAddButton;
             InitializeProductTabPages();
             _productTabControl.SelectedIndexChanged += new EventHandler(ChangeProductTabPage);
             SelectNoProduct();

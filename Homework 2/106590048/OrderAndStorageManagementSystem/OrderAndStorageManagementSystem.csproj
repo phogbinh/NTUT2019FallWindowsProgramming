@@ -164,5 +164,11 @@
     <None Include="Resources\img_AppDatabase_ProductsTable_2.jpg" />
     <None Include="Resources\img_AppDatabase_ProductsTable_1.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_right_arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_left_arrow.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
