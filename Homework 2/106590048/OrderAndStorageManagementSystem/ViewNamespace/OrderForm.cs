@@ -119,7 +119,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             string productType = _presentationModel.CurrentSelectedProduct.Type;
             string productPrice = _presentationModel.CurrentSelectedProduct.Price.ToString();
             _cartDataGridView.Rows.Add(productName, productType, productPrice);
-            _model.AddTotalPrice(_presentationModel.CurrentSelectedProduct.Price);
+            _model.Order.AddTotalPrice(_presentationModel.CurrentSelectedProduct.Price);
             ShowCartTotalPrice();
         }
 
@@ -128,7 +128,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         /// </summary>
         private void ShowCartTotalPrice()
         {
-            _cartTotalPrice.Text = "總金額： " + _model.CartTotalPrice.ToString();
+            _cartTotalPrice.Text = "總金額： " + _model.Order.TotalPrice.ToString();
         }
 
         /// <summary>

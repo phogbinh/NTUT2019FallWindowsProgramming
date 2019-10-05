@@ -12,36 +12,20 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
                 return _products;
             }
         }
-        public int CartTotalPrice
+        public Order Order
         {
             get
             {
-                return _cartTotalPrice;
+                return _order;
             }
         }
         private List<Product> _products;
-        private int _cartTotalPrice;
+        private Order _order;
 
         public Model()
         {
             _products = DataBaseManager.GetProductsFromProductTable();
-            _cartTotalPrice = 0;
-        }
-
-        /// <summary>
-        /// Add total price by addtional price.
-        /// </summary>
-        public void AddTotalPrice(int additionalPrice)
-        {
-            SetTotalPrice(_cartTotalPrice + additionalPrice);
-        }
-
-        /// <summary>
-        /// Set total price.
-        /// </summary>
-        private void SetTotalPrice(int newTotalPrice)
-        {
-            _cartTotalPrice = newTotalPrice;
+            _order = new Order();
         }
 
         /// <summary>
