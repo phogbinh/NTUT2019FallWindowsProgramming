@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace OrderAndStorageManagementSystem.View
+namespace OrderAndStorageManagementSystem.ViewNamespace
 {
     public class ProductTabPageItem
     {

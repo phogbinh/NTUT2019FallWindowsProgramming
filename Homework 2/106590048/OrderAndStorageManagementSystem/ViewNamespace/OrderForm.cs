@@ -1,7 +1,7 @@
 ﻿using OrderAndStorageManagementSystem.Model;
 using System.Windows.Forms;
 
-namespace OrderAndStorageManagementSystem.View
+namespace OrderAndStorageManagementSystem.ViewNamespace
 {
     public partial class OrderForm : Form
     {
