@@ -76,8 +76,6 @@
     <Compile Include="ModelNamespace\Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PresentationModelNamespace\ProductTabPageItem.cs" />
-    <Compile Include="PresentationModelNamespace\ProductTabPagesManager.cs" />
     <Compile Include="PresentationModelNamespace\RichTextBoxStates.cs" />
     <EmbeddedResource Include="ViewNamespace\OrderForm.resx">
       <DependentUpon>OrderForm.cs</DependentUpon>
