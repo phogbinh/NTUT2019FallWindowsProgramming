@@ -62,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppDefinition.cs" />
-    <Compile Include="ModelNamespace\AppModel.cs" />
+    <Compile Include="ModelNamespace\Model.cs" />
     <Compile Include="ModelNamespace\DataBaseManager.cs" />
     <Compile Include="ModelNamespace\Order.cs" />
     <Compile Include="ViewNamespace\OrderForm.cs">
