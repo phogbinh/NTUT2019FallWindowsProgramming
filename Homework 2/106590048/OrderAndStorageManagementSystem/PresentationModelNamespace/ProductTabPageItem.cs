@@ -1,8 +1,9 @@
 ﻿using OrderAndStorageManagementSystem.ModelNamespace;
+using OrderAndStorageManagementSystem.ViewNamespace;
 using System;
 using System.Windows.Forms;
 
-namespace OrderAndStorageManagementSystem.ViewNamespace
+namespace OrderAndStorageManagementSystem.PresentationModelNamespace
 {
     public class ProductTabPageItem
     {

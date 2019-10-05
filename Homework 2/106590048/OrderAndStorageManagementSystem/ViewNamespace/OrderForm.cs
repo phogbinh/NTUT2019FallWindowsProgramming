@@ -1,4 +1,5 @@
 ﻿using OrderAndStorageManagementSystem.ModelNamespace;
+using OrderAndStorageManagementSystem.PresentationModelNamespace;
 using System.Windows.Forms;
 
 namespace OrderAndStorageManagementSystem.ViewNamespace
