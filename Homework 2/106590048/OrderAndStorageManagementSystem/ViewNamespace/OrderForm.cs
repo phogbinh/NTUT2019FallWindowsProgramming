@@ -31,7 +31,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             _model = modelData;
             _tabControlManager = new ProductTabControlManager(this, _productTabControl);
             _tabControlManager.InitializeTabControl();
-            _presentationModel.SelectNoProduct();
+            SelectNoProduct();
             ShowCartTotalPrice();
         }
 
