@@ -14,7 +14,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         private OrderPresentationModel _orderPresentationModel;
         private Model _model;
         private List<Product> _products;
-        private List<Button> _productButtons;
+        private List<OrderProductTabPageItem> _productTabPageItems;
 
         public OrderForm(OrderPresentationModel presentationModelData, Model modelData)
         {
@@ -50,14 +50,12 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         /// </summary>
         private void InitializeProductButtons()
         {
-            _productButtons = new List<Button>();
+            _productTabPageItems = new List<OrderProductTabPageItem>();
             for ( int i = 0; i < _products.Count; i++ )
             {
-                Product product = _products[ i ];
-                Button button = new Button();
-                button.Image = DataBaseManager.GetProductImageFromResources(product.Id);
-                button.Click += (sender, events) => SelectProduct(product);
-                _productButtons.Add(button);
+                OrderProductTabPageItem item = new OrderProductTabPageItem(this, new Button());
+                item.SetProduct(_products[ i ]);
+                _productTabPageItems.Add(item);
             }
         }
 
@@ -72,7 +70,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             {
                 if ( _products[ i ].Type == tabPageType )
                 {
-                    AddItemToTabPage(_productButtons[ i ], tabPageLayout, tabPageItemCount);
+                    AddItemToTabPage(_productTabPageItems[ i ], tabPageLayout, tabPageItemCount);
                     tabPageItemCount++;
                 }
             }
@@ -81,13 +79,13 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         /// <summary>
         /// Add button into proper table cell.
         /// </summary>
-        private void AddItemToTabPage(Button button, TableLayoutPanel tabPageLayout, int tabPageItemIndex)
+        private void AddItemToTabPage(OrderProductTabPageItem item, TableLayoutPanel tabPageLayout, int tabPageItemIndex)
         {
             int row;
             int column;
             Model.GetArrayEntryRowAndColumn(tabPageItemIndex, TAB_PAGE_LAYOUT_COLUMN_COUNT, out row, out column);
-            tabPageLayout.Controls.Add(button, column, row);
-            button.Dock = DockStyle.Fill; // Make button fill in table cell
+            tabPageLayout.Controls.Add(item.Button, column, row);
+            item.Button.Dock = DockStyle.Fill; // Make button fill in table cell
         }
 
         /// <summary>

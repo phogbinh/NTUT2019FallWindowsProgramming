@@ -90,6 +90,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PresentationModelNamespace\RichTextBoxStates.cs" />
+    <Compile Include="ViewNamespace\OrderProductTabPageItem.cs" />
     <EmbeddedResource Include="ViewNamespace\InventoryForm.resx">
       <DependentUpon>InventoryForm.cs</DependentUpon>
     </EmbeddedResource>
