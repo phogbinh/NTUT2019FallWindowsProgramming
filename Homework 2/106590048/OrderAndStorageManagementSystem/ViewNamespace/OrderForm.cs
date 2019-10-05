@@ -40,6 +40,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             _productTabControl.SelectedIndexChanged += new EventHandler(ChangeProductTabPage);
             SelectNoProduct();
             ShowCartTotalPrice();
+            RefreshControls();
         }
 
         /// <summary>
