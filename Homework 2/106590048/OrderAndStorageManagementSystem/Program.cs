@@ -16,7 +16,11 @@ namespace OrderAndStorageManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new OrderForm(new PresentationModel(), new Model()));
+            PresentationModel presentationModel = new PresentationModel();
+            Model model = new Model();
+            MainForm mainForm = new MainForm();
+            OrderForm orderForm = new OrderForm(presentationModel, model);
+            Application.Run(mainForm);
         }
     }
 }

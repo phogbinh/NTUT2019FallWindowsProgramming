@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace OrderAndStorageManagementSystem.ModelNamespace
+﻿namespace OrderAndStorageManagementSystem.ModelNamespace
 {
     public class Order
     {
