@@ -61,7 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppDefinition.cs" />
+    <Compile Include="ModelNamespace\AppDefinition.cs" />
     <Compile Include="ModelNamespace\Model.cs" />
     <Compile Include="ModelNamespace\DataBaseManager.cs" />
     <Compile Include="ModelNamespace\Order.cs" />
