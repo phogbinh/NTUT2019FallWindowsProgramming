@@ -1,4 +1,6 @@
-﻿namespace OrderAndStorageManagementSystem.ModelNamespace
+﻿using System;
+
+namespace OrderAndStorageManagementSystem.ModelNamespace
 {
     public static class AppDefinition
     {
@@ -28,5 +30,26 @@
         public const int HARD_DISK_INDEX = 3;
         public const int GRAPHICS_CARD_INDEX = 4;
         public const int COMPUTER_SET_INDEX = 5;
+        // Functions
+        public static string ConvertTabPageIndexToProductType(int index)
+        {
+            switch ( index )
+            {
+                case MOTHER_BOARD_INDEX:
+                    return MOTHER_BOARD_NAME;
+                case CENTRAL_PROCESSING_UNIT_INDEX:
+                    return CENTRAL_PROCESSING_UNIT_NAME;
+                case RANDOM_ACCESS_MEMORY_INDEX:
+                    return RANDOM_ACCESS_MEMORY_NAME;
+                case HARD_DISK_INDEX:
+                    return HARD_DISK_NAME;
+                case GRAPHICS_CARD_INDEX:
+                    return GRAPHICS_CARD_NAME;
+                case COMPUTER_SET_INDEX:
+                    return COMPUTER_SET_NAME;
+                default:
+                    throw new ArgumentException("Tab page index is out of range");
+            }
+        }
     }
 }

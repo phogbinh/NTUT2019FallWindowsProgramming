@@ -12,28 +12,12 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         private const int TAB_PAGE_LAYOUT_COLUMN_COUNT = 3;
         private OrderForm _orderForm;
         private TabControl.TabPageCollection _tabPages;
-        private IDictionary<int, string> _tabPageIndexToProductTypeMap;
         private List<ProductTabPageItem> _items;
 
         public ProductTabPagesManager(OrderForm orderFormData, TabControl.TabPageCollection tabPagesData)
         {
             _orderForm = orderFormData;
             _tabPages = tabPagesData;
-            InitializeTabPageIndexToProductTypeMap();
-        }
-
-        /// <summary>
-        /// Initialize map from tab page index to product type.
-        /// </summary>
-        private void InitializeTabPageIndexToProductTypeMap()
-        {
-            _tabPageIndexToProductTypeMap = new Dictionary<int, string>();
-            _tabPageIndexToProductTypeMap.Add(AppDefinition.MOTHER_BOARD_INDEX, AppDefinition.MOTHER_BOARD_NAME);
-            _tabPageIndexToProductTypeMap.Add(AppDefinition.CENTRAL_PROCESSING_UNIT_INDEX, AppDefinition.CENTRAL_PROCESSING_UNIT_NAME);
-            _tabPageIndexToProductTypeMap.Add(AppDefinition.RANDOM_ACCESS_MEMORY_INDEX, AppDefinition.RANDOM_ACCESS_MEMORY_NAME);
-            _tabPageIndexToProductTypeMap.Add(AppDefinition.HARD_DISK_INDEX, AppDefinition.HARD_DISK_NAME);
-            _tabPageIndexToProductTypeMap.Add(AppDefinition.GRAPHICS_CARD_INDEX, AppDefinition.GRAPHICS_CARD_NAME);
-            _tabPageIndexToProductTypeMap.Add(AppDefinition.COMPUTER_SET_INDEX, AppDefinition.COMPUTER_SET_NAME);
         }
 
         /// <summary>
@@ -46,7 +30,7 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
             {
                 TabPage tabPage = _tabPages[ index ];
                 tabPage.Controls.Add(Model.CreateTableLayout(TAB_PAGE_LAYOUT_NAME, TAB_PAGE_LAYOUT_ROW_COUNT, TAB_PAGE_LAYOUT_COLUMN_COUNT));
-                PopulateTabPage(tabPage, _tabPageIndexToProductTypeMap[ index ]);
+                PopulateTabPage(tabPage, AppDefinition.ConvertTabPageIndexToProductType(index));
             }
         }
 
