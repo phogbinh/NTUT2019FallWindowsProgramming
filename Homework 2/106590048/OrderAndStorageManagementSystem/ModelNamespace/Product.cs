@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace OrderAndStorageManagementSystem.Model
+namespace OrderAndStorageManagementSystem.ModelNamespace
 {
     public class Product
     {

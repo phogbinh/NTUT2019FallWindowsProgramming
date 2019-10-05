@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace OrderAndStorageManagementSystem.Model
+namespace OrderAndStorageManagementSystem.ModelNamespace
 {
     public class AppModel
     {

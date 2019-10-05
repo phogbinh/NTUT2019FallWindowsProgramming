@@ -1,4 +1,4 @@
-﻿namespace OrderAndStorageManagementSystem.Model
+﻿namespace OrderAndStorageManagementSystem.ModelNamespace
 {
     public class Order
     {

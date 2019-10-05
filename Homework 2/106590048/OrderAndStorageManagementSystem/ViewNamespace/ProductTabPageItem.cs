@@ -1,4 +1,4 @@
-﻿using OrderAndStorageManagementSystem.Model;
+﻿using OrderAndStorageManagementSystem.ModelNamespace;
 using System;
 using System.Windows.Forms;
 
