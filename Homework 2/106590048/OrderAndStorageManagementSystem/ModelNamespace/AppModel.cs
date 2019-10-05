@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace OrderAndStorageManagementSystem.ModelNamespace
 {
-    public class AppModel
+    public class Model
     {
         public List<Product> Products
         {
@@ -22,7 +22,7 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
         private List<Product> _products;
         private int _cartTotalPrice;
 
-        public AppModel()
+        public Model()
         {
             _products = DataBaseManager.GetProductsFromProductTable();
             _cartTotalPrice = 0;

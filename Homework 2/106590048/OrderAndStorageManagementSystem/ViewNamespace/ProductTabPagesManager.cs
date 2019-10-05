@@ -45,7 +45,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             for ( int index = 0; index < _tabPages.Count; index++ )
             {
                 TabPage tabPage = _tabPages[ index ];
-                tabPage.Controls.Add(AppModel.CreateTableLayout(TAB_PAGE_LAYOUT_NAME, TAB_PAGE_LAYOUT_ROW_COUNT, TAB_PAGE_LAYOUT_COLUMN_COUNT));
+                tabPage.Controls.Add(Model.CreateTableLayout(TAB_PAGE_LAYOUT_NAME, TAB_PAGE_LAYOUT_ROW_COUNT, TAB_PAGE_LAYOUT_COLUMN_COUNT));
                 PopulateTabPage(tabPage, _tabPageIndexToProductTypeMap[ index ]);
             }
         }
@@ -87,7 +87,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         {
             int row;
             int column;
-            AppModel.GetArrayEntryRowAndColumn(tabPageItemIndex, TAB_PAGE_LAYOUT_COLUMN_COUNT, out row, out column);
+            Model.GetArrayEntryRowAndColumn(tabPageItemIndex, TAB_PAGE_LAYOUT_COLUMN_COUNT, out row, out column);
             tabPageLayout.Controls.Add(item.Button, column, row);
             item.Button.Dock = DockStyle.Fill; // Make button fill in table cell
         }
