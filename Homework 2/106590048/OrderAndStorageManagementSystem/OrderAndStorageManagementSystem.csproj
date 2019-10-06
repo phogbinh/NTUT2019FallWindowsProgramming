@@ -65,6 +65,9 @@
     <Compile Include="ModelNamespace\Model.cs" />
     <Compile Include="ModelNamespace\DataBaseManager.cs" />
     <Compile Include="ModelNamespace\Order.cs" />
+    <Compile Include="ModelNamespace\OrderModel.cs" />
+    <Compile Include="ModelNamespace\OrderProductTabPage.cs" />
+    <Compile Include="ModelNamespace\OrderProductTabPageProductPage.cs" />
     <Compile Include="PresentationModelNamespace\ControlStates.cs" />
     <Compile Include="PresentationModelNamespace\MainPresentationModel.cs" />
     <Compile Include="PresentationModelNamespace\OrderPresentationModel.cs" />

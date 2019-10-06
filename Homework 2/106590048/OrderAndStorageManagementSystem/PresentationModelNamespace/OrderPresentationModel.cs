@@ -4,6 +4,7 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
 {
     public class OrderPresentationModel
     {
+        private const int CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE = 0;
         public RichTextBoxStates ProductNameAndDescription
         {
             get
@@ -32,14 +33,16 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
                 return _currentSelectedProduct;
             }
         }
-
+        private OrderModel _orderModel;
         private RichTextBoxStates _productNameAndDescription;
         private RichTextBoxStates _productPrice;
         private ControlStates _addButton;
         private Product _currentSelectedProduct;
+        private int _currentProductPageIndex;
 
-        public OrderPresentationModel()
+        public OrderPresentationModel(OrderModel orderModelData)
         {
+            _orderModel = orderModelData;
             _productNameAndDescription = new RichTextBoxStates();
             _productPrice = new RichTextBoxStates();
             _addButton = new ControlStates();
@@ -72,6 +75,18 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         {
             _productNameAndDescription.Text = productNameAndDescription;
             _productPrice.Text = productPrice;
+        }
+
+        // Protest on Dr.Smell
+        public void ResetCurrentProductPageIndex()
+        {
+            _currentProductPageIndex = CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE;
+        }
+
+        // Protest on Dr.Smell
+        public Product GetProduct(int tabPageIndex, int productIndex)
+        {
+            return _orderModel.GetProduct(tabPageIndex, _currentProductPageIndex, productIndex);
         }
     }
 }

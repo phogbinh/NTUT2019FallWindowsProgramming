@@ -19,6 +19,10 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
         public const string PRODUCT_NAME_DESCRIPTION_SEPARATOR = "\n\n";
         public const string APP_DATA_BASE_PRODUCTS_TABLE_IMAGE_NAME = "img_AppDatabase_ProductsTable_";
         // Tab Pages
+        public const int TAB_PAGE_LAYOUT_ROW_COUNT = 2;
+        public const int TAB_PAGE_LAYOUT_COLUMN_COUNT = 3;
+        public const int TAB_PAGE_MAX_PRODUCTS_COUNT = TAB_PAGE_LAYOUT_ROW_COUNT * TAB_PAGE_LAYOUT_COLUMN_COUNT;
+        public const int TAB_PAGES_COUNT = 6;
         public const string MOTHER_BOARD_NAME = "主機板";
         public const string CENTRAL_PROCESSING_UNIT_NAME = "CPU";
         public const string RANDOM_ACCESS_MEMORY_NAME = "記憶體";

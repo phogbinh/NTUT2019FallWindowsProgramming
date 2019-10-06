@@ -29,15 +29,6 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
         }
 
         /// <summary>
-        /// Get the row and column index of an entry of a array by the entry index count and the number of columns of the array.
-        /// </summary>
-        public static void GetArrayEntryRowAndColumn(int indexCount, int columnCount, out int row, out int column)
-        {
-            row = indexCount / columnCount;
-            column = indexCount - row * columnCount;
-        }
-
-        /// <summary>
         /// Create a specified size table layout with a pre-defined name.
         /// </summary>
         public static TableLayoutPanel CreateTableLayout(string tableLayoutName, int rowCount, int columnCount)

@@ -12,6 +12,18 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
                 return _button;
             }
         }
+        public Product Product
+        {
+            set
+            {
+                _product = value;
+                _button.Visible = _product != null;
+                if ( _product != null )
+                {
+                    _button.Image = DataBaseManager.GetProductImageFromResources(_product.Id);
+                }
+            }
+        }
         private OrderForm _orderForm;
         private Button _button;
         private Product _product;
@@ -27,13 +39,6 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         private void ClickButton(object sender, System.EventArgs events)
         {
             _orderForm.SelectProduct(_product);
-        }
-
-        // Protest on Dr.Smell
-        public void SetProduct(Product newProduct)
-        {
-            _product = newProduct;
-            _button.Image = DataBaseManager.GetProductImageFromResources(_product.Id);
         }
     }
 }
