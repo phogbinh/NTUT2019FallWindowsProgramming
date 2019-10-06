@@ -30,3 +30,6 @@ ProductId,ProductName,ProductType,ProductPrice,ProductDescription
 29,華碩 STRIX B360-G GAMING 主機板,主機板,3490,支援CPU ：1151腳位(intel 8代)|記憶體 ：4x DIMM / 64GB DDR4(max)|顯示輸出：1x DVI / 1x HDMI|擴充插槽：1x PCIe 3.0x16 / 2x PCIe 3.0x1|儲存插槽：2x M.2 / 6x SATA|USB插槽 ：2x USB 3.1 Gen2 / 4x USB 3.1 Gen1 / 6x USB 2.0|網路連接：Intel I219V Anti-surge LANGuard|主板尺寸：M-ATX|體積(長x寬)：24.4 x 24.4 cm|原廠保固：註冊5年保
 30,華碩 H81M-K 主機板,主機板,2090,防突波 - 全天候電源防護 -讓系統免於風險|ESD 防靜電保護設計 - 以 ESD Guards技術保護您的電腦|UEFI BIOS - 彈性及易用的 BIOS 介面|Network icontrol- 即時控制網路頻寬|AI Suite II – 一次式存取華碩的創新功能
 31,微星 Z370 TOMAHAWK 主機板,主機板,4890,支援CPU ：1151腳位(intel 8代)|記憶體 ：4x DIMM / 64GB DDR4(max)|顯示輸出：1x HDMI / 1x DVI|擴充插槽：3x PCIe 3.0x16 / 3x PCIe 3.0x1|儲存插槽：2x M.2 / 6x SATA|USB插槽 ：1x USB 3.1 Gen2 / 4x USB 3.1 Gen1 / 2x USB 2.0/1.1|網路連接：Realtek ALC892|主板尺寸：ATX|原廠保固：註冊5年保
+32,WD [藍標] 2TB 3.5吋桌上型硬碟(WD20EZAZ),硬碟,1990,容量：2TB|5400轉|256MB緩衝記憶體|高相容度．在各種系統及平台可以發揮最高效能|No Touch磁碟表面停放技術．降低讀寫時磁頭的磨損|硬碟輕鬆升級．不需重新安裝作業系統|原廠3年保固
+33,Seagate【BarraCuda】新梭魚 4TB 3.5吋桌上型硬碟(ST4000DM004),硬碟,3390,容量：4TB|SATA 6Gb/s|5400轉|256MB緩衝記憶體|工作負載55TB/年|低功耗省電|三年保固
+34,Toshiba【桌上型】6TB 3.5吋硬碟(MD04ACA600),硬碟,5288,"7,200 RPM|128MB緩衝記憶體|單碟1TB技術|先進格式4K磁區配置|具備專利錯誤回復技術|適用全方位電腦系統使用|低電耗運作|環保無鹵素設計|三年有限保固"
