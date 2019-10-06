@@ -56,5 +56,11 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
                     throw new ArgumentException(ERROR_TAB_PAGE_INDEX_OUT_OF_RANGE);
             }
         }
+
+        // Protest on Dr.Smell
+        public static int GetHumanIndex(int machineIndex)
+        {
+            return machineIndex + 1;
+        }
     }
 }

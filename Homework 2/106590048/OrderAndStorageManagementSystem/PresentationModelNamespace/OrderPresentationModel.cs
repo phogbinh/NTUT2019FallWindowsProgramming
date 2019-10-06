@@ -121,7 +121,7 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         {
             SelectNoProduct();
             ResetCurrentProductPageIndex();
-            _pageLabel.Text = "Page: " + "?/ " + _orderModel.GetTabPageProductPagesCount(tabPageIndex).ToString();
+            _pageLabel.Text = "Page: " + AppDefinition.GetHumanIndex(_currentProductPageIndex) + "/ " + _orderModel.GetTabPageProductPagesCount(tabPageIndex);
         }
     }
 }
