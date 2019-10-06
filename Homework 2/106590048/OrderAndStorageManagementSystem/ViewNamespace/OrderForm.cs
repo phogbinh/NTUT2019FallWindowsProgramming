@@ -192,6 +192,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             _pageLabel.Text = _orderPresentationModel.PageLabel.Text;
             _leftArrowButton.Enabled = _orderPresentationModel.LeftArrowButton.Enabled;
             _rightArrowButton.Enabled = _orderPresentationModel.RightArrowButton.Enabled;
+            _orderButton.Enabled = _orderPresentationModel.OrderButton.Enabled;
         }
     }
 }

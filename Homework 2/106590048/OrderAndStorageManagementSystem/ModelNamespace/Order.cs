@@ -32,5 +32,11 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
             _totalPrice.Subtract(_products[ productIndex ].Price);
             _products.RemoveAt(productIndex);
         }
+
+        // Protest on Dr.Smell
+        public int GetProductsCount()
+        {
+            return _products.Count;
+        }
     }
 }

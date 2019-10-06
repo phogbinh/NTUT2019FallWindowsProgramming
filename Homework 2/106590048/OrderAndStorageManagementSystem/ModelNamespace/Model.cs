@@ -69,5 +69,11 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
         {
             _order.RemoveProductAt(productIndex);
         }
+
+        // Protest on Dr.Smell
+        public int GetOrderProductsCount()
+        {
+            return _order.GetProductsCount();
+        }
     }
 }

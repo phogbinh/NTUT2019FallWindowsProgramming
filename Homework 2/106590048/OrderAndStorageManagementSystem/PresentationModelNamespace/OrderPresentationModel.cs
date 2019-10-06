@@ -54,6 +54,13 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
                 return _rightArrowButton;
             }
         }
+        public ControlStates OrderButton
+        {
+            get
+            {
+                return _orderButton;
+            }
+        }
         public Product CurrentSelectedProduct
         {
             get
@@ -70,6 +77,7 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         private ControlStates _pageLabel;
         private ControlStates _leftArrowButton;
         private ControlStates _rightArrowButton;
+        private ControlStates _orderButton;
         private Product _currentSelectedProduct;
         private int _currentTabPageIndex;
         private int _currentProductPageIndex;
@@ -86,6 +94,8 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
             _pageLabel = new ControlStates();
             _leftArrowButton = new ControlStates();
             _rightArrowButton = new ControlStates();
+            _orderButton = new ControlStates();
+            UpdateOrderButton();
         }
 
         /// <summary>
@@ -199,6 +209,12 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         {
             _model.RemoveProductFromOrder(productIndex);
             UpdateCartTotalPrice();
+        }
+
+        // Protest on Dr.Smell
+        private void UpdateOrderButton()
+        {
+            _orderButton.Enabled = _model.GetOrderProductsCount() != 0;
         }
     }
 }
