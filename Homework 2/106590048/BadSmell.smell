@@ -246,11 +246,6 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>PresentationModelNamespace\RichTextBoxStates.cs</RelativePath>
-                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
                 <RelativePath>Program.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>ViewOrController</AnalysisFileType>
@@ -307,7 +302,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>1635</ProductionLoc>
+          <ProductionLoc>1764</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>

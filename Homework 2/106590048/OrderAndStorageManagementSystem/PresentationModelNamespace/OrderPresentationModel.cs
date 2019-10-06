@@ -132,7 +132,7 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         public void AddCurrentSelectedProductToOrder()
         {
             _model.AddProductToOrder(_currentSelectedProduct);
-            _cartTotalPrice.Text = "總金額： " + _model.GetOrderTotalPrice();
+            _cartTotalPrice.Text = AppDefinition.CART_TOTAL_PRICE_TEXT + _model.GetOrderTotalPrice();
         }
 
         // Protest on Dr.Smell
@@ -146,7 +146,7 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         // Protest on Dr.Smell
         private void UpdateCurrentProductPage()
         {
-            _pageLabel.Text = "Page: " + AppDefinition.GetHumanIndex(_currentProductPageIndex) + "/ " + _orderModel.GetTabPageProductPagesCount(_currentTabPageIndex);
+            _pageLabel.Text = AppDefinition.PAGE_LABEL_TEXT + AppDefinition.GetHumanIndex(_currentProductPageIndex) + AppDefinition.PAGE_LABEL_DELIMITER + _orderModel.GetTabPageProductPagesCount(_currentTabPageIndex);
             UpdatePageNavigationButtons();
             SelectNoProduct();
         }
@@ -163,7 +163,6 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
             {
                 _leftArrowButton.Enabled = true;
             }
-
             if ( humanIndex == _orderModel.GetTabPageProductPagesCount(_currentTabPageIndex) )
             {
                 _rightArrowButton.Enabled = false;

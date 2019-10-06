@@ -18,6 +18,9 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
         public const string PRODUCT_PRICE_TEXT = "單價： ";
         public const string PRODUCT_NAME_DESCRIPTION_SEPARATOR = "\n\n";
         public const string APP_DATA_BASE_PRODUCTS_TABLE_IMAGE_NAME = "img_AppDatabase_ProductsTable_";
+        public const string PAGE_LABEL_TEXT = "Page: ";
+        public const string PAGE_LABEL_DELIMITER = "/ ";
+        public const string CART_TOTAL_PRICE_TEXT = "總金額： ";
         // Tab Pages
         public const int TAB_PAGE_LAYOUT_ROW_COUNT = 2;
         public const int TAB_PAGE_LAYOUT_COLUMN_COUNT = 3;
