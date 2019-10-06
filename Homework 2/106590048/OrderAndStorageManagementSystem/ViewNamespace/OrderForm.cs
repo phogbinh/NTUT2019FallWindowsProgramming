@@ -27,6 +27,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             _productTabControl.SelectedIndexChanged += (sender, events) => ResetCurrentProductPageIndex();
             _productTabControl.SelectedIndexChanged += (sender, events) => SelectNoProduct();
             InitializeProductTabPages();
+            // Initial UI States
             ResetCurrentProductPageIndex();
             SelectNoProduct();
             ShowCartTotalPrice();
