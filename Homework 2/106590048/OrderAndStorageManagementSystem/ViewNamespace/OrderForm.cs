@@ -30,7 +30,6 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             // Initial UI States
             ResetCurrentProductPageIndex();
             SelectNoProduct();
-            ShowCartTotalPrice();
             RefreshControls();
         }
 
@@ -65,8 +64,8 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             string productType = _orderPresentationModel.CurrentSelectedProduct.Type;
             string productPrice = _orderPresentationModel.CurrentSelectedProduct.Price.ToString();
             _cartDataGridView.Rows.Add(productName, productType, productPrice);
-            _model.Order.AddTotalPrice(_orderPresentationModel.CurrentSelectedProduct.Price);
-            ShowCartTotalPrice();
+            _orderPresentationModel.AddCurrentSelectedProductToOrder();
+            RefreshControls();
         }
 
         /// <summary>
@@ -117,14 +116,6 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         }
 
         /// <summary>
-        /// Show the cart total price.
-        /// </summary>
-        private void ShowCartTotalPrice()
-        {
-            _cartTotalPrice.Text = "總金額： " + _model.Order.TotalPrice.ToString();
-        }
-
-        /// <summary>
         /// Select a product.
         /// </summary>
         public void SelectProduct(Product product)
@@ -150,6 +141,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             _productNameAndDescription.Text = _orderPresentationModel.ProductNameAndDescription.Text;
             _productPrice.Text = _orderPresentationModel.ProductPrice.Text;
             _addButton.Enabled = _orderPresentationModel.AddButton.Enabled;
+            _cartTotalPrice.Text = _orderPresentationModel.CartTotalPrice.Text;
         }
     }
 }

@@ -99,5 +99,12 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         {
             return _orderModel.GetProduct(tabPageIndex, _currentProductPageIndex, productIndex);
         }
+
+        // Protest on Dr.Smell
+        public void AddCurrentSelectedProductToOrder()
+        {
+            _model.AddProductToOrder(_currentSelectedProduct);
+            _cartTotalPrice.Text = "總金額： " + _model.GetOrderTotalPrice();
+        }
     }
 }

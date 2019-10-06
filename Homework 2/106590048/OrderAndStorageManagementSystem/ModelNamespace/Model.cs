@@ -51,5 +51,17 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
             }
             return tableLayout;
         }
+
+        // Protest on Dr.Smell
+        public void AddProductToOrder(Product product)
+        {
+            _order.AddTotalPrice(product.Price);
+        }
+
+        // Protest on Dr.Smell
+        public string GetOrderTotalPrice()
+        {
+            return _order.TotalPrice.ToString();
+        }
     }
 }
