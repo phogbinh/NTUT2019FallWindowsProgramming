@@ -6,14 +6,16 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
 {
     public partial class MainForm : Form
     {
+        private CreditCardPaymentForm _creditCardPaymentForm;
         private MainPresentationModel _mainPresentationModel;
         private OrderPresentationModel _orderPresentationModel;
         private OrderModel _orderModel;
         private Model _model;
 
-        public MainForm(MainPresentationModel mainPresentationModelData, OrderPresentationModel orderPresentationModelData, OrderModel orderModelData, Model modelData)
+        public MainForm(CreditCardPaymentForm creditCardPaymentFormData, MainPresentationModel mainPresentationModelData, OrderPresentationModel orderPresentationModelData, OrderModel orderModelData, Model modelData)
         {
             InitializeComponent();
+            _creditCardPaymentForm = creditCardPaymentFormData;
             _mainPresentationModel = mainPresentationModelData;
             _orderPresentationModel = orderPresentationModelData;
             _orderModel = orderModelData;
@@ -28,7 +30,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         private void ClickOrderSystemButton(object sender, System.EventArgs events)
         {
             OrderForm orderForm;
-            orderForm = new OrderForm(_orderPresentationModel, _orderModel, _model);
+            orderForm = new OrderForm(_creditCardPaymentForm, _orderPresentationModel, _orderModel, _model);
             orderForm.FormClosed += CloseOrderForm;
             orderForm.Show();
             _mainPresentationModel.ClickOrderSystemButton();
