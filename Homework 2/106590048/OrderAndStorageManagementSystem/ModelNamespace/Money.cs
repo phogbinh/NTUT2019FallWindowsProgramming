@@ -20,7 +20,7 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
         }
 
         // Protest on Dr.Smell
-        private string GetCurrencyFormat()
+        public string GetCurrencyFormat()
         {
             var reversedValueInCurrencyFormat = new StringBuilder();
             string valueString = _value.ToString();

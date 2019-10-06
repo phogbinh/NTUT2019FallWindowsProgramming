@@ -101,7 +101,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         {
             string productName = _orderPresentationModel.CurrentSelectedProduct.Name;
             string productType = _orderPresentationModel.CurrentSelectedProduct.Type;
-            string productPrice = _orderPresentationModel.CurrentSelectedProduct.Price.ToString();
+            string productPrice = _orderPresentationModel.CurrentSelectedProduct.Price.GetCurrencyFormat();
             _cartDataGridView.Rows.Add(null, productName, productType, productPrice);
             _orderPresentationModel.AddCurrentSelectedProductToOrder();
             RefreshControls();
