@@ -23,6 +23,8 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             _products = _model.Products;
             InitializeProductTabPageItemsContainers();
             // UI
+            _leftArrowButton.Click += (sender, events) => GoToPreviousPage();
+            _rightArrowButton.Click += (sender, events) => GoToNextPage();
             _addButton.Click += ClickAddButton;
             _productTabControl.SelectedIndexChanged += (sender, events) => SelectProductTabPage(_productTabControl.SelectedIndex);
             InitializeProductTabPages();
@@ -63,6 +65,22 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             string productPrice = _orderPresentationModel.CurrentSelectedProduct.Price.ToString();
             _cartDataGridView.Rows.Add(productName, productType, productPrice);
             _orderPresentationModel.AddCurrentSelectedProductToOrder();
+            RefreshControls();
+        }
+
+        // Protest on Dr.Smell
+        private void GoToPreviousPage()
+        {
+            _orderPresentationModel.GoToPreviousPage();
+            RefreshProductTabPage(_productTabControl.SelectedIndex);
+            RefreshControls();
+        }
+
+        // Protest on Dr.Smell
+        private void GoToNextPage()
+        {
+            _orderPresentationModel.GoToNextPage();
+            RefreshProductTabPage(_productTabControl.SelectedIndex);
             RefreshControls();
         }
 
@@ -133,6 +151,8 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             _addButton.Enabled = _orderPresentationModel.AddButton.Enabled;
             _cartTotalPrice.Text = _orderPresentationModel.CartTotalPrice.Text;
             _pageLabel.Text = _orderPresentationModel.PageLabel.Text;
+            _leftArrowButton.Enabled = _orderPresentationModel.LeftArrowButton.Enabled;
+            _rightArrowButton.Enabled = _orderPresentationModel.RightArrowButton.Enabled;
         }
     }
 }

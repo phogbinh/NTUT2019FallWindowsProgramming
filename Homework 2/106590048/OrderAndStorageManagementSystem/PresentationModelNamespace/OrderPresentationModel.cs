@@ -40,6 +40,20 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
                 return _pageLabel;
             }
         }
+        public ControlStates LeftArrowButton
+        {
+            get
+            {
+                return _leftArrowButton;
+            }
+        }
+        public ControlStates RightArrowButton
+        {
+            get
+            {
+                return _rightArrowButton;
+            }
+        }
         public Product CurrentSelectedProduct
         {
             get
@@ -54,7 +68,10 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         private ControlStates _addButton;
         private ControlStates _cartTotalPrice;
         private ControlStates _pageLabel;
+        private ControlStates _leftArrowButton;
+        private ControlStates _rightArrowButton;
         private Product _currentSelectedProduct;
+        private int _currentTabPageIndex;
         private int _currentProductPageIndex;
 
         public OrderPresentationModel(OrderModel orderModelData, Model modelData)
@@ -66,6 +83,8 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
             _addButton = new ControlStates();
             _cartTotalPrice = new ControlStates();
             _pageLabel = new ControlStates();
+            _leftArrowButton = new ControlStates();
+            _rightArrowButton = new ControlStates();
         }
 
         /// <summary>
@@ -119,9 +138,54 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         // Protest on Dr.Smell
         public void SelectProductTabPage(int tabPageIndex)
         {
-            SelectNoProduct();
+            _currentTabPageIndex = tabPageIndex;
             ResetCurrentProductPageIndex();
-            _pageLabel.Text = "Page: " + AppDefinition.GetHumanIndex(_currentProductPageIndex) + "/ " + _orderModel.GetTabPageProductPagesCount(tabPageIndex);
+            UpdateCurrentProductPage();
+        }
+
+        // Protest on Dr.Smell
+        private void UpdateCurrentProductPage()
+        {
+            _pageLabel.Text = "Page: " + AppDefinition.GetHumanIndex(_currentProductPageIndex) + "/ " + _orderModel.GetTabPageProductPagesCount(_currentTabPageIndex);
+            UpdatePageNavigationButtons();
+            SelectNoProduct();
+        }
+
+        // Protest on Dr.Smell
+        private void UpdatePageNavigationButtons()
+        {
+            int humanIndex = AppDefinition.GetHumanIndex(_currentProductPageIndex);
+            if ( humanIndex == 1 )
+            {
+                _leftArrowButton.Enabled = false;
+            }
+            else
+            {
+                _leftArrowButton.Enabled = true;
+            }
+
+            if ( humanIndex == _orderModel.GetTabPageProductPagesCount(_currentTabPageIndex) )
+            {
+                _rightArrowButton.Enabled = false;
+            }
+            else
+            {
+                _rightArrowButton.Enabled = true;
+            }
+        }
+
+        // Protest on Dr.Smell
+        public void GoToPreviousPage()
+        {
+            _currentProductPageIndex--;
+            UpdateCurrentProductPage();
+        }
+
+        // Protest on Dr.Smell
+        public void GoToNextPage()
+        {
+            _currentProductPageIndex++;
+            UpdateCurrentProductPage();
         }
     }
 }
