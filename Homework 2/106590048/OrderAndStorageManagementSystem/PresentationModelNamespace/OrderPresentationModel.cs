@@ -81,7 +81,7 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         /// <summary>
         /// Select no product.
         /// </summary>
-        public void SelectNoProduct()
+        private void SelectNoProduct()
         {
             _currentSelectedProduct = null;
             SetProductInfoText("", "");
@@ -119,6 +119,7 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         // Protest on Dr.Smell
         public void SelectProductTabPage(int tabPageIndex)
         {
+            SelectNoProduct();
             ResetCurrentProductPageIndex();
             _pageLabel.Text = "Page: " + "?/ " + _orderModel.GetTabPageProductPagesCount(tabPageIndex).ToString();
         }

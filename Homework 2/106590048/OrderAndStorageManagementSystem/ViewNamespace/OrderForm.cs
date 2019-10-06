@@ -25,11 +25,9 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             // UI
             _addButton.Click += ClickAddButton;
             _productTabControl.SelectedIndexChanged += (sender, events) => SelectProductTabPage(_productTabControl.SelectedIndex);
-            _productTabControl.SelectedIndexChanged += (sender, events) => SelectNoProduct();
             InitializeProductTabPages();
             // Initial UI States
             SelectProductTabPage(AppDefinition.MOTHER_BOARD_INDEX);
-            SelectNoProduct();
             RefreshControls();
         }
 
@@ -122,15 +120,6 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         public void SelectProduct(Product product)
         {
             _orderPresentationModel.SelectProduct(product);
-            RefreshControls();
-        }
-
-        /// <summary>
-        /// Select no product.
-        /// </summary>
-        public void SelectNoProduct()
-        {
-            _orderPresentationModel.SelectNoProduct();
             RefreshControls();
         }
 
