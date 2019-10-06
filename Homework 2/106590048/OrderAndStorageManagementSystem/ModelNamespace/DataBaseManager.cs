@@ -59,7 +59,7 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
             int productId = int.Parse(tableRowValues[ PRODUCT_ID_COLUMN_INDEX ]);
             string productName = tableRowValues[ PRODUCT_NAME_COLUMN_INDEX ];
             string productType = tableRowValues[ PRODUCT_TYPE_COLUMN_INDEX ];
-            int productPrice = int.Parse(tableRowValues[ PRODUCT_PRICE_COLUMN_INDEX ]);
+            Money productPrice = new Money(int.Parse(tableRowValues[ PRODUCT_PRICE_COLUMN_INDEX ]));
             string productDescription = tableRowValues[ PRODUCT_DESCRIPTION_COLUMN_INDEX ].Replace(FILE_PRODUCT_DESCRIPTION_LINE_DELIMITER, APP_PRODUCT_DESCRIPTION_LINE_DELIMITER);
             return new Product(productId, productName, productType, productPrice, productDescription);
         }

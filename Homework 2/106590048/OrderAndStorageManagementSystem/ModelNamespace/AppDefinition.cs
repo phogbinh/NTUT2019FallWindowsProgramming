@@ -5,6 +5,9 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
     public static class AppDefinition
     {
         public const float ONE_HUNDRED_PERCENT = 100f;
+        // Other
+        public const string TAIWAN_CURRENCY_UNIT = "元";
+        public const char COMMA = ',';
         // Debug
         public const string PRINT_DELIMITER = ", ";
         public const string PRINT_ID = "ID: ";

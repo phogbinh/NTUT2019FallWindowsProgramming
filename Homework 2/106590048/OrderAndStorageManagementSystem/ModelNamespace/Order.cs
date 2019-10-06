@@ -2,34 +2,25 @@
 {
     public class Order
     {
-        public int TotalPrice
-        {
-            get
-            {
-                return _totalPrice;
-            }
-        }
-        private int _totalPrice;
+        private Money _totalPrice;
 
         public Order()
         {
-            _totalPrice = 0;
+            _totalPrice = new Money(0);
         }
 
         /// <summary>
         /// Add total price by addtional price.
         /// </summary>
-        public void AddTotalPrice(int additionalPrice)
+        public void AddTotalPrice(Money additionalPrice)
         {
-            SetTotalPrice(_totalPrice + additionalPrice);
+            _totalPrice.Add(additionalPrice);
         }
 
-        /// <summary>
-        /// Set total price.
-        /// </summary>
-        private void SetTotalPrice(int newTotalPrice)
+        // Protest on Dr.Smell
+        public string GetTotalPrice(string currencyUnit)
         {
-            _totalPrice = newTotalPrice;
+            return _totalPrice.GetStringWithCurrencyUnit(currencyUnit);
         }
     }
 }

@@ -61,7 +61,7 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
         // Protest on Dr.Smell
         public string GetOrderTotalPrice()
         {
-            return _order.TotalPrice.ToString();
+            return _order.GetTotalPrice(AppDefinition.TAIWAN_CURRENCY_UNIT);
         }
     }
 }

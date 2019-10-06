@@ -93,7 +93,7 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         public void SelectProduct(Product product)
         {
             _currentSelectedProduct = product;
-            SetProductInfoText(product.GetProductNameAndDescription(), AppDefinition.PRODUCT_PRICE_TEXT + product.Price.ToString());
+            SetProductInfoText(product.GetProductNameAndDescription(), AppDefinition.PRODUCT_PRICE_TEXT + product.GetPrice(AppDefinition.TAIWAN_CURRENCY_UNIT));
             _addButton.Enabled = true;
         }
 

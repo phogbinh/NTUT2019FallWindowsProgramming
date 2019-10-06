@@ -25,7 +25,7 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
                 return _type;
             }
         }
-        public int Price
+        public Money Price
         {
             get
             {
@@ -42,10 +42,10 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
         private int _id;
         private string _name;
         private string _type;
-        private int _price;
+        private Money _price;
         private string _description;
 
-        public Product(int idData, string nameData, string typeData, int priceData, string descriptionData)
+        public Product(int idData, string nameData, string typeData, Money priceData, string descriptionData)
         {
             _id = idData;
             _name = nameData;
@@ -79,6 +79,12 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
             result += AppDefinition.PRINT_DESCRIPTION + _description;
             result += AppDefinition.PRINT_END_MARK;
             Debug.Write(result);
+        }
+
+        // Protest on Dr.Smell
+        public string GetPrice(string currencyUnit)
+        {
+            return _price.GetStringWithCurrencyUnit(currencyUnit);
         }
     }
 }
