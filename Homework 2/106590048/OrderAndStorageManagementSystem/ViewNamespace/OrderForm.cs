@@ -33,7 +33,6 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             _productTabControl.SelectedIndexChanged += (sender, events) => SelectProductTabPage(_productTabControl.SelectedIndex);
             InitializeProductTabPages();
             // Initial UI States
-            _orderPresentationModel.UpdateCartTotalPrice();
             SelectProductTabPage(AppDefinition.MOTHER_BOARD_INDEX);
             RefreshControls();
         }

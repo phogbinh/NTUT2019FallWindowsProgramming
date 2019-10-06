@@ -82,6 +82,7 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
             _productPrice = new ControlStates();
             _addButton = new ControlStates();
             _cartTotalPrice = new ControlStates();
+            UpdateCartTotalPrice();
             _pageLabel = new ControlStates();
             _leftArrowButton = new ControlStates();
             _rightArrowButton = new ControlStates();
@@ -136,7 +137,7 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         }
 
         // Protest on Dr.Smell
-        public void UpdateCartTotalPrice()
+        private void UpdateCartTotalPrice()
         {
             _cartTotalPrice.Text = AppDefinition.CART_TOTAL_PRICE_TEXT + _model.GetOrderTotalPrice();
         }
