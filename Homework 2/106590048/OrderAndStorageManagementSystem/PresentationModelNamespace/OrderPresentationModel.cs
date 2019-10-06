@@ -33,6 +33,13 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
                 return _cartTotalPrice;
             }
         }
+        public ControlStates PageLabel
+        {
+            get
+            {
+                return _pageLabel;
+            }
+        }
         public Product CurrentSelectedProduct
         {
             get
@@ -46,6 +53,7 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         private ControlStates _productPrice;
         private ControlStates _addButton;
         private ControlStates _cartTotalPrice;
+        private ControlStates _pageLabel;
         private Product _currentSelectedProduct;
         private int _currentProductPageIndex;
 
@@ -57,6 +65,7 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
             _productPrice = new ControlStates();
             _addButton = new ControlStates();
             _cartTotalPrice = new ControlStates();
+            _pageLabel = new ControlStates();
         }
 
         /// <summary>
@@ -105,6 +114,12 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         {
             _model.AddProductToOrder(_currentSelectedProduct);
             _cartTotalPrice.Text = "總金額： " + _model.GetOrderTotalPrice();
+        }
+
+        // Protest on Dr.Smell
+        public void SelectProductTabPage(int tabPageIndex)
+        {
+            _pageLabel.Text = "Page: " + "?/ " + _orderModel.GetTabPageProductPagesCount(tabPageIndex).ToString();
         }
     }
 }

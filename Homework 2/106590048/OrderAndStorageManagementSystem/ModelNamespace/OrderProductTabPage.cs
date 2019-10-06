@@ -72,5 +72,11 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
             }
             return _productPages[ productPageIndex ].GetProduct(productIndex);
         }
+
+        // Protest on Dr.Smell
+        public int GetProductPagesCount()
+        {
+            return _productPages.Count;
+        }
     }
 }

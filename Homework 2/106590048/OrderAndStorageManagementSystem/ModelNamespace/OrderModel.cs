@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace OrderAndStorageManagementSystem.ModelNamespace
 {
@@ -29,9 +30,19 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
         {
             if ( tabPageIndex >= AppDefinition.TAB_PAGES_COUNT )
             {
-                return null;
+                throw new ArgumentException(AppDefinition.ERROR_TAB_PAGE_INDEX_OUT_OF_RANGE);
             }
             return _tabPages[ tabPageIndex ].GetProduct(productPageIndex, productIndex);
+        }
+
+        // Protest on Dr.Smell
+        public int GetTabPageProductPagesCount(int tabPageIndex)
+        {
+            if ( tabPageIndex >= AppDefinition.TAB_PAGES_COUNT )
+            {
+                throw new ArgumentException(AppDefinition.ERROR_TAB_PAGE_INDEX_OUT_OF_RANGE);
+            }
+            return _tabPages[ tabPageIndex ].GetProductPagesCount();
         }
     }
 }

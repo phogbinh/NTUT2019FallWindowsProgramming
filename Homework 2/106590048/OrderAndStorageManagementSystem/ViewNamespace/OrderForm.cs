@@ -24,10 +24,12 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             InitializeProductTabPageItemsContainers();
             // UI
             _addButton.Click += ClickAddButton;
+            _productTabControl.SelectedIndexChanged += (sender, events) => SelectProductTabPage(_productTabControl.SelectedIndex);
             _productTabControl.SelectedIndexChanged += (sender, events) => ResetCurrentProductPageIndex();
             _productTabControl.SelectedIndexChanged += (sender, events) => SelectNoProduct();
             InitializeProductTabPages();
             // Initial UI States
+            SelectProductTabPage(AppDefinition.MOTHER_BOARD_INDEX);
             ResetCurrentProductPageIndex();
             SelectNoProduct();
             RefreshControls();
@@ -65,6 +67,13 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             string productPrice = _orderPresentationModel.CurrentSelectedProduct.Price.ToString();
             _cartDataGridView.Rows.Add(productName, productType, productPrice);
             _orderPresentationModel.AddCurrentSelectedProductToOrder();
+            RefreshControls();
+        }
+
+        // Protest on Dr.Smell
+        private void SelectProductTabPage(int tabPageIndex)
+        {
+            _orderPresentationModel.SelectProductTabPage(tabPageIndex);
             RefreshControls();
         }
 
@@ -142,6 +151,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             _productPrice.Text = _orderPresentationModel.ProductPrice.Text;
             _addButton.Enabled = _orderPresentationModel.AddButton.Enabled;
             _cartTotalPrice.Text = _orderPresentationModel.CartTotalPrice.Text;
+            _pageLabel.Text = _orderPresentationModel.PageLabel.Text;
         }
     }
 }
