@@ -26,6 +26,13 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
                 return _addButton;
             }
         }
+        public ControlStates CartTotalPrice
+        {
+            get
+            {
+                return _cartTotalPrice;
+            }
+        }
         public Product CurrentSelectedProduct
         {
             get
@@ -37,6 +44,7 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         private ControlStates _productNameAndDescription;
         private ControlStates _productPrice;
         private ControlStates _addButton;
+        private ControlStates _cartTotalPrice;
         private Product _currentSelectedProduct;
         private int _currentProductPageIndex;
 
@@ -46,6 +54,7 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
             _productNameAndDescription = new ControlStates();
             _productPrice = new ControlStates();
             _addButton = new ControlStates();
+            _cartTotalPrice = new ControlStates();
         }
 
         /// <summary>
