@@ -25,12 +25,10 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             // UI
             _addButton.Click += ClickAddButton;
             _productTabControl.SelectedIndexChanged += (sender, events) => SelectProductTabPage(_productTabControl.SelectedIndex);
-            _productTabControl.SelectedIndexChanged += (sender, events) => ResetCurrentProductPageIndex();
             _productTabControl.SelectedIndexChanged += (sender, events) => SelectNoProduct();
             InitializeProductTabPages();
             // Initial UI States
             SelectProductTabPage(AppDefinition.MOTHER_BOARD_INDEX);
-            ResetCurrentProductPageIndex();
             SelectNoProduct();
             RefreshControls();
         }
@@ -74,6 +72,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         private void SelectProductTabPage(int tabPageIndex)
         {
             _orderPresentationModel.SelectProductTabPage(tabPageIndex);
+            RefreshProductTabPage(_productTabControl.SelectedIndex);
             RefreshControls();
         }
 
@@ -105,13 +104,6 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
                     productTabPageItemsCount++;
                 }
             }
-        }
-
-        // Protest on Dr.Smell
-        private void ResetCurrentProductPageIndex()
-        {
-            _orderPresentationModel.ResetCurrentProductPageIndex();
-            RefreshProductTabPage(_productTabControl.SelectedIndex);
         }
 
         // Protest on Dr.Smell

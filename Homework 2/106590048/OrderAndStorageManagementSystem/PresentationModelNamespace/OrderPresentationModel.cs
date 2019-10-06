@@ -98,7 +98,7 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         }
 
         // Protest on Dr.Smell
-        public void ResetCurrentProductPageIndex()
+        private void ResetCurrentProductPageIndex()
         {
             _currentProductPageIndex = CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE;
         }
@@ -119,6 +119,7 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         // Protest on Dr.Smell
         public void SelectProductTabPage(int tabPageIndex)
         {
+            ResetCurrentProductPageIndex();
             _pageLabel.Text = "Page: " + "?/ " + _orderModel.GetTabPageProductPagesCount(tabPageIndex).ToString();
         }
     }
