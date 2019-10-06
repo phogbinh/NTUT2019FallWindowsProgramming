@@ -144,6 +144,7 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         {
             _model.AddProductToOrder(_currentSelectedProduct);
             UpdateCartTotalPrice();
+            UpdateOrderButton();
         }
 
         // Protest on Dr.Smell
@@ -209,6 +210,7 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         {
             _model.RemoveProductFromOrder(productIndex);
             UpdateCartTotalPrice();
+            UpdateOrderButton();
         }
 
         // Protest on Dr.Smell
