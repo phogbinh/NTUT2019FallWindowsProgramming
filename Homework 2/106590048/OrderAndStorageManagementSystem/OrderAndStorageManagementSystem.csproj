@@ -204,5 +204,8 @@
   <ItemGroup>
     <None Include="Resources\img_AppDatabase_ProductsTable_34.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_trash_bin.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -46,15 +46,16 @@
             this._pageArrowsLayout = new System.Windows.Forms.TableLayoutPanel();
             this._leftArrowButton = new System.Windows.Forms.Button();
             this._rightArrowButton = new System.Windows.Forms.Button();
+            this._pageLabel = new System.Windows.Forms.Label();
             this._orderFormLayout = new System.Windows.Forms.TableLayoutPanel();
             this._cartSectionLayout = new System.Windows.Forms.TableLayoutPanel();
             this._cartDataGridView = new System.Windows.Forms.DataGridView();
+            this._cartSectionTitle = new System.Windows.Forms.Label();
+            this._cartTotalPrice = new System.Windows.Forms.Label();
+            this._cartDeleteButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this._cartProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._cartProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._cartProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._cartSectionTitle = new System.Windows.Forms.Label();
-            this._cartTotalPrice = new System.Windows.Forms.Label();
-            this._pageLabel = new System.Windows.Forms.Label();
             this._productGroupBox.SuspendLayout();
             this._productGroupBoxLayout.SuspendLayout();
             this._productTabControl.SuspendLayout();
@@ -284,6 +285,18 @@
             this._rightArrowButton.TabIndex = 1;
             this._rightArrowButton.UseVisualStyleBackColor = true;
             // 
+            // _pageLabel
+            // 
+            this._pageLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this._pageLabel.AutoSize = true;
+            this._pageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this._pageLabel.Location = new System.Drawing.Point(3, 0);
+            this._pageLabel.Name = "_pageLabel";
+            this._pageLabel.Size = new System.Drawing.Size(0, 53);
+            this._pageLabel.TabIndex = 5;
+            this._pageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // _orderFormLayout
             // 
             this._orderFormLayout.ColumnCount = 2;
@@ -323,6 +336,7 @@
             this._cartDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._cartDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._cartDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this._cartDeleteButton,
             this._cartProductName,
             this._cartProductType,
             this._cartProductPrice});
@@ -334,27 +348,6 @@
             this._cartDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._cartDataGridView.Size = new System.Drawing.Size(442, 388);
             this._cartDataGridView.TabIndex = 1;
-            // 
-            // _cartProductName
-            // 
-            this._cartProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this._cartProductName.HeaderText = "商品名稱";
-            this._cartProductName.Name = "_cartProductName";
-            this._cartProductName.ReadOnly = true;
-            // 
-            // _cartProductType
-            // 
-            this._cartProductType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this._cartProductType.HeaderText = "商品類別";
-            this._cartProductType.Name = "_cartProductType";
-            this._cartProductType.ReadOnly = true;
-            // 
-            // _cartProductPrice
-            // 
-            this._cartProductPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this._cartProductPrice.HeaderText = "單價";
-            this._cartProductPrice.Name = "_cartProductPrice";
-            this._cartProductPrice.ReadOnly = true;
             // 
             // _cartSectionTitle
             // 
@@ -379,17 +372,36 @@
             this._cartTotalPrice.TabIndex = 3;
             this._cartTotalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // _pageLabel
+            // _cartDeleteButton
             // 
-            this._pageLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this._pageLabel.AutoSize = true;
-            this._pageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this._pageLabel.Location = new System.Drawing.Point(3, 0);
-            this._pageLabel.Name = "_pageLabel";
-            this._pageLabel.Size = new System.Drawing.Size(0, 53);
-            this._pageLabel.TabIndex = 5;
-            this._pageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this._cartDeleteButton.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this._cartDeleteButton.FillWeight = 30F;
+            this._cartDeleteButton.HeaderText = "刪除";
+            this._cartDeleteButton.Name = "_cartDeleteButton";
+            this._cartDeleteButton.ReadOnly = true;
+            this._cartDeleteButton.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this._cartDeleteButton.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // _cartProductName
+            // 
+            this._cartProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this._cartProductName.HeaderText = "商品名稱";
+            this._cartProductName.Name = "_cartProductName";
+            this._cartProductName.ReadOnly = true;
+            // 
+            // _cartProductType
+            // 
+            this._cartProductType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this._cartProductType.HeaderText = "商品類別";
+            this._cartProductType.Name = "_cartProductType";
+            this._cartProductType.ReadOnly = true;
+            // 
+            // _cartProductPrice
+            // 
+            this._cartProductPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this._cartProductPrice.HeaderText = "單價";
+            this._cartProductPrice.Name = "_cartProductPrice";
+            this._cartProductPrice.ReadOnly = true;
             // 
             // OrderForm
             // 
@@ -436,15 +448,16 @@
         private System.Windows.Forms.TableLayoutPanel _cartSectionLayout;
         private System.Windows.Forms.Label _cartSectionTitle;
         private System.Windows.Forms.Label _cartTotalPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _cartProductName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _cartProductType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _cartProductPrice;
         private System.Windows.Forms.TableLayoutPanel _productGroupBoxLastRowLayout;
         private System.Windows.Forms.Button _addButton;
         private System.Windows.Forms.TableLayoutPanel _pageArrowsLayout;
         private System.Windows.Forms.Button _leftArrowButton;
         private System.Windows.Forms.Button _rightArrowButton;
         private System.Windows.Forms.Label _pageLabel;
+        private System.Windows.Forms.DataGridViewButtonColumn _cartDeleteButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _cartProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _cartProductType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _cartProductPrice;
     }
 }
 

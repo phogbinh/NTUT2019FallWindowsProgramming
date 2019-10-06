@@ -55,13 +55,19 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
         // Protest on Dr.Smell
         public void AddProductToOrder(Product product)
         {
-            _order.AddTotalPrice(product.Price);
+            _order.AddProduct(product);
         }
 
         // Protest on Dr.Smell
         public string GetOrderTotalPrice()
         {
             return _order.GetTotalPrice(AppDefinition.TAIWAN_CURRENCY_UNIT);
+        }
+
+        // Protest on Dr.Smell
+        public void RemoveProductFromOrder(int productIndex)
+        {
+            _order.RemoveProductAt(productIndex);
         }
     }
 }

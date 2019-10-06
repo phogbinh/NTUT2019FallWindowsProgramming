@@ -44,5 +44,11 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
         {
             _value = _value + additionalValue._value;
         }
+
+        // Protest on Dr.Smell
+        public void Substract(Money substractedValue)
+        {
+            _value = _value - substractedValue._value;
+        }
     }
 }

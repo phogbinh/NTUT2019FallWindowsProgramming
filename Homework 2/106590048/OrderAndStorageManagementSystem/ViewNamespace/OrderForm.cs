@@ -1,6 +1,8 @@
 ﻿using OrderAndStorageManagementSystem.ModelNamespace;
 using OrderAndStorageManagementSystem.PresentationModelNamespace;
+using OrderAndStorageManagementSystem.Properties;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace OrderAndStorageManagementSystem.ViewNamespace
@@ -23,6 +25,8 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             _products = _model.Products;
             InitializeProductTabPageItemsContainers();
             // UI
+            _cartDataGridView.CellPainting += CartDataGridViewCellPainting;
+            _cartDataGridView.CellContentClick += CartDataGridViewCellContentClick;
             _leftArrowButton.Click += (sender, events) => GoToPreviousPage();
             _rightArrowButton.Click += (sender, events) => GoToNextPage();
             _addButton.Click += ClickAddButton;
@@ -31,6 +35,41 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             // Initial UI States
             SelectProductTabPage(AppDefinition.MOTHER_BOARD_INDEX);
             RefreshControls();
+        }
+
+        // Protest on Dr.Smell
+        private void CartDataGridViewCellPainting(object sender, DataGridViewCellPaintingEventArgs eventArgs)
+        {
+            if ( eventArgs.RowIndex < 0 )
+            {
+                return;
+            }
+            if ( eventArgs.ColumnIndex == 0 )
+            {
+                Image image = Resources.img_trash_bin;
+                eventArgs.Paint(eventArgs.CellBounds, DataGridViewPaintParts.All);
+                int width = image.Width;
+                int height = image.Height;
+                int left = eventArgs.CellBounds.Left + ( eventArgs.CellBounds.Width - width ) / 2;
+                int top = eventArgs.CellBounds.Top + ( eventArgs.CellBounds.Height - height ) / 2;
+                eventArgs.Graphics.DrawImage(image, new Rectangle(left, top, width, height));
+                eventArgs.Handled = true;
+            }
+        }
+
+        // Protest on Dr.Smell
+        private void CartDataGridViewCellContentClick(object sender, DataGridViewCellEventArgs eventArgs)
+        {
+            if ( eventArgs.RowIndex < 0 )
+            {
+                return;
+            }
+            if ( eventArgs.ColumnIndex == 0 )
+            {
+                _orderPresentationModel.RemoveProductFromOrder(eventArgs.RowIndex);
+                _cartDataGridView.Rows.RemoveAt(eventArgs.RowIndex);
+                RefreshControls();
+            }
         }
 
         // Protest on Dr.Smell
@@ -63,7 +102,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             string productName = _orderPresentationModel.CurrentSelectedProduct.Name;
             string productType = _orderPresentationModel.CurrentSelectedProduct.Type;
             string productPrice = _orderPresentationModel.CurrentSelectedProduct.Price.ToString();
-            _cartDataGridView.Rows.Add(productName, productType, productPrice);
+            _cartDataGridView.Rows.Add(null, productName, productType, productPrice);
             _orderPresentationModel.AddCurrentSelectedProductToOrder();
             RefreshControls();
         }

@@ -132,6 +132,12 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         public void AddCurrentSelectedProductToOrder()
         {
             _model.AddProductToOrder(_currentSelectedProduct);
+            UpdateCartTotalPrice();
+        }
+
+        // Protest on Dr.Smell
+        private void UpdateCartTotalPrice()
+        {
             _cartTotalPrice.Text = AppDefinition.CART_TOTAL_PRICE_TEXT + _model.GetOrderTotalPrice();
         }
 
@@ -185,6 +191,13 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         {
             _currentProductPageIndex++;
             UpdateCurrentProductPage();
+        }
+
+        // Protest on Dr.Smell
+        public void RemoveProductFromOrder(int productIndex)
+        {
+            _model.RemoveProductFromOrder(productIndex);
+            UpdateCartTotalPrice();
         }
     }
 }

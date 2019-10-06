@@ -431,6 +431,16 @@ namespace OrderAndStorageManagementSystem.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img_trash_bin {
+            get {
+                object obj = ResourceManager.GetObject("img_trash_bin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ProductId,ProductName,ProductType,ProductPrice,ProductDescription
         ///1,技嘉 GA-E3000N 主機板,主機板,1490,&quot;內建雙核心AMD E2-3000 及Radeon™ HD 8280內建顯示處理器|2組DDR3插槽，支援單通道技術及Non-ECC記憶體|顯示輸出:1 x HDMI,1 x D-Sub|PCB規格:Mini-ITX|&quot;
         ///2,華碩 STRIX Z390-E GAMING 主機板,主機板,7090,AI智能超頻，主動判斷CPU體質與散熱條件，提供客製化的最佳超頻設定|OPTIMEM II技術 支援4DIMM DDR4超頻4266，相容性穩定性最佳|DRMOS技術、PROCOOL實心電源接頭、提供最佳超頻電源供應|預裝式IO檔板，IO COVER含AURA燈光效果|支援AURA SYNC RGB同步燈效、3*RGB針腳|2*4Pin+1*3PIN可編成)|內建INTEL CNVI 2T2R AC WIFI+BT5.0|雙M.2散熱模組確實降低M.2溫度|SupremeFX S1220A 120db訊噪比電競音效|GPU溫度偵 [rest of string was truncated]&quot;;.
