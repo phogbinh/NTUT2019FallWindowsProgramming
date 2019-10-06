@@ -41,6 +41,7 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
             }
         }
         private OrderModel _orderModel;
+        private Model _model;
         private ControlStates _productNameAndDescription;
         private ControlStates _productPrice;
         private ControlStates _addButton;
@@ -48,9 +49,10 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         private Product _currentSelectedProduct;
         private int _currentProductPageIndex;
 
-        public OrderPresentationModel(OrderModel orderModelData)
+        public OrderPresentationModel(OrderModel orderModelData, Model modelData)
         {
             _orderModel = orderModelData;
+            _model = modelData;
             _productNameAndDescription = new ControlStates();
             _productPrice = new ControlStates();
             _addButton = new ControlStates();
