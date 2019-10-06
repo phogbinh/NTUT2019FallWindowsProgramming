@@ -13,7 +13,19 @@
                 _enabled = value;
             }
         }
+        public string Text
+        {
+            get
+            {
+                return _text;
+            }
+            set
+            {
+                _text = value;
+            }
+        }
         private bool _enabled;
+        private string _text;
 
         public ControlStates()
         {

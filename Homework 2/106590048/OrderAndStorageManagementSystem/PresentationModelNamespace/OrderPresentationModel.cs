@@ -5,14 +5,14 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
     public class OrderPresentationModel
     {
         private const int CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE = 0;
-        public RichTextBoxStates ProductNameAndDescription
+        public ControlStates ProductNameAndDescription
         {
             get
             {
                 return _productNameAndDescription;
             }
         }
-        public RichTextBoxStates ProductPrice
+        public ControlStates ProductPrice
         {
             get
             {
@@ -34,8 +34,8 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
             }
         }
         private OrderModel _orderModel;
-        private RichTextBoxStates _productNameAndDescription;
-        private RichTextBoxStates _productPrice;
+        private ControlStates _productNameAndDescription;
+        private ControlStates _productPrice;
         private ControlStates _addButton;
         private Product _currentSelectedProduct;
         private int _currentProductPageIndex;
@@ -43,8 +43,8 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         public OrderPresentationModel(OrderModel orderModelData)
         {
             _orderModel = orderModelData;
-            _productNameAndDescription = new RichTextBoxStates();
-            _productPrice = new RichTextBoxStates();
+            _productNameAndDescription = new ControlStates();
+            _productPrice = new ControlStates();
             _addButton = new ControlStates();
         }
 
