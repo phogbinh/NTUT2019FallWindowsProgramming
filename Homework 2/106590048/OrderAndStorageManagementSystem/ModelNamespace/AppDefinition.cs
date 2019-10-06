@@ -8,6 +8,8 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
         // Other
         public const string TAIWAN_CURRENCY_UNIT = "元";
         public const char COMMA = ',';
+        public const char SPACE = ' ';
+        public const int TWO = 2;
         // Debug
         public const string PRINT_DELIMITER = ", ";
         public const string PRINT_ID = "ID: ";

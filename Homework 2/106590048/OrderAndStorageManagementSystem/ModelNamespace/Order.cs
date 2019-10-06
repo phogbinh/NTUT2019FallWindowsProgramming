@@ -29,7 +29,7 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
         // Protest on Dr.Smell
         public void RemoveProductAt(int productIndex)
         {
-            _totalPrice.Substract(_products[ productIndex ].Price);
+            _totalPrice.Subtract(_products[ productIndex ].Price);
             _products.RemoveAt(productIndex);
         }
     }

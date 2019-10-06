@@ -38,36 +38,36 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         }
 
         // Protest on Dr.Smell
-        private void CartDataGridViewCellPainting(object sender, DataGridViewCellPaintingEventArgs eventArgs)
+        private void CartDataGridViewCellPainting(object sender, DataGridViewCellPaintingEventArgs eventArguments)
         {
-            if ( eventArgs.RowIndex < 0 )
+            if ( eventArguments.RowIndex < 0 )
             {
                 return;
             }
-            if ( eventArgs.ColumnIndex == 0 )
+            if ( eventArguments.ColumnIndex == 0 )
             {
                 Image image = Resources.img_trash_bin;
-                eventArgs.Paint(eventArgs.CellBounds, DataGridViewPaintParts.All);
+                eventArguments.Paint(eventArguments.CellBounds, DataGridViewPaintParts.All);
                 int width = image.Width;
                 int height = image.Height;
-                int left = eventArgs.CellBounds.Left + ( eventArgs.CellBounds.Width - width ) / 2;
-                int top = eventArgs.CellBounds.Top + ( eventArgs.CellBounds.Height - height ) / 2;
-                eventArgs.Graphics.DrawImage(image, new Rectangle(left, top, width, height));
-                eventArgs.Handled = true;
+                int left = eventArguments.CellBounds.Left + ( eventArguments.CellBounds.Width - width ) / AppDefinition.TWO;
+                int top = eventArguments.CellBounds.Top + ( eventArguments.CellBounds.Height - height ) / AppDefinition.TWO;
+                eventArguments.Graphics.DrawImage(image, new Rectangle(left, top, width, height));
+                eventArguments.Handled = true;
             }
         }
 
         // Protest on Dr.Smell
-        private void CartDataGridViewCellContentClick(object sender, DataGridViewCellEventArgs eventArgs)
+        private void CartDataGridViewCellContentClick(object sender, DataGridViewCellEventArgs eventArguments)
         {
-            if ( eventArgs.RowIndex < 0 )
+            if ( eventArguments.RowIndex < 0 )
             {
                 return;
             }
-            if ( eventArgs.ColumnIndex == 0 )
+            if ( eventArguments.ColumnIndex == 0 )
             {
-                _orderPresentationModel.RemoveProductFromOrder(eventArgs.RowIndex);
-                _cartDataGridView.Rows.RemoveAt(eventArgs.RowIndex);
+                _orderPresentationModel.RemoveProductFromOrder(eventArguments.RowIndex);
+                _cartDataGridView.Rows.RemoveAt(eventArguments.RowIndex);
                 RefreshControls();
             }
         }

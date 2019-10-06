@@ -16,7 +16,7 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
         // Protest on Dr.Smell
         public string GetStringWithCurrencyUnit(string currencyUnit)
         {
-            return GetCurrencyFormat() + " " + currencyUnit;
+            return GetCurrencyFormat() + AppDefinition.SPACE + currencyUnit;
         }
 
         // Protest on Dr.Smell
@@ -46,9 +46,9 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
         }
 
         // Protest on Dr.Smell
-        public void Substract(Money substractedValue)
+        public void Subtract(Money subtractValue)
         {
-            _value = _value - substractedValue._value;
+            _value = _value - subtractValue._value;
         }
     }
 }
