@@ -62,6 +62,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ModelNamespace\AppDefinition.cs" />
+    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\CreditCardPaymentModel.cs" />
+    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\DropDownListIsSelectedChecker.cs" />
+    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\InputChecker.cs" />
+    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\TextBoxChecker.cs" />
+    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\TextBoxIsEmailChecker.cs" />
+    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\TextBoxIsOfFullLengthChecker.cs" />
+    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\TextBoxIsNonEmptyChecker.cs" />
     <Compile Include="ModelNamespace\Model.cs" />
     <Compile Include="ModelNamespace\DataBaseManager.cs" />
     <Compile Include="ModelNamespace\Money.cs" />
@@ -70,6 +77,7 @@
     <Compile Include="ModelNamespace\OrderProductTabPage.cs" />
     <Compile Include="ModelNamespace\OrderProductTabPageProductPage.cs" />
     <Compile Include="PresentationModelNamespace\ControlStates.cs" />
+    <Compile Include="PresentationModelNamespace\CreditCardPaymentPresentationModel.cs" />
     <Compile Include="PresentationModelNamespace\MainPresentationModel.cs" />
     <Compile Include="PresentationModelNamespace\OrderPresentationModel.cs" />
     <Compile Include="ViewNamespace\CreditCardPaymentForm.cs">

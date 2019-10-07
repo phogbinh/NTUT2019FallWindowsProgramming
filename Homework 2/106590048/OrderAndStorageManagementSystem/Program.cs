@@ -1,4 +1,5 @@
 ﻿using OrderAndStorageManagementSystem.ModelNamespace;
+using OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace;
 using OrderAndStorageManagementSystem.PresentationModelNamespace;
 using OrderAndStorageManagementSystem.ViewNamespace;
 using System;
@@ -18,7 +19,9 @@ namespace OrderAndStorageManagementSystem
             Application.SetCompatibleTextRenderingDefault(false);
             Model model = new Model();
             OrderModel orderModel = new OrderModel(model.Products);
-            MainForm mainForm = new MainForm(new CreditCardPaymentForm(), new MainPresentationModel(), new OrderPresentationModel(orderModel, model), orderModel, model);
+            OrderPresentationModel orderPresentationModel = new OrderPresentationModel(orderModel, model);
+            CreditCardPaymentForm creditCardPaymentForm = new CreditCardPaymentForm(new CreditCardPaymentPresentationModel(new CreditCardPaymentModel()));
+            MainForm mainForm = new MainForm(creditCardPaymentForm, new MainPresentationModel(), orderPresentationModel, orderModel, model);
             Application.Run(mainForm);
         }
     }
