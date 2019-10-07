@@ -89,8 +89,16 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         // Protest on Dr.Smell
         private void AssignTextBoxCheckerAndSetError(RichTextBox textBox, int textBoxIndex)
         {
-            textBox.TextChanged += (sender, eventArguments) => UpdateTextBoxCheckersAndSetError(textBox, textBoxIndex, textBox.Text, textBox.MaxLength);
-            textBox.Leave += (sender, eventArguments) => UpdateTextBoxCheckersAndSetError(textBox, textBoxIndex, textBox.Text, textBox.MaxLength);
+            textBox.TextChanged += (sender, eventArguments) => UpdateTextBoxCheckersAndSetError(textBox, textBoxIndex);
+            textBox.Leave += (sender, eventArguments) => UpdateTextBoxCheckersAndSetError(textBox, textBoxIndex);
+        }
+
+        // Protest on Dr.Smell
+        private void UpdateTextBoxCheckersAndSetError(RichTextBox textBox, int textBoxIndex)
+        {
+            _creditCardPaymentPresentationModel.UpdateTextBoxCheckers(textBoxIndex, textBox.Text, textBox.MaxLength);
+            _errorProvider.SetError(textBox, _creditCardPaymentPresentationModel.GetControlError(textBoxIndex));
+            RefreshControls();
         }
 
         // Protest on Dr.Smell
@@ -103,22 +111,14 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         // Protest on Dr.Smell
         private void AssignDropDownListCheckersAndSetErrors(ComboBox dropDownList, int dropDownListIndex)
         {
-            dropDownList.SelectionChangeCommitted += (sender, eventArguments) => UpdateDropDownListCheckersAndSetError(dropDownList, dropDownListIndex, dropDownList.SelectedIndex);
-            dropDownList.Leave += (sender, eventArguments) => UpdateDropDownListCheckersAndSetError(dropDownList, dropDownListIndex, dropDownList.SelectedIndex);
+            dropDownList.SelectionChangeCommitted += (sender, eventArguments) => UpdateDropDownListCheckersAndSetError(dropDownList, dropDownListIndex);
+            dropDownList.Leave += (sender, eventArguments) => UpdateDropDownListCheckersAndSetError(dropDownList, dropDownListIndex);
         }
 
         // Protest on Dr.Smell
-        private void UpdateTextBoxCheckersAndSetError(RichTextBox textBox, int textBoxIndex, string text, int maxTextLength)
+        private void UpdateDropDownListCheckersAndSetError(ComboBox dropDownList, int dropDownListIndex)
         {
-            _creditCardPaymentPresentationModel.UpdateTextBoxCheckers(textBoxIndex, text, maxTextLength);
-            _errorProvider.SetError(textBox, _creditCardPaymentPresentationModel.GetControlError(textBoxIndex));
-            RefreshControls();
-        }
-
-        // Protest on Dr.Smell
-        private void UpdateDropDownListCheckersAndSetError(ComboBox dropDownList, int dropDownListIndex, int selectedIndex)
-        {
-            _creditCardPaymentPresentationModel.UpdateDropDownListCheckers(dropDownListIndex, selectedIndex);
+            _creditCardPaymentPresentationModel.UpdateDropDownListCheckers(dropDownListIndex, dropDownList.SelectedIndex);
             _errorProvider.SetError(dropDownList, _creditCardPaymentPresentationModel.GetControlError(dropDownListIndex));
             RefreshControls();
         }
