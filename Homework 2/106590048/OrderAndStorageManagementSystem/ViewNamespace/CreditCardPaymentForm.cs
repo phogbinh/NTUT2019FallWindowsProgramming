@@ -1,11 +1,14 @@
 ﻿using OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace;
 using OrderAndStorageManagementSystem.PresentationModelNamespace;
+using System;
 using System.Windows.Forms;
 
 namespace OrderAndStorageManagementSystem.ViewNamespace
 {
     public partial class CreditCardPaymentForm : Form
     {
+        private const string ORDER_COMPLETE_MESSAGE = "訂購完成";
+
         private CreditCardPaymentPresentationModel _creditCardPaymentPresentationModel;
 
         public CreditCardPaymentForm(CreditCardPaymentPresentationModel creditCardPaymentPresentationModelData)
@@ -13,11 +16,18 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             InitializeComponent();
             _creditCardPaymentPresentationModel = creditCardPaymentPresentationModelData;
             // UI
+            _submitButton.Click += ClickSubmitButton;
             InitializeInputHandlers();
             InitializeControlCheckers();
             // Initial UI States
             InitializeCheckers();
             RefreshControls();
+        }
+
+        // Protest on Dr.Smell
+        private void ClickSubmitButton(object sender, EventArgs eventArguments)
+        {
+            MessageBox.Show(ORDER_COMPLETE_MESSAGE);
         }
 
         // Protest on Dr.Smell
