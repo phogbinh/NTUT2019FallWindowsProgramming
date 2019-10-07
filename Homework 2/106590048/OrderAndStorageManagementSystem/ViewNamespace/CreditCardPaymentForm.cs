@@ -1,4 +1,5 @@
-﻿using OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace;
+﻿using OrderAndStorageManagementSystem.ModelNamespace;
+using OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace;
 using OrderAndStorageManagementSystem.PresentationModelNamespace;
 using System;
 using System.Windows.Forms;
@@ -29,6 +30,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         {
             if ( MessageBox.Show(ORDER_COMPLETE_MESSAGE) == DialogResult.OK )
             {
+                _cardSecurityCodeField.Text = AppDefinition.EMPTY_STRING;
                 this.Close();
             }
         }
