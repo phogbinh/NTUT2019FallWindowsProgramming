@@ -50,5 +50,11 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
         {
             _value = _value - subtractValue._value;
         }
+
+        // Protest on Dr.Smell
+        public void Set(int value)
+        {
+            _value = value;
+        }
     }
 }

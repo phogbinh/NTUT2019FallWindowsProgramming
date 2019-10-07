@@ -27,6 +27,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             _products = _model.Products;
             InitializeProductTabPageItemsContainers();
             // UI
+            _creditCardPaymentForm.FormClosed += (sender, eventArguments) => ClearOrder();
             _cartDataGridView.CellPainting += CartDataGridViewCellPainting;
             _cartDataGridView.CellContentClick += CartDataGridViewCellContentClick;
             _leftArrowButton.Click += (sender, events) => GoToPreviousPage();
@@ -37,6 +38,14 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             InitializeProductTabPages();
             // Initial UI States
             SelectProductTabPage(AppDefinition.MOTHER_BOARD_INDEX);
+            RefreshControls();
+        }
+
+        // Protest on Dr.Smell
+        private void ClearOrder()
+        {
+            _orderPresentationModel.ClearOrder();
+            _cartDataGridView.Rows.Clear();
             RefreshControls();
         }
 

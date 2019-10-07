@@ -4,13 +4,15 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
 {
     public class Order
     {
+        private const int TOTAL_PRICE_INITIAL_VALUE = 0;
+
         private List<Product> _products;
         private Money _totalPrice;
 
         public Order()
         {
             _products = new List<Product>();
-            _totalPrice = new Money(0);
+            _totalPrice = new Money(TOTAL_PRICE_INITIAL_VALUE);
         }
 
         // Protest on Dr.Smell
@@ -37,6 +39,13 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
         public int GetProductsCount()
         {
             return _products.Count;
+        }
+
+        // Protest on Dr.Smell
+        public void ClearOrder()
+        {
+            _totalPrice.Set(TOTAL_PRICE_INITIAL_VALUE);
+            _products.Clear();
         }
     }
 }

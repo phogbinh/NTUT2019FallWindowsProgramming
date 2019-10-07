@@ -75,5 +75,11 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
         {
             return _order.GetProductsCount();
         }
+
+        // Protest on Dr.Smell
+        public void ClearOrder()
+        {
+            _order.ClearOrder();
+        }
     }
 }

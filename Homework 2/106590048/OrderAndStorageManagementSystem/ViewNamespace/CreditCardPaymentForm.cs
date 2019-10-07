@@ -27,7 +27,10 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         // Protest on Dr.Smell
         private void ClickSubmitButton(object sender, EventArgs eventArguments)
         {
-            MessageBox.Show(ORDER_COMPLETE_MESSAGE);
+            if ( MessageBox.Show(ORDER_COMPLETE_MESSAGE) == DialogResult.OK )
+            {
+                this.Close();
+            }
         }
 
         // Protest on Dr.Smell
