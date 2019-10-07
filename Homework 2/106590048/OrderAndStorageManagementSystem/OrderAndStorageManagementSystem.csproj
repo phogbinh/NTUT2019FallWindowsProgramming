@@ -63,12 +63,12 @@
   <ItemGroup>
     <Compile Include="ModelNamespace\AppDefinition.cs" />
     <Compile Include="ModelNamespace\CreditCardPaymentNamespace\CreditCardPaymentModel.cs" />
-    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\DropDownListIsSelectedChecker.cs" />
-    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\InputChecker.cs" />
-    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\TextBoxChecker.cs" />
-    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\TextBoxIsEmailChecker.cs" />
-    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\TextBoxIsOfFullLengthChecker.cs" />
-    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\TextBoxIsNonEmptyChecker.cs" />
+    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\DropDownListIsSelectedInspector.cs" />
+    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\InputInspector.cs" />
+    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\TextBoxInspector.cs" />
+    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\TextBoxIsMailInspector.cs" />
+    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\TextBoxIsOfFullLengthInspector.cs" />
+    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\TextBoxIsNotEmptyInspector.cs" />
     <Compile Include="ModelNamespace\Model.cs" />
     <Compile Include="ModelNamespace\DataBaseManager.cs" />
     <Compile Include="ModelNamespace\Money.cs" />

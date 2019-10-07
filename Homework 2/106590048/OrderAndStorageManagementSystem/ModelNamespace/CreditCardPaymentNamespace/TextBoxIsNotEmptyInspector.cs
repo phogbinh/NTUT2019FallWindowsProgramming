@@ -1,10 +1,10 @@
 ﻿namespace OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace
 {
-    public class TextBoxIsNonEmptyChecker : TextBoxChecker
+    public class TextBoxIsNotEmptyInspector : TextBoxInspector
     {
         private const string ERROR_TEXT_BOX_IS_EMPTY = "This field is empty.";
 
-        public TextBoxIsNonEmptyChecker() : base()
+        public TextBoxIsNotEmptyInspector() : base()
         {
             /* Body intentionally empty */
         }

@@ -19,9 +19,9 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             // UI
             _submitButton.Click += ClickSubmitButton;
             InitializeInputHandlers();
-            InitializeControlCheckers();
+            InitializeControlInspectors();
             // Initial UI States
-            InitializeCheckers();
+            InitializeInspectors();
             RefreshControls();
         }
 
@@ -66,84 +66,84 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         }
 
         // Protest on Dr.Smell
-        private void InitializeControlCheckers()
+        private void InitializeControlInspectors()
         {
-            InitializeTextBoxCheckersAndSetErrors();
-            InitializeDropDownListCheckersAndSetErrors();
+            InitializeTextBoxInspectorsAndSetErrors();
+            InitializeDropDownListInspectorsAndSetErrors();
         }
 
         // Protest on Dr.Smell
-        private void InitializeTextBoxCheckersAndSetErrors()
+        private void InitializeTextBoxInspectorsAndSetErrors()
         {
-            AssignTextBoxCheckerAndSetError(_lastNameField, CreditCardPaymentModel.LAST_NAME_FIELD_INDEX);
-            AssignTextBoxCheckerAndSetError(_firstNameField, CreditCardPaymentModel.FIRST_NAME_FIELD_INDEX);
-            AssignTextBoxCheckerAndSetError(_cardNumberFirstField, CreditCardPaymentModel.CARD_NUMBER_FIRST_FIELD_INDEX);
-            AssignTextBoxCheckerAndSetError(_cardNumberSecondField, CreditCardPaymentModel.CARD_NUMBER_SECOND_FIELD_INDEX);
-            AssignTextBoxCheckerAndSetError(_cardNumberThirdField, CreditCardPaymentModel.CARD_NUMBER_THIRD_FIELD_INDEX);
-            AssignTextBoxCheckerAndSetError(_cardNumberFourthField, CreditCardPaymentModel.CARD_NUMBER_FOURTH_FIELD_INDEX);
-            AssignTextBoxCheckerAndSetError(_cardSecurityCodeField, CreditCardPaymentModel.CARD_SECURITY_CODE_FIELD_INDEX);
-            AssignTextBoxCheckerAndSetError(_emailField, CreditCardPaymentModel.EMAIL_FIELD_INDEX);
-            AssignTextBoxCheckerAndSetError(_addressField, CreditCardPaymentModel.ADDRESS_FIELD_INDEX);
+            AssignTextBoxInspectorAndSetError(_lastNameField, CreditCardPaymentModel.LAST_NAME_FIELD_INDEX);
+            AssignTextBoxInspectorAndSetError(_firstNameField, CreditCardPaymentModel.FIRST_NAME_FIELD_INDEX);
+            AssignTextBoxInspectorAndSetError(_cardNumberFirstField, CreditCardPaymentModel.CARD_NUMBER_FIRST_FIELD_INDEX);
+            AssignTextBoxInspectorAndSetError(_cardNumberSecondField, CreditCardPaymentModel.CARD_NUMBER_SECOND_FIELD_INDEX);
+            AssignTextBoxInspectorAndSetError(_cardNumberThirdField, CreditCardPaymentModel.CARD_NUMBER_THIRD_FIELD_INDEX);
+            AssignTextBoxInspectorAndSetError(_cardNumberFourthField, CreditCardPaymentModel.CARD_NUMBER_FOURTH_FIELD_INDEX);
+            AssignTextBoxInspectorAndSetError(_cardSecurityCodeField, CreditCardPaymentModel.CARD_SECURITY_CODE_FIELD_INDEX);
+            AssignTextBoxInspectorAndSetError(_mailField, CreditCardPaymentModel.MAIL_FIELD_INDEX);
+            AssignTextBoxInspectorAndSetError(_addressField, CreditCardPaymentModel.ADDRESS_FIELD_INDEX);
         }
 
         // Protest on Dr.Smell
-        private void AssignTextBoxCheckerAndSetError(RichTextBox textBox, int textBoxIndex)
+        private void AssignTextBoxInspectorAndSetError(RichTextBox textBox, int textBoxIndex)
         {
-            textBox.TextChanged += (sender, eventArguments) => UpdateTextBoxCheckersAndSetError(textBox, textBoxIndex);
-            textBox.Leave += (sender, eventArguments) => UpdateTextBoxCheckersAndSetError(textBox, textBoxIndex);
+            textBox.TextChanged += (sender, eventArguments) => UpdateTextBoxInspectorsAndSetError(textBox, textBoxIndex);
+            textBox.Leave += (sender, eventArguments) => UpdateTextBoxInspectorsAndSetError(textBox, textBoxIndex);
         }
 
         // Protest on Dr.Smell
-        private void UpdateTextBoxCheckersAndSetError(RichTextBox textBox, int textBoxIndex)
+        private void UpdateTextBoxInspectorsAndSetError(RichTextBox textBox, int textBoxIndex)
         {
-            _creditCardPaymentPresentationModel.UpdateTextBoxCheckers(textBoxIndex, textBox.Text, textBox.MaxLength);
+            _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(textBoxIndex, textBox.Text, textBox.MaxLength);
             _errorProvider.SetError(textBox, _creditCardPaymentPresentationModel.GetControlError(textBoxIndex));
             RefreshControls();
         }
 
         // Protest on Dr.Smell
-        private void InitializeDropDownListCheckersAndSetErrors()
+        private void InitializeDropDownListInspectorsAndSetErrors()
         {
-            AssignDropDownListCheckersAndSetErrors(_cardDateMonthField, CreditCardPaymentModel.CARD_DATE_MONTH_FIELD_INDEX);
-            AssignDropDownListCheckersAndSetErrors(_cardDateYearField, CreditCardPaymentModel.CARD_DATE_YEAR_FIELD_INDEX);
+            AssignDropDownListInspectorsAndSetErrors(_cardDateMonthField, CreditCardPaymentModel.CARD_DATE_MONTH_FIELD_INDEX);
+            AssignDropDownListInspectorsAndSetErrors(_cardDateYearField, CreditCardPaymentModel.CARD_DATE_YEAR_FIELD_INDEX);
         }
 
         // Protest on Dr.Smell
-        private void AssignDropDownListCheckersAndSetErrors(ComboBox dropDownList, int dropDownListIndex)
+        private void AssignDropDownListInspectorsAndSetErrors(ComboBox dropDownList, int dropDownListIndex)
         {
-            dropDownList.SelectionChangeCommitted += (sender, eventArguments) => UpdateDropDownListCheckersAndSetError(dropDownList, dropDownListIndex);
-            dropDownList.Leave += (sender, eventArguments) => UpdateDropDownListCheckersAndSetError(dropDownList, dropDownListIndex);
+            dropDownList.SelectionChangeCommitted += (sender, eventArguments) => UpdateDropDownListInspectorsAndSetError(dropDownList, dropDownListIndex);
+            dropDownList.Leave += (sender, eventArguments) => UpdateDropDownListInspectorsAndSetError(dropDownList, dropDownListIndex);
         }
 
         // Protest on Dr.Smell
-        private void UpdateDropDownListCheckersAndSetError(ComboBox dropDownList, int dropDownListIndex)
+        private void UpdateDropDownListInspectorsAndSetError(ComboBox dropDownList, int dropDownListIndex)
         {
-            _creditCardPaymentPresentationModel.UpdateDropDownListCheckers(dropDownListIndex, dropDownList.SelectedIndex);
+            _creditCardPaymentPresentationModel.UpdateDropDownListInspectors(dropDownListIndex, dropDownList.SelectedIndex);
             _errorProvider.SetError(dropDownList, _creditCardPaymentPresentationModel.GetControlError(dropDownListIndex));
             RefreshControls();
         }
 
         // Protest on Dr.Smell
-        private void InitializeCheckers()
+        private void InitializeInspectors()
         {
-            UpdateInitialValuesForCheckers();
+            UpdateInitialValuesForInspectors();
             RefreshControls();
         }
 
         // Protest on Dr.Smell
-        private void UpdateInitialValuesForCheckers()
+        private void UpdateInitialValuesForInspectors()
         {
-            _creditCardPaymentPresentationModel.UpdateTextBoxCheckers(CreditCardPaymentModel.LAST_NAME_FIELD_INDEX, _lastNameField.Text, _lastNameField.MaxLength);
-            _creditCardPaymentPresentationModel.UpdateTextBoxCheckers(CreditCardPaymentModel.FIRST_NAME_FIELD_INDEX, _firstNameField.Text, _firstNameField.MaxLength);
-            _creditCardPaymentPresentationModel.UpdateTextBoxCheckers(CreditCardPaymentModel.CARD_NUMBER_FIRST_FIELD_INDEX, _cardNumberFirstField.Text, _cardNumberFirstField.MaxLength);
-            _creditCardPaymentPresentationModel.UpdateTextBoxCheckers(CreditCardPaymentModel.CARD_NUMBER_SECOND_FIELD_INDEX, _cardNumberSecondField.Text, _cardNumberSecondField.MaxLength);
-            _creditCardPaymentPresentationModel.UpdateTextBoxCheckers(CreditCardPaymentModel.CARD_NUMBER_THIRD_FIELD_INDEX, _cardNumberThirdField.Text, _cardNumberThirdField.MaxLength);
-            _creditCardPaymentPresentationModel.UpdateTextBoxCheckers(CreditCardPaymentModel.CARD_NUMBER_FOURTH_FIELD_INDEX, _cardNumberFourthField.Text, _cardNumberFourthField.MaxLength);
-            _creditCardPaymentPresentationModel.UpdateDropDownListCheckers(CreditCardPaymentModel.CARD_DATE_MONTH_FIELD_INDEX, _cardDateMonthField.SelectedIndex);
-            _creditCardPaymentPresentationModel.UpdateDropDownListCheckers(CreditCardPaymentModel.CARD_DATE_YEAR_FIELD_INDEX, _cardDateYearField.SelectedIndex);
-            _creditCardPaymentPresentationModel.UpdateTextBoxCheckers(CreditCardPaymentModel.CARD_SECURITY_CODE_FIELD_INDEX, _cardSecurityCodeField.Text, _cardSecurityCodeField.MaxLength);
-            _creditCardPaymentPresentationModel.UpdateTextBoxCheckers(CreditCardPaymentModel.EMAIL_FIELD_INDEX, _emailField.Text, _emailField.MaxLength);
-            _creditCardPaymentPresentationModel.UpdateTextBoxCheckers(CreditCardPaymentModel.ADDRESS_FIELD_INDEX, _addressField.Text, _addressField.MaxLength);
+            _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(CreditCardPaymentModel.LAST_NAME_FIELD_INDEX, _lastNameField.Text, _lastNameField.MaxLength);
+            _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(CreditCardPaymentModel.FIRST_NAME_FIELD_INDEX, _firstNameField.Text, _firstNameField.MaxLength);
+            _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(CreditCardPaymentModel.CARD_NUMBER_FIRST_FIELD_INDEX, _cardNumberFirstField.Text, _cardNumberFirstField.MaxLength);
+            _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(CreditCardPaymentModel.CARD_NUMBER_SECOND_FIELD_INDEX, _cardNumberSecondField.Text, _cardNumberSecondField.MaxLength);
+            _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(CreditCardPaymentModel.CARD_NUMBER_THIRD_FIELD_INDEX, _cardNumberThirdField.Text, _cardNumberThirdField.MaxLength);
+            _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(CreditCardPaymentModel.CARD_NUMBER_FOURTH_FIELD_INDEX, _cardNumberFourthField.Text, _cardNumberFourthField.MaxLength);
+            _creditCardPaymentPresentationModel.UpdateDropDownListInspectors(CreditCardPaymentModel.CARD_DATE_MONTH_FIELD_INDEX, _cardDateMonthField.SelectedIndex);
+            _creditCardPaymentPresentationModel.UpdateDropDownListInspectors(CreditCardPaymentModel.CARD_DATE_YEAR_FIELD_INDEX, _cardDateYearField.SelectedIndex);
+            _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(CreditCardPaymentModel.CARD_SECURITY_CODE_FIELD_INDEX, _cardSecurityCodeField.Text, _cardSecurityCodeField.MaxLength);
+            _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(CreditCardPaymentModel.MAIL_FIELD_INDEX, _mailField.Text, _mailField.MaxLength);
+            _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(CreditCardPaymentModel.ADDRESS_FIELD_INDEX, _addressField.Text, _addressField.MaxLength);
         }
 
         // Protest on Dr.Smell

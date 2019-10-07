@@ -56,9 +56,9 @@
             this._cardSecurityCodeLayout = new System.Windows.Forms.TableLayoutPanel();
             this._cardSecurityCodeLabel = new System.Windows.Forms.Label();
             this._cardSecurityCodeField = new System.Windows.Forms.RichTextBox();
-            this._emailLayout = new System.Windows.Forms.TableLayoutPanel();
-            this._emailLabel = new System.Windows.Forms.Label();
-            this._emailField = new System.Windows.Forms.RichTextBox();
+            this._mailLayout = new System.Windows.Forms.TableLayoutPanel();
+            this._mailLabel = new System.Windows.Forms.Label();
+            this._mailField = new System.Windows.Forms.RichTextBox();
             this._addressLayout = new System.Windows.Forms.TableLayoutPanel();
             this._addressLabel = new System.Windows.Forms.Label();
             this._addressField = new System.Windows.Forms.RichTextBox();
@@ -72,7 +72,7 @@
             this._cardDateLayout.SuspendLayout();
             this._cardDateFieldLayout.SuspendLayout();
             this._cardSecurityCodeLayout.SuspendLayout();
-            this._emailLayout.SuspendLayout();
+            this._mailLayout.SuspendLayout();
             this._addressLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -86,7 +86,7 @@
             this._formLayout.Controls.Add(this._cardNumberLayout, 0, 2);
             this._formLayout.Controls.Add(this._cardDateLayout, 0, 3);
             this._formLayout.Controls.Add(this._cardSecurityCodeLayout, 0, 4);
-            this._formLayout.Controls.Add(this._emailLayout, 0, 5);
+            this._formLayout.Controls.Add(this._mailLayout, 0, 5);
             this._formLayout.Controls.Add(this._addressLayout, 0, 6);
             this._formLayout.Controls.Add(this._submitButton, 0, 8);
             this._formLayout.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -466,43 +466,43 @@
             this._cardSecurityCodeField.TabIndex = 1;
             this._cardSecurityCodeField.Text = "";
             // 
-            // _emailLayout
+            // _mailLayout
             // 
-            this._emailLayout.ColumnCount = 1;
-            this._emailLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this._emailLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this._emailLayout.Controls.Add(this._emailLabel, 0, 0);
-            this._emailLayout.Controls.Add(this._emailField, 0, 1);
-            this._emailLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._emailLayout.Location = new System.Drawing.Point(13, 378);
-            this._emailLayout.Name = "_emailLayout";
-            this._emailLayout.RowCount = 2;
-            this._emailLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this._emailLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this._emailLayout.Size = new System.Drawing.Size(452, 67);
-            this._emailLayout.TabIndex = 5;
+            this._mailLayout.ColumnCount = 1;
+            this._mailLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this._mailLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this._mailLayout.Controls.Add(this._mailLabel, 0, 0);
+            this._mailLayout.Controls.Add(this._mailField, 0, 1);
+            this._mailLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._mailLayout.Location = new System.Drawing.Point(13, 378);
+            this._mailLayout.Name = "_mailLayout";
+            this._mailLayout.RowCount = 2;
+            this._mailLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this._mailLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this._mailLayout.Size = new System.Drawing.Size(452, 67);
+            this._mailLayout.TabIndex = 5;
             // 
-            // _emailLabel
+            // _mailLabel
             // 
-            this._emailLabel.AutoSize = true;
-            this._emailLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._emailLabel.Location = new System.Drawing.Point(3, 0);
-            this._emailLabel.Name = "_emailLabel";
-            this._emailLabel.Size = new System.Drawing.Size(446, 33);
-            this._emailLabel.TabIndex = 0;
-            this._emailLabel.Text = "Email*";
-            this._emailLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this._mailLabel.AutoSize = true;
+            this._mailLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._mailLabel.Location = new System.Drawing.Point(3, 0);
+            this._mailLabel.Name = "_mailLabel";
+            this._mailLabel.Size = new System.Drawing.Size(446, 33);
+            this._mailLabel.TabIndex = 0;
+            this._mailLabel.Text = "Email*";
+            this._mailLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // _emailField
+            // _mailField
             // 
-            this._emailField.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._emailField.Location = new System.Drawing.Point(3, 36);
-            this._emailField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
-            this._emailField.Multiline = false;
-            this._emailField.Name = "_emailField";
-            this._emailField.Size = new System.Drawing.Size(429, 28);
-            this._emailField.TabIndex = 1;
-            this._emailField.Text = "";
+            this._mailField.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._mailField.Location = new System.Drawing.Point(3, 36);
+            this._mailField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this._mailField.Multiline = false;
+            this._mailField.Name = "_mailField";
+            this._mailField.Size = new System.Drawing.Size(429, 28);
+            this._mailField.TabIndex = 1;
+            this._mailField.Text = "";
             // 
             // _addressLayout
             // 
@@ -580,8 +580,8 @@
             this._cardDateFieldLayout.PerformLayout();
             this._cardSecurityCodeLayout.ResumeLayout(false);
             this._cardSecurityCodeLayout.PerformLayout();
-            this._emailLayout.ResumeLayout(false);
-            this._emailLayout.PerformLayout();
+            this._mailLayout.ResumeLayout(false);
+            this._mailLayout.PerformLayout();
             this._addressLayout.ResumeLayout(false);
             this._addressLayout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._errorProvider)).EndInit();
@@ -618,9 +618,9 @@
         private System.Windows.Forms.TableLayoutPanel _cardSecurityCodeLayout;
         private System.Windows.Forms.Label _cardSecurityCodeLabel;
         private System.Windows.Forms.RichTextBox _cardSecurityCodeField;
-        private System.Windows.Forms.TableLayoutPanel _emailLayout;
-        private System.Windows.Forms.Label _emailLabel;
-        private System.Windows.Forms.RichTextBox _emailField;
+        private System.Windows.Forms.TableLayoutPanel _mailLayout;
+        private System.Windows.Forms.Label _mailLabel;
+        private System.Windows.Forms.RichTextBox _mailField;
         private System.Windows.Forms.TableLayoutPanel _addressLayout;
         private System.Windows.Forms.Label _addressLabel;
         private System.Windows.Forms.RichTextBox _addressField;

@@ -26,23 +26,23 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         }
 
         // Protest on Dr.Smell
-        public void UpdateTextBoxCheckers(int textBoxIndex, string text, int maxTextLength)
+        public void UpdateTextBoxInspectors(int textBoxIndex, string text, int maxTextLength)
         {
-            _creditCardPaymentModel.UpdateTextBoxCheckers(textBoxIndex, text, maxTextLength);
+            _creditCardPaymentModel.UpdateTextBoxInspectors(textBoxIndex, text, maxTextLength);
             UpdateSubmitButton();
         }
 
         // Protest on Dr.Smell
-        public void UpdateDropDownListCheckers(int dropDownListIndex, int selectedIndex)
+        public void UpdateDropDownListInspectors(int dropDownListIndex, int selectedIndex)
         {
-            _creditCardPaymentModel.UpdateDropDownListCheckers(dropDownListIndex, selectedIndex);
+            _creditCardPaymentModel.UpdateDropDownListInspectors(dropDownListIndex, selectedIndex);
             UpdateSubmitButton();
         }
 
         // Protest on Dr.Smell
         private void UpdateSubmitButton()
         {
-            _submitButton.Enabled = _creditCardPaymentModel.AllCheckersAreValid();
+            _submitButton.Enabled = _creditCardPaymentModel.AreAllValidInspectors();
         }
 
         // Protest on Dr.Smell

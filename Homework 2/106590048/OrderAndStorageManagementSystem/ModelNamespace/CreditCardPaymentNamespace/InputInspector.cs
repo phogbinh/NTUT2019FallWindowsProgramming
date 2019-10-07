@@ -1,6 +1,6 @@
 ﻿namespace OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace
 {
-    public abstract class InputChecker
+    public abstract class InputInspector
     {
         // Protest on Dr.Smell
         public abstract bool IsValid();

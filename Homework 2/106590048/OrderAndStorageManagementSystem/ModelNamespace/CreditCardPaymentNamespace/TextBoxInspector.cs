@@ -1,11 +1,11 @@
 ﻿namespace OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace
 {
-    public abstract class TextBoxChecker : InputChecker
+    public abstract class TextBoxInspector : InputInspector
     {
         protected string _text;
         protected int _maxTextLength;
 
-        public TextBoxChecker()
+        public TextBoxInspector()
         {
             /* Body intentionally empty */
         }

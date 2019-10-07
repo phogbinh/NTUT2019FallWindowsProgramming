@@ -2,11 +2,11 @@
 
 namespace OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace
 {
-    public class TextBoxIsEmailChecker : TextBoxChecker
+    public class TextBoxIsMailInspector : TextBoxInspector
     {
-        private const string ERROR_TEXT_BOX_IS_NOT_EMAIL = "This field is not an email.";
+        private const string ERROR_TEXT_BOX_IS_NOT_MAIL = "This field is not an email.";
 
-        public TextBoxIsEmailChecker() : base()
+        public TextBoxIsMailInspector() : base()
         {
             /* Body intentionally empty */
         }
@@ -28,7 +28,7 @@ namespace OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamesp
         // Protest on Dr.Smell
         public override string GetError()
         {
-            return ERROR_TEXT_BOX_IS_NOT_EMAIL;
+            return ERROR_TEXT_BOX_IS_NOT_MAIL;
         }
     }
 }

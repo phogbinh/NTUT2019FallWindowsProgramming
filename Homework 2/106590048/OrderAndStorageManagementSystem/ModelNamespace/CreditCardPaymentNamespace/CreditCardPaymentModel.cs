@@ -11,93 +11,93 @@ namespace OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamesp
         public const int CARD_NUMBER_THIRD_FIELD_INDEX = 4;
         public const int CARD_NUMBER_FOURTH_FIELD_INDEX = 5;
         public const int CARD_SECURITY_CODE_FIELD_INDEX = 6;
-        public const int EMAIL_FIELD_INDEX = 7;
+        public const int MAIL_FIELD_INDEX = 7;
         public const int ADDRESS_FIELD_INDEX = 8;
         public const int CARD_DATE_MONTH_FIELD_INDEX = 9;
         public const int CARD_DATE_YEAR_FIELD_INDEX = 10;
         private const int CONTROLS_COUNT = 11;
         private const string ERROR_FREE = "";
-        private IDictionary<int, List<InputChecker>> _controlWithCheckersContainers;
+        private IDictionary<int, List<InputInspector>> _controlWithInspectorsContainers;
 
         public CreditCardPaymentModel()
         {
-            InitializeControlWithCheckersContainers();
-            InitializeTextBoxIsNonEmptyCheckers();
-            InitializeTextBoxIsOfFullLengthCheckers();
-            InitializeTextBoxIsEmailChecker();
-            InitializeDropDownListIsSelectedCheckers();
+            InitializeControlWithInspectorsContainers();
+            InitializeTextBoxIsNotEmptyInspectors();
+            InitializeTextBoxIsOfFullLengthInspectors();
+            InitializeTextBoxIsMailInspector();
+            InitializeDropDownListIsSelectedInspectors();
         }
 
         // Protest on Dr.Smell
-        private void InitializeControlWithCheckersContainers()
+        private void InitializeControlWithInspectorsContainers()
         {
-            _controlWithCheckersContainers = new Dictionary<int, List<InputChecker>>();
+            _controlWithInspectorsContainers = new Dictionary<int, List<InputInspector>>();
             for ( int i = 0; i < CONTROLS_COUNT; i++ )
             {
-                _controlWithCheckersContainers.Add(i, new List<InputChecker>());
+                _controlWithInspectorsContainers.Add(i, new List<InputInspector>());
             }
         }
 
         // Protest on Dr.Smell
-        private void InitializeTextBoxIsNonEmptyCheckers()
+        private void InitializeTextBoxIsNotEmptyInspectors()
         {
             for ( int i = LAST_NAME_FIELD_INDEX; i <= ADDRESS_FIELD_INDEX; i++ )
             {
-                _controlWithCheckersContainers[ i ].Add(new TextBoxIsNonEmptyChecker());
+                _controlWithInspectorsContainers[ i ].Add(new TextBoxIsNotEmptyInspector());
             }
         }
 
         // Protest on Dr.Smell
-        private void InitializeTextBoxIsOfFullLengthCheckers()
+        private void InitializeTextBoxIsOfFullLengthInspectors()
         {
             for ( int i = CARD_NUMBER_FIRST_FIELD_INDEX; i <= CARD_SECURITY_CODE_FIELD_INDEX; i++ )
             {
-                _controlWithCheckersContainers[ i ].Add(new TextBoxIsOfFullLengthChecker());
+                _controlWithInspectorsContainers[ i ].Add(new TextBoxIsOfFullLengthInspector());
             }
         }
 
         // Protest on Dr.Smell
-        private void InitializeTextBoxIsEmailChecker()
+        private void InitializeTextBoxIsMailInspector()
         {
-            _controlWithCheckersContainers[ EMAIL_FIELD_INDEX ].Add(new TextBoxIsEmailChecker());
+            _controlWithInspectorsContainers[ MAIL_FIELD_INDEX ].Add(new TextBoxIsMailInspector());
         }
 
         // Protest on Dr.Smell
-        private void InitializeDropDownListIsSelectedCheckers()
+        private void InitializeDropDownListIsSelectedInspectors()
         {
             for ( int i = CARD_DATE_MONTH_FIELD_INDEX; i <= CARD_DATE_YEAR_FIELD_INDEX; i++ )
             {
-                _controlWithCheckersContainers[ i ].Add(new DropDownListIsSelectedChecker());
+                _controlWithInspectorsContainers[ i ].Add(new DropDownListIsSelectedInspector());
             }
         }
 
         // Protest on Dr.Smell
-        public void UpdateTextBoxCheckers(int textBoxIndex, string text, int maxTextLength)
+        public void UpdateTextBoxInspectors(int textBoxIndex, string text, int maxTextLength)
         {
-            foreach ( TextBoxChecker checker in _controlWithCheckersContainers[ textBoxIndex ] )
+            foreach ( TextBoxInspector inspector in _controlWithInspectorsContainers[ textBoxIndex ] )
             {
-                checker.Set(text, maxTextLength);
+                inspector.Set(text, maxTextLength);
             }
         }
 
         // Protest on Dr.Smell
-        public void UpdateDropDownListCheckers(int dropDownListIndex, int selectedIndex)
+        public void UpdateDropDownListInspectors(int dropDownListIndex, int selectedIndex)
         {
-            foreach ( DropDownListIsSelectedChecker checker in _controlWithCheckersContainers[ dropDownListIndex ] )
+            foreach ( DropDownListIsSelectedInspector inspector in _controlWithInspectorsContainers[ dropDownListIndex ] )
             {
-                checker.Set(selectedIndex);
+                inspector.Set(selectedIndex);
             }
         }
 
         // Protest on Dr.Smell
-        public bool AllCheckersAreValid()
+        public bool AreAllValidInspectors()
         {
-            foreach ( KeyValuePair<int, List<InputChecker>> container in _controlWithCheckersContainers )
+            foreach ( KeyValuePair<int, List<InputInspector>> container in _controlWithInspectorsContainers )
             {
-                List<InputChecker> checkers = container.Value;
-                foreach ( InputChecker checker in checkers )
+                List<InputInspector> inspectors = container.Value;
+                foreach ( InputInspector inspector in inspectors )
                 {
-                    if ( !checker.IsValid() )
+                    if ( !inspector.IsValid() )
                     {
                         return false;
                     }
@@ -109,11 +109,11 @@ namespace OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamesp
         // Protest on Dr.Smell
         public string GetControlError(int controlIndex)
         {
-            foreach ( InputChecker checker in _controlWithCheckersContainers[ controlIndex ] )
+            foreach ( InputInspector inspector in _controlWithInspectorsContainers[ controlIndex ] )
             {
-                if ( !checker.IsValid() )
+                if ( !inspector.IsValid() )
                 {
-                    return checker.GetError();
+                    return inspector.GetError();
                 }
             }
             return ERROR_FREE;
