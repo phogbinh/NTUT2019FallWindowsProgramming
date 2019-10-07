@@ -52,7 +52,7 @@
             this._cardDateFieldLayout = new System.Windows.Forms.TableLayoutPanel();
             this._cardDateMonthField = new System.Windows.Forms.ComboBox();
             this._cardDateYearField = new System.Windows.Forms.ComboBox();
-            this._cardDateFieldDash = new System.Windows.Forms.Label();
+            this._cardDateFieldSlash = new System.Windows.Forms.Label();
             this._cardSecurityCodeLayout = new System.Windows.Forms.TableLayoutPanel();
             this._cardSecurityCodeLabel = new System.Windows.Forms.Label();
             this._cardSecurityCodeField = new System.Windows.Forms.RichTextBox();
@@ -363,7 +363,7 @@
             this._cardDateFieldLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.47826F));
             this._cardDateFieldLayout.Controls.Add(this._cardDateMonthField, 0, 0);
             this._cardDateFieldLayout.Controls.Add(this._cardDateYearField, 2, 0);
-            this._cardDateFieldLayout.Controls.Add(this._cardDateFieldDash, 1, 0);
+            this._cardDateFieldLayout.Controls.Add(this._cardDateFieldSlash, 1, 0);
             this._cardDateFieldLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this._cardDateFieldLayout.Location = new System.Drawing.Point(3, 36);
             this._cardDateFieldLayout.Name = "_cardDateFieldLayout";
@@ -416,16 +416,16 @@
             this._cardDateYearField.Size = new System.Drawing.Size(172, 21);
             this._cardDateYearField.TabIndex = 1;
             // 
-            // _cardDateFieldDash
+            // _cardDateFieldSlash
             // 
-            this._cardDateFieldDash.AutoSize = true;
-            this._cardDateFieldDash.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._cardDateFieldDash.Location = new System.Drawing.Point(196, 0);
-            this._cardDateFieldDash.Name = "_cardDateFieldDash";
-            this._cardDateFieldDash.Size = new System.Drawing.Size(52, 28);
-            this._cardDateFieldDash.TabIndex = 2;
-            this._cardDateFieldDash.Text = "-";
-            this._cardDateFieldDash.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this._cardDateFieldSlash.AutoSize = true;
+            this._cardDateFieldSlash.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._cardDateFieldSlash.Location = new System.Drawing.Point(196, 0);
+            this._cardDateFieldSlash.Name = "_cardDateFieldSlash";
+            this._cardDateFieldSlash.Size = new System.Drawing.Size(52, 28);
+            this._cardDateFieldSlash.TabIndex = 2;
+            this._cardDateFieldSlash.Text = "/";
+            this._cardDateFieldSlash.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // _cardSecurityCodeLayout
             // 
@@ -614,7 +614,7 @@
         private System.Windows.Forms.TableLayoutPanel _cardDateFieldLayout;
         private System.Windows.Forms.ComboBox _cardDateMonthField;
         private System.Windows.Forms.ComboBox _cardDateYearField;
-        private System.Windows.Forms.Label _cardDateFieldDash;
+        private System.Windows.Forms.Label _cardDateFieldSlash;
         private System.Windows.Forms.TableLayoutPanel _cardSecurityCodeLayout;
         private System.Windows.Forms.Label _cardSecurityCodeLabel;
         private System.Windows.Forms.RichTextBox _cardSecurityCodeField;
