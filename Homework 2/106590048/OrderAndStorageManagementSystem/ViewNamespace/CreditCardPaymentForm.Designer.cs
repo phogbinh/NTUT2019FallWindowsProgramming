@@ -167,6 +167,7 @@
             this._lastNameField.Dock = System.Windows.Forms.DockStyle.Fill;
             this._lastNameField.Location = new System.Drawing.Point(3, 3);
             this._lastNameField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this._lastNameField.Multiline = false;
             this._lastNameField.Name = "_lastNameField";
             this._lastNameField.Size = new System.Drawing.Size(170, 22);
             this._lastNameField.TabIndex = 0;
@@ -177,6 +178,7 @@
             this._firstNameField.Dock = System.Windows.Forms.DockStyle.Fill;
             this._firstNameField.Location = new System.Drawing.Point(254, 3);
             this._firstNameField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this._firstNameField.Multiline = false;
             this._firstNameField.Name = "_firstNameField";
             this._firstNameField.Size = new System.Drawing.Size(172, 22);
             this._firstNameField.TabIndex = 1;
@@ -284,6 +286,7 @@
             this._cardNumberFirstField.Location = new System.Drawing.Point(3, 3);
             this._cardNumberFirstField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this._cardNumberFirstField.MaxLength = 4;
+            this._cardNumberFirstField.Multiline = false;
             this._cardNumberFirstField.Name = "_cardNumberFirstField";
             this._cardNumberFirstField.Size = new System.Drawing.Size(65, 22);
             this._cardNumberFirstField.TabIndex = 3;
@@ -295,6 +298,7 @@
             this._cardNumberSecondField.Location = new System.Drawing.Point(121, 3);
             this._cardNumberSecondField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this._cardNumberSecondField.MaxLength = 4;
+            this._cardNumberSecondField.Multiline = false;
             this._cardNumberSecondField.Name = "_cardNumberSecondField";
             this._cardNumberSecondField.Size = new System.Drawing.Size(65, 22);
             this._cardNumberSecondField.TabIndex = 4;
@@ -306,6 +310,7 @@
             this._cardNumberThirdField.Location = new System.Drawing.Point(239, 3);
             this._cardNumberThirdField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this._cardNumberThirdField.MaxLength = 4;
+            this._cardNumberThirdField.Multiline = false;
             this._cardNumberThirdField.Name = "_cardNumberThirdField";
             this._cardNumberThirdField.Size = new System.Drawing.Size(65, 22);
             this._cardNumberThirdField.TabIndex = 5;
@@ -317,6 +322,7 @@
             this._cardNumberFourthField.Location = new System.Drawing.Point(357, 3);
             this._cardNumberFourthField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this._cardNumberFourthField.MaxLength = 4;
+            this._cardNumberFourthField.Multiline = false;
             this._cardNumberFourthField.Name = "_cardNumberFourthField";
             this._cardNumberFourthField.Size = new System.Drawing.Size(69, 22);
             this._cardNumberFourthField.TabIndex = 6;
@@ -454,6 +460,7 @@
             this._cardSecurityCodeField.Location = new System.Drawing.Point(3, 36);
             this._cardSecurityCodeField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this._cardSecurityCodeField.MaxLength = 3;
+            this._cardSecurityCodeField.Multiline = false;
             this._cardSecurityCodeField.Name = "_cardSecurityCodeField";
             this._cardSecurityCodeField.Size = new System.Drawing.Size(429, 28);
             this._cardSecurityCodeField.TabIndex = 1;
@@ -491,6 +498,7 @@
             this._emailField.Dock = System.Windows.Forms.DockStyle.Fill;
             this._emailField.Location = new System.Drawing.Point(3, 36);
             this._emailField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this._emailField.Multiline = false;
             this._emailField.Name = "_emailField";
             this._emailField.Size = new System.Drawing.Size(429, 28);
             this._emailField.TabIndex = 1;
@@ -528,6 +536,7 @@
             this._addressField.Dock = System.Windows.Forms.DockStyle.Fill;
             this._addressField.Location = new System.Drawing.Point(3, 36);
             this._addressField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this._addressField.Multiline = false;
             this._addressField.Name = "_addressField";
             this._addressField.Size = new System.Drawing.Size(429, 28);
             this._addressField.TabIndex = 1;
