@@ -74,7 +74,7 @@
             this._cardSecurityCodeLayout.SuspendLayout();
             this._mailLayout.SuspendLayout();
             this._addressLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._errorProvider)).BeginInit();
+            ( ( System.ComponentModel.ISupportInitialize )( this._errorProvider ) ).BeginInit();
             this.SuspendLayout();
             // 
             // _formLayout
@@ -110,7 +110,7 @@
             // 
             this._windowTitle.AutoSize = true;
             this._windowTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._windowTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this._windowTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
             this._windowTitle.Location = new System.Drawing.Point(13, 10);
             this._windowTitle.Name = "_windowTitle";
             this._windowTitle.Size = new System.Drawing.Size(452, 73);
@@ -584,7 +584,7 @@
             this._mailLayout.PerformLayout();
             this._addressLayout.ResumeLayout(false);
             this._addressLayout.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._errorProvider)).EndInit();
+            ( ( System.ComponentModel.ISupportInitialize )( this._errorProvider ) ).EndInit();
             this.ResumeLayout(false);
 
         }

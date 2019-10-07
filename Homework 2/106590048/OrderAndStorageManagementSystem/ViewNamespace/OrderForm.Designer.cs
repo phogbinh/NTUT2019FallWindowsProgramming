@@ -67,7 +67,7 @@
             this._pageArrowsLayout.SuspendLayout();
             this._orderFormLayout.SuspendLayout();
             this._cartSectionLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._cartDataGridView)).BeginInit();
+            ( ( System.ComponentModel.ISupportInitialize )( this._cartDataGridView ) ).BeginInit();
             this._cartSectionLastRowLayout.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -204,7 +204,7 @@
             // _productNameAndDescription
             // 
             this._productNameAndDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._productNameAndDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this._productNameAndDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
             this._productNameAndDescription.Location = new System.Drawing.Point(3, 3);
             this._productNameAndDescription.Name = "_productNameAndDescription";
             this._productNameAndDescription.ReadOnly = true;
@@ -215,7 +215,7 @@
             // _productPrice
             // 
             this._productPrice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._productPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this._productPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
             this._productPrice.Location = new System.Drawing.Point(253, 3);
             this._productPrice.Name = "_productPrice";
             this._productPrice.ReadOnly = true;
@@ -243,8 +243,8 @@
             // 
             // _addButton
             // 
-            this._addButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this._addButton.Anchor = ( ( System.Windows.Forms.AnchorStyles )( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
+            | System.Windows.Forms.AnchorStyles.Right ) ) );
             this._addButton.Image = global::OrderAndStorageManagementSystem.Properties.Resources.img_add;
             this._addButton.Location = new System.Drawing.Point(333, 3);
             this._addButton.Name = "_addButton";
@@ -290,10 +290,10 @@
             // 
             // _pageLabel
             // 
-            this._pageLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this._pageLabel.Anchor = ( ( System.Windows.Forms.AnchorStyles )( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
+            | System.Windows.Forms.AnchorStyles.Left ) ) );
             this._pageLabel.AutoSize = true;
-            this._pageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this._pageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
             this._pageLabel.Location = new System.Drawing.Point(3, 0);
             this._pageLabel.Name = "_pageLabel";
             this._pageLabel.Size = new System.Drawing.Size(0, 53);
@@ -387,7 +387,7 @@
             // 
             this._cartSectionTitle.AutoSize = true;
             this._cartSectionTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._cartSectionTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this._cartSectionTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
             this._cartSectionTitle.Location = new System.Drawing.Point(3, 0);
             this._cartSectionTitle.Name = "_cartSectionTitle";
             this._cartSectionTitle.Size = new System.Drawing.Size(442, 66);
@@ -414,7 +414,7 @@
             // 
             this._cartTotalPrice.AutoSize = true;
             this._cartTotalPrice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._cartTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this._cartTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
             this._cartTotalPrice.Location = new System.Drawing.Point(3, 0);
             this._cartTotalPrice.Name = "_cartTotalPrice";
             this._cartTotalPrice.Size = new System.Drawing.Size(296, 62);
@@ -424,7 +424,7 @@
             // _orderButton
             // 
             this._orderButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._orderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this._orderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
             this._orderButton.Location = new System.Drawing.Point(305, 3);
             this._orderButton.Name = "_orderButton";
             this._orderButton.Size = new System.Drawing.Size(134, 56);
@@ -452,7 +452,7 @@
             this._orderFormLayout.PerformLayout();
             this._cartSectionLayout.ResumeLayout(false);
             this._cartSectionLayout.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._cartDataGridView)).EndInit();
+            ( ( System.ComponentModel.ISupportInitialize )( this._cartDataGridView ) ).EndInit();
             this._cartSectionLastRowLayout.ResumeLayout(false);
             this._cartSectionLastRowLayout.PerformLayout();
             this.ResumeLayout(false);

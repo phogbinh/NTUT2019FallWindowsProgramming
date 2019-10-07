@@ -34,7 +34,7 @@
             // _temporaryLabel
             // 
             this._temporaryLabel.AutoSize = true;
-            this._temporaryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this._temporaryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
             this._temporaryLabel.Location = new System.Drawing.Point(159, 172);
             this._temporaryLabel.Name = "_temporaryLabel";
             this._temporaryLabel.Size = new System.Drawing.Size(492, 76);
