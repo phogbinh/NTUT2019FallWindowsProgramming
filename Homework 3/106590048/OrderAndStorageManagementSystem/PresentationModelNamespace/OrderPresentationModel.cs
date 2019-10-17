@@ -143,8 +143,6 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         public void AddCurrentSelectedProductToOrder()
         {
             _model.AddProductToOrder(_currentSelectedProduct);
-            UpdateCartTotalPrice();
-            UpdateOrderButton();
         }
 
         // Protest on Dr.Smell

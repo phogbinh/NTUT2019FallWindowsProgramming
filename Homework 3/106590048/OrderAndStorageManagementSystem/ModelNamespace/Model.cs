@@ -60,6 +60,7 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
         public void AddProductToOrder(Product product)
         {
             _order.AddProduct(product);
+            NotifyObserverChangeOrder();
         }
 
         // Protest on Dr.Smell

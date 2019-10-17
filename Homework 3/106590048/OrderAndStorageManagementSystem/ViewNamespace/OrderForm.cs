@@ -117,7 +117,6 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             string productPrice = _orderPresentationModel.CurrentSelectedProduct.Price.GetCurrencyFormat();
             _cartDataGridView.Rows.Add(null, productName, productType, productPrice);
             _orderPresentationModel.AddCurrentSelectedProductToOrder();
-            RefreshControls();
         }
 
         // Protest on Dr.Smell
