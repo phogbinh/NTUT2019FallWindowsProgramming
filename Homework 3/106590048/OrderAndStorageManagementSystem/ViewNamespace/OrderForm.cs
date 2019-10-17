@@ -40,6 +40,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             InitializeProductTabPages();
             // Initial UI States
             SelectProductTabPage(AppDefinition.MOTHER_BOARD_INDEX);
+            UpdateOrderView();
             RefreshControls();
         }
 
@@ -206,11 +207,9 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             _productNameAndDescription.Text = _orderPresentationModel.ProductNameAndDescription.Text;
             _productPrice.Text = _orderPresentationModel.ProductPrice.Text;
             _addButton.Enabled = _orderPresentationModel.AddButton.Enabled;
-            _cartTotalPrice.Text = _orderPresentationModel.CartTotalPrice.Text;
             _pageLabel.Text = _orderPresentationModel.PageLabel.Text;
             _leftArrowButton.Enabled = _orderPresentationModel.LeftArrowButton.Enabled;
             _rightArrowButton.Enabled = _orderPresentationModel.RightArrowButton.Enabled;
-            _orderButton.Enabled = _orderPresentationModel.OrderButton.Enabled;
         }
     }
 }

@@ -26,13 +26,6 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
                 return _addButton;
             }
         }
-        public ControlStates CartTotalPrice
-        {
-            get
-            {
-                return _cartTotalPrice;
-            }
-        }
         public ControlStates PageLabel
         {
             get
@@ -54,13 +47,6 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
                 return _rightArrowButton;
             }
         }
-        public ControlStates OrderButton
-        {
-            get
-            {
-                return _orderButton;
-            }
-        }
         public Product CurrentSelectedProduct
         {
             get
@@ -73,11 +59,9 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         private ControlStates _productNameAndDescription;
         private ControlStates _productPrice;
         private ControlStates _addButton;
-        private ControlStates _cartTotalPrice;
         private ControlStates _pageLabel;
         private ControlStates _leftArrowButton;
         private ControlStates _rightArrowButton;
-        private ControlStates _orderButton;
         private Product _currentSelectedProduct;
         private int _currentTabPageIndex;
         private int _currentProductPageIndex;
@@ -89,13 +73,9 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
             _productNameAndDescription = new ControlStates();
             _productPrice = new ControlStates();
             _addButton = new ControlStates();
-            _cartTotalPrice = new ControlStates();
-            UpdateCartTotalPrice();
             _pageLabel = new ControlStates();
             _leftArrowButton = new ControlStates();
             _rightArrowButton = new ControlStates();
-            _orderButton = new ControlStates();
-            UpdateOrderButton();
         }
 
         /// <summary>
@@ -143,12 +123,6 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         public void AddCurrentSelectedProductToOrder()
         {
             _model.AddProductToOrder(_currentSelectedProduct);
-        }
-
-        // Protest on Dr.Smell
-        private void UpdateCartTotalPrice()
-        {
-            _cartTotalPrice.Text = AppDefinition.CART_TOTAL_PRICE_TEXT + _model.GetOrderTotalPrice();
         }
 
         // Protest on Dr.Smell
@@ -201,12 +175,6 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         {
             _currentProductPageIndex++;
             UpdateCurrentProductPage();
-        }
-
-        // Protest on Dr.Smell
-        private void UpdateOrderButton()
-        {
-            _orderButton.Enabled = _model.GetOrderProductsCount() != 0;
         }
     }
 }
