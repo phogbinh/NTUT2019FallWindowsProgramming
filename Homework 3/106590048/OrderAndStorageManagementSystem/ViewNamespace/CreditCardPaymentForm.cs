@@ -16,6 +16,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             InitializeComponent();
             _creditCardPaymentPresentationModel = creditCardPaymentPresentationModelData;
             // UI
+            this.FormClosed += (sender, eventArguments) => _cardSecurityCodeField.Text = AppDefinition.EMPTY_STRING;
             _submitButton.Click += ClickSubmitButton;
             InitializeInputHandlers();
             InitializeControlInspectors();
@@ -29,7 +30,6 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         {
             if ( MessageBox.Show(ORDER_COMPLETE_MESSAGE) == DialogResult.OK )
             {
-                _cardSecurityCodeField.Text = AppDefinition.EMPTY_STRING;
                 this.Close();
             }
         }
