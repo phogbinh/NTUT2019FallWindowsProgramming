@@ -130,7 +130,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         private void GoToPreviousPage()
         {
             _orderPresentationModel.GoToPreviousPage();
-            PopulateProductTabPageAtCurrentProductPage(_productTabControl.SelectedIndex);
+            UpdateProductTabPageButtonsInCurrentProductTabPageAtCurrentProductPage();
             RefreshControls();
         }
 
@@ -138,7 +138,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         private void GoToNextPage()
         {
             _orderPresentationModel.GoToNextPage();
-            PopulateProductTabPageAtCurrentProductPage(_productTabControl.SelectedIndex);
+            UpdateProductTabPageButtonsInCurrentProductTabPageAtCurrentProductPage();
             RefreshControls();
         }
 
@@ -146,7 +146,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         private void SelectProductTabPage(int tabPageIndex)
         {
             _orderPresentationModel.SelectProductTabPage(tabPageIndex);
-            PopulateProductTabPageAtCurrentProductPage(_productTabControl.SelectedIndex);
+            UpdateProductTabPageButtonsInCurrentProductTabPageAtCurrentProductPage();
             RefreshControls();
         }
 
@@ -181,12 +181,13 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         }
 
         // Protest on Dr.Smell
-        private void PopulateProductTabPageAtCurrentProductPage(int tabPageIndex)
+        private void UpdateProductTabPageButtonsInCurrentProductTabPageAtCurrentProductPage()
         {
-            List<OrderProductTabPageButton> productTabPageButtons = _productTabPageButtonsContainers[ tabPageIndex ];
+            int currentTabPageIndex = _productTabControl.SelectedIndex;
+            List<OrderProductTabPageButton> productTabPageButtons = _productTabPageButtonsContainers[ currentTabPageIndex ];
             for ( int i = 0; i < AppDefinition.TAB_PAGE_MAX_PRODUCTS_COUNT; i++ )
             {
-                productTabPageButtons[ i ].Product = _orderPresentationModel.GetProductAtCurrentProductPage(tabPageIndex, i);
+                productTabPageButtons[ i ].Product = _orderPresentationModel.GetProductAtCurrentProductPage(currentTabPageIndex, i);
             }
         }
 
