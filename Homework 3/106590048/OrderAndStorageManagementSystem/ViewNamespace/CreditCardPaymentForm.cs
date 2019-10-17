@@ -94,11 +94,23 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             textBox.Leave += (sender, eventArguments) => UpdateTextBoxInspectorsAndSetError(textBox, textBoxIndex);
         }
 
+        private delegate void UpdateControlInspectorsFunction();
+
         // Protest on Dr.Smell
         private void UpdateTextBoxInspectorsAndSetError(RichTextBox textBox, int textBoxIndex)
         {
-            _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(textBoxIndex, textBox.Text, textBox.MaxLength);
-            _errorProvider.SetError(textBox, _creditCardPaymentPresentationModel.GetControlError(textBoxIndex));
+            UpdateControlInspectorsFunction updateTextBoxInspectorsFunction = delegate ()
+            {
+                _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(textBoxIndex, textBox.Text, textBox.MaxLength);
+            };
+            UpdateControlInspectorsAndSetError(textBox, textBoxIndex, updateTextBoxInspectorsFunction);
+        }
+
+        // Protest on Dr.Smell
+        private void UpdateControlInspectorsAndSetError(Control control, int controlIndex, UpdateControlInspectorsFunction updateControlInspectorsFunction)
+        {
+            updateControlInspectorsFunction();
+            _errorProvider.SetError(control, _creditCardPaymentPresentationModel.GetControlError(controlIndex));
             RefreshControls();
         }
 
@@ -119,9 +131,11 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         // Protest on Dr.Smell
         private void UpdateDropDownListInspectorsAndSetError(ComboBox dropDownList, int dropDownListIndex)
         {
-            _creditCardPaymentPresentationModel.UpdateDropDownListInspectors(dropDownListIndex, dropDownList.SelectedIndex);
-            _errorProvider.SetError(dropDownList, _creditCardPaymentPresentationModel.GetControlError(dropDownListIndex));
-            RefreshControls();
+            UpdateControlInspectorsFunction updateDropDownListInspectorsFunction = delegate ()
+            {
+                _creditCardPaymentPresentationModel.UpdateDropDownListInspectors(dropDownListIndex, dropDownList.SelectedIndex);
+            };
+            UpdateControlInspectorsAndSetError(dropDownList, dropDownListIndex, updateDropDownListInspectorsFunction);
         }
 
         // Protest on Dr.Smell
