@@ -109,7 +109,8 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             var productTabPageItems = new List<OrderProductTabPageButton>();
             for ( int i = 0; i < AppDefinition.TAB_PAGE_MAX_PRODUCTS_COUNT; i++ )
             {
-                OrderProductTabPageButton item = new OrderProductTabPageButton(this, new Button());
+                OrderProductTabPageButton item = new OrderProductTabPageButton();
+                item.Click += (sender, eventArguments) => SelectProduct(item.Product);
                 productTabPageItems.Add(item);
             }
             return productTabPageItems;
@@ -181,8 +182,8 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
                 for ( int column = 0; column < AppDefinition.TAB_PAGE_LAYOUT_COLUMN_COUNT; column++ )
                 {
                     OrderProductTabPageButton item = _productTabPageItemsContainers[ tabPageIndex ][ productTabPageItemsCount ];
-                    tabPageLayout.Controls.Add(item.Button, column, row);
-                    item.Button.Dock = DockStyle.Fill; // Make button fill in table cell
+                    tabPageLayout.Controls.Add(item, column, row);
+                    item.Dock = DockStyle.Fill; // Make button fill in table cell
                     productTabPageItemsCount++;
                 }
             }
