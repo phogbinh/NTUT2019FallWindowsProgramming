@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace OrderAndStorageManagementSystem.ViewNamespace
 {
-    public class OrderProductTabPageItem
+    public class OrderProductTabPageButton
     {
         public Button Button
         {
@@ -28,7 +28,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         private Button _button;
         private Product _product;
 
-        public OrderProductTabPageItem(OrderForm orderFormData, Button buttonData)
+        public OrderProductTabPageButton(OrderForm orderFormData, Button buttonData)
         {
             _orderForm = orderFormData;
             _button = buttonData;

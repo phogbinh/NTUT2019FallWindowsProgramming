@@ -15,7 +15,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         private OrderModel _orderModel;
         private Model _model;
         private List<Product> _products;
-        private List<List<OrderProductTabPageItem>> _productTabPageItemsContainers;
+        private List<List<OrderProductTabPageButton>> _productTabPageItemsContainers;
 
         public OrderForm(CreditCardPaymentForm creditCardPaymentFormData, OrderPresentationModel orderPresentationModelData, OrderModel orderModelData, Model modelData)
         {
@@ -96,7 +96,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         // Protest on Dr.Smell
         private void InitializeProductTabPageItemsContainers()
         {
-            _productTabPageItemsContainers = new List<List<OrderProductTabPageItem>>();
+            _productTabPageItemsContainers = new List<List<OrderProductTabPageButton>>();
             for ( int i = 0; i < AppDefinition.TAB_PAGES_COUNT; i++ )
             {
                 _productTabPageItemsContainers.Add(CreateProductTabPageItems());
@@ -104,12 +104,12 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         }
 
         // Protest on Dr.Smell
-        private List<OrderProductTabPageItem> CreateProductTabPageItems()
+        private List<OrderProductTabPageButton> CreateProductTabPageItems()
         {
-            var productTabPageItems = new List<OrderProductTabPageItem>();
+            var productTabPageItems = new List<OrderProductTabPageButton>();
             for ( int i = 0; i < AppDefinition.TAB_PAGE_MAX_PRODUCTS_COUNT; i++ )
             {
-                OrderProductTabPageItem item = new OrderProductTabPageItem(this, new Button());
+                OrderProductTabPageButton item = new OrderProductTabPageButton(this, new Button());
                 productTabPageItems.Add(item);
             }
             return productTabPageItems;
@@ -180,7 +180,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             {
                 for ( int column = 0; column < AppDefinition.TAB_PAGE_LAYOUT_COLUMN_COUNT; column++ )
                 {
-                    OrderProductTabPageItem item = _productTabPageItemsContainers[ tabPageIndex ][ productTabPageItemsCount ];
+                    OrderProductTabPageButton item = _productTabPageItemsContainers[ tabPageIndex ][ productTabPageItemsCount ];
                     tabPageLayout.Controls.Add(item.Button, column, row);
                     item.Button.Dock = DockStyle.Fill; // Make button fill in table cell
                     productTabPageItemsCount++;
@@ -191,7 +191,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         // Protest on Dr.Smell
         private void RefreshProductTabPage(int tabPageIndex)
         {
-            List<OrderProductTabPageItem> productTabPageItems = _productTabPageItemsContainers[ tabPageIndex ];
+            List<OrderProductTabPageButton> productTabPageItems = _productTabPageItemsContainers[ tabPageIndex ];
             for ( int i = 0; i < AppDefinition.TAB_PAGE_MAX_PRODUCTS_COUNT; i++ )
             {
                 productTabPageItems[ i ].Product = _orderPresentationModel.GetProduct(tabPageIndex, i);
