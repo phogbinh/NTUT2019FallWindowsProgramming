@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace
 {
@@ -74,18 +75,23 @@ namespace OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamesp
         // Protest on Dr.Smell
         public void UpdateTextBoxInspectors(int textBoxIndex, string text, int maxTextLength)
         {
-            foreach ( TextBoxInspector inspector in _controlWithInspectorsContainers[ textBoxIndex ] )
-            {
-                inspector.Set(text, maxTextLength);
-            }
+            Action<InputInspector> setTextBoxInspectorFunction = (inspector) => ( ( TextBoxInspector )inspector ).Set(text, maxTextLength);
+            UpdateControlInspectors(textBoxIndex, setTextBoxInspectorFunction);
         }
 
         // Protest on Dr.Smell
         public void UpdateDropDownListInspectors(int dropDownListIndex, int selectedIndex)
         {
-            foreach ( DropDownListIsSelectedInspector inspector in _controlWithInspectorsContainers[ dropDownListIndex ] )
+            Action<InputInspector> setDropDownListIsSelectedInspectorFunction = (inspector) => ( ( DropDownListIsSelectedInspector )inspector ).Set(selectedIndex);
+            UpdateControlInspectors(dropDownListIndex, setDropDownListIsSelectedInspectorFunction);
+        }
+
+        // Protest on Dr.Smell
+        private void UpdateControlInspectors(int controlIndex, Action<InputInspector> setInspectorFunction)
+        {
+            foreach ( InputInspector inspector in _controlWithInspectorsContainers[ controlIndex ] )
             {
-                inspector.Set(selectedIndex);
+                setInspectorFunction(inspector);
             }
         }
 
