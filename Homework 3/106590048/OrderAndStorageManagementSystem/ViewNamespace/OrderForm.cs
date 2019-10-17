@@ -79,9 +79,8 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             }
             if ( eventArguments.ColumnIndex == 0 )
             {
-                _orderPresentationModel.RemoveProductFromOrder(eventArguments.RowIndex);
+                _model.RemoveProductFromOrder(eventArguments.RowIndex);
                 _cartDataGridView.Rows.RemoveAt(eventArguments.RowIndex);
-                RefreshControls();
             }
         }
 

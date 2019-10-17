@@ -72,6 +72,13 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
         public void RemoveProductFromOrder(int productIndex)
         {
             _order.RemoveProductAt(productIndex);
+            NotifyObserverChangeOrder();
+        }
+
+        // Protest on Dr.Smell
+        private void NotifyObserverChangeOrder()
+        {
+            OrderChanged?.Invoke();
         }
 
         // Protest on Dr.Smell

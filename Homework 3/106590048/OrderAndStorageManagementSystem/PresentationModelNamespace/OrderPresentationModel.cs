@@ -206,14 +206,6 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         }
 
         // Protest on Dr.Smell
-        public void RemoveProductFromOrder(int productIndex)
-        {
-            _model.RemoveProductFromOrder(productIndex);
-            UpdateCartTotalPrice();
-            UpdateOrderButton();
-        }
-
-        // Protest on Dr.Smell
         private void UpdateOrderButton()
         {
             _orderButton.Enabled = _model.GetOrderProductsCount() != 0;
