@@ -45,9 +45,9 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         // Protest on Dr.Smell
         private void UpdateOrderView()
         {
-            _orderPresentationModel.ClearOrder();
+            _cartTotalPrice.Text = AppDefinition.CART_TOTAL_PRICE_TEXT + _model.GetOrderTotalPrice();
+            _orderButton.Enabled = _model.GetOrderProductsCount() != 0;
             _cartDataGridView.Rows.Clear();
-            RefreshControls();
         }
 
         // Protest on Dr.Smell

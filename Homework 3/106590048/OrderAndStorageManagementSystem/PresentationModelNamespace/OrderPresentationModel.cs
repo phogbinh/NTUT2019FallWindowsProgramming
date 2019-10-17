@@ -218,12 +218,5 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         {
             _orderButton.Enabled = _model.GetOrderProductsCount() != 0;
         }
-
-        // Protest on Dr.Smell
-        public void ClearOrder()
-        {
-            UpdateCartTotalPrice();
-            UpdateOrderButton();
-        }
     }
 }
