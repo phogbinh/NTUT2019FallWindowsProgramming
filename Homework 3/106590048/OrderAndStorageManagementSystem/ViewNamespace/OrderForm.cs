@@ -28,6 +28,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             InitializeProductTabPageButtonsContainers();
             // Event Handlers
             _model.OrderChanged += UpdateOrderView;
+            _model.OrderCleared += () => _cartDataGridView.Rows.Clear();
             // UI
             _cartDataGridView.CellPainting += CartDataGridViewCellPainting;
             _cartDataGridView.CellContentClick += CartDataGridViewCellContentClick;
@@ -47,7 +48,6 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         {
             _cartTotalPrice.Text = AppDefinition.CART_TOTAL_PRICE_TEXT + _model.GetOrderTotalPrice();
             _orderButton.Enabled = _model.GetOrderProductsCount() != 0;
-            _cartDataGridView.Rows.Clear();
         }
 
         // Protest on Dr.Smell
