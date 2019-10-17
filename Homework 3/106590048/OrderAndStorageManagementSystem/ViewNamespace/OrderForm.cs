@@ -44,10 +44,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         // Protest on Dr.Smell
         private void CloseCreditCardPaymentForm(object sender, FormClosedEventArgs eventArguments)
         {
-            if ( ( ( Form )sender ).DialogResult == DialogResult.OK )
-            {
-                ClearOrder();
-            }
+            ClearOrder();
         }
 
         // Protest on Dr.Smell

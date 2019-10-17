@@ -30,7 +30,6 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             if ( MessageBox.Show(ORDER_COMPLETE_MESSAGE) == DialogResult.OK )
             {
                 _cardSecurityCodeField.Text = AppDefinition.EMPTY_STRING;
-                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
         }
