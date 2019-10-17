@@ -9,7 +9,6 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
     public partial class CreditCardPaymentForm : Form
     {
         private const string ORDER_COMPLETE_MESSAGE = "訂購完成";
-
         private CreditCardPaymentPresentationModel _creditCardPaymentPresentationModel;
 
         public CreditCardPaymentForm(CreditCardPaymentPresentationModel creditCardPaymentPresentationModelData)
