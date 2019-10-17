@@ -84,11 +84,11 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
         public void ClearOrder()
         {
             _order.ClearOrder();
-            NotifyObserver();
+            NotifyObserverClearOrder();
         }
 
         // Protest on Dr.Smell
-        private void NotifyObserver()
+        private void NotifyObserverClearOrder()
         {
             OrderChanged?.Invoke();
             OrderCleared?.Invoke();
