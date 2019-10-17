@@ -10,11 +10,13 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
     {
         private const string ORDER_COMPLETE_MESSAGE = "訂購完成";
         private CreditCardPaymentPresentationModel _creditCardPaymentPresentationModel;
+        private Model _model;
 
-        public CreditCardPaymentForm(CreditCardPaymentPresentationModel creditCardPaymentPresentationModelData)
+        public CreditCardPaymentForm(CreditCardPaymentPresentationModel creditCardPaymentPresentationModelData, Model modelData)
         {
             InitializeComponent();
             _creditCardPaymentPresentationModel = creditCardPaymentPresentationModelData;
+            _model = modelData;
             // UI
             this.FormClosed += (sender, eventArguments) => _cardSecurityCodeField.Text = AppDefinition.EMPTY_STRING;
             _submitButton.Click += ClickSubmitButton;
@@ -30,6 +32,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         {
             if ( MessageBox.Show(ORDER_COMPLETE_MESSAGE) == DialogResult.OK )
             {
+                _model.ClearOrder();
                 this.Close();
             }
         }
