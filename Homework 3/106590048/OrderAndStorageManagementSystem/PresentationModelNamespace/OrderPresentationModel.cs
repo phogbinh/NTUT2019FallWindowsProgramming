@@ -114,7 +114,7 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         }
 
         // Protest on Dr.Smell
-        public Product GetProduct(int tabPageIndex, int productIndex)
+        public Product GetProductAtCurrentProductPage(int tabPageIndex, int productIndex)
         {
             return _orderModel.GetProduct(tabPageIndex, _currentProductPageIndex, productIndex);
         }

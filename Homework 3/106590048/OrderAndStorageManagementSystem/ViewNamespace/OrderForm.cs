@@ -130,7 +130,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         private void GoToPreviousPage()
         {
             _orderPresentationModel.GoToPreviousPage();
-            RefreshProductTabPage(_productTabControl.SelectedIndex);
+            PopulateProductTabPageAtCurrentProductPage(_productTabControl.SelectedIndex);
             RefreshControls();
         }
 
@@ -138,7 +138,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         private void GoToNextPage()
         {
             _orderPresentationModel.GoToNextPage();
-            RefreshProductTabPage(_productTabControl.SelectedIndex);
+            PopulateProductTabPageAtCurrentProductPage(_productTabControl.SelectedIndex);
             RefreshControls();
         }
 
@@ -146,7 +146,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         private void SelectProductTabPage(int tabPageIndex)
         {
             _orderPresentationModel.SelectProductTabPage(tabPageIndex);
-            RefreshProductTabPage(_productTabControl.SelectedIndex);
+            PopulateProductTabPageAtCurrentProductPage(_productTabControl.SelectedIndex);
             RefreshControls();
         }
 
@@ -181,12 +181,12 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         }
 
         // Protest on Dr.Smell
-        private void RefreshProductTabPage(int tabPageIndex)
+        private void PopulateProductTabPageAtCurrentProductPage(int tabPageIndex)
         {
             List<OrderProductTabPageButton> productTabPageButtons = _productTabPageButtonsContainers[ tabPageIndex ];
             for ( int i = 0; i < AppDefinition.TAB_PAGE_MAX_PRODUCTS_COUNT; i++ )
             {
-                productTabPageButtons[ i ].Product = _orderPresentationModel.GetProduct(tabPageIndex, i);
+                productTabPageButtons[ i ].Product = _orderPresentationModel.GetProductAtCurrentProductPage(tabPageIndex, i);
             }
         }
 
