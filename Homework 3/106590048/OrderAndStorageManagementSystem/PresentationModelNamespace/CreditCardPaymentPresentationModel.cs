@@ -33,13 +33,6 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
         }
 
         // Protest on Dr.Smell
-        private void UpdateControlInspectors(UpdateControlInspectorsFunction updateControlInspectorsFunction)
-        {
-            updateControlInspectorsFunction();
-            UpdateSubmitButton();
-        }
-
-        // Protest on Dr.Smell
         public void UpdateDropDownListInspectors(int dropDownListIndex, int selectedIndex)
         {
             UpdateControlInspectorsFunction updateDropDownListInspectorsFunction = delegate ()
@@ -47,6 +40,13 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
                 _creditCardPaymentModel.UpdateDropDownListInspectors(dropDownListIndex, selectedIndex);
             };
             UpdateControlInspectors(updateDropDownListInspectorsFunction);
+        }
+
+        // Protest on Dr.Smell
+        private void UpdateControlInspectors(UpdateControlInspectorsFunction updateControlInspectorsFunction)
+        {
+            updateControlInspectorsFunction();
+            UpdateSubmitButton();
         }
 
         // Protest on Dr.Smell
