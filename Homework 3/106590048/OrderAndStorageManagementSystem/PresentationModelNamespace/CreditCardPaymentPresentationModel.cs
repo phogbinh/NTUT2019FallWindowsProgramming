@@ -1,4 +1,5 @@
 ﻿using OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace;
+using System;
 
 namespace OrderAndStorageManagementSystem.PresentationModelNamespace
 {
@@ -20,30 +21,22 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
             _submitButton = new ControlStates();
         }
 
-        private delegate void UpdateControlInspectorsFunction();
-
         // Protest on Dr.Smell
         public void UpdateTextBoxInspectors(int textBoxIndex, string text, int maxTextLength)
         {
-            UpdateControlInspectorsFunction updateTextBoxInspectorsFunction = delegate ()
-            {
-                _creditCardPaymentModel.UpdateTextBoxInspectors(textBoxIndex, text, maxTextLength);
-            };
+            Action updateTextBoxInspectorsFunction = () => _creditCardPaymentModel.UpdateTextBoxInspectors(textBoxIndex, text, maxTextLength);
             UpdateControlInspectors(updateTextBoxInspectorsFunction);
         }
 
         // Protest on Dr.Smell
         public void UpdateDropDownListInspectors(int dropDownListIndex, int selectedIndex)
         {
-            UpdateControlInspectorsFunction updateDropDownListInspectorsFunction = delegate ()
-            {
-                _creditCardPaymentModel.UpdateDropDownListInspectors(dropDownListIndex, selectedIndex);
-            };
+            Action updateDropDownListInspectorsFunction = () => _creditCardPaymentModel.UpdateDropDownListInspectors(dropDownListIndex, selectedIndex);
             UpdateControlInspectors(updateDropDownListInspectorsFunction);
         }
 
         // Protest on Dr.Smell
-        private void UpdateControlInspectors(UpdateControlInspectorsFunction updateControlInspectorsFunction)
+        private void UpdateControlInspectors(Action updateControlInspectorsFunction)
         {
             updateControlInspectorsFunction();
             UpdateSubmitButton();

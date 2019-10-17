@@ -94,20 +94,15 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             textBox.Leave += (sender, eventArguments) => UpdateTextBoxInspectorsAndSetError(textBox, textBoxIndex);
         }
 
-        private delegate void UpdateControlInspectorsFunction();
-
         // Protest on Dr.Smell
         private void UpdateTextBoxInspectorsAndSetError(RichTextBox textBox, int textBoxIndex)
         {
-            UpdateControlInspectorsFunction updateTextBoxInspectorsFunction = delegate ()
-            {
-                _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(textBoxIndex, textBox.Text, textBox.MaxLength);
-            };
+            Action updateTextBoxInspectorsFunction = () => _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(textBoxIndex, textBox.Text, textBox.MaxLength);
             UpdateControlInspectorsAndSetError(textBox, textBoxIndex, updateTextBoxInspectorsFunction);
         }
 
         // Protest on Dr.Smell
-        private void UpdateControlInspectorsAndSetError(Control control, int controlIndex, UpdateControlInspectorsFunction updateControlInspectorsFunction)
+        private void UpdateControlInspectorsAndSetError(Control control, int controlIndex, Action updateControlInspectorsFunction)
         {
             updateControlInspectorsFunction();
             _errorProvider.SetError(control, _creditCardPaymentPresentationModel.GetControlError(controlIndex));
@@ -131,10 +126,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         // Protest on Dr.Smell
         private void UpdateDropDownListInspectorsAndSetError(ComboBox dropDownList, int dropDownListIndex)
         {
-            UpdateControlInspectorsFunction updateDropDownListInspectorsFunction = delegate ()
-            {
-                _creditCardPaymentPresentationModel.UpdateDropDownListInspectors(dropDownListIndex, dropDownList.SelectedIndex);
-            };
+            Action updateDropDownListInspectorsFunction = () => _creditCardPaymentPresentationModel.UpdateDropDownListInspectors(dropDownListIndex, dropDownList.SelectedIndex);
             UpdateControlInspectorsAndSetError(dropDownList, dropDownListIndex, updateDropDownListInspectorsFunction);
         }
 
