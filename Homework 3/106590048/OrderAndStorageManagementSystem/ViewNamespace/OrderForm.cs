@@ -27,7 +27,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             _products = _model.Products;
             InitializeProductTabPageButtonsContainers();
             // Event Handlers
-            _model.OrderChanged += UpdateOrderView;
+            _model.OrderChanged += UpdateCartSectionView;
             _model.OrderCleared += () => _cartDataGridView.Rows.Clear();
             // UI
             _cartDataGridView.CellPainting += CartDataGridViewCellPainting;
@@ -40,12 +40,12 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             InitializeProductTabPages();
             // Initial UI States
             SelectProductTabPage(AppDefinition.MOTHER_BOARD_INDEX);
-            UpdateOrderView();
+            UpdateCartSectionView();
             RefreshControls();
         }
 
         // Protest on Dr.Smell
-        private void UpdateOrderView()
+        private void UpdateCartSectionView()
         {
             _cartTotalPrice.Text = AppDefinition.CART_TOTAL_PRICE_TEXT + _model.GetOrderTotalPrice();
             _orderButton.Enabled = _model.GetOrderProductsCount() != 0;
