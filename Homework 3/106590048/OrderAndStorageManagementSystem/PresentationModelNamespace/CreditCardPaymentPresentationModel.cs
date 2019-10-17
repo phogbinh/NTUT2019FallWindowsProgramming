@@ -20,18 +20,33 @@ namespace OrderAndStorageManagementSystem.PresentationModelNamespace
             _submitButton = new ControlStates();
         }
 
+        private delegate void UpdateControlInspectorsFunction();
+
         // Protest on Dr.Smell
         public void UpdateTextBoxInspectors(int textBoxIndex, string text, int maxTextLength)
         {
-            _creditCardPaymentModel.UpdateTextBoxInspectors(textBoxIndex, text, maxTextLength);
+            UpdateControlInspectorsFunction updateTextBoxInspectorsFunction = delegate ()
+            {
+                _creditCardPaymentModel.UpdateTextBoxInspectors(textBoxIndex, text, maxTextLength);
+            };
+            UpdateControlInspectors(updateTextBoxInspectorsFunction);
+        }
+
+        // Protest on Dr.Smell
+        private void UpdateControlInspectors(UpdateControlInspectorsFunction updateControlInspectorsFunction)
+        {
+            updateControlInspectorsFunction();
             UpdateSubmitButton();
         }
 
         // Protest on Dr.Smell
         public void UpdateDropDownListInspectors(int dropDownListIndex, int selectedIndex)
         {
-            _creditCardPaymentModel.UpdateDropDownListInspectors(dropDownListIndex, selectedIndex);
-            UpdateSubmitButton();
+            UpdateControlInspectorsFunction updateDropDownListInspectorsFunction = delegate ()
+            {
+                _creditCardPaymentModel.UpdateDropDownListInspectors(dropDownListIndex, selectedIndex);
+            };
+            UpdateControlInspectors(updateDropDownListInspectorsFunction);
         }
 
         // Protest on Dr.Smell
