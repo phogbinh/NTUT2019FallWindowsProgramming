@@ -5,6 +5,8 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
 {
     public class Model
     {
+        public event OrderChangedEventHandler OrderChanged;
+        public delegate void OrderChangedEventHandler();
         public List<Product> Products
         {
             get
@@ -80,6 +82,13 @@ namespace OrderAndStorageManagementSystem.ModelNamespace
         public void ClearOrder()
         {
             _order.ClearOrder();
+            NotifyObserver();
+        }
+
+        // Protest on Dr.Smell
+        private void NotifyObserver()
+        {
+            OrderChanged?.Invoke();
         }
     }
 }

@@ -26,8 +26,9 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             _model = modelData;
             _products = _model.Products;
             InitializeProductTabPageButtonsContainers();
+            // Event Handlers
+            _model.OrderChanged += UpdateOrderView;
             // UI
-            _creditCardPaymentForm.FormClosed += CloseCreditCardPaymentForm;
             _cartDataGridView.CellPainting += CartDataGridViewCellPainting;
             _cartDataGridView.CellContentClick += CartDataGridViewCellContentClick;
             _leftArrowButton.Click += (sender, events) => GoToPreviousPage();
@@ -42,13 +43,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         }
 
         // Protest on Dr.Smell
-        private void CloseCreditCardPaymentForm(object sender, FormClosedEventArgs eventArguments)
-        {
-            ClearOrder();
-        }
-
-        // Protest on Dr.Smell
-        private void ClearOrder()
+        private void UpdateOrderView()
         {
             _orderPresentationModel.ClearOrder();
             _cartDataGridView.Rows.Clear();
