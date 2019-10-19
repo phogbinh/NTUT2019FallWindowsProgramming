@@ -43,14 +43,16 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         private string _name;
         private string _type;
         private Money _price;
+        private int _storageQuantity;
         private string _description;
 
-        public Product(int idData, string nameData, string typeData, Money priceData, string descriptionData)
+        public Product(int idData, string nameData, string typeData, Money priceData, int storageQuantityData, string descriptionData)
         {
             _id = idData;
             _name = nameData;
             _type = typeData;
             _price = priceData;
+            _storageQuantity = storageQuantityData;
             _description = descriptionData;
         }
 

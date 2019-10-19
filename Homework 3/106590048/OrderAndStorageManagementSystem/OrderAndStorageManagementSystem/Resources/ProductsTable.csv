@@ -1,35 +1,35 @@
-ProductId,ProductName,ProductType,ProductPrice,ProductDescription
-1,技嘉 GA-E3000N 主機板,主機板,1490,"內建雙核心AMD E2-3000 及Radeon™ HD 8280內建顯示處理器|2組DDR3插槽，支援單通道技術及Non-ECC記憶體|顯示輸出:1 x HDMI,1 x D-Sub|PCB規格:Mini-ITX|"
-2,華碩 STRIX Z390-E GAMING 主機板,主機板,7090,AI智能超頻，主動判斷CPU體質與散熱條件，提供客製化的最佳超頻設定|OPTIMEM II技術 支援4DIMM DDR4超頻4266，相容性穩定性最佳|DRMOS技術、PROCOOL實心電源接頭、提供最佳超頻電源供應|預裝式IO檔板，IO COVER含AURA燈光效果|支援AURA SYNC RGB同步燈效、3*RGB針腳|2*4Pin+1*3PIN可編成)|內建INTEL CNVI 2T2R AC WIFI+BT5.0|雙M.2散熱模組確實降低M.2溫度|SupremeFX S1220A 120db訊噪比電競音效|GPU溫度偵測功能|1*前U3.1 Gen2 Type C + 4*後USB3.1 Gen2 TYPE A+C|內建NODE接頭，快速掌握系統資訊|
-3,微星 A68HM-E33 V2 主機板,主機板,1890,支援 AMD® Socket FM2+/FM2 架構的 A-Series/Athlon™ 處理器|支援 DDR3 記憶體模組|Military Class 4: 高品質超穩定料件標準|Military Class Essentials: 軍規主機板必備全面防護|Fast Boot: 快速開機進入作業系統|
-4,技嘉 GC-CI22M_A WIFI模組,主機板,990,搭載Intel® Wireless-AC 9560 CNVi無線網路晶片|相容於IEEE 802.11ac網路標準|極致1733 Mbps超高速無線網路連接|完整支援藍牙5.0|專為技嘉可升級Intel® CNVi WIFI的主機板所設計|
-5,微星 MPG Z390M GAMING EDGE AC 主機板,主機板,5390,支援CPU ：1151腳位|記憶體 ：4x DIMM / 64GB DDR4(max)|顯示輸出：1x HDMI / 1x DP|擴充插槽：1x PCIe 3.0x16|儲存插槽：2x M.2 / 4x SATA|USB插槽 ：2x USB 3.1 Gen2 / 8x USB 3.1 Gen1 / 4x USB 2.0|主板尺寸：Micro-ATX|
-6,華碩 STRIX-X470-F-GAMING 主機板,主機板,4990,支援CPU ：AM4腳位(AMD)|記憶體 ：4x DIMM / 64GB DDR4(max)|擴充插槽：2x PCIe 3.0x16 / 1x PCIe 2.0x16|儲存插槽：2x M.2 / 6x SATA|USB插槽 ：2x USB 3.1 Gen2 / 4x USB 3.1 Gen1|網路連接：Intel I211 AT|主板尺寸：ATX|原廠保固：註冊5年保|
-7,Winchip 永采科技 4GB DDR3 1066 APPLE 筆記型記憶體 256*8 雙面 IC,記憶體,1389,256*8 雙面 IC APPLE 筆記型電腦專用|頻率: DDR3 1066|容量: 4GB|100%嚴選原廠顆粒，出廠前燒機測試|專業模組廠，台灣生產製造|品質穩定，終身保固|高度相容性保證|符合JEDEC ， ROHS 無鉛生產|
-8,Kingston 8GB DDR3L 1600 品牌專用筆記型記憶體(低電壓1.35V)(KCP3L16SD8/8FR),記憶體,1099,為品牌筆電量身訂做|100%測試 極致穩定|速度高達1600MHz|容量高達 8GB|終身保固|電壓 1.35V|
-9,Kingston DDR4 2666 8GB 品牌專用桌上型記憶體(KCP426NS8/8),記憶體,1199,品牌專用桌上型|規格：DDR4-2666|容量：8GB|電壓：1.2V|
-10,INTEL 盒裝Core i5-9600KF,CPU,7999,腳位：1151|時脈速度：3.70-4.60 GHz|快取記憶體：9.0 MB|核心/執行緒：6 / 6|TDP：95 W|
-11,INTEL 盒裝Core i5-8400,CPU,6590,腳位：1151|時脈速度：2.80-4.00 GHz|快取記憶體：9.0 MB|核心/執行緒：6 / 6|內含顯示：Intel® UHD Graphics 630|TDP：65 W|
-12,Intel Core i3 8100 中央處理器,CPU,4390,腳位：1151|時脈速度：3.60 GHz|快取記憶體：6.0 MB|核心/執行緒：4 / 4|內含顯示：Intel® UHD Graphics 630|TDP：65 W|
-13,INTEL 盒裝Pentium G5400,CPU,1888,腳位：1151|時脈速度：3.70 GHz|快取記憶體：4.0 MB|核心/執行緒：2 / 4|內含顯示：HD Graphics 610|TDP：54 W|
-14,WD【紫標】2TB 3.5吋 監控硬碟(WD20PURZ),硬碟,2190,容量：2TB|專為24x7全天候環境而打造|資料讀寫比例：95%寫入/5%讀出|採用AllFrame 4K技術．提升影像寫入效能|180TB/年的工作負載量．優於一般硬碟3倍|可支援最多64部HD監控攝影機|低溫度運作．提高硬碟可靠度|相容性超高．與各機箱及晶片組製造商相容|原廠3年保固|
-15,Toshiba【AV影音監控】3TB 3.5吋 硬碟(DT01ABA300V),硬碟,2888,單碟1TB技術|4K磁區大小|超靜音、低功耗省電|優化的視頻流|三年有限保固|
-16,Seagate【SkyHawk】監控鷹4TB 3.5吋監控硬碟 (ST4000VX007),硬碟,3490,容量：4TB|SATA 6Gb/s|64MB快取記憶體|100萬小時MTBF|RVSensor震動感應技術|ImagePerfect完美影像技術|安全監控儲存裝置|24*7全天候運轉|三年保固|
-17,WD【紫標】6TB 3.5吋監控硬碟(WD60PURZ),硬碟,5390,容量：6TB|專為24x7全天候環境而打造|資料讀寫比例：95%寫入/5%讀出|採用AllFrame 4K技術．提升影像寫入效能|180TB/年的工作負載量．優於一般硬碟3倍|可支援最多64部HD監控攝影機|低溫度運作．提高硬碟可靠度|相容性超高．與各機箱及晶片組製造商相容|原廠3年保固|
-18,WD【紅標】1TB 3.5吋 NAS硬碟(WD10EFRX),硬碟,2190,容量：1TB|獨家NASware 3.0技術．平衡硬碟環境的效能、功率和可靠性|最優化電源使用比例．降低作業溫度降低擁有成本|智慧錯誤校正．縮短錯誤復原的時間|ATA串流支援．提升流播影片順暢性|無NAS機殼相容性問題|原廠3年保固|
-19,麗臺 NVIDIA Quadro P1000(DP) 繪圖卡,顯示卡,10200,麗臺NVIDIA Quadro P1000|PCI-E 3.0|4GB GDDR5|DPx4|128bit|
-20,麗臺 NVIDIA Quadro P4000 8GB GDDR5 PCI-E 工作站繪圖卡,顯示卡,28560,"CUDA運算處理核心:1792|GPU記憶體大小:8GB GDDR5|記憶體介面:256-bit|記憶體頻寬:243 GB/s|支援顯示方式:4x DP1.4|最大耗電量:105W|繪圖卡介面:PCI Express 3.0|外觀尺寸: 4.376"" H x 9.5"" L|"
-21,麗臺 NVIDIA Quadro P2000 繪圖卡,顯示卡,13260,"CUDA運算處理核心:1024|GPU記憶體大小:5GB GDDR5|記憶體介面:160-bit|記憶體頻寬:140 GB/s|支援顯示方式:4x DP1.4|最大耗電量:75W|繪圖卡介面:PCI Express 3.0|外觀尺寸: 4.38"" H x 7.9"" L|"
-22,華碩 ASUS ROG Strix GeForce RTX™ 2080Ti O11G GAMING 顯示卡,顯示卡,41790,顯示晶片：NVIDIA® GeForce® RTX 2080 Ti|記憶體：11GB GDDR6|核心時脈：1650 Mhz|CUDA數：4352|電源接口：2*8pin|輸出端子：3x DP / HDMI / Type-C|顯卡長度：30.5 cm|
-23,DELL 9代i5六核Win10電腦,套裝電腦,16990,處理器：Intel Core i5-9400|晶片組：Intel® B360|記憶體：8GB DDR4 2666MHz|硬碟：1TB (7200RPM)|顯示：Intel® UHD Graphics 630|光碟機：無|作業系統：Windows 10 家用版|其他：DW 1707 + BT4.0|螢幕輸出介面：D-Sub(VGA)．HDMI|保固：三年遠端診斷後到府服務|
-24,華碩8代i5六核獨顯Win10電腦,套裝電腦,23900,"處理器：Intel Core i5-8400(2.8GHz)|晶片組：Intel® H310C|記憶體：8GB DDR4 2666MHz|硬碟：1TB (7200RPM)|固態硬碟：256G M.2 SSD|顯示介面：NVIDIA GeForce GT1030 2GB 獨顯(HDMI, DVI)|光碟機：DVD RW 8X|作業系統：Windows 10 家用版 (64 bit)|電源規格：350W|其他：IEEE Wi-Fi 5(802.11 ac) + BT 4.1|保固：三年保固/到府收送|"
-25,微星 H310M PRO-VDH 主機板,主機板,2390,支援CPU ：1151腳位(intel 8代)|記憶體 ：2x DIMM / 32GB DDR4(max)|顯示輸出：1x HDMI / 1x DVI-D|擴充插槽：1x PCIe 3.0x16 / 2x PCIe 3.0x1|儲存插槽：4x SATA|USB插槽 ：4x USB 3.1 Gen1 / 6x USB 2.0|網路連接：Intel Gigabit LAN|主板尺寸：m-ATX
-26,微星 B360 GAMING PLUS 主機板,主機板,3690,支援CPU ：1151腳位(intel 8代)|記憶體 ：4x DIMM / 64GB DDR4(max)|顯示輸出：1x DVI-D / 1x DP|擴充插槽：2x PCIe 3.0x16 / 4x PCIe 3.0x1|儲存插槽：1x M.2 / 5x SATA|USB插槽 ：2x USB 3.1 Gen2 / 3x USB 3.1 Gen1|網路連接：Intel Gigabit LAN|主板尺寸：ATX|原廠保固：註冊5年保
-27,華碩 PRIME H310M-K R2.0主機板,主機板,2390,支援CPU ：1151腳位(intel 8代)|記憶體 ：2x DIMM / 32GB DDR4(max)|擴充插槽：1x PCIe 3.0/2.0 x16 / 2x PCIe 2.0|儲存插槽：4x SATA|USB插槽 ：4x USB 3.1 Gen1 / 6x USB 2.0/1.1|網路連接：Realtek RTL8111H / 1x Gigabit LAN|主板尺寸：M-ATX|體積(長x寬)：22.6 x 15.5 cm
-28,華碩 TINKER-BOARD/2GB 主機板,主機板,2090,創客、IOT愛好者專用板|內建四核心 ARM 處理器 Rockchip RK3288|搭載 2GB LPDDR3 雙通道記憶體|內建10/100/1000 Lan
-29,華碩 STRIX B360-G GAMING 主機板,主機板,3490,支援CPU ：1151腳位(intel 8代)|記憶體 ：4x DIMM / 64GB DDR4(max)|顯示輸出：1x DVI / 1x HDMI|擴充插槽：1x PCIe 3.0x16 / 2x PCIe 3.0x1|儲存插槽：2x M.2 / 6x SATA|USB插槽 ：2x USB 3.1 Gen2 / 4x USB 3.1 Gen1 / 6x USB 2.0|網路連接：Intel I219V Anti-surge LANGuard|主板尺寸：M-ATX|體積(長x寬)：24.4 x 24.4 cm|原廠保固：註冊5年保
-30,華碩 H81M-K 主機板,主機板,2090,防突波 - 全天候電源防護 -讓系統免於風險|ESD 防靜電保護設計 - 以 ESD Guards技術保護您的電腦|UEFI BIOS - 彈性及易用的 BIOS 介面|Network icontrol- 即時控制網路頻寬|AI Suite II – 一次式存取華碩的創新功能
-31,微星 Z370 TOMAHAWK 主機板,主機板,4890,支援CPU ：1151腳位(intel 8代)|記憶體 ：4x DIMM / 64GB DDR4(max)|顯示輸出：1x HDMI / 1x DVI|擴充插槽：3x PCIe 3.0x16 / 3x PCIe 3.0x1|儲存插槽：2x M.2 / 6x SATA|USB插槽 ：1x USB 3.1 Gen2 / 4x USB 3.1 Gen1 / 2x USB 2.0/1.1|網路連接：Realtek ALC892|主板尺寸：ATX|原廠保固：註冊5年保
-32,WD [藍標] 2TB 3.5吋桌上型硬碟(WD20EZAZ),硬碟,1990,容量：2TB|5400轉|256MB緩衝記憶體|高相容度．在各種系統及平台可以發揮最高效能|No Touch磁碟表面停放技術．降低讀寫時磁頭的磨損|硬碟輕鬆升級．不需重新安裝作業系統|原廠3年保固
-33,Seagate【BarraCuda】新梭魚 4TB 3.5吋桌上型硬碟(ST4000DM004),硬碟,3390,容量：4TB|SATA 6Gb/s|5400轉|256MB緩衝記憶體|工作負載55TB/年|低功耗省電|三年保固
-34,Toshiba【桌上型】6TB 3.5吋硬碟(MD04ACA600),硬碟,5288,"7,200 RPM|128MB緩衝記憶體|單碟1TB技術|先進格式4K磁區配置|具備專利錯誤回復技術|適用全方位電腦系統使用|低電耗運作|環保無鹵素設計|三年有限保固"
+ProductId,ProductName,ProductType,ProductPrice,ProductStorageQuantity,ProductDescription
+1,技嘉 GA-E3000N 主機板,主機板,1490,10,"內建雙核心AMD E2-3000 及Radeon™ HD 8280內建顯示處理器|2組DDR3插槽，支援單通道技術及Non-ECC記憶體|顯示輸出:1 x HDMI,1 x D-Sub|PCB規格:Mini-ITX|"
+2,華碩 STRIX Z390-E GAMING 主機板,主機板,7090,20,AI智能超頻，主動判斷CPU體質與散熱條件，提供客製化的最佳超頻設定|OPTIMEM II技術 支援4DIMM DDR4超頻4266，相容性穩定性最佳|DRMOS技術、PROCOOL實心電源接頭、提供最佳超頻電源供應|預裝式IO檔板，IO COVER含AURA燈光效果|支援AURA SYNC RGB同步燈效、3*RGB針腳|2*4Pin+1*3PIN可編成)|內建INTEL CNVI 2T2R AC WIFI+BT5.0|雙M.2散熱模組確實降低M.2溫度|SupremeFX S1220A 120db訊噪比電競音效|GPU溫度偵測功能|1*前U3.1 Gen2 Type C + 4*後USB3.1 Gen2 TYPE A+C|內建NODE接頭，快速掌握系統資訊|
+3,微星 A68HM-E33 V2 主機板,主機板,1890,30,支援 AMD® Socket FM2+/FM2 架構的 A-Series/Athlon™ 處理器|支援 DDR3 記憶體模組|Military Class 4: 高品質超穩定料件標準|Military Class Essentials: 軍規主機板必備全面防護|Fast Boot: 快速開機進入作業系統|
+4,技嘉 GC-CI22M_A WIFI模組,主機板,990,40,搭載Intel® Wireless-AC 9560 CNVi無線網路晶片|相容於IEEE 802.11ac網路標準|極致1733 Mbps超高速無線網路連接|完整支援藍牙5.0|專為技嘉可升級Intel® CNVi WIFI的主機板所設計|
+5,微星 MPG Z390M GAMING EDGE AC 主機板,主機板,5390,50,支援CPU ：1151腳位|記憶體 ：4x DIMM / 64GB DDR4(max)|顯示輸出：1x HDMI / 1x DP|擴充插槽：1x PCIe 3.0x16|儲存插槽：2x M.2 / 4x SATA|USB插槽 ：2x USB 3.1 Gen2 / 8x USB 3.1 Gen1 / 4x USB 2.0|主板尺寸：Micro-ATX|
+6,華碩 STRIX-X470-F-GAMING 主機板,主機板,4990,60,支援CPU ：AM4腳位(AMD)|記憶體 ：4x DIMM / 64GB DDR4(max)|擴充插槽：2x PCIe 3.0x16 / 1x PCIe 2.0x16|儲存插槽：2x M.2 / 6x SATA|USB插槽 ：2x USB 3.1 Gen2 / 4x USB 3.1 Gen1|網路連接：Intel I211 AT|主板尺寸：ATX|原廠保固：註冊5年保|
+7,Winchip 永采科技 4GB DDR3 1066 APPLE 筆記型記憶體 256*8 雙面 IC,記憶體,1389,70,256*8 雙面 IC APPLE 筆記型電腦專用|頻率: DDR3 1066|容量: 4GB|100%嚴選原廠顆粒，出廠前燒機測試|專業模組廠，台灣生產製造|品質穩定，終身保固|高度相容性保證|符合JEDEC ， ROHS 無鉛生產|
+8,Kingston 8GB DDR3L 1600 品牌專用筆記型記憶體(低電壓1.35V)(KCP3L16SD8/8FR),記憶體,1099,80,為品牌筆電量身訂做|100%測試 極致穩定|速度高達1600MHz|容量高達 8GB|終身保固|電壓 1.35V|
+9,Kingston DDR4 2666 8GB 品牌專用桌上型記憶體(KCP426NS8/8),記憶體,1199,90,品牌專用桌上型|規格：DDR4-2666|容量：8GB|電壓：1.2V|
+10,INTEL 盒裝Core i5-9600KF,CPU,7999,100,腳位：1151|時脈速度：3.70-4.60 GHz|快取記憶體：9.0 MB|核心/執行緒：6 / 6|TDP：95 W|
+11,INTEL 盒裝Core i5-8400,CPU,6590,110,腳位：1151|時脈速度：2.80-4.00 GHz|快取記憶體：9.0 MB|核心/執行緒：6 / 6|內含顯示：Intel® UHD Graphics 630|TDP：65 W|
+12,Intel Core i3 8100 中央處理器,CPU,4390,120,腳位：1151|時脈速度：3.60 GHz|快取記憶體：6.0 MB|核心/執行緒：4 / 4|內含顯示：Intel® UHD Graphics 630|TDP：65 W|
+13,INTEL 盒裝Pentium G5400,CPU,1888,130,腳位：1151|時脈速度：3.70 GHz|快取記憶體：4.0 MB|核心/執行緒：2 / 4|內含顯示：HD Graphics 610|TDP：54 W|
+14,WD【紫標】2TB 3.5吋 監控硬碟(WD20PURZ),硬碟,2190,140,容量：2TB|專為24x7全天候環境而打造|資料讀寫比例：95%寫入/5%讀出|採用AllFrame 4K技術．提升影像寫入效能|180TB/年的工作負載量．優於一般硬碟3倍|可支援最多64部HD監控攝影機|低溫度運作．提高硬碟可靠度|相容性超高．與各機箱及晶片組製造商相容|原廠3年保固|
+15,Toshiba【AV影音監控】3TB 3.5吋 硬碟(DT01ABA300V),硬碟,2888,150,單碟1TB技術|4K磁區大小|超靜音、低功耗省電|優化的視頻流|三年有限保固|
+16,Seagate【SkyHawk】監控鷹4TB 3.5吋監控硬碟 (ST4000VX007),硬碟,3490,160,容量：4TB|SATA 6Gb/s|64MB快取記憶體|100萬小時MTBF|RVSensor震動感應技術|ImagePerfect完美影像技術|安全監控儲存裝置|24*7全天候運轉|三年保固|
+17,WD【紫標】6TB 3.5吋監控硬碟(WD60PURZ),硬碟,5390,170,容量：6TB|專為24x7全天候環境而打造|資料讀寫比例：95%寫入/5%讀出|採用AllFrame 4K技術．提升影像寫入效能|180TB/年的工作負載量．優於一般硬碟3倍|可支援最多64部HD監控攝影機|低溫度運作．提高硬碟可靠度|相容性超高．與各機箱及晶片組製造商相容|原廠3年保固|
+18,WD【紅標】1TB 3.5吋 NAS硬碟(WD10EFRX),硬碟,2190,180,容量：1TB|獨家NASware 3.0技術．平衡硬碟環境的效能、功率和可靠性|最優化電源使用比例．降低作業溫度降低擁有成本|智慧錯誤校正．縮短錯誤復原的時間|ATA串流支援．提升流播影片順暢性|無NAS機殼相容性問題|原廠3年保固|
+19,麗臺 NVIDIA Quadro P1000(DP) 繪圖卡,顯示卡,10200,190,麗臺NVIDIA Quadro P1000|PCI-E 3.0|4GB GDDR5|DPx4|128bit|
+20,麗臺 NVIDIA Quadro P4000 8GB GDDR5 PCI-E 工作站繪圖卡,顯示卡,28560,200,"CUDA運算處理核心:1792|GPU記憶體大小:8GB GDDR5|記憶體介面:256-bit|記憶體頻寬:243 GB/s|支援顯示方式:4x DP1.4|最大耗電量:105W|繪圖卡介面:PCI Express 3.0|外觀尺寸: 4.376"" H x 9.5"" L|"
+21,麗臺 NVIDIA Quadro P2000 繪圖卡,顯示卡,13260,210,"CUDA運算處理核心:1024|GPU記憶體大小:5GB GDDR5|記憶體介面:160-bit|記憶體頻寬:140 GB/s|支援顯示方式:4x DP1.4|最大耗電量:75W|繪圖卡介面:PCI Express 3.0|外觀尺寸: 4.38"" H x 7.9"" L|"
+22,華碩 ASUS ROG Strix GeForce RTX™ 2080Ti O11G GAMING 顯示卡,顯示卡,41790,220,顯示晶片：NVIDIA® GeForce® RTX 2080 Ti|記憶體：11GB GDDR6|核心時脈：1650 Mhz|CUDA數：4352|電源接口：2*8pin|輸出端子：3x DP / HDMI / Type-C|顯卡長度：30.5 cm|
+23,DELL 9代i5六核Win10電腦,套裝電腦,16990,230,處理器：Intel Core i5-9400|晶片組：Intel® B360|記憶體：8GB DDR4 2666MHz|硬碟：1TB (7200RPM)|顯示：Intel® UHD Graphics 630|光碟機：無|作業系統：Windows 10 家用版|其他：DW 1707 + BT4.0|螢幕輸出介面：D-Sub(VGA)．HDMI|保固：三年遠端診斷後到府服務|
+24,華碩8代i5六核獨顯Win10電腦,套裝電腦,23900,240,"處理器：Intel Core i5-8400(2.8GHz)|晶片組：Intel® H310C|記憶體：8GB DDR4 2666MHz|硬碟：1TB (7200RPM)|固態硬碟：256G M.2 SSD|顯示介面：NVIDIA GeForce GT1030 2GB 獨顯(HDMI, DVI)|光碟機：DVD RW 8X|作業系統：Windows 10 家用版 (64 bit)|電源規格：350W|其他：IEEE Wi-Fi 5(802.11 ac) + BT 4.1|保固：三年保固/到府收送|"
+25,微星 H310M PRO-VDH 主機板,主機板,2390,250,支援CPU ：1151腳位(intel 8代)|記憶體 ：2x DIMM / 32GB DDR4(max)|顯示輸出：1x HDMI / 1x DVI-D|擴充插槽：1x PCIe 3.0x16 / 2x PCIe 3.0x1|儲存插槽：4x SATA|USB插槽 ：4x USB 3.1 Gen1 / 6x USB 2.0|網路連接：Intel Gigabit LAN|主板尺寸：m-ATX
+26,微星 B360 GAMING PLUS 主機板,主機板,3690,260,支援CPU ：1151腳位(intel 8代)|記憶體 ：4x DIMM / 64GB DDR4(max)|顯示輸出：1x DVI-D / 1x DP|擴充插槽：2x PCIe 3.0x16 / 4x PCIe 3.0x1|儲存插槽：1x M.2 / 5x SATA|USB插槽 ：2x USB 3.1 Gen2 / 3x USB 3.1 Gen1|網路連接：Intel Gigabit LAN|主板尺寸：ATX|原廠保固：註冊5年保
+27,華碩 PRIME H310M-K R2.0主機板,主機板,2390,270,支援CPU ：1151腳位(intel 8代)|記憶體 ：2x DIMM / 32GB DDR4(max)|擴充插槽：1x PCIe 3.0/2.0 x16 / 2x PCIe 2.0|儲存插槽：4x SATA|USB插槽 ：4x USB 3.1 Gen1 / 6x USB 2.0/1.1|網路連接：Realtek RTL8111H / 1x Gigabit LAN|主板尺寸：M-ATX|體積(長x寬)：22.6 x 15.5 cm
+28,華碩 TINKER-BOARD/2GB 主機板,主機板,2090,280,創客、IOT愛好者專用板|內建四核心 ARM 處理器 Rockchip RK3288|搭載 2GB LPDDR3 雙通道記憶體|內建10/100/1000 Lan
+29,華碩 STRIX B360-G GAMING 主機板,主機板,3490,290,支援CPU ：1151腳位(intel 8代)|記憶體 ：4x DIMM / 64GB DDR4(max)|顯示輸出：1x DVI / 1x HDMI|擴充插槽：1x PCIe 3.0x16 / 2x PCIe 3.0x1|儲存插槽：2x M.2 / 6x SATA|USB插槽 ：2x USB 3.1 Gen2 / 4x USB 3.1 Gen1 / 6x USB 2.0|網路連接：Intel I219V Anti-surge LANGuard|主板尺寸：M-ATX|體積(長x寬)：24.4 x 24.4 cm|原廠保固：註冊5年保
+30,華碩 H81M-K 主機板,主機板,2090,300,防突波 - 全天候電源防護 -讓系統免於風險|ESD 防靜電保護設計 - 以 ESD Guards技術保護您的電腦|UEFI BIOS - 彈性及易用的 BIOS 介面|Network icontrol- 即時控制網路頻寬|AI Suite II – 一次式存取華碩的創新功能
+31,微星 Z370 TOMAHAWK 主機板,主機板,4890,310,支援CPU ：1151腳位(intel 8代)|記憶體 ：4x DIMM / 64GB DDR4(max)|顯示輸出：1x HDMI / 1x DVI|擴充插槽：3x PCIe 3.0x16 / 3x PCIe 3.0x1|儲存插槽：2x M.2 / 6x SATA|USB插槽 ：1x USB 3.1 Gen2 / 4x USB 3.1 Gen1 / 2x USB 2.0/1.1|網路連接：Realtek ALC892|主板尺寸：ATX|原廠保固：註冊5年保
+32,WD [藍標] 2TB 3.5吋桌上型硬碟(WD20EZAZ),硬碟,1990,320,容量：2TB|5400轉|256MB緩衝記憶體|高相容度．在各種系統及平台可以發揮最高效能|No Touch磁碟表面停放技術．降低讀寫時磁頭的磨損|硬碟輕鬆升級．不需重新安裝作業系統|原廠3年保固
+33,Seagate【BarraCuda】新梭魚 4TB 3.5吋桌上型硬碟(ST4000DM004),硬碟,3390,330,容量：4TB|SATA 6Gb/s|5400轉|256MB緩衝記憶體|工作負載55TB/年|低功耗省電|三年保固
+34,Toshiba【桌上型】6TB 3.5吋硬碟(MD04ACA600),硬碟,5288,340,"7,200 RPM|128MB緩衝記憶體|單碟1TB技術|先進格式4K磁區配置|具備專利錯誤回復技術|適用全方位電腦系統使用|低電耗運作|環保無鹵素設計|三年有限保固"

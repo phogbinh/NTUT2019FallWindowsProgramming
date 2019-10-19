@@ -14,7 +14,8 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         private const int PRODUCT_NAME_COLUMN_INDEX = 1;
         private const int PRODUCT_TYPE_COLUMN_INDEX = 2;
         private const int PRODUCT_PRICE_COLUMN_INDEX = 3;
-        private const int PRODUCT_DESCRIPTION_COLUMN_INDEX = 4;
+        private const int PRODUCT_STORAGE_QUANTITY_COLUMN_INDEX = 4;
+        private const int PRODUCT_DESCRIPTION_COLUMN_INDEX = 5;
         private const char FILE_PRODUCT_DESCRIPTION_LINE_DELIMITER = '|';
         private const char APP_PRODUCT_DESCRIPTION_LINE_DELIMITER = '\n';
 
@@ -60,8 +61,9 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             string productName = tableRowValues[ PRODUCT_NAME_COLUMN_INDEX ];
             string productType = tableRowValues[ PRODUCT_TYPE_COLUMN_INDEX ];
             Money productPrice = new Money(int.Parse(tableRowValues[ PRODUCT_PRICE_COLUMN_INDEX ]));
+            int productStorageQuantity = int.Parse(tableRowValues[ PRODUCT_STORAGE_QUANTITY_COLUMN_INDEX ]);
             string productDescription = tableRowValues[ PRODUCT_DESCRIPTION_COLUMN_INDEX ].Replace(FILE_PRODUCT_DESCRIPTION_LINE_DELIMITER, APP_PRODUCT_DESCRIPTION_LINE_DELIMITER);
-            return new Product(productId, productName, productType, productPrice, productDescription);
+            return new Product(productId, productName, productType, productPrice, productStorageQuantity, productDescription);
         }
 
         /// <summary>
