@@ -73,7 +73,7 @@
     <Compile Include="Models\OrderForm\OrderProduct.cs" />
     <Compile Include="Models\Utilities\DataBaseManager.cs" />
     <Compile Include="Models\Utilities\Money.cs" />
-    <Compile Include="Models\Utilities\Order.cs" />
+    <Compile Include="Models\OrderForm\Order.cs" />
     <Compile Include="Models\OrderForm\OrderModel.cs" />
     <Compile Include="Models\OrderForm\OrderProductTabPage.cs" />
     <Compile Include="Models\OrderForm\OrderProductTabPageProductPage.cs" />
