@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using OrderAndStorageManagementSystem.Models.Utilities;
+using System.Collections.Generic;
 
-namespace OrderAndStorageManagementSystem.Models.Utilities
+namespace OrderAndStorageManagementSystem.Models.OrderForm
 {
     public class Order
     {
