@@ -61,63 +61,65 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModelNamespace\AppDefinition.cs" />
-    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\CreditCardPaymentModel.cs" />
-    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\DropDownListIsSelectedInspector.cs" />
-    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\InputInspector.cs" />
-    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\TextBoxInspector.cs" />
-    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\TextBoxIsMailInspector.cs" />
-    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\TextBoxIsOfFullLengthInspector.cs" />
-    <Compile Include="ModelNamespace\CreditCardPaymentNamespace\TextBoxIsNotEmptyInspector.cs" />
-    <Compile Include="ModelNamespace\Model.cs" />
-    <Compile Include="ModelNamespace\DataBaseManager.cs" />
-    <Compile Include="ModelNamespace\Money.cs" />
-    <Compile Include="ModelNamespace\Order.cs" />
-    <Compile Include="ModelNamespace\OrderModel.cs" />
-    <Compile Include="ModelNamespace\OrderProductTabPage.cs" />
-    <Compile Include="ModelNamespace\OrderProductTabPageProductPage.cs" />
-    <Compile Include="PresentationModelNamespace\ControlStates.cs" />
-    <Compile Include="PresentationModelNamespace\CreditCardPaymentPresentationModel.cs" />
-    <Compile Include="PresentationModelNamespace\MainPresentationModel.cs" />
-    <Compile Include="PresentationModelNamespace\OrderPresentationModel.cs" />
-    <Compile Include="ViewNamespace\CreditCardPaymentForm.cs">
+    <Compile Include="Models\AppDefinition.cs" />
+    <Compile Include="Models\CreditCardPaymentForm\CreditCardPaymentModel.cs" />
+    <Compile Include="Models\CreditCardPaymentForm\DropDownListIsSelectedInspector.cs" />
+    <Compile Include="Models\CreditCardPaymentForm\InputInspector.cs" />
+    <Compile Include="Models\CreditCardPaymentForm\TextBoxInspector.cs" />
+    <Compile Include="Models\CreditCardPaymentForm\TextBoxIsMailInspector.cs" />
+    <Compile Include="Models\CreditCardPaymentForm\TextBoxIsOfFullLengthInspector.cs" />
+    <Compile Include="Models\CreditCardPaymentForm\TextBoxIsNotEmptyInspector.cs" />
+    <Compile Include="Models\Model.cs" />
+    <Compile Include="Models\DataBaseManager.cs" />
+    <Compile Include="Models\Money.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderForm\OrderModel.cs" />
+    <Compile Include="Models\OrderForm\OrderProductTabPage.cs" />
+    <Compile Include="Models\OrderForm\OrderProductTabPageProductPage.cs" />
+    <Compile Include="PresentationModels\ControlStates.cs" />
+    <Compile Include="PresentationModels\CreditCardPaymentPresentationModel.cs" />
+    <Compile Include="PresentationModels\MainPresentationModel.cs" />
+    <Compile Include="PresentationModels\OrderPresentationModel.cs" />
+    <Compile Include="Views\CreditCardPaymentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ViewNamespace\CreditCardPaymentForm.Designer.cs">
+    <Compile Include="Views\CreditCardPaymentForm.Designer.cs">
       <DependentUpon>CreditCardPaymentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewNamespace\InventoryForm.cs">
+    <Compile Include="Views\InventoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ViewNamespace\InventoryForm.Designer.cs">
+    <Compile Include="Views\InventoryForm.Designer.cs">
       <DependentUpon>InventoryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewNamespace\MainForm.cs">
+    <Compile Include="Views\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ViewNamespace\MainForm.Designer.cs">
+    <Compile Include="Views\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewNamespace\OrderForm.cs">
+    <Compile Include="Views\OrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ViewNamespace\OrderForm.Designer.cs">
+    <Compile Include="Views\OrderForm.Designer.cs">
       <DependentUpon>OrderForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModelNamespace\Product.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewNamespace\OrderProductTabPageButton.cs" />
-    <EmbeddedResource Include="ViewNamespace\CreditCardPaymentForm.resx">
+    <Compile Include="Views\OrderProductTabPageButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="Views\CreditCardPaymentForm.resx">
       <DependentUpon>CreditCardPaymentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViewNamespace\InventoryForm.resx">
+    <EmbeddedResource Include="Views\InventoryForm.resx">
       <DependentUpon>InventoryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViewNamespace\MainForm.resx">
+    <EmbeddedResource Include="Views\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViewNamespace\OrderForm.resx">
+    <EmbeddedResource Include="Views\OrderForm.resx">
       <DependentUpon>OrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
