@@ -31,12 +31,13 @@ namespace OrderAndStorageManagementSystem.Views
             // Event Handlers
             _model.OrderChanged += UpdateCartSectionView;
             _model.OrderCleared += () => _cartDataGridView.Rows.Clear();
+            _model.OrderAdded += (product) => _cartDataGridView.Rows.Add(null, product.Name, product.Type, product.Price.GetCurrencyFormat());
             // UI
             _cartDataGridView.CellPainting += CartDataGridViewCellPainting;
             _cartDataGridView.CellContentClick += CartDataGridViewCellContentClick;
             _leftArrowButton.Click += (sender, events) => GoToPreviousPage();
             _rightArrowButton.Click += (sender, events) => GoToNextPage();
-            _addButton.Click += ClickAddButton;
+            _addButton.Click += (sender, eventArguments) => _orderPresentationModel.AddCurrentSelectedProductToOrder();
             _orderButton.Click += ClickOrderButton;
             _productTabControl.SelectedIndexChanged += (sender, events) => SelectProductTabPage(_productTabControl.SelectedIndex);
             InitializeProductTabPages();
@@ -117,18 +118,6 @@ namespace OrderAndStorageManagementSystem.Views
         {
             _orderPresentationModel.SelectProduct(product);
             RefreshControls();
-        }
-
-        /// <summary>
-        /// Add the product to cart on add button clicked.
-        /// </summary>
-        private void ClickAddButton(object sender, System.EventArgs events)
-        {
-            string productName = _orderPresentationModel.CurrentSelectedProduct.Name;
-            string productType = _orderPresentationModel.CurrentSelectedProduct.Type;
-            string productPrice = _orderPresentationModel.CurrentSelectedProduct.Price.GetCurrencyFormat();
-            _cartDataGridView.Rows.Add(null, productName, productType, productPrice);
-            _orderPresentationModel.AddCurrentSelectedProductToOrder();
         }
 
         // Protest on Dr.Smell

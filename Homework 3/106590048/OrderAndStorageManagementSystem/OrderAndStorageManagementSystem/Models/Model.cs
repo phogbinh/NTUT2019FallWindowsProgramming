@@ -9,6 +9,8 @@ namespace OrderAndStorageManagementSystem.Models
         private event OrderChangedEventHandler _orderChanged;
         public delegate void OrderClearedEventHandler();
         private event OrderClearedEventHandler _orderCleared;
+        public delegate void OrderAddedEventHandler(Product product);
+        private event OrderAddedEventHandler _orderAdded;
         public OrderChangedEventHandler OrderChanged
         {
             get
@@ -29,6 +31,17 @@ namespace OrderAndStorageManagementSystem.Models
             set
             {
                 _orderCleared = value;
+            }
+        }
+        public OrderAddedEventHandler OrderAdded
+        {
+            get
+            {
+                return _orderAdded;
+            }
+            set
+            {
+                _orderAdded = value;
             }
         }
         public List<Product> Products
@@ -58,7 +71,17 @@ namespace OrderAndStorageManagementSystem.Models
         public void AddProductToOrder(Product product)
         {
             _order.AddProduct(product);
+            NotifyObserverChangeAndAddOrder(product);
+        }
+
+        // Protest on Dr.Smell
+        private void NotifyObserverChangeAndAddOrder(Product product)
+        {
             NotifyObserverChangeOrder();
+            if ( OrderAdded != null )
+            {
+                OrderAdded(product);
+            }
         }
 
         // Protest on Dr.Smell
