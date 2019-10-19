@@ -38,7 +38,7 @@ namespace OrderAndStorageManagementSystem.Views
             _cartDataGridView.CellContentClick += CartDataGridViewCellContentClick;
             _leftArrowButton.Click += (sender, events) => GoToPreviousPage();
             _rightArrowButton.Click += (sender, events) => GoToNextPage();
-            _addButton.Click += (sender, eventArguments) => _orderPresentationModel.AddCurrentSelectedProductToOrder();
+            _addButton.Click += (sender, eventArguments) => _orderPresentationModel.AddCurrentSelectedProductToOrderIfProductIsNotInOrder();
             _orderButton.Click += ClickOrderButton;
             _productTabControl.SelectedIndexChanged += (sender, events) => SelectProductTabPage(_productTabControl.SelectedIndex);
             InitializeProductTabPages();

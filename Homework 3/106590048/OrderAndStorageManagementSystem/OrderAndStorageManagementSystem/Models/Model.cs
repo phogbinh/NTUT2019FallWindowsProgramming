@@ -81,9 +81,9 @@ namespace OrderAndStorageManagementSystem.Models
         }
 
         // Protest on Dr.Smell
-        public void AddProductToOrder(Product product)
+        public void AddProductToOrderIfProductIsNotInOrder(Product product)
         {
-            _order.AddProduct(product);
+            _order.AddProductIfProductIsNotInOrder(product);
             NotifyObserverChangeAndAddOrder(product);
         }
 

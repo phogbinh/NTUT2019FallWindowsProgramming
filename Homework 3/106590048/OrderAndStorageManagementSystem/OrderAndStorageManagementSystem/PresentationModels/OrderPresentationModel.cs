@@ -185,9 +185,9 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         }
 
         // Protest on Dr.Smell
-        public void AddCurrentSelectedProductToOrder()
+        public void AddCurrentSelectedProductToOrderIfProductIsNotInOrder()
         {
-            _model.AddProductToOrder(_currentSelectedProduct);
+            _model.AddProductToOrderIfProductIsNotInOrder(_currentSelectedProduct);
         }
     }
 }
