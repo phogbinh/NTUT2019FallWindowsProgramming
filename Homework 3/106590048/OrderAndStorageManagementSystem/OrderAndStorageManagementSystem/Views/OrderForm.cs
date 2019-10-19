@@ -16,7 +16,6 @@ namespace OrderAndStorageManagementSystem.Views
         private OrderPresentationModel _orderPresentationModel;
         private OrderModel _orderModel;
         private Model _model;
-        private List<Product> _products;
         private List<List<OrderProductTabPageButton>> _productTabPageButtonsContainers;
 
         public OrderForm(CreditCardPaymentForm creditCardPaymentFormData, OrderPresentationModel orderPresentationModelData, OrderModel orderModelData, Model modelData)
@@ -26,7 +25,6 @@ namespace OrderAndStorageManagementSystem.Views
             _orderPresentationModel = orderPresentationModelData;
             _orderModel = orderModelData;
             _model = modelData;
-            _products = _model.Products;
             InitializeProductTabPageButtonsContainers();
             // Event Handlers
             _model.OrderChanged += UpdateCartSectionView;
