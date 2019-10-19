@@ -40,25 +40,31 @@ namespace OrderAndStorageManagementSystem.Views
         // Protest on Dr.Smell
         private void InitializeInputHandlers()
         {
-            _lastNameField.KeyPress += InputLettersOrWhiteSpace;
-            _firstNameField.KeyPress += InputLettersOrWhiteSpace;
-            _cardNumberFirstField.KeyPress += InputNumbers;
-            _cardNumberSecondField.KeyPress += InputNumbers;
-            _cardNumberThirdField.KeyPress += InputNumbers;
-            _cardNumberFourthField.KeyPress += InputNumbers;
-            _cardSecurityCodeField.KeyPress += InputNumbers;
+            _lastNameField.KeyPress += InputLettersOrWhiteSpaceOrBackSpace;
+            _firstNameField.KeyPress += InputLettersOrWhiteSpaceOrBackSpace;
+            _cardNumberFirstField.KeyPress += InputNumbersOrBackSpace;
+            _cardNumberSecondField.KeyPress += InputNumbersOrBackSpace;
+            _cardNumberThirdField.KeyPress += InputNumbersOrBackSpace;
+            _cardNumberFourthField.KeyPress += InputNumbersOrBackSpace;
+            _cardSecurityCodeField.KeyPress += InputNumbersOrBackSpace;
         }
 
         // Protest on Dr.Smell
-        private void InputLettersOrWhiteSpace(object sender, KeyPressEventArgs eventArguments)
+        private void InputLettersOrWhiteSpaceOrBackSpace(object sender, KeyPressEventArgs eventArguments)
         {
-            eventArguments.Handled = !char.IsLetter(eventArguments.KeyChar) && !char.IsWhiteSpace(eventArguments.KeyChar);
+            eventArguments.Handled = !char.IsLetter(eventArguments.KeyChar) && !char.IsWhiteSpace(eventArguments.KeyChar) && !IsBackSpace(eventArguments.KeyChar);
         }
 
         // Protest on Dr.Smell
-        private void InputNumbers(object sender, KeyPressEventArgs eventArguments)
+        private void InputNumbersOrBackSpace(object sender, KeyPressEventArgs eventArguments)
         {
-            eventArguments.Handled = !char.IsDigit(eventArguments.KeyChar);
+            eventArguments.Handled = !char.IsDigit(eventArguments.KeyChar) && !IsBackSpace(eventArguments.KeyChar);
+        }
+
+        // Protest on Dr.Smell
+        private bool IsBackSpace(char key)
+        {
+            return key == ( char )Keys.Back;
         }
 
         // Protest on Dr.Smell
