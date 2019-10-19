@@ -174,9 +174,33 @@ namespace OrderAndStorageManagementSystem.Views
             for ( int i = 0; i < AppDefinition.TAB_PAGES_COUNT; i++ )
             {
                 TabPage tabPage = tabPages[ i ];
-                tabPage.Controls.Add(Model.CreateTableLayout(TAB_PAGE_LAYOUT_NAME, AppDefinition.TAB_PAGE_LAYOUT_ROW_COUNT, AppDefinition.TAB_PAGE_LAYOUT_COLUMN_COUNT));
+                tabPage.Controls.Add(CreateTableLayout(TAB_PAGE_LAYOUT_NAME, AppDefinition.TAB_PAGE_LAYOUT_ROW_COUNT, AppDefinition.TAB_PAGE_LAYOUT_COLUMN_COUNT));
                 PopulateProductTabPageButtons(( TableLayoutPanel )tabPage.Controls[ TAB_PAGE_LAYOUT_NAME ], i);
             }
+        }
+
+        /// <summary>
+        /// Create a specified size table layout with a pre-defined name.
+        /// </summary>
+        private TableLayoutPanel CreateTableLayout(string tableLayoutName, int rowCount, int columnCount)
+        {
+            var tableLayout = new TableLayoutPanel();
+            tableLayout.Name = tableLayoutName;
+            tableLayout.Dock = DockStyle.Fill;
+            tableLayout.RowStyles.Clear();
+            tableLayout.ColumnStyles.Clear();
+            tableLayout.Controls.Clear();
+            tableLayout.RowCount = rowCount;
+            tableLayout.ColumnCount = columnCount;
+            for ( int row = 0; row < rowCount; row++ )
+            {
+                tableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, AppDefinition.ONE_HUNDRED_PERCENT / rowCount));
+            }
+            for ( int col = 0; col < columnCount; col++ )
+            {
+                tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, AppDefinition.ONE_HUNDRED_PERCENT / columnCount));
+            }
+            return tableLayout;
         }
 
         // Protest on Dr.Smell

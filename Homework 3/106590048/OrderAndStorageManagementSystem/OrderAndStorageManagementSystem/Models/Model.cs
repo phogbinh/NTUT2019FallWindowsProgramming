@@ -33,30 +33,6 @@ namespace OrderAndStorageManagementSystem.Models
             _order = new Order();
         }
 
-        /// <summary>
-        /// Create a specified size table layout with a pre-defined name.
-        /// </summary>
-        public static TableLayoutPanel CreateTableLayout(string tableLayoutName, int rowCount, int columnCount)
-        {
-            var tableLayout = new TableLayoutPanel();
-            tableLayout.Name = tableLayoutName;
-            tableLayout.Dock = DockStyle.Fill;
-            tableLayout.RowStyles.Clear();
-            tableLayout.ColumnStyles.Clear();
-            tableLayout.Controls.Clear();
-            tableLayout.RowCount = rowCount;
-            tableLayout.ColumnCount = columnCount;
-            for ( int row = 0; row < rowCount; row++ )
-            {
-                tableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, AppDefinition.ONE_HUNDRED_PERCENT / rowCount));
-            }
-            for ( int col = 0; col < columnCount; col++ )
-            {
-                tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, AppDefinition.ONE_HUNDRED_PERCENT / columnCount));
-            }
-            return tableLayout;
-        }
-
         // Protest on Dr.Smell
         public void AddProductToOrder(Product product)
         {
