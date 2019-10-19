@@ -40,7 +40,9 @@
             this._productInfoGroupBox = new System.Windows.Forms.GroupBox();
             this._productInfoGroupBoxLayout = new System.Windows.Forms.TableLayoutPanel();
             this._productNameAndDescription = new System.Windows.Forms.RichTextBox();
+            this._productStorageQuantityAndPriceLayout = new System.Windows.Forms.TableLayoutPanel();
             this._productPrice = new System.Windows.Forms.RichTextBox();
+            this._productStorageQuantity = new System.Windows.Forms.RichTextBox();
             this._productGroupBoxLastRowLayout = new System.Windows.Forms.TableLayoutPanel();
             this._addButton = new System.Windows.Forms.Button();
             this._pageArrowsLayout = new System.Windows.Forms.TableLayoutPanel();
@@ -50,24 +52,27 @@
             this._orderFormLayout = new System.Windows.Forms.TableLayoutPanel();
             this._cartSectionLayout = new System.Windows.Forms.TableLayoutPanel();
             this._cartDataGridView = new System.Windows.Forms.DataGridView();
-            this._cartDeleteButton = new System.Windows.Forms.DataGridViewButtonColumn();
-            this._cartProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._cartProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._cartProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._cartSectionTitle = new System.Windows.Forms.Label();
             this._cartSectionLastRowLayout = new System.Windows.Forms.TableLayoutPanel();
             this._cartTotalPrice = new System.Windows.Forms.Label();
             this._orderButton = new System.Windows.Forms.Button();
+            this._cartDeleteButton = new System.Windows.Forms.DataGridViewButtonColumn();
+            this._cartProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._cartProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._cartProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._cartProductQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._cartProductTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._productGroupBox.SuspendLayout();
             this._productGroupBoxLayout.SuspendLayout();
             this._productTabControl.SuspendLayout();
             this._productInfoGroupBox.SuspendLayout();
             this._productInfoGroupBoxLayout.SuspendLayout();
+            this._productStorageQuantityAndPriceLayout.SuspendLayout();
             this._productGroupBoxLastRowLayout.SuspendLayout();
             this._pageArrowsLayout.SuspendLayout();
             this._orderFormLayout.SuspendLayout();
             this._cartSectionLayout.SuspendLayout();
-            ( ( System.ComponentModel.ISupportInitialize )( this._cartDataGridView ) ).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._cartDataGridView)).BeginInit();
             this._cartSectionLastRowLayout.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -192,7 +197,7 @@
             this._productInfoGroupBoxLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
             this._productInfoGroupBoxLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
             this._productInfoGroupBoxLayout.Controls.Add(this._productNameAndDescription, 0, 0);
-            this._productInfoGroupBoxLayout.Controls.Add(this._productPrice, 1, 0);
+            this._productInfoGroupBoxLayout.Controls.Add(this._productStorageQuantityAndPriceLayout, 1, 0);
             this._productInfoGroupBoxLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this._productInfoGroupBoxLayout.Location = new System.Drawing.Point(3, 16);
             this._productInfoGroupBoxLayout.Name = "_productInfoGroupBoxLayout";
@@ -204,7 +209,7 @@
             // _productNameAndDescription
             // 
             this._productNameAndDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._productNameAndDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
+            this._productNameAndDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._productNameAndDescription.Location = new System.Drawing.Point(3, 3);
             this._productNameAndDescription.Name = "_productNameAndDescription";
             this._productNameAndDescription.ReadOnly = true;
@@ -212,16 +217,43 @@
             this._productNameAndDescription.TabIndex = 0;
             this._productNameAndDescription.Text = "";
             // 
+            // _productStorageQuantityAndPriceLayout
+            // 
+            this._productStorageQuantityAndPriceLayout.ColumnCount = 1;
+            this._productStorageQuantityAndPriceLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this._productStorageQuantityAndPriceLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this._productStorageQuantityAndPriceLayout.Controls.Add(this._productPrice, 0, 1);
+            this._productStorageQuantityAndPriceLayout.Controls.Add(this._productStorageQuantity, 0, 0);
+            this._productStorageQuantityAndPriceLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productStorageQuantityAndPriceLayout.Location = new System.Drawing.Point(253, 3);
+            this._productStorageQuantityAndPriceLayout.Name = "_productStorageQuantityAndPriceLayout";
+            this._productStorageQuantityAndPriceLayout.RowCount = 2;
+            this._productStorageQuantityAndPriceLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this._productStorageQuantityAndPriceLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this._productStorageQuantityAndPriceLayout.Size = new System.Drawing.Size(173, 162);
+            this._productStorageQuantityAndPriceLayout.TabIndex = 1;
+            // 
             // _productPrice
             // 
             this._productPrice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._productPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
-            this._productPrice.Location = new System.Drawing.Point(253, 3);
+            this._productPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this._productPrice.Location = new System.Drawing.Point(3, 84);
             this._productPrice.Name = "_productPrice";
             this._productPrice.ReadOnly = true;
-            this._productPrice.Size = new System.Drawing.Size(173, 162);
-            this._productPrice.TabIndex = 1;
+            this._productPrice.Size = new System.Drawing.Size(167, 75);
+            this._productPrice.TabIndex = 2;
             this._productPrice.Text = "";
+            // 
+            // _productStorageQuantity
+            // 
+            this._productStorageQuantity.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productStorageQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this._productStorageQuantity.Location = new System.Drawing.Point(3, 3);
+            this._productStorageQuantity.Name = "_productStorageQuantity";
+            this._productStorageQuantity.ReadOnly = true;
+            this._productStorageQuantity.Size = new System.Drawing.Size(167, 75);
+            this._productStorageQuantity.TabIndex = 3;
+            this._productStorageQuantity.Text = "";
             // 
             // _productGroupBoxLastRowLayout
             // 
@@ -243,8 +275,8 @@
             // 
             // _addButton
             // 
-            this._addButton.Anchor = ( ( System.Windows.Forms.AnchorStyles )( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
-            | System.Windows.Forms.AnchorStyles.Right ) ) );
+            this._addButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._addButton.Image = global::OrderAndStorageManagementSystem.Properties.Resources.img_add;
             this._addButton.Location = new System.Drawing.Point(333, 3);
             this._addButton.Name = "_addButton";
@@ -290,10 +322,10 @@
             // 
             // _pageLabel
             // 
-            this._pageLabel.Anchor = ( ( System.Windows.Forms.AnchorStyles )( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
-            | System.Windows.Forms.AnchorStyles.Left ) ) );
+            this._pageLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this._pageLabel.AutoSize = true;
-            this._pageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
+            this._pageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._pageLabel.Location = new System.Drawing.Point(3, 0);
             this._pageLabel.Name = "_pageLabel";
             this._pageLabel.Size = new System.Drawing.Size(0, 53);
@@ -342,7 +374,9 @@
             this._cartDeleteButton,
             this._cartProductName,
             this._cartProductType,
-            this._cartProductPrice});
+            this._cartProductPrice,
+            this._cartProductQuantity,
+            this._cartProductTotalPrice});
             this._cartDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this._cartDataGridView.Location = new System.Drawing.Point(3, 69);
             this._cartDataGridView.Name = "_cartDataGridView";
@@ -352,10 +386,59 @@
             this._cartDataGridView.Size = new System.Drawing.Size(442, 388);
             this._cartDataGridView.TabIndex = 1;
             // 
+            // _cartSectionTitle
+            // 
+            this._cartSectionTitle.AutoSize = true;
+            this._cartSectionTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._cartSectionTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this._cartSectionTitle.Location = new System.Drawing.Point(3, 0);
+            this._cartSectionTitle.Name = "_cartSectionTitle";
+            this._cartSectionTitle.Size = new System.Drawing.Size(442, 66);
+            this._cartSectionTitle.TabIndex = 2;
+            this._cartSectionTitle.Text = "我的訂單";
+            this._cartSectionTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // _cartSectionLastRowLayout
+            // 
+            this._cartSectionLastRowLayout.ColumnCount = 2;
+            this._cartSectionLastRowLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.35443F));
+            this._cartSectionLastRowLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.64557F));
+            this._cartSectionLastRowLayout.Controls.Add(this._cartTotalPrice, 0, 0);
+            this._cartSectionLastRowLayout.Controls.Add(this._orderButton, 1, 0);
+            this._cartSectionLastRowLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._cartSectionLastRowLayout.Location = new System.Drawing.Point(3, 463);
+            this._cartSectionLastRowLayout.Name = "_cartSectionLastRowLayout";
+            this._cartSectionLastRowLayout.RowCount = 1;
+            this._cartSectionLastRowLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this._cartSectionLastRowLayout.Size = new System.Drawing.Size(442, 62);
+            this._cartSectionLastRowLayout.TabIndex = 3;
+            // 
+            // _cartTotalPrice
+            // 
+            this._cartTotalPrice.AutoSize = true;
+            this._cartTotalPrice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._cartTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this._cartTotalPrice.Location = new System.Drawing.Point(3, 0);
+            this._cartTotalPrice.Name = "_cartTotalPrice";
+            this._cartTotalPrice.Size = new System.Drawing.Size(296, 62);
+            this._cartTotalPrice.TabIndex = 4;
+            this._cartTotalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // _orderButton
+            // 
+            this._orderButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._orderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this._orderButton.Location = new System.Drawing.Point(305, 3);
+            this._orderButton.Name = "_orderButton";
+            this._orderButton.Size = new System.Drawing.Size(134, 56);
+            this._orderButton.TabIndex = 5;
+            this._orderButton.Text = "訂購";
+            this._orderButton.UseVisualStyleBackColor = true;
+            // 
             // _cartDeleteButton
             // 
             this._cartDeleteButton.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this._cartDeleteButton.FillWeight = 30F;
+            this._cartDeleteButton.FillWeight = 50F;
             this._cartDeleteButton.HeaderText = "刪除";
             this._cartDeleteButton.Name = "_cartDeleteButton";
             this._cartDeleteButton.ReadOnly = true;
@@ -383,54 +466,17 @@
             this._cartProductPrice.Name = "_cartProductPrice";
             this._cartProductPrice.ReadOnly = true;
             // 
-            // _cartSectionTitle
+            // _cartProductQuantity
             // 
-            this._cartSectionTitle.AutoSize = true;
-            this._cartSectionTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._cartSectionTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
-            this._cartSectionTitle.Location = new System.Drawing.Point(3, 0);
-            this._cartSectionTitle.Name = "_cartSectionTitle";
-            this._cartSectionTitle.Size = new System.Drawing.Size(442, 66);
-            this._cartSectionTitle.TabIndex = 2;
-            this._cartSectionTitle.Text = "我的訂單";
-            this._cartSectionTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this._cartProductQuantity.HeaderText = "數量";
+            this._cartProductQuantity.Name = "_cartProductQuantity";
+            this._cartProductQuantity.ReadOnly = true;
             // 
-            // _cartSectionLastRowLayout
+            // _cartProductTotalPrice
             // 
-            this._cartSectionLastRowLayout.ColumnCount = 2;
-            this._cartSectionLastRowLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.35443F));
-            this._cartSectionLastRowLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.64557F));
-            this._cartSectionLastRowLayout.Controls.Add(this._cartTotalPrice, 0, 0);
-            this._cartSectionLastRowLayout.Controls.Add(this._orderButton, 1, 0);
-            this._cartSectionLastRowLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._cartSectionLastRowLayout.Location = new System.Drawing.Point(3, 463);
-            this._cartSectionLastRowLayout.Name = "_cartSectionLastRowLayout";
-            this._cartSectionLastRowLayout.RowCount = 1;
-            this._cartSectionLastRowLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this._cartSectionLastRowLayout.Size = new System.Drawing.Size(442, 62);
-            this._cartSectionLastRowLayout.TabIndex = 3;
-            // 
-            // _cartTotalPrice
-            // 
-            this._cartTotalPrice.AutoSize = true;
-            this._cartTotalPrice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._cartTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
-            this._cartTotalPrice.Location = new System.Drawing.Point(3, 0);
-            this._cartTotalPrice.Name = "_cartTotalPrice";
-            this._cartTotalPrice.Size = new System.Drawing.Size(296, 62);
-            this._cartTotalPrice.TabIndex = 4;
-            this._cartTotalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // _orderButton
-            // 
-            this._orderButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._orderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
-            this._orderButton.Location = new System.Drawing.Point(305, 3);
-            this._orderButton.Name = "_orderButton";
-            this._orderButton.Size = new System.Drawing.Size(134, 56);
-            this._orderButton.TabIndex = 5;
-            this._orderButton.Text = "訂購";
-            this._orderButton.UseVisualStyleBackColor = true;
+            this._cartProductTotalPrice.HeaderText = "總價";
+            this._cartProductTotalPrice.Name = "_cartProductTotalPrice";
+            this._cartProductTotalPrice.ReadOnly = true;
             // 
             // OrderForm
             // 
@@ -445,6 +491,7 @@
             this._productTabControl.ResumeLayout(false);
             this._productInfoGroupBox.ResumeLayout(false);
             this._productInfoGroupBoxLayout.ResumeLayout(false);
+            this._productStorageQuantityAndPriceLayout.ResumeLayout(false);
             this._productGroupBoxLastRowLayout.ResumeLayout(false);
             this._productGroupBoxLastRowLayout.PerformLayout();
             this._pageArrowsLayout.ResumeLayout(false);
@@ -452,7 +499,7 @@
             this._orderFormLayout.PerformLayout();
             this._cartSectionLayout.ResumeLayout(false);
             this._cartSectionLayout.PerformLayout();
-            ( ( System.ComponentModel.ISupportInitialize )( this._cartDataGridView ) ).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._cartDataGridView)).EndInit();
             this._cartSectionLastRowLayout.ResumeLayout(false);
             this._cartSectionLastRowLayout.PerformLayout();
             this.ResumeLayout(false);
@@ -472,7 +519,6 @@
         private System.Windows.Forms.TabPage _graphicsCardTabPage;
         private System.Windows.Forms.TabPage _computerSetTabPage;
         private System.Windows.Forms.GroupBox _productInfoGroupBox;
-        private System.Windows.Forms.RichTextBox _productPrice;
         private System.Windows.Forms.RichTextBox _productNameAndDescription;
         private System.Windows.Forms.TableLayoutPanel _productInfoGroupBoxLayout;
         private System.Windows.Forms.DataGridView _cartDataGridView;
@@ -484,13 +530,18 @@
         private System.Windows.Forms.Button _leftArrowButton;
         private System.Windows.Forms.Button _rightArrowButton;
         private System.Windows.Forms.Label _pageLabel;
+        private System.Windows.Forms.TableLayoutPanel _cartSectionLastRowLayout;
+        private System.Windows.Forms.Label _cartTotalPrice;
+        private System.Windows.Forms.Button _orderButton;
+        private System.Windows.Forms.TableLayoutPanel _productStorageQuantityAndPriceLayout;
+        private System.Windows.Forms.RichTextBox _productPrice;
+        private System.Windows.Forms.RichTextBox _productStorageQuantity;
         private System.Windows.Forms.DataGridViewButtonColumn _cartDeleteButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn _cartProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn _cartProductType;
         private System.Windows.Forms.DataGridViewTextBoxColumn _cartProductPrice;
-        private System.Windows.Forms.TableLayoutPanel _cartSectionLastRowLayout;
-        private System.Windows.Forms.Label _cartTotalPrice;
-        private System.Windows.Forms.Button _orderButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _cartProductQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _cartProductTotalPrice;
     }
 }
 
