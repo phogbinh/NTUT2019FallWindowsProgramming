@@ -34,8 +34,8 @@
             this._nameLayout = new System.Windows.Forms.TableLayoutPanel();
             this._nameLabel = new System.Windows.Forms.Label();
             this._nameFieldLayout = new System.Windows.Forms.TableLayoutPanel();
-            this._lastNameField = new System.Windows.Forms.RichTextBox();
-            this._firstNameField = new System.Windows.Forms.RichTextBox();
+            this._lastNameField = new System.Windows.Forms.TextBox();
+            this._firstNameField = new System.Windows.Forms.TextBox();
             this._nameFieldDash = new System.Windows.Forms.Label();
             this._cardNumberLayout = new System.Windows.Forms.TableLayoutPanel();
             this._cardNumberLabel = new System.Windows.Forms.Label();
@@ -43,10 +43,10 @@
             this._cardNumberFieldFirstDash = new System.Windows.Forms.Label();
             this._cardNumberFieldSecondDash = new System.Windows.Forms.Label();
             this._cardNumberFieldThirdDash = new System.Windows.Forms.Label();
-            this._cardNumberFirstField = new System.Windows.Forms.RichTextBox();
-            this._cardNumberSecondField = new System.Windows.Forms.RichTextBox();
-            this._cardNumberThirdField = new System.Windows.Forms.RichTextBox();
-            this._cardNumberFourthField = new System.Windows.Forms.RichTextBox();
+            this._cardNumberFirstField = new System.Windows.Forms.TextBox();
+            this._cardNumberSecondField = new System.Windows.Forms.TextBox();
+            this._cardNumberThirdField = new System.Windows.Forms.TextBox();
+            this._cardNumberFourthField = new System.Windows.Forms.TextBox();
             this._cardDateLayout = new System.Windows.Forms.TableLayoutPanel();
             this._cardDateLabel = new System.Windows.Forms.Label();
             this._cardDateFieldLayout = new System.Windows.Forms.TableLayoutPanel();
@@ -55,13 +55,13 @@
             this._cardDateFieldSlash = new System.Windows.Forms.Label();
             this._cardSecurityCodeLayout = new System.Windows.Forms.TableLayoutPanel();
             this._cardSecurityCodeLabel = new System.Windows.Forms.Label();
-            this._cardSecurityCodeField = new System.Windows.Forms.RichTextBox();
+            this._cardSecurityCodeField = new System.Windows.Forms.TextBox();
             this._mailLayout = new System.Windows.Forms.TableLayoutPanel();
             this._mailLabel = new System.Windows.Forms.Label();
-            this._mailField = new System.Windows.Forms.RichTextBox();
+            this._mailField = new System.Windows.Forms.TextBox();
             this._addressLayout = new System.Windows.Forms.TableLayoutPanel();
             this._addressLabel = new System.Windows.Forms.Label();
-            this._addressField = new System.Windows.Forms.RichTextBox();
+            this._addressField = new System.Windows.Forms.TextBox();
             this._submitButton = new System.Windows.Forms.Button();
             this._errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this._formLayout.SuspendLayout();
@@ -167,22 +167,18 @@
             this._lastNameField.Dock = System.Windows.Forms.DockStyle.Fill;
             this._lastNameField.Location = new System.Drawing.Point(3, 3);
             this._lastNameField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
-            this._lastNameField.Multiline = false;
             this._lastNameField.Name = "_lastNameField";
-            this._lastNameField.Size = new System.Drawing.Size(170, 22);
+            this._lastNameField.Size = new System.Drawing.Size(170, 20);
             this._lastNameField.TabIndex = 0;
-            this._lastNameField.Text = "";
             // 
             // _firstNameField
             // 
             this._firstNameField.Dock = System.Windows.Forms.DockStyle.Fill;
             this._firstNameField.Location = new System.Drawing.Point(254, 3);
             this._firstNameField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
-            this._firstNameField.Multiline = false;
             this._firstNameField.Name = "_firstNameField";
-            this._firstNameField.Size = new System.Drawing.Size(172, 22);
+            this._firstNameField.Size = new System.Drawing.Size(172, 20);
             this._firstNameField.TabIndex = 1;
-            this._firstNameField.Text = "";
             // 
             // _nameFieldDash
             // 
@@ -286,11 +282,9 @@
             this._cardNumberFirstField.Location = new System.Drawing.Point(3, 3);
             this._cardNumberFirstField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this._cardNumberFirstField.MaxLength = 4;
-            this._cardNumberFirstField.Multiline = false;
             this._cardNumberFirstField.Name = "_cardNumberFirstField";
-            this._cardNumberFirstField.Size = new System.Drawing.Size(65, 22);
+            this._cardNumberFirstField.Size = new System.Drawing.Size(65, 20);
             this._cardNumberFirstField.TabIndex = 3;
-            this._cardNumberFirstField.Text = "";
             // 
             // _cardNumberSecondField
             // 
@@ -298,11 +292,9 @@
             this._cardNumberSecondField.Location = new System.Drawing.Point(121, 3);
             this._cardNumberSecondField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this._cardNumberSecondField.MaxLength = 4;
-            this._cardNumberSecondField.Multiline = false;
             this._cardNumberSecondField.Name = "_cardNumberSecondField";
-            this._cardNumberSecondField.Size = new System.Drawing.Size(65, 22);
+            this._cardNumberSecondField.Size = new System.Drawing.Size(65, 20);
             this._cardNumberSecondField.TabIndex = 4;
-            this._cardNumberSecondField.Text = "";
             // 
             // _cardNumberThirdField
             // 
@@ -310,11 +302,9 @@
             this._cardNumberThirdField.Location = new System.Drawing.Point(239, 3);
             this._cardNumberThirdField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this._cardNumberThirdField.MaxLength = 4;
-            this._cardNumberThirdField.Multiline = false;
             this._cardNumberThirdField.Name = "_cardNumberThirdField";
-            this._cardNumberThirdField.Size = new System.Drawing.Size(65, 22);
+            this._cardNumberThirdField.Size = new System.Drawing.Size(65, 20);
             this._cardNumberThirdField.TabIndex = 5;
-            this._cardNumberThirdField.Text = "";
             // 
             // _cardNumberFourthField
             // 
@@ -322,11 +312,9 @@
             this._cardNumberFourthField.Location = new System.Drawing.Point(357, 3);
             this._cardNumberFourthField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this._cardNumberFourthField.MaxLength = 4;
-            this._cardNumberFourthField.Multiline = false;
             this._cardNumberFourthField.Name = "_cardNumberFourthField";
-            this._cardNumberFourthField.Size = new System.Drawing.Size(69, 22);
+            this._cardNumberFourthField.Size = new System.Drawing.Size(69, 20);
             this._cardNumberFourthField.TabIndex = 6;
-            this._cardNumberFourthField.Text = "";
             // 
             // _cardDateLayout
             // 
@@ -460,11 +448,9 @@
             this._cardSecurityCodeField.Location = new System.Drawing.Point(3, 36);
             this._cardSecurityCodeField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this._cardSecurityCodeField.MaxLength = 3;
-            this._cardSecurityCodeField.Multiline = false;
             this._cardSecurityCodeField.Name = "_cardSecurityCodeField";
-            this._cardSecurityCodeField.Size = new System.Drawing.Size(429, 28);
+            this._cardSecurityCodeField.Size = new System.Drawing.Size(429, 20);
             this._cardSecurityCodeField.TabIndex = 1;
-            this._cardSecurityCodeField.Text = "";
             // 
             // _mailLayout
             // 
@@ -498,11 +484,9 @@
             this._mailField.Dock = System.Windows.Forms.DockStyle.Fill;
             this._mailField.Location = new System.Drawing.Point(3, 36);
             this._mailField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
-            this._mailField.Multiline = false;
             this._mailField.Name = "_mailField";
-            this._mailField.Size = new System.Drawing.Size(429, 28);
+            this._mailField.Size = new System.Drawing.Size(429, 20);
             this._mailField.TabIndex = 1;
-            this._mailField.Text = "";
             // 
             // _addressLayout
             // 
@@ -536,11 +520,9 @@
             this._addressField.Dock = System.Windows.Forms.DockStyle.Fill;
             this._addressField.Location = new System.Drawing.Point(3, 36);
             this._addressField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
-            this._addressField.Multiline = false;
             this._addressField.Name = "_addressField";
-            this._addressField.Size = new System.Drawing.Size(429, 28);
+            this._addressField.Size = new System.Drawing.Size(429, 20);
             this._addressField.TabIndex = 1;
-            this._addressField.Text = "";
             // 
             // _submitButton
             // 
@@ -596,8 +578,8 @@
         private System.Windows.Forms.TableLayoutPanel _nameLayout;
         private System.Windows.Forms.Label _nameLabel;
         private System.Windows.Forms.TableLayoutPanel _nameFieldLayout;
-        private System.Windows.Forms.RichTextBox _lastNameField;
-        private System.Windows.Forms.RichTextBox _firstNameField;
+        private System.Windows.Forms.TextBox _lastNameField;
+        private System.Windows.Forms.TextBox _firstNameField;
         private System.Windows.Forms.Label _nameFieldDash;
         private System.Windows.Forms.TableLayoutPanel _cardNumberLayout;
         private System.Windows.Forms.Label _cardNumberLabel;
@@ -605,10 +587,10 @@
         private System.Windows.Forms.Label _cardNumberFieldFirstDash;
         private System.Windows.Forms.Label _cardNumberFieldSecondDash;
         private System.Windows.Forms.Label _cardNumberFieldThirdDash;
-        private System.Windows.Forms.RichTextBox _cardNumberFirstField;
-        private System.Windows.Forms.RichTextBox _cardNumberSecondField;
-        private System.Windows.Forms.RichTextBox _cardNumberThirdField;
-        private System.Windows.Forms.RichTextBox _cardNumberFourthField;
+        private System.Windows.Forms.TextBox _cardNumberFirstField;
+        private System.Windows.Forms.TextBox _cardNumberSecondField;
+        private System.Windows.Forms.TextBox _cardNumberThirdField;
+        private System.Windows.Forms.TextBox _cardNumberFourthField;
         private System.Windows.Forms.TableLayoutPanel _cardDateLayout;
         private System.Windows.Forms.Label _cardDateLabel;
         private System.Windows.Forms.TableLayoutPanel _cardDateFieldLayout;
@@ -617,13 +599,13 @@
         private System.Windows.Forms.Label _cardDateFieldSlash;
         private System.Windows.Forms.TableLayoutPanel _cardSecurityCodeLayout;
         private System.Windows.Forms.Label _cardSecurityCodeLabel;
-        private System.Windows.Forms.RichTextBox _cardSecurityCodeField;
+        private System.Windows.Forms.TextBox _cardSecurityCodeField;
         private System.Windows.Forms.TableLayoutPanel _mailLayout;
         private System.Windows.Forms.Label _mailLabel;
-        private System.Windows.Forms.RichTextBox _mailField;
+        private System.Windows.Forms.TextBox _mailField;
         private System.Windows.Forms.TableLayoutPanel _addressLayout;
         private System.Windows.Forms.Label _addressLabel;
-        private System.Windows.Forms.RichTextBox _addressField;
+        private System.Windows.Forms.TextBox _addressField;
         private System.Windows.Forms.Button _submitButton;
         private System.Windows.Forms.ErrorProvider _errorProvider;
     }

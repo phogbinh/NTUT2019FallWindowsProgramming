@@ -83,14 +83,14 @@ namespace OrderAndStorageManagementSystem.Views
         }
 
         // Protest on Dr.Smell
-        private void AssignTextBoxInspectorAndSetError(RichTextBox textBox, int textBoxIndex)
+        private void AssignTextBoxInspectorAndSetError(TextBox textBox, int textBoxIndex)
         {
             textBox.TextChanged += (sender, eventArguments) => UpdateTextBoxInspectorsAndSetError(textBox, textBoxIndex);
             textBox.Leave += (sender, eventArguments) => UpdateTextBoxInspectorsAndSetError(textBox, textBoxIndex);
         }
 
         // Protest on Dr.Smell
-        private void UpdateTextBoxInspectorsAndSetError(RichTextBox textBox, int textBoxIndex)
+        private void UpdateTextBoxInspectorsAndSetError(TextBox textBox, int textBoxIndex)
         {
             Action updateTextBoxInspectorsFunction = () => _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(textBoxIndex, textBox.Text, textBox.MaxLength);
             UpdateControlInspectorsAndSetError(textBox, textBoxIndex, updateTextBoxInspectorsFunction);
