@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace OrderAndStorageManagementSystem.ModelNamespace
+namespace OrderAndStorageManagementSystem.Models.OrderForm
 {
     public class OrderProductTabPage
     {

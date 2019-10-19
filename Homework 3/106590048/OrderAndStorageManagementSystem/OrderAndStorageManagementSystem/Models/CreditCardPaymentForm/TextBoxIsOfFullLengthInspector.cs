@@ -1,4 +1,4 @@
-﻿namespace OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace
+﻿namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
 {
     public class TextBoxIsOfFullLengthInspector : TextBoxInspector
     {

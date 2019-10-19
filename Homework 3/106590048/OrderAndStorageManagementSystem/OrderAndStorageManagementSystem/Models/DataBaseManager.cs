@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 
-namespace OrderAndStorageManagementSystem.ModelNamespace
+namespace OrderAndStorageManagementSystem.Models
 {
     public static class DataBaseManager
     {

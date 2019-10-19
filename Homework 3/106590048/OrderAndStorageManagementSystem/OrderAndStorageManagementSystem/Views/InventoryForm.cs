@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace OrderAndStorageManagementSystem.ViewNamespace
+namespace OrderAndStorageManagementSystem.Views
 {
     public partial class InventoryForm : Form
     {

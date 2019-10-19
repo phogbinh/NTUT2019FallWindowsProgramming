@@ -1,7 +1,7 @@
-﻿using OrderAndStorageManagementSystem.ModelNamespace;
+﻿using OrderAndStorageManagementSystem.Models;
 using System.Windows.Forms;
 
-namespace OrderAndStorageManagementSystem.ViewNamespace
+namespace OrderAndStorageManagementSystem.Views
 {
     public class OrderProductTabPageButton : Button
     {

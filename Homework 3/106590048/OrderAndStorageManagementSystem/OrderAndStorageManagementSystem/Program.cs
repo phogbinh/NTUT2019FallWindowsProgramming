@@ -1,7 +1,8 @@
-﻿using OrderAndStorageManagementSystem.ModelNamespace;
-using OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace;
-using OrderAndStorageManagementSystem.PresentationModelNamespace;
-using OrderAndStorageManagementSystem.ViewNamespace;
+﻿using OrderAndStorageManagementSystem.Models;
+using OrderAndStorageManagementSystem.Models.CreditCardPaymentForm;
+using OrderAndStorageManagementSystem.Models.OrderForm;
+using OrderAndStorageManagementSystem.PresentationModels;
+using OrderAndStorageManagementSystem.Views;
 using System;
 using System.Windows.Forms;
 

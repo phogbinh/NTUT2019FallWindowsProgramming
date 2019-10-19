@@ -1,11 +1,12 @@
-﻿using OrderAndStorageManagementSystem.ModelNamespace;
-using OrderAndStorageManagementSystem.PresentationModelNamespace;
+﻿using OrderAndStorageManagementSystem.Models;
+using OrderAndStorageManagementSystem.Models.OrderForm;
+using OrderAndStorageManagementSystem.PresentationModels;
 using OrderAndStorageManagementSystem.Properties;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace OrderAndStorageManagementSystem.ViewNamespace
+namespace OrderAndStorageManagementSystem.Views
 {
     public partial class OrderForm : Form
     {

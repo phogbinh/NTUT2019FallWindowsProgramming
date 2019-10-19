@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace
+namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
 {
     public class CreditCardPaymentModel
     {

@@ -1,4 +1,4 @@
-﻿namespace OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace
+﻿namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
 {
     public abstract class TextBoxInspector : InputInspector
     {

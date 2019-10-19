@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Text;
 
-namespace OrderAndStorageManagementSystem.ModelNamespace
+namespace OrderAndStorageManagementSystem.Models
 {
     public class Money
     {

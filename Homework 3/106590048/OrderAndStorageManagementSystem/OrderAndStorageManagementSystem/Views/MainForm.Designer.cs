@@ -1,4 +1,4 @@
-﻿namespace OrderAndStorageManagementSystem.ViewNamespace
+﻿namespace OrderAndStorageManagementSystem.Views
 {
     partial class MainForm
     {

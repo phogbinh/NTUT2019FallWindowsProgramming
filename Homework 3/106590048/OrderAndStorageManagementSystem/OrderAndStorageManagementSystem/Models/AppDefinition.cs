@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OrderAndStorageManagementSystem.ModelNamespace
+namespace OrderAndStorageManagementSystem.Models
 {
     public static class AppDefinition
     {

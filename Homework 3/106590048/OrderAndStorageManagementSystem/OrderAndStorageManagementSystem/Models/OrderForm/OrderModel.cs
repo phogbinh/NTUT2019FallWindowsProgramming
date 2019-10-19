@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace OrderAndStorageManagementSystem.ModelNamespace
+namespace OrderAndStorageManagementSystem.Models.OrderForm
 {
     public class OrderModel
     {

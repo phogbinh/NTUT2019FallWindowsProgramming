@@ -1,10 +1,10 @@
-﻿using OrderAndStorageManagementSystem.ModelNamespace;
-using OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace;
-using OrderAndStorageManagementSystem.PresentationModelNamespace;
+﻿using OrderAndStorageManagementSystem.Models;
+using OrderAndStorageManagementSystem.Models.CreditCardPaymentForm;
+using OrderAndStorageManagementSystem.PresentationModels;
 using System;
 using System.Windows.Forms;
 
-namespace OrderAndStorageManagementSystem.ViewNamespace
+namespace OrderAndStorageManagementSystem.Views
 {
     public partial class CreditCardPaymentForm : Form
     {

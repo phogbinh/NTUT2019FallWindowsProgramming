@@ -1,7 +1,7 @@
-﻿using OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace;
+﻿using OrderAndStorageManagementSystem.Models.CreditCardPaymentForm;
 using System;
 
-namespace OrderAndStorageManagementSystem.PresentationModelNamespace
+namespace OrderAndStorageManagementSystem.PresentationModels
 {
     public class CreditCardPaymentPresentationModel
     {

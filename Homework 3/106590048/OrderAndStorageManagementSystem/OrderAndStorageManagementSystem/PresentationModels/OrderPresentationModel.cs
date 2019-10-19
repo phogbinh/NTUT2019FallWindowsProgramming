@@ -1,6 +1,7 @@
-﻿using OrderAndStorageManagementSystem.ModelNamespace;
+﻿using OrderAndStorageManagementSystem.Models;
+using OrderAndStorageManagementSystem.Models.OrderForm;
 
-namespace OrderAndStorageManagementSystem.PresentationModelNamespace
+namespace OrderAndStorageManagementSystem.PresentationModels
 {
     public class OrderPresentationModel
     {
