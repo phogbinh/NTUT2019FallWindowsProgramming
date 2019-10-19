@@ -81,51 +81,18 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             _rightArrowButton = new ControlStates();
         }
 
-        /// <summary>
-        /// Select a product.
-        /// </summary>
-        public void SelectProduct(Product product)
+        // Protest on Dr.Smell
+        public void GoToPreviousPage()
         {
-            _currentSelectedProduct = product;
-            SetProductInfoText(product.GetProductNameAndDescription(), AppDefinition.PRODUCT_PRICE_TEXT + product.GetPrice(AppDefinition.TAIWAN_CURRENCY_UNIT));
-            _addButton.Enabled = true;
-        }
-
-        /// <summary>
-        /// Select no product.
-        /// </summary>
-        private void SelectNoProduct()
-        {
-            _currentSelectedProduct = null;
-            SetProductInfoText("", "");
-            _addButton.Enabled = false;
-        }
-
-        /// <summary>
-        /// Set product info text, including product name, description and price.
-        /// </summary>
-        private void SetProductInfoText(string productNameAndDescription, string productPrice)
-        {
-            _productNameAndDescription.Text = productNameAndDescription;
-            _productPrice.Text = productPrice;
+            _currentProductPageIndex--;
+            UpdateCurrentProductPage();
         }
 
         // Protest on Dr.Smell
-        private void ResetCurrentProductPageIndex()
+        public void GoToNextPage()
         {
-            _currentProductPageIndex = CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE;
-        }
-
-        // Protest on Dr.Smell
-        public Product GetProductAtCurrentProductPage(int tabPageIndex, int productIndex)
-        {
-            return _orderModel.GetProduct(tabPageIndex, _currentProductPageIndex, productIndex);
-        }
-
-        // Protest on Dr.Smell
-        public void AddCurrentSelectedProductToOrder()
-        {
-            _model.AddProductToOrder(_currentSelectedProduct);
+            _currentProductPageIndex++;
+            UpdateCurrentProductPage();
         }
 
         // Protest on Dr.Smell
@@ -134,6 +101,12 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             _currentTabPageIndex = tabPageIndex;
             ResetCurrentProductPageIndex();
             UpdateCurrentProductPage();
+        }
+
+        // Protest on Dr.Smell
+        private void ResetCurrentProductPageIndex()
+        {
+            _currentProductPageIndex = CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE;
         }
 
         // Protest on Dr.Smell
@@ -166,18 +139,45 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             }
         }
 
-        // Protest on Dr.Smell
-        public void GoToPreviousPage()
+        /// <summary>
+        /// Select no product.
+        /// </summary>
+        private void SelectNoProduct()
         {
-            _currentProductPageIndex--;
-            UpdateCurrentProductPage();
+            _currentSelectedProduct = null;
+            SetProductInfoText("", "");
+            _addButton.Enabled = false;
+        }
+
+        /// <summary>
+        /// Select a product.
+        /// </summary>
+        public void SelectProduct(Product product)
+        {
+            _currentSelectedProduct = product;
+            SetProductInfoText(product.GetProductNameAndDescription(), AppDefinition.PRODUCT_PRICE_TEXT + product.GetPrice(AppDefinition.TAIWAN_CURRENCY_UNIT));
+            _addButton.Enabled = true;
+        }
+
+        /// <summary>
+        /// Set product info text, including product name, description and price.
+        /// </summary>
+        private void SetProductInfoText(string productNameAndDescription, string productPrice)
+        {
+            _productNameAndDescription.Text = productNameAndDescription;
+            _productPrice.Text = productPrice;
         }
 
         // Protest on Dr.Smell
-        public void GoToNextPage()
+        public Product GetProductAtCurrentProductPage(int tabPageIndex, int productIndex)
         {
-            _currentProductPageIndex++;
-            UpdateCurrentProductPage();
+            return _orderModel.GetProduct(tabPageIndex, _currentProductPageIndex, productIndex);
+        }
+
+        // Protest on Dr.Smell
+        public void AddCurrentSelectedProductToOrder()
+        {
+            _model.AddProductToOrder(_currentSelectedProduct);
         }
     }
 }
