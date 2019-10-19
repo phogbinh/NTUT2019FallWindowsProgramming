@@ -52,16 +52,16 @@
             this._orderFormLayout = new System.Windows.Forms.TableLayoutPanel();
             this._cartSectionLayout = new System.Windows.Forms.TableLayoutPanel();
             this._cartDataGridView = new System.Windows.Forms.DataGridView();
-            this._cartSectionTitle = new System.Windows.Forms.Label();
-            this._cartSectionLastRowLayout = new System.Windows.Forms.TableLayoutPanel();
-            this._cartTotalPrice = new System.Windows.Forms.Label();
-            this._orderButton = new System.Windows.Forms.Button();
             this._cartDeleteButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this._cartProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._cartProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._cartProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._cartProductQuantity = new DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn();
             this._cartProductTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._cartSectionTitle = new System.Windows.Forms.Label();
+            this._cartSectionLastRowLayout = new System.Windows.Forms.TableLayoutPanel();
+            this._cartTotalPrice = new System.Windows.Forms.Label();
+            this._orderButton = new System.Windows.Forms.Button();
             this._productGroupBox.SuspendLayout();
             this._productGroupBoxLayout.SuspendLayout();
             this._productTabControl.SuspendLayout();
@@ -380,11 +380,49 @@
             this._cartDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this._cartDataGridView.Location = new System.Drawing.Point(3, 69);
             this._cartDataGridView.Name = "_cartDataGridView";
-            this._cartDataGridView.ReadOnly = true;
             this._cartDataGridView.RowHeadersVisible = false;
             this._cartDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._cartDataGridView.Size = new System.Drawing.Size(442, 388);
             this._cartDataGridView.TabIndex = 1;
+            // 
+            // _cartDeleteButton
+            // 
+            this._cartDeleteButton.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this._cartDeleteButton.FillWeight = 50F;
+            this._cartDeleteButton.HeaderText = "刪除";
+            this._cartDeleteButton.Name = "_cartDeleteButton";
+            this._cartDeleteButton.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this._cartDeleteButton.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // _cartProductName
+            // 
+            this._cartProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this._cartProductName.HeaderText = "商品名稱";
+            this._cartProductName.Name = "_cartProductName";
+            // 
+            // _cartProductType
+            // 
+            this._cartProductType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this._cartProductType.HeaderText = "商品類別";
+            this._cartProductType.Name = "_cartProductType";
+            // 
+            // _cartProductPrice
+            // 
+            this._cartProductPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this._cartProductPrice.HeaderText = "單價";
+            this._cartProductPrice.Name = "_cartProductPrice";
+            // 
+            // _cartProductQuantity
+            // 
+            this._cartProductQuantity.HeaderText = "數量";
+            this._cartProductQuantity.Name = "_cartProductQuantity";
+            this._cartProductQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this._cartProductQuantity.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // _cartProductTotalPrice
+            // 
+            this._cartProductTotalPrice.HeaderText = "總價";
+            this._cartProductTotalPrice.Name = "_cartProductTotalPrice";
             // 
             // _cartSectionTitle
             // 
@@ -434,51 +472,6 @@
             this._orderButton.TabIndex = 5;
             this._orderButton.Text = "訂購";
             this._orderButton.UseVisualStyleBackColor = true;
-            // 
-            // _cartDeleteButton
-            // 
-            this._cartDeleteButton.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this._cartDeleteButton.FillWeight = 50F;
-            this._cartDeleteButton.HeaderText = "刪除";
-            this._cartDeleteButton.Name = "_cartDeleteButton";
-            this._cartDeleteButton.ReadOnly = true;
-            this._cartDeleteButton.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this._cartDeleteButton.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // _cartProductName
-            // 
-            this._cartProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this._cartProductName.HeaderText = "商品名稱";
-            this._cartProductName.Name = "_cartProductName";
-            this._cartProductName.ReadOnly = true;
-            // 
-            // _cartProductType
-            // 
-            this._cartProductType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this._cartProductType.HeaderText = "商品類別";
-            this._cartProductType.Name = "_cartProductType";
-            this._cartProductType.ReadOnly = true;
-            // 
-            // _cartProductPrice
-            // 
-            this._cartProductPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this._cartProductPrice.HeaderText = "單價";
-            this._cartProductPrice.Name = "_cartProductPrice";
-            this._cartProductPrice.ReadOnly = true;
-            // 
-            // _cartProductQuantity
-            // 
-            this._cartProductQuantity.HeaderText = "數量";
-            this._cartProductQuantity.Name = "_cartProductQuantity";
-            this._cartProductQuantity.ReadOnly = true;
-            this._cartProductQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this._cartProductQuantity.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // _cartProductTotalPrice
-            // 
-            this._cartProductTotalPrice.HeaderText = "總價";
-            this._cartProductTotalPrice.Name = "_cartProductTotalPrice";
-            this._cartProductTotalPrice.ReadOnly = true;
             // 
             // OrderForm
             // 
