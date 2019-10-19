@@ -12,6 +12,7 @@ namespace OrderAndStorageManagementSystem.Views
     public partial class OrderForm : Form
     {
         private const string TAB_PAGE_LAYOUT_NAME = "_productTabPageLayout";
+        private const int CART_PRODUCT_QUANTITY_COLUMN_INDEX = 4;
         private CreditCardPaymentForm _creditCardPaymentForm;
         private OrderPresentationModel _orderPresentationModel;
         private OrderModel _orderModel;
@@ -34,6 +35,7 @@ namespace OrderAndStorageManagementSystem.Views
             // UI
             _cartDataGridView.CellPainting += CartDataGridViewCellPainting;
             _cartDataGridView.CellContentClick += CartDataGridViewCellContentClick;
+            _cartDataGridView.CellValueChanged += CartDataGridViewCellValueChanged;
             _leftArrowButton.Click += (sender, events) => GoToPreviousPage();
             _rightArrowButton.Click += (sender, events) => GoToNextPage();
             _addButton.Click += (sender, eventArguments) => _orderPresentationModel.AddCurrentSelectedProductToOrderIfProductIsNotInOrder();
@@ -44,6 +46,18 @@ namespace OrderAndStorageManagementSystem.Views
             SelectProductTabPage(AppDefinition.MOTHER_BOARD_INDEX);
             UpdateCartSectionView();
             RefreshControls();
+        }
+
+        // Protest on Dr.Smell
+        private void CartDataGridViewCellValueChanged(object sender, DataGridViewCellEventArgs eventArguments)
+        {
+            if ( eventArguments.ColumnIndex == CART_PRODUCT_QUANTITY_COLUMN_INDEX )
+            {
+                int currentRowIndex = eventArguments.RowIndex;
+                DataGridViewTextBoxCell textBoxCell = ( DataGridViewTextBoxCell )_cartDataGridView.Rows[ currentRowIndex ].Cells[ CART_PRODUCT_QUANTITY_COLUMN_INDEX ];
+                int newCartProductQuantity = int.Parse(textBoxCell.Value.ToString());
+                _model.SetOrderProductQuantity(currentRowIndex, newCartProductQuantity);
+            }
         }
 
         // Protest on Dr.Smell

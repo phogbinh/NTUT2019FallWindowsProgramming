@@ -161,5 +161,26 @@ namespace OrderAndStorageManagementSystem.Models
                 OrderCleared();
             }
         }
+
+        // Protest on Dr.Smell
+        public void SetOrderProductQuantity(int productIndex, int newCartProductQuantity)
+        {
+            //if ( IsValidQuantity(productIndex, newCartProductQuantity) )
+            //{
+            //    _order.SetOrderProductQuantity(productIndex, newCartProductQuantity);
+            //    // TODO: Notify observer
+            //}
+            //else
+            //{
+            //    _order.SetOrderProductMaximumQuantity(productIndex);
+            //    // TODO: Notify observer to set back value
+            //}
+        }
+
+        // Protest on Dr.Smell
+        //private bool IsValidQuantity(int productIndex, int newCartProductQuantity)
+        //{
+        //    return _order.IsValidQuantity(productIndex, newCartProductQuantity);
+        //}
     }
 }
