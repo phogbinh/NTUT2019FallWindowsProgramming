@@ -32,6 +32,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model.OrderChanged += UpdateCartSectionView;
             _model.OrderCleared += () => _cartDataGridView.Rows.Clear();
             _model.OrderAdded += (product) => _cartDataGridView.Rows.Add(null, product.Name, product.Type, product.Price.GetCurrencyFormat());
+            _model.OrderRemoved += (productIndex) => _cartDataGridView.Rows.RemoveAt(productIndex);
             // UI
             _cartDataGridView.CellPainting += CartDataGridViewCellPainting;
             _cartDataGridView.CellContentClick += CartDataGridViewCellContentClick;
@@ -84,7 +85,6 @@ namespace OrderAndStorageManagementSystem.Views
             if ( eventArguments.ColumnIndex == 0 )
             {
                 _model.RemoveProductFromOrder(eventArguments.RowIndex);
-                _cartDataGridView.Rows.RemoveAt(eventArguments.RowIndex);
             }
         }
 
