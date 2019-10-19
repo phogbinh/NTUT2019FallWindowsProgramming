@@ -70,13 +70,13 @@
     <Compile Include="Models\CreditCardPaymentForm\TextBoxIsOfFullLengthInspector.cs" />
     <Compile Include="Models\CreditCardPaymentForm\TextBoxIsNotEmptyInspector.cs" />
     <Compile Include="Models\Model.cs" />
-    <Compile Include="Models\DataBaseManager.cs" />
-    <Compile Include="Models\Money.cs" />
-    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Utilities\DataBaseManager.cs" />
+    <Compile Include="Models\Utilities\Money.cs" />
+    <Compile Include="Models\Utilities\Order.cs" />
     <Compile Include="Models\OrderForm\OrderModel.cs" />
     <Compile Include="Models\OrderForm\OrderProductTabPage.cs" />
     <Compile Include="Models\OrderForm\OrderProductTabPageProductPage.cs" />
-    <Compile Include="PresentationModels\ControlStates.cs" />
+    <Compile Include="PresentationModels\Utilities\ControlStates.cs" />
     <Compile Include="PresentationModels\CreditCardPaymentPresentationModel.cs" />
     <Compile Include="PresentationModels\MainPresentationModel.cs" />
     <Compile Include="PresentationModels\OrderPresentationModel.cs" />
@@ -104,10 +104,10 @@
     <Compile Include="Views\OrderForm.Designer.cs">
       <DependentUpon>OrderForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Utilities\Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\OrderProductTabPageButton.cs">
+    <Compile Include="Views\Utilities\OrderProductTabPageButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="Views\CreditCardPaymentForm.resx">

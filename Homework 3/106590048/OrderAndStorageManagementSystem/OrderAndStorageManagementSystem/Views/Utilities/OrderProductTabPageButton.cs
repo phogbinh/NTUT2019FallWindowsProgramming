@@ -1,4 +1,4 @@
-﻿using OrderAndStorageManagementSystem.Models;
+﻿using OrderAndStorageManagementSystem.Models.Utilities;
 using System.Windows.Forms;
 
 namespace OrderAndStorageManagementSystem.Views

@@ -1,4 +1,4 @@
-﻿namespace OrderAndStorageManagementSystem.PresentationModels
+﻿namespace OrderAndStorageManagementSystem.PresentationModels.Utilities
 {
     public class ControlStates
     {

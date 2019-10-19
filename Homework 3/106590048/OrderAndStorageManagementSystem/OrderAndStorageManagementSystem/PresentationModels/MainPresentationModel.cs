@@ -1,4 +1,6 @@
-﻿namespace OrderAndStorageManagementSystem.PresentationModels
+﻿using OrderAndStorageManagementSystem.PresentationModels.Utilities;
+
+namespace OrderAndStorageManagementSystem.PresentationModels
 {
     public class MainPresentationModel
     {
