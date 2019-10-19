@@ -193,7 +193,7 @@
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>OrderAndStorageManagementSystem</Project>
-              <File>D:\Git\phogbinh\NTUT2019FallWindowsProgramming\Homework 2\106590048\OrderAndStorageManagementSystem\ModelNamespace\CreditCardPaymentNamespace\TextBoxIsOfFullLengthInspector.cs</File>
+              <File>D:\Git\phogbinh\NTUT2019FallWindowsProgramming\Homework 3\106590048\OrderAndStorageManagementSystem\ModelNamespace\CreditCardPaymentNamespace\TextBoxIsOfFullLengthInspector.cs</File>
               <Line>15</Line>
               <StartLine>14</StartLine>
               <StartCol>0</StartCol>
@@ -205,15 +205,15 @@
             <Smell>
               <Id>2</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>116 目前物件 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.CreditCardPaymentModel，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.InputInspector，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.InputInspector.GetError() 以及 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.InputInspector.IsValid()</HashCode>
+              <HashCode>122 目前物件 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.CreditCardPaymentModel，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.InputInspector，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.InputInspector.GetError() 以及 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.InputInspector.IsValid()</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>OrderAndStorageManagementSystem</Project>
-              <File>D:\Git\phogbinh\NTUT2019FallWindowsProgramming\Homework 2\106590048\OrderAndStorageManagementSystem\ModelNamespace\CreditCardPaymentNamespace\CreditCardPaymentModel.cs</File>
-              <Line>116</Line>
-              <StartLine>115</StartLine>
+              <File>D:\Git\phogbinh\NTUT2019FallWindowsProgramming\Homework 3\106590048\OrderAndStorageManagementSystem\ModelNamespace\CreditCardPaymentNamespace\CreditCardPaymentModel.cs</File>
+              <Line>122</Line>
+              <StartLine>121</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>116</EndLine>
+              <EndLine>122</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.CreditCardPaymentModel，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.InputInspector，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.InputInspector.GetError() 以及 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.InputInspector.IsValid()</Comment>
               <Auto>false</Auto>
@@ -393,7 +393,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>3121</ProductionLoc>
+          <ProductionLoc>3140</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>
