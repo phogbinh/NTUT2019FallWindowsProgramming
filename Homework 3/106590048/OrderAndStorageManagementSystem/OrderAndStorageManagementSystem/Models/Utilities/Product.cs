@@ -32,6 +32,13 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
                 return _price;
             }
         }
+        public int StorageQuantity
+        {
+            get
+            {
+                return _storageQuantity;
+            }
+        }
         public string Description
         {
             get

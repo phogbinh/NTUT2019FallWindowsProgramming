@@ -276,6 +276,11 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>Models\OrderForm\OrderProduct.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>Models\OrderForm\OrderProductTabPage.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
@@ -422,7 +427,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>3698</ProductionLoc>
+          <ProductionLoc>3740</ProductionLoc>
           <TestLoc>1503</TestLoc>
         </CodeReview>
       </Data>

@@ -52,6 +52,12 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         }
 
         // Protest on Dr.Smell
+        public Money MultiplyConstant(int constant)
+        {
+            return new Money(_value * constant);
+        }
+
+        // Protest on Dr.Smell
         public void Set(int value)
         {
             _value = value;

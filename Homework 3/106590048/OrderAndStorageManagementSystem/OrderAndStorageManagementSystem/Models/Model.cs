@@ -1,4 +1,5 @@
-﻿using OrderAndStorageManagementSystem.Models.Utilities;
+﻿using OrderAndStorageManagementSystem.Models.OrderForm;
+using OrderAndStorageManagementSystem.Models.Utilities;
 using System.Collections.Generic;
 
 namespace OrderAndStorageManagementSystem.Models
@@ -9,7 +10,7 @@ namespace OrderAndStorageManagementSystem.Models
         private event OrderChangedEventHandler _orderChanged;
         public delegate void OrderClearedEventHandler();
         private event OrderClearedEventHandler _orderCleared;
-        public delegate void OrderAddedEventHandler(Product product);
+        public delegate void OrderAddedEventHandler(OrderProduct orderProduct);
         private event OrderAddedEventHandler _orderAdded;
         public delegate void OrderRemovedEventHandler(int productIndex);
         private event OrderRemovedEventHandler _orderRemoved;
@@ -86,7 +87,7 @@ namespace OrderAndStorageManagementSystem.Models
             if ( IsNotInOrder(product) )
             {
                 _order.AddProduct(product);
-                NotifyObserverChangeAndAddOrder(product);
+                NotifyObserverChangeAndAddOrder(new OrderProduct(product.Id, product.Name, product.Type, product.Price, product.StorageQuantity, product.Description));
             }
         }
 
@@ -97,12 +98,12 @@ namespace OrderAndStorageManagementSystem.Models
         }
 
         // Protest on Dr.Smell
-        private void NotifyObserverChangeAndAddOrder(Product product)
+        private void NotifyObserverChangeAndAddOrder(OrderProduct orderProduct)
         {
             NotifyObserverChangeOrder();
             if ( OrderAdded != null )
             {
-                OrderAdded(product);
+                OrderAdded(orderProduct);
             }
         }
 

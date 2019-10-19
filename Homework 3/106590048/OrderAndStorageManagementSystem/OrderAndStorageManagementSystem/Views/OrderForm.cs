@@ -31,7 +31,7 @@ namespace OrderAndStorageManagementSystem.Views
             // Event Handlers
             _model.OrderChanged += UpdateCartSectionView;
             _model.OrderCleared += () => _cartDataGridView.Rows.Clear();
-            _model.OrderAdded += (product) => _cartDataGridView.Rows.Add(null, product.Name, product.Type, product.Price.GetCurrencyFormat());
+            _model.OrderAdded += (orderProduct) => _cartDataGridView.Rows.Add(null, orderProduct.Name, orderProduct.Type, orderProduct.Price.GetCurrencyFormat(), orderProduct.TotalQuantity, orderProduct.GetTotalPrice().GetCurrencyFormat());
             _model.OrderRemoved += (productIndex) => _cartDataGridView.Rows.RemoveAt(productIndex);
             // UI
             _cartDataGridView.CellPainting += CartDataGridViewCellPainting;
