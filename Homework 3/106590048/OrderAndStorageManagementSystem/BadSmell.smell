@@ -185,144 +185,108 @@
     <div class="data">
       <Data id="ReviewPalData">
         <CodeReview xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-          <Reviews>
-            <Smell>
-              <Id>1</Id>
-              <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>15 目前物件 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.TextBoxIsOfFullLengthInspector，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.TextBoxInspector，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.TextBoxInspector._maxTextLength 以及 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.TextBoxInspector._text</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>1</Weight>
-              <Project>OrderAndStorageManagementSystem</Project>
-              <File>D:\Git\phogbinh\NTUT2019FallWindowsProgramming\Homework 3\106590048\OrderAndStorageManagementSystem\ModelNamespace\CreditCardPaymentNamespace\TextBoxIsOfFullLengthInspector.cs</File>
-              <Line>15</Line>
-              <StartLine>14</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>15</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>目前物件 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.TextBoxIsOfFullLengthInspector，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.TextBoxInspector，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.TextBoxInspector._maxTextLength 以及 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.TextBoxInspector._text</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>2</Id>
-              <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>122 目前物件 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.CreditCardPaymentModel，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.InputInspector，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.InputInspector.GetError() 以及 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.InputInspector.IsValid()</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>1</Weight>
-              <Project>OrderAndStorageManagementSystem</Project>
-              <File>D:\Git\phogbinh\NTUT2019FallWindowsProgramming\Homework 3\106590048\OrderAndStorageManagementSystem\ModelNamespace\CreditCardPaymentNamespace\CreditCardPaymentModel.cs</File>
-              <Line>122</Line>
-              <StartLine>121</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>122</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>目前物件 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.CreditCardPaymentModel，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.InputInspector，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.InputInspector.GetError() 以及 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.InputInspector.IsValid()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-          </Reviews>
+          <Reviews />
           <HashCodeIgnoreList />
-          <HashCodeRequestIgnoreList>
-            <string>116 目前物件 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.CreditCardPaymentModel，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.InputInspector，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.InputInspector.GetError() 以及 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.InputInspector.IsValid()</string>
-            <string>15 目前物件 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.TextBoxIsOfFullLengthInspector，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.TextBoxInspector，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.TextBoxInspector._maxTextLength 以及 OrderAndStorageManagementSystem.ModelNamespace.CreditCardPaymentNamespace.TextBoxInspector._text</string>
-          </HashCodeRequestIgnoreList>
+          <HashCodeRequestIgnoreList />
           <AnalysisFileManager>
             <AnalysisFiles>
               <AnalysisFile>
-                <RelativePath>ModelNamespace\AppDefinition.cs</RelativePath>
+                <RelativePath>Models\AppDefinition.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ModelNamespace\CreditCardPaymentNamespace\CreditCardPaymentModel.cs</RelativePath>
+                <RelativePath>Models\CreditCardPaymentForm\CreditCardPaymentModel.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ModelNamespace\CreditCardPaymentNamespace\DropDownListIsSelectedInspector.cs</RelativePath>
+                <RelativePath>Models\CreditCardPaymentForm\DropDownListIsSelectedInspector.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ModelNamespace\CreditCardPaymentNamespace\InputInspector.cs</RelativePath>
+                <RelativePath>Models\CreditCardPaymentForm\IInputInspector.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ModelNamespace\CreditCardPaymentNamespace\TextBoxInspector.cs</RelativePath>
+                <RelativePath>Models\CreditCardPaymentForm\TextBoxInspector.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ModelNamespace\CreditCardPaymentNamespace\TextBoxIsMailInspector.cs</RelativePath>
+                <RelativePath>Models\CreditCardPaymentForm\TextBoxIsMailInspector.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ModelNamespace\CreditCardPaymentNamespace\TextBoxIsNotEmptyInspector.cs</RelativePath>
+                <RelativePath>Models\CreditCardPaymentForm\TextBoxIsNotEmptyInspector.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ModelNamespace\CreditCardPaymentNamespace\TextBoxIsOfFullLengthInspector.cs</RelativePath>
+                <RelativePath>Models\CreditCardPaymentForm\TextBoxIsOfFullLengthInspector.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ModelNamespace\DataBaseManager.cs</RelativePath>
+                <RelativePath>Models\Model.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ModelNamespace\Model.cs</RelativePath>
+                <RelativePath>Models\OrderForm\OrderModel.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ModelNamespace\Money.cs</RelativePath>
+                <RelativePath>Models\OrderForm\OrderProductTabPage.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ModelNamespace\Order.cs</RelativePath>
+                <RelativePath>Models\OrderForm\OrderProductTabPageProductPage.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ModelNamespace\OrderModel.cs</RelativePath>
+                <RelativePath>Models\Utilities\DataBaseManager.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ModelNamespace\OrderProductTabPage.cs</RelativePath>
+                <RelativePath>Models\Utilities\Money.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ModelNamespace\OrderProductTabPageProductPage.cs</RelativePath>
+                <RelativePath>Models\Utilities\Order.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ModelNamespace\Product.cs</RelativePath>
+                <RelativePath>Models\Utilities\Product.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>PresentationModelNamespace\ControlStates.cs</RelativePath>
+                <RelativePath>PresentationModels\CreditCardPaymentPresentationModel.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>PresentationModelNamespace\CreditCardPaymentPresentationModel.cs</RelativePath>
+                <RelativePath>PresentationModels\MainPresentationModel.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>PresentationModelNamespace\MainPresentationModel.cs</RelativePath>
+                <RelativePath>PresentationModels\OrderPresentationModel.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>PresentationModelNamespace\OrderPresentationModel.cs</RelativePath>
+                <RelativePath>PresentationModels\Utilities\ControlStates.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -347,53 +311,53 @@
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ViewNamespace\CreditCardPaymentForm.cs</RelativePath>
+                <RelativePath>Views\CreditCardPaymentForm.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>ViewOrController</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ViewNamespace\CreditCardPaymentForm.Designer.cs</RelativePath>
+                <RelativePath>Views\CreditCardPaymentForm.Designer.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ViewNamespace\InventoryForm.cs</RelativePath>
+                <RelativePath>Views\InventoryForm.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>ViewOrController</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ViewNamespace\InventoryForm.Designer.cs</RelativePath>
+                <RelativePath>Views\InventoryForm.Designer.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ViewNamespace\MainForm.cs</RelativePath>
+                <RelativePath>Views\MainForm.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>ViewOrController</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ViewNamespace\MainForm.Designer.cs</RelativePath>
+                <RelativePath>Views\MainForm.Designer.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ViewNamespace\OrderForm.cs</RelativePath>
+                <RelativePath>Views\OrderForm.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>ViewOrController</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ViewNamespace\OrderForm.Designer.cs</RelativePath>
+                <RelativePath>Views\OrderForm.Designer.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ViewNamespace\OrderProductTabPageItem.cs</RelativePath>
+                <RelativePath>Views\Utilities\OrderProductTabPageButton.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>3140</ProductionLoc>
+          <ProductionLoc>3143</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>
