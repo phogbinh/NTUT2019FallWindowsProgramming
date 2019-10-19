@@ -119,10 +119,16 @@ namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
             {
                 if ( !inspector.IsValid() )
                 {
-                    return inspector.GetError();
+                    return GetInspectorError(inspector);
                 }
             }
             return ERROR_FREE;
+        }
+
+        // Protest on Dr.Smell
+        private string GetInspectorError(IInputInspector inspector)
+        {
+            return inspector.GetError();
         }
     }
 }

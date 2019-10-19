@@ -3,6 +3,20 @@
     public class TextBoxIsOfFullLengthInspector : TextBoxInspector
     {
         private const string ERROR_TEXT_BOX_IS_OF_LOSS_LENGTH = "This field is of insufficient length.";
+        private string Text
+        {
+            get
+            {
+                return _text;
+            }
+        }
+        private int MaxTextLength
+        {
+            get
+            {
+                return _maxTextLength;
+            }
+        }
 
         public TextBoxIsOfFullLengthInspector() : base()
         {
@@ -12,7 +26,7 @@
         // Protest on Dr.Smell
         public override bool IsValid()
         {
-            return _text.Length == _maxTextLength;
+            return Text.Length == MaxTextLength;
         }
 
         // Protest on Dr.Smell
