@@ -11,6 +11,10 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             {
                 return _orderQuantity;
             }
+            set
+            {
+                _orderQuantity = value;
+            }
         }
         private int _orderQuantity;
 
@@ -19,10 +23,16 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             _orderQuantity = ORDER_QUANTITY_INITIAL_VALUE;
         }
 
-        // protest on dr.smell
+        // Protest on Dr.Smell
         public Money GetTotalPrice()
         {
             return Price.MultiplyConstant(_orderQuantity);
+        }
+
+        // Protest on Dr.Smell
+        public void SetMaximumOrderQuantity()
+        {
+            _orderQuantity = StorageQuantity;
         }
     }
 }

@@ -54,5 +54,23 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             _totalPrice.Set(TOTAL_PRICE_INITIAL_VALUE);
             _orderProducts.Clear();
         }
+
+        // Protest on Dr.Smell
+        public bool IsValidQuantity(int orderProductIndex, int quantity)
+        {
+            return _orderProducts[ orderProductIndex ].StorageQuantity >= quantity;
+        }
+
+        // Protest on Dr.Smell
+        public void SetOrderProductMaximumQuantity(int orderProductIndex)
+        {
+            _orderProducts[ orderProductIndex ].SetMaximumOrderQuantity();
+        }
+
+        // Protest on Dr.Smell
+        public void SetOrderProductQuantity(int orderProductIndex, int newOrderQuantity)
+        {
+            _orderProducts[ orderProductIndex ].OrderQuantity = newOrderQuantity;
+        }
     }
 }
