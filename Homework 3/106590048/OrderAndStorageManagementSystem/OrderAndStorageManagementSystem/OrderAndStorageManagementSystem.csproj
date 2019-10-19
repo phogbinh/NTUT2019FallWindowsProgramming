@@ -64,7 +64,7 @@
     <Compile Include="Models\AppDefinition.cs" />
     <Compile Include="Models\CreditCardPaymentForm\CreditCardPaymentModel.cs" />
     <Compile Include="Models\CreditCardPaymentForm\DropDownListIsSelectedInspector.cs" />
-    <Compile Include="Models\CreditCardPaymentForm\InputInspector.cs" />
+    <Compile Include="Models\CreditCardPaymentForm\IInputInspector.cs" />
     <Compile Include="Models\CreditCardPaymentForm\TextBoxInspector.cs" />
     <Compile Include="Models\CreditCardPaymentForm\TextBoxIsMailInspector.cs" />
     <Compile Include="Models\CreditCardPaymentForm\TextBoxIsOfFullLengthInspector.cs" />

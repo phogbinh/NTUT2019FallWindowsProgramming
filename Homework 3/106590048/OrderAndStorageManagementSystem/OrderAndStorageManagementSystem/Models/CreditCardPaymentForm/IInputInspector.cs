@@ -1,11 +1,11 @@
 ﻿namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
 {
-    public abstract class InputInspector
+    public interface IInputInspector
     {
         // Protest on Dr.Smell
-        public abstract bool IsValid();
+        bool IsValid();
 
         // Protest on Dr.Smell
-        public abstract string GetError();
+        string GetError();
     }
 }

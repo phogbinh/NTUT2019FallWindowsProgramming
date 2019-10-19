@@ -18,7 +18,7 @@ namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
         public const int CARD_DATE_YEAR_FIELD_INDEX = 10;
         private const int CONTROLS_COUNT = 11;
         private const string ERROR_FREE = "";
-        private IDictionary<int, List<InputInspector>> _controlWithInspectorsContainers;
+        private IDictionary<int, List<IInputInspector>> _controlWithInspectorsContainers;
 
         public CreditCardPaymentModel()
         {
@@ -32,10 +32,10 @@ namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
         // Protest on Dr.Smell
         private void InitializeControlWithInspectorsContainers()
         {
-            _controlWithInspectorsContainers = new Dictionary<int, List<InputInspector>>();
+            _controlWithInspectorsContainers = new Dictionary<int, List<IInputInspector>>();
             for ( int i = 0; i < CONTROLS_COUNT; i++ )
             {
-                _controlWithInspectorsContainers.Add(i, new List<InputInspector>());
+                _controlWithInspectorsContainers.Add(i, new List<IInputInspector>());
             }
         }
 
@@ -75,21 +75,21 @@ namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
         // Protest on Dr.Smell
         public void UpdateTextBoxInspectors(int textBoxIndex, string text, int maxTextLength)
         {
-            Action<InputInspector> setTextBoxInspectorFunction = (inspector) => ( ( TextBoxInspector )inspector ).Set(text, maxTextLength);
+            Action<IInputInspector> setTextBoxInspectorFunction = (inspector) => ( ( TextBoxInspector )inspector ).Set(text, maxTextLength);
             UpdateControlInspectors(textBoxIndex, setTextBoxInspectorFunction);
         }
 
         // Protest on Dr.Smell
         public void UpdateDropDownListInspectors(int dropDownListIndex, int selectedIndex)
         {
-            Action<InputInspector> setDropDownListIsSelectedInspectorFunction = (inspector) => ( ( DropDownListIsSelectedInspector )inspector ).Set(selectedIndex);
+            Action<IInputInspector> setDropDownListIsSelectedInspectorFunction = (inspector) => ( ( DropDownListIsSelectedInspector )inspector ).Set(selectedIndex);
             UpdateControlInspectors(dropDownListIndex, setDropDownListIsSelectedInspectorFunction);
         }
 
         // Protest on Dr.Smell
-        private void UpdateControlInspectors(int controlIndex, Action<InputInspector> setInspectorFunction)
+        private void UpdateControlInspectors(int controlIndex, Action<IInputInspector> setInspectorFunction)
         {
-            foreach ( InputInspector inspector in _controlWithInspectorsContainers[ controlIndex ] )
+            foreach ( IInputInspector inspector in _controlWithInspectorsContainers[ controlIndex ] )
             {
                 setInspectorFunction(inspector);
             }
@@ -98,10 +98,10 @@ namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
         // Protest on Dr.Smell
         public bool AreAllValidInspectors()
         {
-            foreach ( KeyValuePair<int, List<InputInspector>> container in _controlWithInspectorsContainers )
+            foreach ( KeyValuePair<int, List<IInputInspector>> container in _controlWithInspectorsContainers )
             {
-                List<InputInspector> inspectors = container.Value;
-                foreach ( InputInspector inspector in inspectors )
+                List<IInputInspector> inspectors = container.Value;
+                foreach ( IInputInspector inspector in inspectors )
                 {
                     if ( !inspector.IsValid() )
                     {
@@ -115,7 +115,7 @@ namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
         // Protest on Dr.Smell
         public string GetControlError(int controlIndex)
         {
-            foreach ( InputInspector inspector in _controlWithInspectorsContainers[ controlIndex ] )
+            foreach ( IInputInspector inspector in _controlWithInspectorsContainers[ controlIndex ] )
             {
                 if ( !inspector.IsValid() )
                 {

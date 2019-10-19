@@ -1,6 +1,6 @@
 ﻿namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
 {
-    public class DropDownListIsSelectedInspector : InputInspector
+    public class DropDownListIsSelectedInspector : IInputInspector
     {
         private const string ERROR_DROP_DOWN_LIST_IS_IGNORED = "This field has not been selected.";
         private int _selectedIndex;
@@ -11,7 +11,7 @@
         }
 
         // Protest on Dr.Smell
-        public override bool IsValid()
+        public bool IsValid()
         {
             return _selectedIndex > -1;
         }
@@ -23,7 +23,7 @@
         }
 
         // Protest on Dr.Smell
-        public override string GetError()
+        public string GetError()
         {
             return ERROR_DROP_DOWN_LIST_IS_IGNORED;
         }
