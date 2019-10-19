@@ -64,6 +64,12 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             return _name + AppDefinition.PRODUCT_NAME_DESCRIPTION_SEPARATOR + _description;
         }
 
+        // Protest on Dr.Smell
+        public string GetStorageQuantity()
+        {
+            return _storageQuantity.ToString();
+        }
+
         /// <summary>
         /// Print info of the product. For debugging purpose only.
         /// </summary>

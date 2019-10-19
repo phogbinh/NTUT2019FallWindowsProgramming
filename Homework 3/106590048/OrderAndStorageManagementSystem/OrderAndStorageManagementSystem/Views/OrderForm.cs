@@ -236,6 +236,7 @@ namespace OrderAndStorageManagementSystem.Views
         public void RefreshControls()
         {
             _productNameAndDescription.Text = _orderPresentationModel.ProductNameAndDescription.Text;
+            _productStorageQuantity.Text = _orderPresentationModel.ProductStorageQuantity.Text;
             _productPrice.Text = _orderPresentationModel.ProductPrice.Text;
             _addButton.Enabled = _orderPresentationModel.AddButton.Enabled;
             _pageLabel.Text = _orderPresentationModel.PageLabel.Text;

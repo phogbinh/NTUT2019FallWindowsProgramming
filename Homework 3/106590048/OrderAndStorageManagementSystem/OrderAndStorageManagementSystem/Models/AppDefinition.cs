@@ -21,6 +21,7 @@ namespace OrderAndStorageManagementSystem.Models
         public const string PRINT_END_MARK = ".\n";
         public const string ERROR_TAB_PAGE_INDEX_OUT_OF_RANGE = "Tab page index is out of range.";
         // Product
+        public const string PRODUCT_STORAGE_QUANTITY_TEXT = "庫存數量： ";
         public const string PRODUCT_PRICE_TEXT = "單價： ";
         public const string PRODUCT_NAME_DESCRIPTION_SEPARATOR = "\n\n";
         public const string APP_DATA_BASE_PRODUCTS_TABLE_IMAGE_NAME = "img_AppDatabase_ProductsTable_";

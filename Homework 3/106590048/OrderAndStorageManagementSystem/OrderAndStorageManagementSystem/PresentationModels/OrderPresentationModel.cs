@@ -15,6 +15,13 @@ namespace OrderAndStorageManagementSystem.PresentationModels
                 return _productNameAndDescription;
             }
         }
+        public ControlStates ProductStorageQuantity
+        {
+            get
+            {
+                return _productStorageQuantity;
+            }
+        }
         public ControlStates ProductPrice
         {
             get
@@ -60,6 +67,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         private OrderModel _orderModel;
         private Model _model;
         private ControlStates _productNameAndDescription;
+        private ControlStates _productStorageQuantity;
         private ControlStates _productPrice;
         private ControlStates _addButton;
         private ControlStates _pageLabel;
@@ -74,6 +82,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             _orderModel = orderModelData;
             _model = modelData;
             _productNameAndDescription = new ControlStates();
+            _productStorageQuantity = new ControlStates();
             _productPrice = new ControlStates();
             _addButton = new ControlStates();
             _pageLabel = new ControlStates();
@@ -145,7 +154,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         private void SelectNoProduct()
         {
             _currentSelectedProduct = null;
-            SetProductInfoText("", "");
+            SetProductInfoText("", "", "");
             _addButton.Enabled = false;
         }
 
@@ -155,16 +164,17 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         public void SelectProduct(Product product)
         {
             _currentSelectedProduct = product;
-            SetProductInfoText(product.GetProductNameAndDescription(), AppDefinition.PRODUCT_PRICE_TEXT + product.GetPrice(AppDefinition.TAIWAN_CURRENCY_UNIT));
+            SetProductInfoText(product.GetProductNameAndDescription(), AppDefinition.PRODUCT_STORAGE_QUANTITY_TEXT + product.GetStorageQuantity(), AppDefinition.PRODUCT_PRICE_TEXT + product.GetPrice(AppDefinition.TAIWAN_CURRENCY_UNIT));
             _addButton.Enabled = true;
         }
 
         /// <summary>
         /// Set product info text, including product name, description and price.
         /// </summary>
-        private void SetProductInfoText(string productNameAndDescription, string productPrice)
+        private void SetProductInfoText(string productNameAndDescription, string productStorageQuantity, string productPrice)
         {
             _productNameAndDescription.Text = productNameAndDescription;
+            _productStorageQuantity.Text = productStorageQuantity;
             _productPrice.Text = productPrice;
         }
 
