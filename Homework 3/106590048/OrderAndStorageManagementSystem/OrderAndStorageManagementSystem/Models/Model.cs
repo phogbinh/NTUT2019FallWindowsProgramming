@@ -1,15 +1,36 @@
 ﻿using OrderAndStorageManagementSystem.Models.Utilities;
 using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace OrderAndStorageManagementSystem.Models
 {
     public class Model
     {
-        public event OrderChangedEventHandler OrderChanged;
         public delegate void OrderChangedEventHandler();
-        public event OrderClearedEventHandler OrderCleared;
+        private event OrderChangedEventHandler _orderChanged;
         public delegate void OrderClearedEventHandler();
+        private event OrderClearedEventHandler _orderCleared;
+        public OrderChangedEventHandler OrderChanged
+        {
+            get
+            {
+                return _orderChanged;
+            }
+            set
+            {
+                _orderChanged = value;
+            }
+        }
+        public OrderClearedEventHandler OrderCleared
+        {
+            get
+            {
+                return _orderCleared;
+            }
+            set
+            {
+                _orderCleared = value;
+            }
+        }
         public List<Product> Products
         {
             get
@@ -56,7 +77,10 @@ namespace OrderAndStorageManagementSystem.Models
         // Protest on Dr.Smell
         private void NotifyObserverChangeOrder()
         {
-            OrderChanged?.Invoke();
+            if ( OrderChanged != null )
+            {
+                OrderChanged();
+            }
         }
 
         // Protest on Dr.Smell
@@ -76,7 +100,10 @@ namespace OrderAndStorageManagementSystem.Models
         private void NotifyObserverChangeAndClearOrder()
         {
             NotifyObserverChangeOrder();
-            OrderCleared?.Invoke();
+            if ( OrderCleared != null )
+            {
+                OrderCleared();
+            }
         }
     }
 }
