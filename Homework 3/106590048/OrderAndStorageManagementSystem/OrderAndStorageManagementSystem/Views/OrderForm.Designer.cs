@@ -60,7 +60,7 @@
             this._cartProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._cartProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._cartProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._cartProductQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._cartProductQuantity = new DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn();
             this._cartProductTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._productGroupBox.SuspendLayout();
             this._productGroupBoxLayout.SuspendLayout();
@@ -471,6 +471,8 @@
             this._cartProductQuantity.HeaderText = "數量";
             this._cartProductQuantity.Name = "_cartProductQuantity";
             this._cartProductQuantity.ReadOnly = true;
+            this._cartProductQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this._cartProductQuantity.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // _cartProductTotalPrice
             // 
@@ -540,7 +542,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn _cartProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn _cartProductType;
         private System.Windows.Forms.DataGridViewTextBoxColumn _cartProductPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _cartProductQuantity;
+        private DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn _cartProductQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn _cartProductTotalPrice;
     }
 }

@@ -355,10 +355,30 @@
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>DataGridViewNumericUpDownCell.cs</RelativePath>
+                <ProjectName>DataGridViewNumericUpDownElements</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>DataGridViewNumericUpDownColumn.cs</RelativePath>
+                <ProjectName>DataGridViewNumericUpDownElements</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>DataGridViewNumericUpDownEditingControl.cs</RelativePath>
+                <ProjectName>DataGridViewNumericUpDownElements</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Properties\AssemblyInfo.cs</RelativePath>
+                <ProjectName>DataGridViewNumericUpDownElements</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>3380</ProductionLoc>
-          <TestLoc>0</TestLoc>
+          <ProductionLoc>3382</ProductionLoc>
+          <TestLoc>1503</TestLoc>
         </CodeReview>
       </Data>
     </div>
