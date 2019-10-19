@@ -111,7 +111,7 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         /// <summary>
         /// Select a product.
         /// </summary>
-        public void SelectProduct(Product product)
+        private void SelectProduct(Product product)
         {
             _orderPresentationModel.SelectProduct(product);
             RefreshControls();
