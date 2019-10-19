@@ -33,6 +33,7 @@
             this._underTitleSectionLayout = new System.Windows.Forms.TableLayoutPanel();
             this._productInfoLayout = new System.Windows.Forms.TableLayoutPanel();
             this._productImageGroupBox = new System.Windows.Forms.GroupBox();
+            this._productImage = new System.Windows.Forms.PictureBox();
             this._productInfoGroupBox = new System.Windows.Forms.GroupBox();
             this._productNameAndDescription = new System.Windows.Forms.RichTextBox();
             this._storageDataGridView = new System.Windows.Forms.DataGridView();
@@ -40,15 +41,14 @@
             this._storageProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._storageProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._storageProductQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._storageAddButton = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._productImage = new System.Windows.Forms.PictureBox();
+            this._storageSupplyButton = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._inventoryFormLayout.SuspendLayout();
             this._underTitleSectionLayout.SuspendLayout();
             this._productInfoLayout.SuspendLayout();
             this._productImageGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._productImage)).BeginInit();
             this._productInfoGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._storageDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._productImage)).BeginInit();
             this.SuspendLayout();
             // 
             // _inventoryFormLayout
@@ -121,6 +121,15 @@
             this._productImageGroupBox.TabStop = false;
             this._productImageGroupBox.Text = "商品圖片";
             // 
+            // _productImage
+            // 
+            this._productImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productImage.Location = new System.Drawing.Point(3, 16);
+            this._productImage.Name = "_productImage";
+            this._productImage.Size = new System.Drawing.Size(424, 220);
+            this._productImage.TabIndex = 0;
+            this._productImage.TabStop = false;
+            // 
             // _productInfoGroupBox
             // 
             this._productInfoGroupBox.Controls.Add(this._productNameAndDescription);
@@ -153,7 +162,7 @@
             this._storageProductType,
             this._storageProductPrice,
             this._storageProductQuantity,
-            this._storageAddButton});
+            this._storageSupplyButton});
             this._storageDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this._storageDataGridView.Location = new System.Drawing.Point(3, 3);
             this._storageDataGridView.Name = "_storageDataGridView";
@@ -191,21 +200,12 @@
             this._storageProductQuantity.Name = "_storageProductQuantity";
             this._storageProductQuantity.ReadOnly = true;
             // 
-            // _storageAddButton
+            // _storageSupplyButton
             // 
-            this._storageAddButton.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this._storageAddButton.HeaderText = "補貨";
-            this._storageAddButton.Name = "_storageAddButton";
-            this._storageAddButton.ReadOnly = true;
-            // 
-            // _productImage
-            // 
-            this._productImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._productImage.Location = new System.Drawing.Point(3, 16);
-            this._productImage.Name = "_productImage";
-            this._productImage.Size = new System.Drawing.Size(424, 220);
-            this._productImage.TabIndex = 0;
-            this._productImage.TabStop = false;
+            this._storageSupplyButton.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this._storageSupplyButton.HeaderText = "補貨";
+            this._storageSupplyButton.Name = "_storageSupplyButton";
+            this._storageSupplyButton.ReadOnly = true;
             // 
             // InventoryForm
             // 
@@ -220,9 +220,9 @@
             this._underTitleSectionLayout.ResumeLayout(false);
             this._productInfoLayout.ResumeLayout(false);
             this._productImageGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._productImage)).EndInit();
             this._productInfoGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._storageDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._productImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -237,11 +237,11 @@
         private System.Windows.Forms.GroupBox _productInfoGroupBox;
         private System.Windows.Forms.RichTextBox _productNameAndDescription;
         private System.Windows.Forms.DataGridView _storageDataGridView;
+        private System.Windows.Forms.PictureBox _productImage;
         private System.Windows.Forms.DataGridViewTextBoxColumn _storageProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn _storageProductType;
         private System.Windows.Forms.DataGridViewTextBoxColumn _storageProductPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn _storageProductQuantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _storageAddButton;
-        private System.Windows.Forms.PictureBox _productImage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _storageSupplyButton;
     }
 }
