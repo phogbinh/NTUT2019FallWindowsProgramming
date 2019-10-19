@@ -84,17 +84,18 @@ namespace OrderAndStorageManagementSystem.Models
         // Protest on Dr.Smell
         public void AddProductToOrderIfProductIsNotInOrder(Product product)
         {
-            if ( IsNotInOrder(product) )
+            OrderProduct orderProduct = new OrderProduct(product.Id, product.Name, product.Type, product.Price, product.StorageQuantity, product.Description);
+            if ( IsNotInOrder(orderProduct) )
             {
-                _order.AddProduct(product);
-                NotifyObserverChangeAndAddOrder(new OrderProduct(product.Id, product.Name, product.Type, product.Price, product.StorageQuantity, product.Description));
+                _order.AddOrderProduct(orderProduct);
+                NotifyObserverChangeAndAddOrder(orderProduct);
             }
         }
 
         // Protest on Dr.Smell
-        private bool IsNotInOrder(Product product)
+        private bool IsNotInOrder(OrderProduct orderProduct)
         {
-            return _order.IsNotInOrder(product);
+            return _order.IsNotInOrder(orderProduct);
         }
 
         // Protest on Dr.Smell
@@ -116,7 +117,7 @@ namespace OrderAndStorageManagementSystem.Models
         // Protest on Dr.Smell
         public void RemoveProductFromOrder(int productIndex)
         {
-            _order.RemoveProductAt(productIndex);
+            _order.RemoveOrderProductAt(productIndex);
             NotifyObserverChangeAndRemoveOrder(productIndex);
         }
 
