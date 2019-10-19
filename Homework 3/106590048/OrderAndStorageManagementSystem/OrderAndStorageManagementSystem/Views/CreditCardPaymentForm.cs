@@ -52,19 +52,13 @@ namespace OrderAndStorageManagementSystem.Views
         // Protest on Dr.Smell
         private void InputLettersOrWhiteSpace(object sender, KeyPressEventArgs eventArguments)
         {
-            if ( !char.IsLetter(eventArguments.KeyChar) && !char.IsWhiteSpace(eventArguments.KeyChar) )
-            {
-                eventArguments.Handled = true;
-            }
+            eventArguments.Handled = !char.IsLetter(eventArguments.KeyChar) && !char.IsWhiteSpace(eventArguments.KeyChar);
         }
 
         // Protest on Dr.Smell
         private void InputNumbers(object sender, KeyPressEventArgs eventArguments)
         {
-            if ( !char.IsDigit(eventArguments.KeyChar) )
-            {
-                eventArguments.Handled = true;
-            }
+            eventArguments.Handled = !char.IsDigit(eventArguments.KeyChar);
         }
 
         // Protest on Dr.Smell
