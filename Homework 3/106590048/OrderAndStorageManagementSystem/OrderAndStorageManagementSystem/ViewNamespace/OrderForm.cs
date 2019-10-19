@@ -109,6 +109,15 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         }
 
         /// <summary>
+        /// Select a product.
+        /// </summary>
+        public void SelectProduct(Product product)
+        {
+            _orderPresentationModel.SelectProduct(product);
+            RefreshControls();
+        }
+
+        /// <summary>
         /// Add the product to cart on add button clicked.
         /// </summary>
         private void ClickAddButton(object sender, System.EventArgs events)
@@ -193,15 +202,6 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
             {
                 productTabPageButtons[ i ].Product = _orderPresentationModel.GetProductAtCurrentProductPage(currentTabPageIndex, i);
             }
-        }
-
-        /// <summary>
-        /// Select a product.
-        /// </summary>
-        public void SelectProduct(Product product)
-        {
-            _orderPresentationModel.SelectProduct(product);
-            RefreshControls();
         }
 
         /// <summary>
