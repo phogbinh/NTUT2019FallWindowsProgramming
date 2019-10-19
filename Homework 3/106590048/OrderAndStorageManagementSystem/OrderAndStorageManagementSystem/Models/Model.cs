@@ -83,8 +83,17 @@ namespace OrderAndStorageManagementSystem.Models
         // Protest on Dr.Smell
         public void AddProductToOrderIfProductIsNotInOrder(Product product)
         {
-            _order.AddProductIfProductIsNotInOrder(product);
-            NotifyObserverChangeAndAddOrder(product);
+            if ( IsNotInOrder(product) )
+            {
+                _order.AddProduct(product);
+                NotifyObserverChangeAndAddOrder(product);
+            }
+        }
+
+        // Protest on Dr.Smell
+        private bool IsNotInOrder(Product product)
+        {
+            return _order.IsNotInOrder(product);
         }
 
         // Protest on Dr.Smell

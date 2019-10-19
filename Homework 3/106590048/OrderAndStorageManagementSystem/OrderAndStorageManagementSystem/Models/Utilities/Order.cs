@@ -22,7 +22,13 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         }
 
         // Protest on Dr.Smell
-        public void AddProductIfProductIsNotInOrder(Product product)
+        public bool IsNotInOrder(Product product)
+        {
+            return !_products.Contains(product);
+        }
+
+        // Protest on Dr.Smell
+        public void AddProduct(Product product)
         {
             _totalPrice.Add(product.Price);
             _products.Add(product);
