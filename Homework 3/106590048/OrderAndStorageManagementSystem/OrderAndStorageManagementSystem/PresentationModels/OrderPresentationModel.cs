@@ -154,7 +154,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         private void SelectNoProduct()
         {
             _currentSelectedProduct = null;
-            SetProductInfoText("", "", "");
+            UpdateCurrentProductInfo();
             _addButton.Enabled = false;
         }
 
@@ -164,18 +164,27 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         public void SelectProduct(Product product)
         {
             _currentSelectedProduct = product;
-            SetProductInfoText(product.GetProductNameAndDescription(), AppDefinition.PRODUCT_STORAGE_QUANTITY_TEXT + product.GetStorageQuantity(), AppDefinition.PRODUCT_PRICE_TEXT + product.GetPrice(AppDefinition.TAIWAN_CURRENCY_UNIT));
+            UpdateCurrentProductInfo();
             _addButton.Enabled = true;
         }
 
         /// <summary>
         /// Set product info text, including product name, description and price.
         /// </summary>
-        private void SetProductInfoText(string productNameAndDescription, string productStorageQuantity, string productPrice)
+        private void UpdateCurrentProductInfo()
         {
-            _productNameAndDescription.Text = productNameAndDescription;
-            _productStorageQuantity.Text = productStorageQuantity;
-            _productPrice.Text = productPrice;
+            if ( _currentSelectedProduct == null )
+            {
+                _productNameAndDescription.Text = "";
+                _productStorageQuantity.Text = "";
+                _productPrice.Text = "";
+            }
+            else
+            {
+                _productNameAndDescription.Text = _currentSelectedProduct.GetProductNameAndDescription();
+                _productStorageQuantity.Text = AppDefinition.PRODUCT_STORAGE_QUANTITY_TEXT + _currentSelectedProduct.GetStorageQuantity();
+                _productPrice.Text = AppDefinition.PRODUCT_PRICE_TEXT + _currentSelectedProduct.GetPrice(AppDefinition.TAIWAN_CURRENCY_UNIT);
+            }
         }
 
         // Protest on Dr.Smell
