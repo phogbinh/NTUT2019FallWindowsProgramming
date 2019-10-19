@@ -93,13 +93,13 @@ namespace OrderAndStorageManagementSystem.Models
         public void ClearOrder()
         {
             _order.ClearOrder();
-            NotifyObserverClearOrder();
+            NotifyObserverChangeAndClearOrder();
         }
 
         // Protest on Dr.Smell
-        private void NotifyObserverClearOrder()
+        private void NotifyObserverChangeAndClearOrder()
         {
-            OrderChanged?.Invoke();
+            NotifyObserverChangeOrder();
             OrderCleared?.Invoke();
         }
     }
