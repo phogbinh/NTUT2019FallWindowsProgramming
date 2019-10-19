@@ -130,22 +130,26 @@ namespace OrderAndStorageManagementSystem.ViewNamespace
         private void GoToPreviousPage()
         {
             _orderPresentationModel.GoToPreviousPage();
-            UpdateProductTabPageButtonsInCurrentProductTabPageAtCurrentProductPage();
-            RefreshControls();
+            UpdateProductTabView();
         }
 
         // Protest on Dr.Smell
         private void GoToNextPage()
         {
             _orderPresentationModel.GoToNextPage();
-            UpdateProductTabPageButtonsInCurrentProductTabPageAtCurrentProductPage();
-            RefreshControls();
+            UpdateProductTabView();
         }
 
         // Protest on Dr.Smell
         private void SelectProductTabPage(int tabPageIndex)
         {
             _orderPresentationModel.SelectProductTabPage(tabPageIndex);
+            UpdateProductTabView();
+        }
+
+        // Protest on Dr.Smell
+        private void UpdateProductTabView()
+        {
             UpdateProductTabPageButtonsInCurrentProductTabPageAtCurrentProductPage();
             RefreshControls();
         }
