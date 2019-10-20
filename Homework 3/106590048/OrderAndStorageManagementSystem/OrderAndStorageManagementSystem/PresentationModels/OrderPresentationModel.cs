@@ -165,7 +165,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             _currentSelectedProduct = product;
             UpdateCurrentProductInfo();
-            _addButton.Enabled = true;
+            _addButton.Enabled = !_model.IsInOrder(new OrderItem(product));
         }
 
         /// <summary>
