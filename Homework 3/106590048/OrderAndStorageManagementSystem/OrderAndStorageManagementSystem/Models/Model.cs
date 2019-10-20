@@ -121,7 +121,7 @@ namespace OrderAndStorageManagementSystem.Models
         // Protest on Dr.Smell
         private bool IsInOrder(OrderItem orderItem)
         {
-            return _order.IsInOrder(orderItem);
+            return _order.IsInOrder(orderItem.Id);
         }
 
         // Protest on Dr.Smell

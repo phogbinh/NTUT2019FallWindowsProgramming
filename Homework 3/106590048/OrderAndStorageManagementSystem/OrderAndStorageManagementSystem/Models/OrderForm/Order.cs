@@ -26,11 +26,11 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         }
 
         // Protest on Dr.Smell
-        public bool IsInOrder(OrderItem orderItem)
+        public bool IsInOrder(int orderItemId)
         {
             foreach ( OrderItem item in _orderItems )
             {
-                if ( item.Id == orderItem.Id )
+                if ( item.Id == orderItemId )
                 {
                     return true;
                 }
