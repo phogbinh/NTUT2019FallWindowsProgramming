@@ -67,7 +67,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         }
 
         /// <summary>
-        /// Get product image from resources using product ID.
+        /// Get product image from resources using product id.
         /// </summary>
         public static Bitmap GetProductImageFromResources(int productId)
         {

@@ -29,7 +29,9 @@ namespace OrderAndStorageManagementSystem.Views
             RefreshControls();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Click order system button.
+        /// </summary>
         private void ClickOrderSystemButton(object sender, System.EventArgs events)
         {
             OrderForm orderForm;
@@ -40,14 +42,18 @@ namespace OrderAndStorageManagementSystem.Views
             RefreshControls();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Close order form.
+        /// </summary>
         private void CloseOrderForm(object sender, System.EventArgs events)
         {
             _mainPresentationModel.CloseOrderForm();
             RefreshControls();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Click inventory system button.
+        /// </summary>
         private void ClickInventorySystemButton(object sender, System.EventArgs events)
         {
             InventoryForm inventoryForm;
@@ -58,20 +64,26 @@ namespace OrderAndStorageManagementSystem.Views
             RefreshControls();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Close inventory form.
+        /// </summary>
         private void CloseInventoryForm(object sender, System.EventArgs events)
         {
             _mainPresentationModel.CloseInventoryForm();
             RefreshControls();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Click exit button.
+        /// </summary>
         private void ClickExitButton(object sender, System.EventArgs events)
         {
             Application.Exit();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Refresh controls.
+        /// </summary>
         private void RefreshControls()
         {
             _orderSystemButton.Enabled = _mainPresentationModel.OrderSystemButton.Enabled;

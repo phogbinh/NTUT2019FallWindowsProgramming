@@ -11,7 +11,9 @@ namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
             /* Body intentionally empty */
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Return true if the textbox is a valid email.
+        /// </summary>
         public override bool IsValid()
         {
             try
@@ -25,7 +27,9 @@ namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
             }
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Return the error of this inspector.
+        /// </summary>
         public override string GetError()
         {
             return ERROR_TEXT_BOX_IS_NOT_MAIL;

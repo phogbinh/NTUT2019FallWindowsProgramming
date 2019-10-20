@@ -27,25 +27,33 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             _inventorySystemButton = new ControlStates();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Close the order form.
+        /// </summary>
         public void CloseOrderForm()
         {
             _orderSystemButton.Enabled = true;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Close the inventory form.
+        /// </summary>
         public void CloseInventoryForm()
         {
             _inventorySystemButton.Enabled = true;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Click order system button.
+        /// </summary>
         public void ClickOrderSystemButton()
         {
             _orderSystemButton.Enabled = false;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Click inventory system button.
+        /// </summary>
         public void ClickInventorySystemButton()
         {
             _inventorySystemButton.Enabled = false;

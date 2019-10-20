@@ -25,35 +25,43 @@ namespace OrderAndStorageManagementSystem.Views
             _productSupplyQuantityField.Leave += (sender, eventArguments) => RefreshControls();
             _submitButton.Click += ClickSubmitButton;
             _cancelButton.Click += (sender, eventArguments) => this.Close();
-            InitializeInputHandler();
+            InitializeInputConstraint();
             // Initial UI States
-            InitializeProductInfo();
+            InitializeProductInfoView();
             RefreshControls();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Click submit button.
+        /// </summary>
         private void ClickSubmitButton(object sender, EventArgs eventArguments)
         {
             this.Close();
             _model.SupplyProductStorageQuantity(_product, int.Parse(_productSupplyQuantityField.Text));
         }
 
-        // Protest on Dr.Smell
-        private void InitializeInputHandler()
+        /// <summary>
+        /// Initialize input constraint.
+        /// </summary>
+        private void InitializeInputConstraint()
         {
             _productSupplyQuantityField.KeyPress += InputHelper.InputNumbersOrBackSpace;
         }
 
-        // Protest on Dr.Smell
-        private void InitializeProductInfo()
+        /// <summary>
+        /// Initialize product info view.
+        /// </summary>
+        private void InitializeProductInfoView()
         {
             _productName.Text = PRODUCT_NAME_TEXT + _product.Name;
             _productType.Text = PRODUCT_TYPE_TEXT + _product.Type;
-            _productPrice.Text = PRODUCT_PRICE_TEXT + _product.Price.GetStringWithCurrencyUnit(AppDefinition.TAIWAN_CURRENCY_UNIT);
+            _productPrice.Text = PRODUCT_PRICE_TEXT + _product.Price.GetCurrencyFormatWithCurrencyUnit(AppDefinition.TAIWAN_CURRENCY_UNIT);
             _productStorageQuantity.Text = PRODUCT_STORAGE_QUANTITY_TEXT + _product.StorageQuantity;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Refresh controls.
+        /// </summary>
         private void RefreshControls()
         {
             _submitButton.Enabled = _productSupplyQuantityField.Text != "";

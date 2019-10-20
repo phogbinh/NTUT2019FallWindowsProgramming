@@ -13,13 +13,17 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             _value = valueData;
         }
 
-        // Protest on Dr.Smell
-        public string GetStringWithCurrencyUnit(string currencyUnit)
+        /// <summary>
+        /// Get the currency format of the money with currency unit.
+        /// </summary>
+        public string GetCurrencyFormatWithCurrencyUnit(string currencyUnit)
         {
             return GetCurrencyFormat() + AppDefinition.SPACE + currencyUnit;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Get the currency format of the money.
+        /// </summary>
         public string GetCurrencyFormat()
         {
             var reversedValueInCurrencyFormat = new StringBuilder();
@@ -39,25 +43,33 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             return new string(reversedValueInCurrencyFormat.ToString().Reverse().ToArray());
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Add value to the money.
+        /// </summary>
         public void Add(Money additionalValue)
         {
             _value = _value + additionalValue._value;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Substract value from the money.
+        /// </summary>
         public void Subtract(Money subtractValue)
         {
             _value = _value - subtractValue._value;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Return the money multiplication of the money with constant.
+        /// </summary>
         public Money MultiplyConstant(int constant)
         {
             return new Money(_value * constant);
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Set the value of the money.
+        /// </summary>
         public void Set(int value)
         {
             _value = value;

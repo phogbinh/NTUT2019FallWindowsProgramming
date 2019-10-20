@@ -9,13 +9,17 @@
             /* Body intentionally empty */
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Return true if the textbox is not empty.
+        /// </summary>
         public override bool IsValid()
         {
             return !string.IsNullOrWhiteSpace(_text);
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Return the error of this inspector.
+        /// </summary>
         public override string GetError()
         {
             return ERROR_TEXT_BOX_IS_EMPTY;

@@ -2,10 +2,14 @@
 {
     public interface IInputInspector
     {
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Return true if the control is valid.
+        /// </summary>
         bool IsValid();
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Return the error of this inspector.
+        /// </summary>
         string GetError();
     }
 }

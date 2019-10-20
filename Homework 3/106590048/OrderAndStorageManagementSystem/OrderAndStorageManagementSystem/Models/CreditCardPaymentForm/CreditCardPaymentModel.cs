@@ -29,7 +29,9 @@ namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
             InitializeDropDownListIsSelectedInspectors();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Initialize _controlWithInspectorsContainers.
+        /// </summary>
         private void InitializeControlWithInspectorsContainers()
         {
             _controlWithInspectorsContainers = new Dictionary<int, List<IInputInspector>>();
@@ -39,7 +41,9 @@ namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
             }
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Initialize TextBoxIsNotEmptyInspector for all textboxes.
+        /// </summary>
         private void InitializeTextBoxIsNotEmptyInspectors()
         {
             for ( int i = LAST_NAME_FIELD_INDEX; i <= ADDRESS_FIELD_INDEX; i++ )
@@ -48,7 +52,9 @@ namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
             }
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Initialize TextBoxIsOfFullLengthInspector for card number and card security code textboxes.
+        /// </summary>
         private void InitializeTextBoxIsOfFullLengthInspectors()
         {
             for ( int i = CARD_NUMBER_FIRST_FIELD_INDEX; i <= CARD_SECURITY_CODE_FIELD_INDEX; i++ )
@@ -57,13 +63,17 @@ namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
             }
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Initialize TextBoxIsMailInspector for email textbox.
+        /// </summary>
         private void InitializeTextBoxIsMailInspector()
         {
             _controlWithInspectorsContainers[ MAIL_FIELD_INDEX ].Add(new TextBoxIsMailInspector());
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Initialize DropDownListIsSelectedInspector for all drop-down lists.
+        /// </summary>
         private void InitializeDropDownListIsSelectedInspectors()
         {
             for ( int i = CARD_DATE_MONTH_FIELD_INDEX; i <= CARD_DATE_YEAR_FIELD_INDEX; i++ )
@@ -72,21 +82,27 @@ namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
             }
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Update member variables of all TextBoxInspectors of the textbox at textBoxIndex.
+        /// </summary>
         public void UpdateTextBoxInspectors(int textBoxIndex, string text, int maxTextLength)
         {
             Action<IInputInspector> setTextBoxInspectorFunction = (inspector) => ( ( TextBoxInspector )inspector ).Set(text, maxTextLength);
             UpdateControlInspectors(textBoxIndex, setTextBoxInspectorFunction);
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Update member variable of all DropDownListInspectors of the drop-down list at dropDownListIndex.
+        /// </summary>
         public void UpdateDropDownListInspectors(int dropDownListIndex, int selectedIndex)
         {
             Action<IInputInspector> setDropDownListIsSelectedInspectorFunction = (inspector) => ( ( DropDownListIsSelectedInspector )inspector ).Set(selectedIndex);
             UpdateControlInspectors(dropDownListIndex, setDropDownListIsSelectedInspectorFunction);
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Update member variable(s) of all InputInspectors of the control at controlIndex.
+        /// </summary>
         private void UpdateControlInspectors(int controlIndex, Action<IInputInspector> setInspectorFunction)
         {
             foreach ( IInputInspector inspector in _controlWithInspectorsContainers[ controlIndex ] )
@@ -95,7 +111,9 @@ namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
             }
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Return true if all inspectors are valid.
+        /// </summary>
         public bool AreAllValidInspectors()
         {
             foreach ( KeyValuePair<int, List<IInputInspector>> container in _controlWithInspectorsContainers )
@@ -112,7 +130,9 @@ namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
             return true;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Get the first InputInspector error of the control at controlIndex.
+        /// </summary>
         public string GetControlError(int controlIndex)
         {
             foreach ( IInputInspector inspector in _controlWithInspectorsContainers[ controlIndex ] )
@@ -125,7 +145,9 @@ namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
             return ERROR_FREE;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Get the error of the inspector.
+        /// </summary>
         private string GetInspectorError(IInputInspector inspector)
         {
             return inspector.GetError();

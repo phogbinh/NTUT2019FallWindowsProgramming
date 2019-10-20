@@ -15,7 +15,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             InitializeTabPages();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Initialize all tab pages.
+        /// </summary>
         private void InitializeTabPages()
         {
             _tabPages = new List<OrderProductTabPage>();
@@ -26,7 +28,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             }
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Get the product at productIndex in the product page of productPageIndex, which is inside the tab page whose index is tabPageIndex.
+        /// </summary>
         public Product GetProduct(int tabPageIndex, int productPageIndex, int productIndex)
         {
             if ( tabPageIndex >= AppDefinition.TAB_PAGES_COUNT )
@@ -36,7 +40,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             return _tabPages[ tabPageIndex ].GetProduct(productPageIndex, productIndex);
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Get the number of product pages of the tab page whose index is tabPageIndex.
+        /// </summary>
         public int GetTabPageProductPagesCount(int tabPageIndex)
         {
             if ( tabPageIndex >= AppDefinition.TAB_PAGES_COUNT )

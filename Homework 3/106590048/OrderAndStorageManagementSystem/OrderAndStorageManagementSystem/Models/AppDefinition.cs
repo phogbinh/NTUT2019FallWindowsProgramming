@@ -12,13 +12,6 @@ namespace OrderAndStorageManagementSystem.Models
         public const string EMPTY_STRING = "";
         public const int TWO = 2;
         // Debug
-        public const string PRINT_DELIMITER = ", ";
-        public const string PRINT_ID = "ID: ";
-        public const string PRINT_NAME = "Name: ";
-        public const string PRINT_TYPE = "Type: ";
-        public const string PRINT_PRICE = "Price: ";
-        public const string PRINT_DESCRIPTION = "Description: ";
-        public const string PRINT_END_MARK = ".\n";
         public const string ERROR_TAB_PAGE_INDEX_OUT_OF_RANGE = "Tab page index is out of range.";
         // Product
         public const string PRODUCT_STORAGE_QUANTITY_TEXT = "庫存數量： ";
@@ -46,6 +39,9 @@ namespace OrderAndStorageManagementSystem.Models
         public const int GRAPHICS_CARD_INDEX = 4;
         public const int COMPUTER_SET_INDEX = 5;
         // Functions
+        /// <summary>
+        /// Convert tab page index to tab page product type.
+        /// </summary>
         public static string ConvertTabPageIndexToProductType(int index)
         {
             switch ( index )
@@ -67,7 +63,9 @@ namespace OrderAndStorageManagementSystem.Models
             }
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Get human index of machine index.
+        /// </summary>
         public static int GetHumanIndex(int machineIndex)
         {
             return machineIndex + 1;

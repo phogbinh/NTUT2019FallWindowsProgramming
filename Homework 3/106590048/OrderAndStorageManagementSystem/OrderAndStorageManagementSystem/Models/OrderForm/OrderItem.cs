@@ -78,19 +78,25 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             _orderQuantity = ORDER_QUANTITY_INITIAL_VALUE;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Get the total price of the order item.
+        /// </summary>
         public Money GetTotalPrice()
         {
             return Price.MultiplyConstant(_orderQuantity);
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Set the order quantity of the order item to its storage quantity.
+        /// </summary>
         public void SetOrderQuantityToStorageQuantity()
         {
             _orderQuantity = StorageQuantity;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Decrease the storage quantity of the order item by its order quantity.
+        /// </summary>
         public void DecreaseProductStorageQuantityByOrderQuantity()
         {
             StorageQuantity = StorageQuantity - OrderQuantity;

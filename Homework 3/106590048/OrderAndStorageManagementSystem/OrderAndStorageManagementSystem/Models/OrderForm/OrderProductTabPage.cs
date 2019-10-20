@@ -17,7 +17,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             InitializeProductPages();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Initialize the list of products belonging to this tab page.
+        /// </summary>
         private void InitializeProducts(List<Product> allProducts)
         {
             _products = new List<Product>();
@@ -30,7 +32,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             }
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Initialize product pages for this tab page.
+        /// </summary>
         private void InitializeProductPages()
         {
             _productPages = new List<OrderProductTabPageProductPage>();
@@ -42,7 +46,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             }
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Get one product page out of the list of products belonging to this tab page, starting from the controlIndex.
+        /// </summary>
         private OrderProductTabPageProductPage GetOneProductPage(ref int controlIndex)
         {
             OrderProductTabPageProductPage productPage = new OrderProductTabPageProductPage();
@@ -58,13 +64,17 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             return productPage;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Return true if the controlIndex is out of range of the list of products belonging to this tab page.
+        /// </summary>
         private bool IsOutOfRangeOfProducts(int controlIndex)
         {
             return controlIndex >= _products.Count;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Get the product at productIndex in the product page whose index is productPageIndex.
+        /// </summary>
         public Product GetProduct(int productPageIndex, int productIndex)
         {
             if ( productPageIndex >= _productPages.Count )
@@ -74,7 +84,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             return _productPages[ productPageIndex ].GetProduct(productIndex);
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Get the number of product pages of this tab page.
+        /// </summary>
         public int GetProductPagesCount()
         {
             return _productPages.Count;

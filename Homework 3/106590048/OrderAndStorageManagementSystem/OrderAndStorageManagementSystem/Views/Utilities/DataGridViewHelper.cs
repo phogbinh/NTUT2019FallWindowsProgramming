@@ -6,7 +6,9 @@ namespace OrderAndStorageManagementSystem.Views.Utilities
 {
     public static class DataGridViewHelper
     {
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Initialize button image of button column of a data grid view.
+        /// </summary>
         public static void InitializeButtonImageOfButtonColumn(DataGridViewCellPaintingEventArgs eventArguments, int buttonColumnIndex, Image buttonImage)
         {
             if ( eventArguments.RowIndex < 0 )

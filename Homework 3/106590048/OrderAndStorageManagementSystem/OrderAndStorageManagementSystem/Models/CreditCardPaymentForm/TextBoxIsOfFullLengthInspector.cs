@@ -23,13 +23,17 @@
             /* Body intentionally empty */
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Return true if the textbox is of full length.
+        /// </summary>
         public override bool IsValid()
         {
             return Text.Length == MaxTextLength;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Return the error of this inspector.
+        /// </summary>
         public override string GetError()
         {
             return ERROR_TEXT_BOX_IS_OF_LOSS_LENGTH;

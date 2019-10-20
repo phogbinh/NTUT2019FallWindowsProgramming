@@ -21,14 +21,16 @@ namespace OrderAndStorageManagementSystem.Views
             // UI
             this.FormClosed += (sender, eventArguments) => _cardSecurityCodeField.Text = AppDefinition.EMPTY_STRING;
             _submitButton.Click += ClickSubmitButton;
-            InitializeInputHandlers();
+            InitializeInputContraints();
             InitializeControlInspectors();
             // Initial UI States
             InitializeInspectors();
             RefreshControls();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Click submit button.
+        /// </summary>
         private void ClickSubmitButton(object sender, EventArgs eventArguments)
         {
             if ( MessageBox.Show(ORDER_COMPLETE_MESSAGE) == DialogResult.OK )
@@ -38,8 +40,10 @@ namespace OrderAndStorageManagementSystem.Views
             }
         }
 
-        // Protest on Dr.Smell
-        private void InitializeInputHandlers()
+        /// <summary>
+        /// Initialize input constraints.
+        /// </summary>
+        private void InitializeInputContraints()
         {
             _lastNameField.KeyPress += InputHelper.InputLettersOrWhiteSpaceOrBackSpace;
             _firstNameField.KeyPress += InputHelper.InputLettersOrWhiteSpaceOrBackSpace;
@@ -50,14 +54,18 @@ namespace OrderAndStorageManagementSystem.Views
             _cardSecurityCodeField.KeyPress += InputHelper.InputNumbersOrBackSpace;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Initialize inspectors for all textboxes and drop-down lists.
+        /// </summary>
         private void InitializeControlInspectors()
         {
             InitializeTextBoxInspectorsAndSetErrors();
             InitializeDropDownListInspectorsAndSetErrors();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Initialize inspectors for textboxes and set error for them.
+        /// </summary>
         private void InitializeTextBoxInspectorsAndSetErrors()
         {
             AssignTextBoxInspectorAndSetError(_lastNameField, CreditCardPaymentModel.LAST_NAME_FIELD_INDEX);
@@ -71,21 +79,27 @@ namespace OrderAndStorageManagementSystem.Views
             AssignTextBoxInspectorAndSetError(_addressField, CreditCardPaymentModel.ADDRESS_FIELD_INDEX);
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Assign inspectors for textbox and set error for it.
+        /// </summary>
         private void AssignTextBoxInspectorAndSetError(TextBox textBox, int textBoxIndex)
         {
             textBox.TextChanged += (sender, eventArguments) => UpdateTextBoxInspectorsAndSetError(textBox, textBoxIndex);
             textBox.Leave += (sender, eventArguments) => UpdateTextBoxInspectorsAndSetError(textBox, textBoxIndex);
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Update inspectors for textbox and set error for it.
+        /// </summary>
         private void UpdateTextBoxInspectorsAndSetError(TextBox textBox, int textBoxIndex)
         {
             Action updateTextBoxInspectorsFunction = () => _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(textBoxIndex, textBox.Text, textBox.MaxLength);
             UpdateControlInspectorsAndSetError(textBox, textBoxIndex, updateTextBoxInspectorsFunction);
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Update inspectors for control and set error for it.
+        /// </summary>
         private void UpdateControlInspectorsAndSetError(Control control, int controlIndex, Action updateControlInspectorsFunction)
         {
             updateControlInspectorsFunction();
@@ -93,35 +107,45 @@ namespace OrderAndStorageManagementSystem.Views
             RefreshControls();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Initialize inspectors for drop-down lists and set error for them.
+        /// </summary>
         private void InitializeDropDownListInspectorsAndSetErrors()
         {
             AssignDropDownListInspectorsAndSetErrors(_cardDateMonthField, CreditCardPaymentModel.CARD_DATE_MONTH_FIELD_INDEX);
             AssignDropDownListInspectorsAndSetErrors(_cardDateYearField, CreditCardPaymentModel.CARD_DATE_YEAR_FIELD_INDEX);
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Assign inspectors for drop-down list and set error for it.
+        /// </summary>
         private void AssignDropDownListInspectorsAndSetErrors(ComboBox dropDownList, int dropDownListIndex)
         {
             dropDownList.SelectionChangeCommitted += (sender, eventArguments) => UpdateDropDownListInspectorsAndSetError(dropDownList, dropDownListIndex);
             dropDownList.Leave += (sender, eventArguments) => UpdateDropDownListInspectorsAndSetError(dropDownList, dropDownListIndex);
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Update inspectors for drop-down list and set error for it.
+        /// </summary>
         private void UpdateDropDownListInspectorsAndSetError(ComboBox dropDownList, int dropDownListIndex)
         {
             Action updateDropDownListInspectorsFunction = () => _creditCardPaymentPresentationModel.UpdateDropDownListInspectors(dropDownListIndex, dropDownList.SelectedIndex);
             UpdateControlInspectorsAndSetError(dropDownList, dropDownListIndex, updateDropDownListInspectorsFunction);
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Initialize all inspectors.
+        /// </summary>
         private void InitializeInspectors()
         {
             UpdateInitialValuesForInspectors();
             RefreshControls();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Update initial values for all inspectors.
+        /// </summary>
         private void UpdateInitialValuesForInspectors()
         {
             _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(CreditCardPaymentModel.LAST_NAME_FIELD_INDEX, _lastNameField.Text, _lastNameField.MaxLength);
@@ -137,7 +161,9 @@ namespace OrderAndStorageManagementSystem.Views
             _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(CreditCardPaymentModel.ADDRESS_FIELD_INDEX, _addressField.Text, _addressField.MaxLength);
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Refresh controls.
+        /// </summary>
         private void RefreshControls()
         {
             _submitButton.Enabled = _creditCardPaymentPresentationModel.SubmitButton.Enabled;

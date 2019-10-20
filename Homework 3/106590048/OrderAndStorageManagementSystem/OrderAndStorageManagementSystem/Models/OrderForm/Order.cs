@@ -14,7 +14,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             _orderItems = new List<OrderItem>();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Get the total price of the order.
+        /// </summary>
         public string GetTotalPrice(string currencyUnit)
         {
             Money totalPrice = new Money(TOTAL_PRICE_INITIAL_VALUE);
@@ -22,10 +24,12 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             {
                 totalPrice.Add(orderItem.GetTotalPrice());
             }
-            return totalPrice.GetStringWithCurrencyUnit(currencyUnit);
+            return totalPrice.GetCurrencyFormatWithCurrencyUnit(currencyUnit);
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Return true if the orderItemId matches that of an order item in the order.
+        /// </summary>
         public bool IsInOrder(int orderItemId)
         {
             foreach ( OrderItem item in _orderItems )
@@ -38,67 +42,89 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             return false;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Add an order item to the order.
+        /// </summary>
         public void AddOrderItem(OrderItem orderItem)
         {
             _orderItems.Add(orderItem);
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Remove an order item from the order at orderItemIndex.
+        /// </summary>
         public void RemoveOrderItemAt(int orderItemIndex)
         {
             _orderItems.RemoveAt(orderItemIndex);
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Get the number of order items in the order.
+        /// </summary>
         public int GetOrderItemsCount()
         {
             return _orderItems.Count;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Clear all order items in the order.
+        /// </summary>
         public void ClearOrder()
         {
             _orderItems.Clear();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Return true if the given quantity is bigger than the storage quantity of the order item at orderItemIndex.
+        /// </summary>
         public bool IsExceededStorageQuantity(int orderItemIndex, int quantity)
         {
             return quantity > _orderItems[ orderItemIndex ].StorageQuantity;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Set the order quantity of the order item at orderItemIndex to its storage quantity.
+        /// </summary>
         public void SetOrderItemQuantityToStorageQuantity(int orderItemIndex)
         {
             _orderItems[ orderItemIndex ].SetOrderQuantityToStorageQuantity();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Set the order quantity of the order item at orderItemIndex to newOrderQuantity.
+        /// </summary>
         public void SetOrderItemQuantity(int orderItemIndex, int newOrderQuantity)
         {
             _orderItems[ orderItemIndex ].OrderQuantity = newOrderQuantity;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Get the total price of the order item at orderItemIndex.
+        /// </summary>
         public string GetOrderItemTotalPrice(int orderItemIndex)
         {
             return _orderItems[ orderItemIndex ].GetTotalPrice().GetCurrencyFormat();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Get the storage quantity of the order item at orderItemIndex.
+        /// </summary>
         public int GetStorageQuantity(int orderItemIndex)
         {
             return _orderItems[ orderItemIndex ].StorageQuantity;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Get the corresponding product of the order item at orderItemIndex.
+        /// </summary>
         public Product GetProduct(int orderItemIndex)
         {
             return _orderItems[ orderItemIndex ].Product;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Decrease the storage quantity of all order items by theirs order quantity.
+        /// </summary>
         public void DecreaseProductStorageQuantitiesByOrderQuantities()
         {
             foreach ( OrderItem item in _orderItems )
@@ -107,7 +133,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             }
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Get all the products in the order.
+        /// </summary>
         public List<Product> GetProducts()
         {
             List<Product> products = new List<Product>();

@@ -12,7 +12,9 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             _model = modelData;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Get product by storageDataGridViewRowIndex.
+        /// </summary>
         public Product GetProduct(int storageDataGridViewRowIndex)
         {
             int productId = AppDefinition.GetHumanIndex(storageDataGridViewRowIndex);

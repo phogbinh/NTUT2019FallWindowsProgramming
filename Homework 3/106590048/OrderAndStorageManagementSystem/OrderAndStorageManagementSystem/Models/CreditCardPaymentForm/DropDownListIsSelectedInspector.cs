@@ -10,19 +10,25 @@
             /* Body intentionally empty */
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Return true if the drop-down list value is selected.
+        /// </summary>
         public bool IsValid()
         {
             return _selectedIndex > -1;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Set a new selected index for the drop-down list.
+        /// </summary>
         public void Set(int newSelectedIndex)
         {
             _selectedIndex = newSelectedIndex;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Return the error of this inspector.
+        /// </summary>
         public string GetError()
         {
             return ERROR_DROP_DOWN_LIST_IS_IGNORED;

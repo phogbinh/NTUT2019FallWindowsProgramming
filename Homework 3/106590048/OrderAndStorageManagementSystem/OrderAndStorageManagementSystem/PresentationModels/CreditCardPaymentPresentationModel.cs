@@ -22,34 +22,44 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             _submitButton = new ControlStates();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Update member variables of all TextBoxInspectors of the textbox at textBoxIndex.
+        /// </summary>
         public void UpdateTextBoxInspectors(int textBoxIndex, string text, int maxTextLength)
         {
             Action updateTextBoxInspectorsFunction = () => _creditCardPaymentModel.UpdateTextBoxInspectors(textBoxIndex, text, maxTextLength);
             UpdateControlInspectors(updateTextBoxInspectorsFunction);
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Update member variable of all DropDownListInspectors of the drop-down list at dropDownListIndex.
+        /// </summary>
         public void UpdateDropDownListInspectors(int dropDownListIndex, int selectedIndex)
         {
             Action updateDropDownListInspectorsFunction = () => _creditCardPaymentModel.UpdateDropDownListInspectors(dropDownListIndex, selectedIndex);
             UpdateControlInspectors(updateDropDownListInspectorsFunction);
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Update member variable(s) of all InputInspectors of the control at controlIndex.
+        /// </summary>
         private void UpdateControlInspectors(Action updateControlInspectorsFunction)
         {
             updateControlInspectorsFunction();
             UpdateSubmitButton();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Update enabled state of the submit button.
+        /// </summary>
         private void UpdateSubmitButton()
         {
             _submitButton.Enabled = _creditCardPaymentModel.AreAllValidInspectors();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Get the first InputInspector error of the control at controlIndex.
+        /// </summary>
         public string GetControlError(int controlIndex)
         {
             return _creditCardPaymentModel.GetControlError(controlIndex);

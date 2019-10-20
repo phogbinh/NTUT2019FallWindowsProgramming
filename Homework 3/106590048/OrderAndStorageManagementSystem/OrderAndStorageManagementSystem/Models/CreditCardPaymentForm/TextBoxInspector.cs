@@ -10,17 +10,23 @@
             /* Body intentionally empty */
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Set a new text and new max text length for the textbox.
+        /// </summary>
         public void Set(string newText, int newMaxTextLength)
         {
             _text = newText;
             _maxTextLength = newMaxTextLength;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Return true if the textbox is valid.
+        /// </summary>
         public abstract bool IsValid();
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Return the error of this inspector.
+        /// </summary>
         public abstract string GetError();
     }
 }

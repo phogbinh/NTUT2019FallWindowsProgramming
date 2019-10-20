@@ -75,35 +75,20 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             return _name + AppDefinition.PRODUCT_NAME_DESCRIPTION_SEPARATOR + _description;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Get product storage quantity.
+        /// </summary>
         public string GetStorageQuantity()
         {
             return _storageQuantity.ToString();
         }
 
         /// <summary>
-        /// Print info of the product. For debugging purpose only.
+        /// Get product price.
         /// </summary>
-        public void Print()
-        {
-            string result = "";
-            result += AppDefinition.PRINT_ID + _id.ToString();
-            result += AppDefinition.PRINT_DELIMITER;
-            result += AppDefinition.PRINT_NAME + _name;
-            result += AppDefinition.PRINT_DELIMITER;
-            result += AppDefinition.PRINT_TYPE + _type;
-            result += AppDefinition.PRINT_DELIMITER;
-            result += AppDefinition.PRINT_PRICE + _price.ToString();
-            result += AppDefinition.PRINT_DELIMITER;
-            result += AppDefinition.PRINT_DESCRIPTION + _description;
-            result += AppDefinition.PRINT_END_MARK;
-            Debug.Write(result);
-        }
-
-        // Protest on Dr.Smell
         public string GetPrice(string currencyUnit)
         {
-            return _price.GetStringWithCurrencyUnit(currencyUnit);
+            return _price.GetCurrencyFormatWithCurrencyUnit(currencyUnit);
         }
     }
 }

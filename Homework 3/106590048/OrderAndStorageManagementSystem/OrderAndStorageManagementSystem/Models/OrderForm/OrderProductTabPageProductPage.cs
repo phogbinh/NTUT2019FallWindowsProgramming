@@ -12,13 +12,17 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             _products = new List<Product>();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Add a product to this product page.
+        /// </summary>
         public void AddProduct(Product product)
         {
             _products.Add(product);
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Get the product whose index is productIndex.
+        /// </summary>
         public Product GetProduct(int productIndex)
         {
             if ( productIndex >= _products.Count )

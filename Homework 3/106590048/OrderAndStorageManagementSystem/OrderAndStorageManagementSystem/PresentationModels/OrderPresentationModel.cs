@@ -9,8 +9,8 @@ namespace OrderAndStorageManagementSystem.PresentationModels
     {
         public delegate void AddButtonEnabledChangedEventHandler();
         private event AddButtonEnabledChangedEventHandler _addButtonEnabledChanged;
-        public delegate void OrderFormProductStorageQuantityChangedEventHandler();
-        private event OrderFormProductStorageQuantityChangedEventHandler _orderFormProductStorageQuantityChanged;
+        public delegate void OrderFormProductStorageQuantityTextChangedEventHandler();
+        private event OrderFormProductStorageQuantityTextChangedEventHandler _orderFormProductStorageQuantityTextChanged;
         public AddButtonEnabledChangedEventHandler AddButtonEnabledChanged
         {
             get
@@ -22,15 +22,15 @@ namespace OrderAndStorageManagementSystem.PresentationModels
                 _addButtonEnabledChanged = value;
             }
         }
-        public OrderFormProductStorageQuantityChangedEventHandler OrderFormProductStorageQuantityChanged
+        public OrderFormProductStorageQuantityTextChangedEventHandler OrderFormProductStorageQuantityTextChanged
         {
             get
             {
-                return _orderFormProductStorageQuantityChanged;
+                return _orderFormProductStorageQuantityTextChanged;
             }
             set
             {
-                _orderFormProductStorageQuantityChanged = value;
+                _orderFormProductStorageQuantityTextChanged = value;
             }
         }
         public ControlStates ProductNameAndDescription
@@ -108,8 +108,8 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             _orderModel = orderModelData;
             _model = modelData;
             // Observers
-            _model.OrderAdded += (orderItem) => AddOrRemoveProductFromOrder(orderItem.Product);
-            _model.OrderRemoved += (orderItemIndex, removedProduct) => AddOrRemoveProductFromOrder(removedProduct);
+            _model.OrderAdded += (orderItem) => UpdateAddButtonIfCurrentSelectedProductIsAddedToOrRemovedFromOrder(orderItem.Product);
+            _model.OrderRemoved += (orderItemIndex, removedProduct) => UpdateAddButtonIfCurrentSelectedProductIsAddedToOrRemovedFromOrder(removedProduct);
             _model.ProductStorageQuantityChanged += UpdateProductStorageQuantityAndAddButtonIfChangedCurrentSelectedProductStorageQuantity;
             // UI
             _productNameAndDescription = new ControlStates();
@@ -121,8 +121,10 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             _rightArrowButton = new ControlStates();
         }
 
-        // Protest on Dr.Smell
-        private void AddOrRemoveProductFromOrder(Product product)
+        /// <summary>
+        /// Update enabled state of add button if the current selected product is added to or removed from order.
+        /// </summary>
+        private void UpdateAddButtonIfCurrentSelectedProductIsAddedToOrRemovedFromOrder(Product product)
         {
             if ( product == _currentSelectedProduct )
             {
@@ -130,7 +132,9 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             }
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Update text of product storage quantity and enabled state of add button if the storage quantity of the current selected product is changed.
+        /// </summary>
         private void UpdateProductStorageQuantityAndAddButtonIfChangedCurrentSelectedProductStorageQuantity(Product product)
         {
             if ( product == _currentSelectedProduct )
@@ -140,30 +144,38 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             }
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Update text of product storage quantity by the current selected product.
+        /// </summary>
         private void UpdateProductStorageQuantityByCurrentSelectedProduct()
         {
             _productStorageQuantity.Text = _currentSelectedProduct == null ? "" : AppDefinition.PRODUCT_STORAGE_QUANTITY_TEXT + _currentSelectedProduct.GetStorageQuantity();
-            NotifyObserverChangeOrderFormProductStorageQuantity();
+            NotifyObserverChangeOrderFormProductStorageQuantityText();
         }
 
-        // Protest on Dr.Smell
-        private void NotifyObserverChangeOrderFormProductStorageQuantity()
+        /// <summary>
+        /// Notify observer change text of order form product storage quantity.
+        /// </summary>
+        private void NotifyObserverChangeOrderFormProductStorageQuantityText()
         {
-            if ( OrderFormProductStorageQuantityChanged != null )
+            if ( OrderFormProductStorageQuantityTextChanged != null )
             {
-                OrderFormProductStorageQuantityChanged();
+                OrderFormProductStorageQuantityTextChanged();
             }
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Update enabled state of add button by current selected product.
+        /// </summary>
         private void UpdateAddButtonByCurrentSelectedProduct()
         {
             _addButton.Enabled = _currentSelectedProduct != null && !_model.IsInOrder(new OrderItem(_currentSelectedProduct)) && _currentSelectedProduct.StorageQuantity > 0;
             NotifyObserverChangeAddButtonEnabled();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Notify observer change enabled state of add button.
+        /// </summary>
         private void NotifyObserverChangeAddButtonEnabled()
         {
             if ( AddButtonEnabledChanged != null )
@@ -172,21 +184,27 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             }
         }
 
-        // Protest on Dr.Smell
-        public void GoToPreviousPage()
+        /// <summary>
+        /// Go to previous product page.
+        /// </summary>
+        public void GoToPreviousProductPage()
         {
             _currentProductPageIndex--;
             UpdateCurrentProductPage();
         }
 
-        // Protest on Dr.Smell
-        public void GoToNextPage()
+        /// <summary>
+        /// Go to next product page.
+        /// </summary>
+        public void GoToNextProductPage()
         {
             _currentProductPageIndex++;
             UpdateCurrentProductPage();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Select the product tab page whose index is tabPageIndex.
+        /// </summary>
         public void SelectProductTabPage(int tabPageIndex)
         {
             _currentTabPageIndex = tabPageIndex;
@@ -194,13 +212,17 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             UpdateCurrentProductPage();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Reset current product page index to initial value.
+        /// </summary>
         private void ResetCurrentProductPageIndex()
         {
             _currentProductPageIndex = CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE;
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Update current product page.
+        /// </summary>
         private void UpdateCurrentProductPage()
         {
             _pageLabel.Text = AppDefinition.PAGE_LABEL_TEXT + AppDefinition.GetHumanIndex(_currentProductPageIndex) + AppDefinition.PAGE_LABEL_DELIMITER + _orderModel.GetTabPageProductPagesCount(_currentTabPageIndex);
@@ -208,7 +230,9 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             SelectNoProduct();
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Update enabled states of page navigation buttons.
+        /// </summary>
         private void UpdatePageNavigationButtons()
         {
             int humanIndex = AppDefinition.GetHumanIndex(_currentProductPageIndex);
@@ -241,7 +265,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         }
 
         /// <summary>
-        /// Select a product.
+        /// Select product.
         /// </summary>
         public void SelectProduct(Product product)
         {
@@ -251,7 +275,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         }
 
         /// <summary>
-        /// Set product info text, including product name, description and price.
+        /// Update current product info, including product name, description and price.
         /// </summary>
         private void UpdateCurrentProductInfo()
         {
@@ -268,13 +292,17 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             }
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Get the product at productIndex in the current product page, which is inside the tab page whose index is tabPageIndex.
+        /// </summary>
         public Product GetProductAtCurrentProductPage(int tabPageIndex, int productIndex)
         {
             return _orderModel.GetProduct(tabPageIndex, _currentProductPageIndex, productIndex);
         }
 
-        // Protest on Dr.Smell
+        /// <summary>
+        /// Add current selected product to order if the product is not in order.
+        /// </summary>
         public void AddCurrentSelectedProductToOrderIfProductIsNotInOrder()
         {
             _model.AddProductToOrderIfProductIsNotInOrder(_currentSelectedProduct);
