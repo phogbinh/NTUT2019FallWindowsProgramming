@@ -16,7 +16,7 @@ namespace OrderAndStorageManagementSystem.Views
             InitializeComponent();
             _model = modelData;
             // UI
-            _storageDataGridView.CellPainting += (sender, eventArguments) => DataGridViewHelper.InitializeButtonImageOfButtonColumn(eventArguments, STORAGE_SUPPLY_BUTTON_COLUMN_INDEX, Resources.img_trash_bin);
+            _storageDataGridView.CellPainting += (sender, eventArguments) => DataGridViewHelper.InitializeButtonImageOfButtonColumn(eventArguments, STORAGE_SUPPLY_BUTTON_COLUMN_INDEX, Resources.img_delivery_truck);
             // Initial UI States
             InitializeStorageDataGridView();
         }
