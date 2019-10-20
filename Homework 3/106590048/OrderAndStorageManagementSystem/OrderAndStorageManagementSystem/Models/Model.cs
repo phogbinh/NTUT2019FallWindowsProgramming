@@ -12,7 +12,7 @@ namespace OrderAndStorageManagementSystem.Models
         private event OrderClearedEventHandler _orderCleared;
         public delegate void OrderAddedEventHandler(OrderItem orderItem);
         private event OrderAddedEventHandler _orderAdded;
-        public delegate void OrderRemovedEventHandler(int orderItemIndex);
+        public delegate void OrderRemovedEventHandler(int orderItemIndex, Product removedProduct);
         private event OrderRemovedEventHandler _orderRemoved;
         public delegate void OrderItemQuantityChangedEventHandler(int orderItemIndex, string orderItemTotalPrice);
         private event OrderItemQuantityChangedEventHandler _orderItemQuantityChanged;
@@ -143,17 +143,18 @@ namespace OrderAndStorageManagementSystem.Models
         // Protest on Dr.Smell
         public void RemoveOrderItemAt(int orderItemIndex)
         {
+            Product removeProduct = _order.GetProduct(orderItemIndex);
             _order.RemoveOrderItemAt(orderItemIndex);
-            NotifyObserverChangeAndRemoveOrder(orderItemIndex);
+            NotifyObserverChangeAndRemoveOrder(orderItemIndex, removeProduct);
         }
 
         // Protest on Dr.Smell
-        private void NotifyObserverChangeAndRemoveOrder(int orderItemIndex)
+        private void NotifyObserverChangeAndRemoveOrder(int orderItemIndex, Product removedProduct)
         {
             NotifyObserverChangeOrder();
             if ( OrderRemoved != null )
             {
-                OrderRemoved(orderItemIndex);
+                OrderRemoved(orderItemIndex, removedProduct);
             }
         }
 

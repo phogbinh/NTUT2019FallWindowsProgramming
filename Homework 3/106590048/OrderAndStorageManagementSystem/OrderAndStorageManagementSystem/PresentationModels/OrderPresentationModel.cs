@@ -1,5 +1,4 @@
-﻿using System;
-using OrderAndStorageManagementSystem.Models;
+﻿using OrderAndStorageManagementSystem.Models;
 using OrderAndStorageManagementSystem.Models.OrderForm;
 using OrderAndStorageManagementSystem.Models.Utilities;
 using OrderAndStorageManagementSystem.PresentationModels.Utilities;
@@ -96,7 +95,8 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             _orderModel = orderModelData;
             _model = modelData;
             // Observers
-            _model.OrderAdded += OrderAdded;
+            _model.OrderAdded += (orderItem) => AddOrRemoveProductFromOrder(orderItem.Product);
+            _model.OrderRemoved += (orderItemIndex, removedProduct) => AddOrRemoveProductFromOrder(removedProduct);
             // UI
             _productNameAndDescription = new ControlStates();
             _productStorageQuantity = new ControlStates();
@@ -108,11 +108,11 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         }
 
         // Protest on Dr.Smell
-        private void OrderAdded(OrderItem orderItem)
+        private void AddOrRemoveProductFromOrder(Product product)
         {
-            if ( orderItem.Product == _currentSelectedProduct )
+            if ( product == _currentSelectedProduct )
             {
-                _addButton.Enabled = false;
+                _addButton.Enabled = !_model.IsInOrder(new OrderItem(product));
                 NotifyObserverChangeAddButtonEnabled();
             }
         }

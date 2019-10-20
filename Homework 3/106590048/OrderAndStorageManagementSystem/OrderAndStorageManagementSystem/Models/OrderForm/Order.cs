@@ -91,5 +91,11 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         {
             return _orderItems[ orderItemIndex ].StorageQuantity;
         }
+
+        // Protest on Dr.Smell
+        public Product GetProduct(int orderItemIndex)
+        {
+            return _orderItems[ orderItemIndex ].Product;
+        }
     }
 }
