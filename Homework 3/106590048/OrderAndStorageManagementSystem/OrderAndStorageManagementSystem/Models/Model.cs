@@ -174,23 +174,6 @@ namespace OrderAndStorageManagementSystem.Models
         }
 
         // Protest on Dr.Smell
-        private void ClearOrder()
-        {
-            _order.ClearOrder();
-            NotifyObserverChangeAndClearOrder();
-        }
-
-        // Protest on Dr.Smell
-        private void NotifyObserverChangeAndClearOrder()
-        {
-            NotifyObserverChangeOrder();
-            if ( OrderCleared != null )
-            {
-                OrderCleared();
-            }
-        }
-
-        // Protest on Dr.Smell
         public void SetOrderItemQuantity(int orderItemIndex, int newCartProductQuantity)
         {
             if ( !IsExceededStorageQuantity(orderItemIndex, newCartProductQuantity) )
@@ -240,6 +223,23 @@ namespace OrderAndStorageManagementSystem.Models
         public void SubmitOrder()
         {
             ClearOrder();
+        }
+
+        // Protest on Dr.Smell
+        private void ClearOrder()
+        {
+            _order.ClearOrder();
+            NotifyObserverChangeAndClearOrder();
+        }
+
+        // Protest on Dr.Smell
+        private void NotifyObserverChangeAndClearOrder()
+        {
+            NotifyObserverChangeOrder();
+            if ( OrderCleared != null )
+            {
+                OrderCleared();
+            }
         }
     }
 }
