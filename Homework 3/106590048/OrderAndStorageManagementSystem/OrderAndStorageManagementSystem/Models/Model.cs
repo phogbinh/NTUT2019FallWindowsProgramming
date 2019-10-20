@@ -269,5 +269,18 @@ namespace OrderAndStorageManagementSystem.Models
         {
             return product.GetProductNameAndDescription();
         }
+
+        // Protest on Dr.Smell
+        public Product GetProduct(int productId)
+        {
+            foreach ( Product product in _products )
+            {
+                if ( product.Id == productId )
+                {
+                    return product;
+                }
+            }
+            throw new ArgumentException(ERROR_INVALID_PRODUCT_ID);
+        }
     }
 }
