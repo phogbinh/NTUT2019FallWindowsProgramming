@@ -112,9 +112,15 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             if ( product == _currentSelectedProduct )
             {
-                _addButton.Enabled = !_model.IsInOrder(new OrderItem(product));
+                UpdateAddButtonByCurrentSelectedProduct();
                 NotifyObserverChangeAddButtonEnabled();
             }
+        }
+
+        // Protest on Dr.Smell
+        private void UpdateAddButtonByCurrentSelectedProduct()
+        {
+            _addButton.Enabled = _currentSelectedProduct != null && !_model.IsInOrder(new OrderItem(_currentSelectedProduct));
         }
 
         // Protest on Dr.Smell
@@ -191,7 +197,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             _currentSelectedProduct = null;
             UpdateCurrentProductInfo();
-            _addButton.Enabled = false;
+            UpdateAddButtonByCurrentSelectedProduct();
         }
 
         /// <summary>
@@ -201,7 +207,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             _currentSelectedProduct = product;
             UpdateCurrentProductInfo();
-            _addButton.Enabled = !_model.IsInOrder(new OrderItem(product));
+            UpdateAddButtonByCurrentSelectedProduct();
         }
 
         /// <summary>
