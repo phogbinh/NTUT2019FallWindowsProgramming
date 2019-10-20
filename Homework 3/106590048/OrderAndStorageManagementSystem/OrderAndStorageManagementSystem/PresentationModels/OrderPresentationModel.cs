@@ -120,7 +120,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         // Protest on Dr.Smell
         private void UpdateAddButtonByCurrentSelectedProduct()
         {
-            _addButton.Enabled = _currentSelectedProduct != null && !_model.IsInOrder(new OrderItem(_currentSelectedProduct));
+            _addButton.Enabled = _currentSelectedProduct != null && !_model.IsInOrder(new OrderItem(_currentSelectedProduct)) && _currentSelectedProduct.StorageQuantity > 0;
         }
 
         // Protest on Dr.Smell
