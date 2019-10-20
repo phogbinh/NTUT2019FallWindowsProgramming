@@ -1,7 +1,6 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace DataGridViewNumericUpDownElements
 {
@@ -58,7 +57,7 @@ namespace DataGridViewNumericUpDownElements
             }
             set
             {
-                this.Text = (string) value;
+                this.Text = ( string )value;
             }
         }
 
@@ -123,7 +122,7 @@ namespace DataGridViewNumericUpDownElements
         public virtual void ApplyCellStyleToEditingControl(DataGridViewCellStyle dataGridViewCellStyle)
         {
             this.Font = dataGridViewCellStyle.Font;
-            if (dataGridViewCellStyle.BackColor.A < 255)
+            if ( dataGridViewCellStyle.BackColor.A < 255 )
             {
                 // The NumericUpDown control does not support transparent back colors
                 Color opaqueBackColor = Color.FromArgb(255, dataGridViewCellStyle.BackColor);
@@ -144,17 +143,17 @@ namespace DataGridViewNumericUpDownElements
         /// </summary>
         public virtual bool EditingControlWantsInputKey(Keys keyData, bool dataGridViewWantsInputKey)
         {
-            switch (keyData & Keys.KeyCode)
+            switch ( keyData & Keys.KeyCode )
             {
                 case Keys.Right:
                 {
-                    TextBox textBox = this.Controls[1] as TextBox;
-                    if (textBox != null)
+                    TextBox textBox = this.Controls[ 1 ] as TextBox;
+                    if ( textBox != null )
                     {
                         // If the end of the selection is at the end of the string,
                         // let the DataGridView treat the key message
-                        if ((this.RightToLeft == RightToLeft.No && !(textBox.SelectionLength == 0 && textBox.SelectionStart == textBox.Text.Length)) ||
-                            (this.RightToLeft == RightToLeft.Yes && !(textBox.SelectionLength == 0 && textBox.SelectionStart == 0)))
+                        if ( ( this.RightToLeft == RightToLeft.No && !( textBox.SelectionLength == 0 && textBox.SelectionStart == textBox.Text.Length ) ) ||
+                            ( this.RightToLeft == RightToLeft.Yes && !( textBox.SelectionLength == 0 && textBox.SelectionStart == 0 ) ) )
                         {
                             return true;
                         }
@@ -164,14 +163,14 @@ namespace DataGridViewNumericUpDownElements
 
                 case Keys.Left:
                 {
-                    TextBox textBox = this.Controls[1] as TextBox;
-                    if (textBox != null)
+                    TextBox textBox = this.Controls[ 1 ] as TextBox;
+                    if ( textBox != null )
                     {
                         // If the end of the selection is at the begining of the string
                         // or if the entire text is selected and we did not start editing,
                         // send this character to the dataGridView, else process the key message
-                        if ((this.RightToLeft == RightToLeft.No && !(textBox.SelectionLength == 0 && textBox.SelectionStart == 0)) ||
-                            (this.RightToLeft == RightToLeft.Yes && !(textBox.SelectionLength == 0 && textBox.SelectionStart == textBox.Text.Length)))
+                        if ( ( this.RightToLeft == RightToLeft.No && !( textBox.SelectionLength == 0 && textBox.SelectionStart == 0 ) ) ||
+                            ( this.RightToLeft == RightToLeft.Yes && !( textBox.SelectionLength == 0 && textBox.SelectionStart == textBox.Text.Length ) ) )
                         {
                             return true;
                         }
@@ -182,7 +181,7 @@ namespace DataGridViewNumericUpDownElements
                 case Keys.Down:
                     // If the current value hasn't reached its minimum yet, handle the key. Otherwise let
                     // the grid handle it.
-                    if (this.Value > this.Minimum)
+                    if ( this.Value > this.Minimum )
                     {
                         return true;
                     }
@@ -191,7 +190,7 @@ namespace DataGridViewNumericUpDownElements
                 case Keys.Up:
                     // If the current value hasn't reached its maximum yet, handle the key. Otherwise let
                     // the grid handle it.
-                    if (this.Value < this.Maximum)
+                    if ( this.Value < this.Maximum )
                     {
                         return true;
                     }
@@ -201,10 +200,10 @@ namespace DataGridViewNumericUpDownElements
                 case Keys.End:
                 {
                     // Let the grid handle the key if the entire text is selected.
-                    TextBox textBox = this.Controls[1] as TextBox;
-                    if (textBox != null)
+                    TextBox textBox = this.Controls[ 1 ] as TextBox;
+                    if ( textBox != null )
                     {
-                        if (textBox.SelectionLength != textBox.Text.Length)
+                        if ( textBox.SelectionLength != textBox.Text.Length )
                         {
                             return true;
                         }
@@ -215,11 +214,11 @@ namespace DataGridViewNumericUpDownElements
                 case Keys.Delete:
                 {
                     // Let the grid handle the key if the carret is at the end of the text.
-                    TextBox textBox = this.Controls[1] as TextBox;
-                    if (textBox != null)
+                    TextBox textBox = this.Controls[ 1 ] as TextBox;
+                    if ( textBox != null )
                     {
-                        if (textBox.SelectionLength > 0 ||
-                            textBox.SelectionStart < textBox.Text.Length)
+                        if ( textBox.SelectionLength > 0 ||
+                            textBox.SelectionStart < textBox.Text.Length )
                         {
                             return true;
                         }
@@ -237,10 +236,10 @@ namespace DataGridViewNumericUpDownElements
         {
             bool userEdit = this.UserEdit;
             try
-            {   
+            {
                 // Prevent the Value from being set to Maximum or Minimum when the cell is being painted.
-                this.UserEdit = (context & DataGridViewDataErrorContexts.Display) == 0;
-                return this.Value.ToString((this.ThousandsSeparator ? "N" : "F") + this.DecimalPlaces.ToString());
+                this.UserEdit = ( context & DataGridViewDataErrorContexts.Display ) == 0;
+                return this.Value.ToString(( this.ThousandsSeparator ? "N" : "F" ) + this.DecimalPlaces.ToString());
             }
             finally
             {
@@ -254,10 +253,10 @@ namespace DataGridViewNumericUpDownElements
         /// </summary>
         public virtual void PrepareEditingControlForEdit(bool selectAll)
         {
-            TextBox textBox = this.Controls[1] as TextBox;
-            if (textBox != null)
+            TextBox textBox = this.Controls[ 1 ] as TextBox;
+            if ( textBox != null )
             {
-                if (selectAll)
+                if ( selectAll )
                 {
                     textBox.SelectAll();
                 }
@@ -278,7 +277,7 @@ namespace DataGridViewNumericUpDownElements
         /// </summary>
         private void NotifyDataGridViewOfValueChange()
         {
-            if (!this.valueChanged)
+            if ( !this.valueChanged )
             {
                 this.valueChanged = true;
                 this.dataGridView.NotifyCurrentCellDirty(true);
@@ -296,7 +295,7 @@ namespace DataGridViewNumericUpDownElements
             // The value changes when a digit, the decimal separator, the group separator or
             // the negative sign is pressed.
             bool notifyValueChange = false;
-            if (char.IsDigit(e.KeyChar))
+            if ( char.IsDigit(e.KeyChar) )
             {
                 notifyValueChange = true;
             }
@@ -306,21 +305,21 @@ namespace DataGridViewNumericUpDownElements
                 string decimalSeparatorStr = numberFormatInfo.NumberDecimalSeparator;
                 string groupSeparatorStr = numberFormatInfo.NumberGroupSeparator;
                 string negativeSignStr = numberFormatInfo.NegativeSign;
-                if (!string.IsNullOrEmpty(decimalSeparatorStr) && decimalSeparatorStr.Length == 1)
+                if ( !string.IsNullOrEmpty(decimalSeparatorStr) && decimalSeparatorStr.Length == 1 )
                 {
-                    notifyValueChange = decimalSeparatorStr[0] == e.KeyChar;
+                    notifyValueChange = decimalSeparatorStr[ 0 ] == e.KeyChar;
                 }
-                if (!notifyValueChange && !string.IsNullOrEmpty(groupSeparatorStr) && groupSeparatorStr.Length == 1)
+                if ( !notifyValueChange && !string.IsNullOrEmpty(groupSeparatorStr) && groupSeparatorStr.Length == 1 )
                 {
-                    notifyValueChange = groupSeparatorStr[0] == e.KeyChar;
+                    notifyValueChange = groupSeparatorStr[ 0 ] == e.KeyChar;
                 }
-                if (!notifyValueChange && !string.IsNullOrEmpty(negativeSignStr) && negativeSignStr.Length == 1)
+                if ( !notifyValueChange && !string.IsNullOrEmpty(negativeSignStr) && negativeSignStr.Length == 1 )
                 {
-                    notifyValueChange = negativeSignStr[0] == e.KeyChar;
+                    notifyValueChange = negativeSignStr[ 0 ] == e.KeyChar;
                 }
             }
 
-            if (notifyValueChange)
+            if ( notifyValueChange )
             {
                 // Let the DataGridView know about the value change
                 NotifyDataGridViewOfValueChange();
@@ -333,7 +332,7 @@ namespace DataGridViewNumericUpDownElements
         protected override void OnValueChanged(EventArgs e)
         {
             base.OnValueChanged(e);
-            if (this.Focused)
+            if ( this.Focused )
             {
                 // Let the DataGridView know about the value change
                 NotifyDataGridViewOfValueChange();
@@ -346,8 +345,8 @@ namespace DataGridViewNumericUpDownElements
         /// </summary>
         protected override bool ProcessKeyEventArgs(ref Message m)
         {
-            TextBox textBox = this.Controls[1] as TextBox;
-            if (textBox != null)
+            TextBox textBox = this.Controls[ 1 ] as TextBox;
+            if ( textBox != null )
             {
                 SendMessage(textBox.Handle, m.Msg, m.WParam, m.LParam);
                 return true;

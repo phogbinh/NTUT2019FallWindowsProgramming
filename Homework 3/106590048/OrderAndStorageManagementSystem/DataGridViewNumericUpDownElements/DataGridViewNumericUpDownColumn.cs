@@ -1,9 +1,8 @@
 using System;
-using System.Text;
-using System.Diagnostics;
-using System.Globalization;
-using System.Windows.Forms;
 using System.ComponentModel;
+using System.Globalization;
+using System.Text;
+using System.Windows.Forms;
 
 namespace DataGridViewNumericUpDownElements
 {
@@ -35,7 +34,7 @@ namespace DataGridViewNumericUpDownElements
             set
             {
                 DataGridViewNumericUpDownCell dataGridViewNumericUpDownCell = value as DataGridViewNumericUpDownCell;
-                if (value != null && dataGridViewNumericUpDownCell == null)
+                if ( value != null && dataGridViewNumericUpDownCell == null )
                 {
                     throw new InvalidCastException("Value provided for CellTemplate must be of type DataGridViewNumericUpDownElements.DataGridViewNumericUpDownCell or derive from it.");
                 }
@@ -55,7 +54,7 @@ namespace DataGridViewNumericUpDownElements
         {
             get
             {
-                if (this.NumericUpDownCellTemplate == null)
+                if ( this.NumericUpDownCellTemplate == null )
                 {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
                 }
@@ -63,24 +62,24 @@ namespace DataGridViewNumericUpDownElements
             }
             set
             {
-                if (this.NumericUpDownCellTemplate == null)
+                if ( this.NumericUpDownCellTemplate == null )
                 {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
                 }
                 // Update the template cell so that subsequent cloned cells use the new value.
                 this.NumericUpDownCellTemplate.DecimalPlaces = value;
-                if (this.DataGridView != null)
+                if ( this.DataGridView != null )
                 {
                     // Update all the existing DataGridViewNumericUpDownCell cells in the column accordingly.
                     DataGridViewRowCollection dataGridViewRows = this.DataGridView.Rows;
                     int rowCount = dataGridViewRows.Count;
-                    for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
+                    for ( int rowIndex = 0; rowIndex < rowCount; rowIndex++ )
                     {
                         // Be careful not to unshare rows unnecessarily. 
                         // This could have severe performance repercussions.
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        DataGridViewNumericUpDownCell dataGridViewCell = dataGridViewRow.Cells[this.Index] as DataGridViewNumericUpDownCell;
-                        if (dataGridViewCell != null)
+                        DataGridViewNumericUpDownCell dataGridViewCell = dataGridViewRow.Cells[ this.Index ] as DataGridViewNumericUpDownCell;
+                        if ( dataGridViewCell != null )
                         {
                             // Call the internal SetDecimalPlaces method instead of the property to avoid invalidation 
                             // of each cell. The whole column is invalidated later in a single operation for better performance.
@@ -104,7 +103,7 @@ namespace DataGridViewNumericUpDownElements
         {
             get
             {
-                if (this.NumericUpDownCellTemplate == null)
+                if ( this.NumericUpDownCellTemplate == null )
                 {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
                 }
@@ -112,20 +111,20 @@ namespace DataGridViewNumericUpDownElements
             }
             set
             {
-                if (this.NumericUpDownCellTemplate == null)
+                if ( this.NumericUpDownCellTemplate == null )
                 {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
                 }
                 this.NumericUpDownCellTemplate.Increment = value;
-                if (this.DataGridView != null)
+                if ( this.DataGridView != null )
                 {
                     DataGridViewRowCollection dataGridViewRows = this.DataGridView.Rows;
                     int rowCount = dataGridViewRows.Count;
-                    for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
+                    for ( int rowIndex = 0; rowIndex < rowCount; rowIndex++ )
                     {
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        DataGridViewNumericUpDownCell dataGridViewCell = dataGridViewRow.Cells[this.Index] as DataGridViewNumericUpDownCell;
-                        if (dataGridViewCell != null)
+                        DataGridViewNumericUpDownCell dataGridViewCell = dataGridViewRow.Cells[ this.Index ] as DataGridViewNumericUpDownCell;
+                        if ( dataGridViewCell != null )
                         {
                             dataGridViewCell.SetIncrement(rowIndex, value);
                         }
@@ -152,7 +151,7 @@ namespace DataGridViewNumericUpDownElements
         {
             get
             {
-                if (this.NumericUpDownCellTemplate == null)
+                if ( this.NumericUpDownCellTemplate == null )
                 {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
                 }
@@ -160,20 +159,20 @@ namespace DataGridViewNumericUpDownElements
             }
             set
             {
-                if (this.NumericUpDownCellTemplate == null)
+                if ( this.NumericUpDownCellTemplate == null )
                 {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
                 }
                 this.NumericUpDownCellTemplate.Maximum = value;
-                if (this.DataGridView != null)
+                if ( this.DataGridView != null )
                 {
                     DataGridViewRowCollection dataGridViewRows = this.DataGridView.Rows;
                     int rowCount = dataGridViewRows.Count;
-                    for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
+                    for ( int rowIndex = 0; rowIndex < rowCount; rowIndex++ )
                     {
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        DataGridViewNumericUpDownCell dataGridViewCell = dataGridViewRow.Cells[this.Index] as DataGridViewNumericUpDownCell;
-                        if (dataGridViewCell != null)
+                        DataGridViewNumericUpDownCell dataGridViewCell = dataGridViewRow.Cells[ this.Index ] as DataGridViewNumericUpDownCell;
+                        if ( dataGridViewCell != null )
                         {
                             dataGridViewCell.SetMaximum(rowIndex, value);
                         }
@@ -204,7 +203,7 @@ namespace DataGridViewNumericUpDownElements
         {
             get
             {
-                if (this.NumericUpDownCellTemplate == null)
+                if ( this.NumericUpDownCellTemplate == null )
                 {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
                 }
@@ -212,20 +211,20 @@ namespace DataGridViewNumericUpDownElements
             }
             set
             {
-                if (this.NumericUpDownCellTemplate == null)
+                if ( this.NumericUpDownCellTemplate == null )
                 {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
                 }
                 this.NumericUpDownCellTemplate.Minimum = value;
-                if (this.DataGridView != null)
+                if ( this.DataGridView != null )
                 {
                     DataGridViewRowCollection dataGridViewRows = this.DataGridView.Rows;
                     int rowCount = dataGridViewRows.Count;
-                    for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
+                    for ( int rowIndex = 0; rowIndex < rowCount; rowIndex++ )
                     {
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        DataGridViewNumericUpDownCell dataGridViewCell = dataGridViewRow.Cells[this.Index] as DataGridViewNumericUpDownCell;
-                        if (dataGridViewCell != null)
+                        DataGridViewNumericUpDownCell dataGridViewCell = dataGridViewRow.Cells[ this.Index ] as DataGridViewNumericUpDownCell;
+                        if ( dataGridViewCell != null )
                         {
                             dataGridViewCell.SetMinimum(rowIndex, value);
                         }
@@ -256,7 +255,7 @@ namespace DataGridViewNumericUpDownElements
         {
             get
             {
-                if (this.NumericUpDownCellTemplate == null)
+                if ( this.NumericUpDownCellTemplate == null )
                 {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
                 }
@@ -264,20 +263,20 @@ namespace DataGridViewNumericUpDownElements
             }
             set
             {
-                if (this.NumericUpDownCellTemplate == null)
+                if ( this.NumericUpDownCellTemplate == null )
                 {
                     throw new InvalidOperationException("Operation cannot be completed because this DataGridViewColumn does not have a CellTemplate.");
                 }
                 this.NumericUpDownCellTemplate.ThousandsSeparator = value;
-                if (this.DataGridView != null)
+                if ( this.DataGridView != null )
                 {
                     DataGridViewRowCollection dataGridViewRows = this.DataGridView.Rows;
                     int rowCount = dataGridViewRows.Count;
-                    for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
+                    for ( int rowIndex = 0; rowIndex < rowCount; rowIndex++ )
                     {
                         DataGridViewRow dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                        DataGridViewNumericUpDownCell dataGridViewCell = dataGridViewRow.Cells[this.Index] as DataGridViewNumericUpDownCell;
-                        if (dataGridViewCell != null)
+                        DataGridViewNumericUpDownCell dataGridViewCell = dataGridViewRow.Cells[ this.Index ] as DataGridViewNumericUpDownCell;
+                        if ( dataGridViewCell != null )
                         {
                             dataGridViewCell.SetThousandsSeparator(rowIndex, value);
                         }
@@ -297,7 +296,7 @@ namespace DataGridViewNumericUpDownElements
         {
             get
             {
-                return (DataGridViewNumericUpDownCell)this.CellTemplate;
+                return ( DataGridViewNumericUpDownCell )this.CellTemplate;
             }
         }
 

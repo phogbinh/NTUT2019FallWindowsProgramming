@@ -1,10 +1,9 @@
 using System;
-using System.Drawing;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
-using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace DataGridViewNumericUpDownElements
 {
@@ -18,10 +17,10 @@ namespace DataGridViewNumericUpDownElements
         private static extern short VkKeyScan(char key);
 
         // Used in TranslateAlignment function
-        private static readonly DataGridViewContentAlignment anyRight = DataGridViewContentAlignment.TopRight | 
-                                                                        DataGridViewContentAlignment.MiddleRight | 
+        private static readonly DataGridViewContentAlignment anyRight = DataGridViewContentAlignment.TopRight |
+                                                                        DataGridViewContentAlignment.MiddleRight |
                                                                         DataGridViewContentAlignment.BottomRight;
-        private static readonly DataGridViewContentAlignment anyCenter = DataGridViewContentAlignment.TopCenter | 
+        private static readonly DataGridViewContentAlignment anyCenter = DataGridViewContentAlignment.TopCenter |
                                                                          DataGridViewContentAlignment.MiddleCenter |
                                                                          DataGridViewContentAlignment.BottomCenter;
 
@@ -34,9 +33,9 @@ namespace DataGridViewNumericUpDownElements
         // Default value of the Increment property
         internal const Decimal DATAGRIDVIEWNUMERICUPDOWNCELL_defaultIncrement = Decimal.One;
         // Default value of the Maximum property
-        internal const Decimal DATAGRIDVIEWNUMERICUPDOWNCELL_defaultMaximum = (Decimal)int.MaxValue;
+        internal const Decimal DATAGRIDVIEWNUMERICUPDOWNCELL_defaultMaximum = ( Decimal )int.MaxValue;
         // Default value of the Minimum property
-        internal const Decimal DATAGRIDVIEWNUMERICUPDOWNCELL_defaultMinimum = (Decimal)1;
+        internal const Decimal DATAGRIDVIEWNUMERICUPDOWNCELL_defaultMinimum = ( Decimal )1;
         // Default value of the ThousandsSeparator property
         internal const bool DATAGRIDVIEWNUMERICUPDOWNCELL_defaultThousandsSeparator = false;
 
@@ -65,13 +64,13 @@ namespace DataGridViewNumericUpDownElements
         public DataGridViewNumericUpDownCell()
         {
             // Create a thread specific bitmap used for the painting of the non-edited cells
-            if (renderingBitmap == null)
+            if ( renderingBitmap == null )
             {
                 renderingBitmap = new Bitmap(DATAGRIDVIEWNUMERICUPDOWNCELL_defaultRenderingBitmapWidth, DATAGRIDVIEWNUMERICUPDOWNCELL_defaultRenderingBitmapHeight);
             }
 
             // Create a thread specific NumericUpDown control used for the painting of the non-edited cells
-            if (paintingNumericUpDown == null)
+            if ( paintingNumericUpDown == null )
             {
                 paintingNumericUpDown = new NumericUpDown();
                 // Some properties only need to be set once for the lifetime of the control:
@@ -104,11 +103,11 @@ namespace DataGridViewNumericUpDownElements
 
             set
             {
-                if (value < 0 || value > 99)
+                if ( value < 0 || value > 99 )
                 {
                     throw new ArgumentOutOfRangeException("The DecimalPlaces property cannot be smaller than 0 or larger than 99.");
                 }
-                if (this.decimalPlaces != value)
+                if ( this.decimalPlaces != value )
                 {
                     SetDecimalPlaces(this.RowIndex, value);
                     OnCommonChange();  // Assure that the cell or column gets repainted and autosized if needed
@@ -151,7 +150,7 @@ namespace DataGridViewNumericUpDownElements
 
             set
             {
-                if (value < (Decimal) 0.0)
+                if ( value < ( Decimal )0.0 )
                 {
                     throw new ArgumentOutOfRangeException("The Increment property cannot be smaller than 0.");
                 }
@@ -173,7 +172,7 @@ namespace DataGridViewNumericUpDownElements
 
             set
             {
-                if (this.maximum != value)
+                if ( this.maximum != value )
                 {
                     SetMaximum(this.RowIndex, value);
                     OnCommonChange();
@@ -194,7 +193,7 @@ namespace DataGridViewNumericUpDownElements
 
             set
             {
-                if (this.minimum != value)
+                if ( this.minimum != value )
                 {
                     SetMinimum(this.RowIndex, value);
                     OnCommonChange();
@@ -218,7 +217,7 @@ namespace DataGridViewNumericUpDownElements
 
             set
             {
-                if (this.thousandsSeparator != value)
+                if ( this.thousandsSeparator != value )
                 {
                     SetThousandsSeparator(this.RowIndex, value);
                     OnCommonChange();
@@ -234,7 +233,7 @@ namespace DataGridViewNumericUpDownElements
             get
             {
                 Type valueType = base.ValueType;
-                if (valueType != null)
+                if ( valueType != null )
                 {
                     return valueType;
                 }
@@ -248,7 +247,7 @@ namespace DataGridViewNumericUpDownElements
         public override object Clone()
         {
             DataGridViewNumericUpDownCell dataGridViewCell = base.Clone() as DataGridViewNumericUpDownCell;
-            if (dataGridViewCell != null)
+            if ( dataGridViewCell != null )
             {
                 dataGridViewCell.DecimalPlaces = this.DecimalPlaces;
                 dataGridViewCell.Increment = this.Increment;
@@ -265,11 +264,11 @@ namespace DataGridViewNumericUpDownElements
         private Decimal Constrain(Decimal value)
         {
             Debug.Assert(this.minimum <= this.maximum);
-            if (value < this.minimum)
+            if ( value < this.minimum )
             {
                 value = this.minimum;
             }
-            if (value > this.maximum)
+            if ( value > this.maximum )
             {
                 value = this.maximum;
             }
@@ -285,21 +284,21 @@ namespace DataGridViewNumericUpDownElements
         public override void DetachEditingControl()
         {
             DataGridView dataGridView = this.DataGridView;
-            if (dataGridView == null || dataGridView.EditingControl == null)
+            if ( dataGridView == null || dataGridView.EditingControl == null )
             {
                 throw new InvalidOperationException("Cell is detached or its grid has no editing control.");
             }
 
             NumericUpDown numericUpDown = dataGridView.EditingControl as NumericUpDown;
-            if (numericUpDown != null)
+            if ( numericUpDown != null )
             {
                 // Editing controls get recycled. Indeed, when a DataGridViewNumericUpDownCell cell gets edited
                 // after another DataGridViewNumericUpDownCell cell, the same editing control gets reused for 
                 // performance reasons (to avoid an unnecessary control destruction and creation). 
                 // Here the undo buffer of the TextBox inside the NumericUpDown control gets cleared to avoid
                 // interferences between the editing sessions.
-                TextBox textBox = numericUpDown.Controls[1] as TextBox;
-                if (textBox != null)
+                TextBox textBox = numericUpDown.Controls[ 1 ] as TextBox;
+                if ( textBox != null )
                 {
                     textBox.ClearUndo();
                 }
@@ -319,14 +318,14 @@ namespace DataGridViewNumericUpDownElements
 
             // Adjust the vertical location of the editing control:
             int preferredHeight = cellStyle.Font.Height + 3;
-            if (preferredHeight < editingControlBounds.Height)
+            if ( preferredHeight < editingControlBounds.Height )
             {
-                switch (cellStyle.Alignment)
+                switch ( cellStyle.Alignment )
                 {
                     case DataGridViewContentAlignment.MiddleLeft:
                     case DataGridViewContentAlignment.MiddleCenter:
                     case DataGridViewContentAlignment.MiddleRight:
-                        editingControlBounds.Y += (editingControlBounds.Height - preferredHeight) / 2;
+                        editingControlBounds.Y += ( editingControlBounds.Height - preferredHeight ) / 2;
                         break;
                     case DataGridViewContentAlignment.BottomLeft:
                     case DataGridViewContentAlignment.BottomCenter:
@@ -348,7 +347,7 @@ namespace DataGridViewNumericUpDownElements
             const int ButtonsWidth = 16;
 
             Rectangle errorIconBounds = base.GetErrorIconBounds(graphics, cellStyle, rowIndex);
-            if (this.DataGridView.RightToLeft == RightToLeft.Yes)
+            if ( this.DataGridView.RightToLeft == RightToLeft.Yes )
             {
                 errorIconBounds.X = errorIconBounds.Left + ButtonsWidth;
             }
@@ -373,16 +372,16 @@ namespace DataGridViewNumericUpDownElements
             // By default, the base implementation converts the Decimal 1234.5 into the string "1234.5"
             object formattedValue = base.GetFormattedValue(value, rowIndex, ref cellStyle, valueTypeConverter, formattedValueTypeConverter, context);
             string formattedNumber = formattedValue as string;
-            if (!string.IsNullOrEmpty(formattedNumber) && value != null)
+            if ( !string.IsNullOrEmpty(formattedNumber) && value != null )
             {
                 Decimal unformattedDecimal = System.Convert.ToDecimal(value);
                 Decimal formattedDecimal = System.Convert.ToDecimal(formattedNumber);
-                if (unformattedDecimal == formattedDecimal)
+                if ( unformattedDecimal == formattedDecimal )
                 {
                     // The base implementation of GetFormattedValue (which triggers the CellFormatting event) did nothing else than 
                     // the typical 1234.5 to "1234.5" conversion. But depending on the values of ThousandsSeparator and DecimalPlaces,
                     // this may not be the actual string displayed. The real formatted value may be "1,234.500"
-                    return formattedDecimal.ToString((this.ThousandsSeparator ? "N" : "F") + this.DecimalPlaces.ToString());
+                    return formattedDecimal.ToString(( this.ThousandsSeparator ? "N" : "F" ) + this.DecimalPlaces.ToString());
                 }
             }
             return formattedValue;
@@ -394,13 +393,13 @@ namespace DataGridViewNumericUpDownElements
         /// </summary>
         protected override Size GetPreferredSize(Graphics graphics, DataGridViewCellStyle cellStyle, int rowIndex, Size constraintSize)
         {
-            if (this.DataGridView == null)
+            if ( this.DataGridView == null )
             {
                 return new Size(-1, -1);
             }
 
             Size preferredSize = base.GetPreferredSize(graphics, cellStyle, rowIndex, constraintSize);
-            if (constraintSize.Width == 0)
+            if ( constraintSize.Width == 0 )
             {
                 const int ButtonsWidth = 16; // Account for the width of the up/down buttons.
                 const int ButtonMargin = 8;  // Account for some blank pixels between the text and buttons.
@@ -418,7 +417,7 @@ namespace DataGridViewNumericUpDownElements
         {
             base.InitializeEditingControl(rowIndex, initialFormattedValue, dataGridViewCellStyle);
             NumericUpDown numericUpDown = this.DataGridView.EditingControl as NumericUpDown;
-            if (numericUpDown != null)
+            if ( numericUpDown != null )
             {
                 numericUpDown.BorderStyle = BorderStyle.None;
                 numericUpDown.DecimalPlaces = this.DecimalPlaces;
@@ -427,7 +426,7 @@ namespace DataGridViewNumericUpDownElements
                 numericUpDown.Minimum = this.Minimum;
                 numericUpDown.ThousandsSeparator = this.ThousandsSeparator;
                 string initialFormattedValueStr = initialFormattedValue as string;
-                if (initialFormattedValueStr == null)
+                if ( initialFormattedValueStr == null )
                 {
                     numericUpDown.Text = string.Empty;
                 }
@@ -448,16 +447,16 @@ namespace DataGridViewNumericUpDownElements
             NumberFormatInfo numberFormatInfo = System.Globalization.CultureInfo.CurrentCulture.NumberFormat;
             Keys negativeSignKey = Keys.None;
             string negativeSignStr = numberFormatInfo.NegativeSign;
-            if (!string.IsNullOrEmpty(negativeSignStr) && negativeSignStr.Length == 1)
+            if ( !string.IsNullOrEmpty(negativeSignStr) && negativeSignStr.Length == 1 )
             {
-                negativeSignKey = (Keys)(VkKeyScan(negativeSignStr[0]));
+                negativeSignKey = ( Keys )( VkKeyScan(negativeSignStr[ 0 ]) );
             }
 
-            if ((char.IsDigit((char)e.KeyCode) ||
-                 (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9) ||
+            if ( ( char.IsDigit(( char )e.KeyCode) ||
+                 ( e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9 ) ||
                  negativeSignKey == e.KeyCode ||
-                 Keys.Subtract == e.KeyCode) &&
-                !e.Shift && !e.Alt && !e.Control)
+                 Keys.Subtract == e.KeyCode ) &&
+                !e.Shift && !e.Alt && !e.Control )
             {
                 return true;
             }
@@ -471,9 +470,9 @@ namespace DataGridViewNumericUpDownElements
         /// </summary>
         private void OnCommonChange()
         {
-            if (this.DataGridView != null && !this.DataGridView.IsDisposed && !this.DataGridView.Disposing)
+            if ( this.DataGridView != null && !this.DataGridView.IsDisposed && !this.DataGridView.Disposing )
             {
-                if (this.RowIndex == -1)
+                if ( this.RowIndex == -1 )
                 {
                     // Invalidate and autosize column
                     this.DataGridView.InvalidateColumn(this.ColumnIndex);
@@ -499,12 +498,12 @@ namespace DataGridViewNumericUpDownElements
         /// </summary>
         private bool OwnsEditingNumericUpDown(int rowIndex)
         {
-            if (rowIndex == -1 || this.DataGridView == null)
+            if ( rowIndex == -1 || this.DataGridView == null )
             {
                 return false;
             }
             DataGridViewNumericUpDownEditingControl numericUpDownEditingControl = this.DataGridView.EditingControl as DataGridViewNumericUpDownEditingControl;
-            return numericUpDownEditingControl != null && rowIndex == ((IDataGridViewEditingControl)numericUpDownEditingControl).EditingControlRowIndex;
+            return numericUpDownEditingControl != null && rowIndex == ( ( IDataGridViewEditingControl )numericUpDownEditingControl ).EditingControlRowIndex;
         }
 
         /// <summary>
@@ -518,23 +517,23 @@ namespace DataGridViewNumericUpDownElements
                                       object value, object formattedValue, string errorText, DataGridViewCellStyle cellStyle,
                                       DataGridViewAdvancedBorderStyle advancedBorderStyle, DataGridViewPaintParts paintParts)
         {
-            if (this.DataGridView == null)
+            if ( this.DataGridView == null )
             {
                 return;
             }
 
             // First paint the borders and background of the cell.
-            base.Paint(graphics, clipBounds, cellBounds, rowIndex, cellState, value, formattedValue, errorText, cellStyle, advancedBorderStyle, 
-                       paintParts & ~(DataGridViewPaintParts.ErrorIcon | DataGridViewPaintParts.ContentForeground));
+            base.Paint(graphics, clipBounds, cellBounds, rowIndex, cellState, value, formattedValue, errorText, cellStyle, advancedBorderStyle,
+                       paintParts & ~( DataGridViewPaintParts.ErrorIcon | DataGridViewPaintParts.ContentForeground ));
 
             Point ptCurrentCell = this.DataGridView.CurrentCellAddress;
             bool cellCurrent = ptCurrentCell.X == this.ColumnIndex && ptCurrentCell.Y == rowIndex;
             bool cellEdited = cellCurrent && this.DataGridView.EditingControl != null;
 
             // If the cell is in editing mode, there is nothing else to paint
-            if (!cellEdited)
+            if ( !cellEdited )
             {
-                if (PartPainted(paintParts, DataGridViewPaintParts.ContentForeground))
+                if ( PartPainted(paintParts, DataGridViewPaintParts.ContentForeground) )
                 {
                     // Paint a NumericUpDown control
                     // Take the borders into account
@@ -544,9 +543,9 @@ namespace DataGridViewNumericUpDownElements
                     valBounds.Width -= borderWidths.Right;
                     valBounds.Height -= borderWidths.Bottom;
                     // Also take the padding into account
-                    if (cellStyle.Padding != Padding.Empty)
+                    if ( cellStyle.Padding != Padding.Empty )
                     {
-                        if (this.DataGridView.RightToLeft == RightToLeft.Yes)
+                        if ( this.DataGridView.RightToLeft == RightToLeft.Yes )
                         {
                             valBounds.Offset(cellStyle.Padding.Right, cellStyle.Padding.Top);
                         }
@@ -560,17 +559,17 @@ namespace DataGridViewNumericUpDownElements
                     // Determine the NumericUpDown control location
                     valBounds = GetAdjustedEditingControlBounds(valBounds, cellStyle);
 
-                    bool cellSelected = (cellState & DataGridViewElementStates.Selected) != 0;
+                    bool cellSelected = ( cellState & DataGridViewElementStates.Selected ) != 0;
 
-                    if (renderingBitmap.Width < valBounds.Width ||
-                        renderingBitmap.Height < valBounds.Height)
+                    if ( renderingBitmap.Width < valBounds.Width ||
+                        renderingBitmap.Height < valBounds.Height )
                     {
                         // The static bitmap is too small, a bigger one needs to be allocated.
                         renderingBitmap.Dispose();
                         renderingBitmap = new Bitmap(valBounds.Width, valBounds.Height);
                     }
                     // Make sure the NumericUpDown control is parented to a visible control
-                    if (paintingNumericUpDown.Parent == null || !paintingNumericUpDown.Parent.Visible)
+                    if ( paintingNumericUpDown.Parent == null || !paintingNumericUpDown.Parent.Visible )
                     {
                         // paintingNumericUpDown.Parent = this.DataGridView;
                     }
@@ -586,7 +585,7 @@ namespace DataGridViewNumericUpDownElements
                     paintingNumericUpDown.Text = formattedValue as string;
 
                     Color backColor;
-                    if (PartPainted(paintParts, DataGridViewPaintParts.SelectionBackground) && cellSelected)
+                    if ( PartPainted(paintParts, DataGridViewPaintParts.SelectionBackground) && cellSelected )
                     {
                         backColor = cellStyle.SelectionBackColor;
                     }
@@ -594,9 +593,9 @@ namespace DataGridViewNumericUpDownElements
                     {
                         backColor = cellStyle.BackColor;
                     }
-                    if (PartPainted(paintParts, DataGridViewPaintParts.Background))
+                    if ( PartPainted(paintParts, DataGridViewPaintParts.Background) )
                     {
-                        if (backColor.A < 255)
+                        if ( backColor.A < 255 )
                         {
                             // The NumericUpDown control does not support transparent back colors
                             backColor = Color.FromArgb(255, backColor);
@@ -605,14 +604,14 @@ namespace DataGridViewNumericUpDownElements
                     }
                     // Finally paint the NumericUpDown control
                     Rectangle srcRect = new Rectangle(0, 0, valBounds.Width, valBounds.Height);
-                    if (srcRect.Width > 0 && srcRect.Height > 0)
+                    if ( srcRect.Width > 0 && srcRect.Height > 0 )
                     {
                         paintingNumericUpDown.DrawToBitmap(renderingBitmap, srcRect);
                         graphics.DrawImage(renderingBitmap, new Rectangle(valBounds.Location, valBounds.Size),
                                            srcRect, GraphicsUnit.Pixel);
                     }
                 }
-                if (PartPainted(paintParts, DataGridViewPaintParts.ErrorIcon))
+                if ( PartPainted(paintParts, DataGridViewPaintParts.ErrorIcon) )
                 {
                     // Paint the potential error icon on top of the NumericUpDown control
                     base.Paint(graphics, clipBounds, cellBounds, rowIndex, cellState, value, formattedValue, errorText,
@@ -626,7 +625,7 @@ namespace DataGridViewNumericUpDownElements
         /// </summary>
         private static bool PartPainted(DataGridViewPaintParts paintParts, DataGridViewPaintParts paintPart)
         {
-            return (paintParts & paintPart) != 0;
+            return ( paintParts & paintPart ) != 0;
         }
 
         /// <summary>
@@ -666,7 +665,7 @@ namespace DataGridViewNumericUpDownElements
         {
             Debug.Assert(value >= 0 && value <= 99);
             this.decimalPlaces = value;
-            if (OwnsEditingNumericUpDown(rowIndex))
+            if ( OwnsEditingNumericUpDown(rowIndex) )
             {
                 this.EditingNumericUpDown.DecimalPlaces = value;
             }
@@ -677,9 +676,9 @@ namespace DataGridViewNumericUpDownElements
         /// this cell may be shared among multiple rows.
         internal void SetIncrement(int rowIndex, Decimal value)
         {
-            Debug.Assert(value >= (Decimal)0.0);
+            Debug.Assert(value >= ( Decimal )0.0);
             this.increment = value;
-            if (OwnsEditingNumericUpDown(rowIndex))
+            if ( OwnsEditingNumericUpDown(rowIndex) )
             {
                 this.EditingNumericUpDown.Increment = value;
             }
@@ -693,22 +692,22 @@ namespace DataGridViewNumericUpDownElements
         internal void SetMaximum(int rowIndex, Decimal value)
         {
             this.maximum = value;
-            if (this.minimum > this.maximum)
+            if ( this.minimum > this.maximum )
             {
                 this.minimum = this.maximum;
             }
             object cellValue = GetValue(rowIndex);
-            if (cellValue != null)
+            if ( cellValue != null )
             {
                 Decimal currentValue = System.Convert.ToDecimal(cellValue);
                 Decimal constrainedValue = Constrain(currentValue);
-                if (constrainedValue != currentValue)
+                if ( constrainedValue != currentValue )
                 {
                     SetValue(rowIndex, constrainedValue);
                 }
             }
             Debug.Assert(this.maximum == value);
-            if (OwnsEditingNumericUpDown(rowIndex))
+            if ( OwnsEditingNumericUpDown(rowIndex) )
             {
                 this.EditingNumericUpDown.Maximum = value;
             }
@@ -722,22 +721,22 @@ namespace DataGridViewNumericUpDownElements
         internal void SetMinimum(int rowIndex, Decimal value)
         {
             this.minimum = value;
-            if (this.minimum > this.maximum)
+            if ( this.minimum > this.maximum )
             {
                 this.maximum = value;
             }
             object cellValue = GetValue(rowIndex);
-            if (cellValue != null)
+            if ( cellValue != null )
             {
                 Decimal currentValue = System.Convert.ToDecimal(cellValue);
                 Decimal constrainedValue = Constrain(currentValue);
-                if (constrainedValue != currentValue)
+                if ( constrainedValue != currentValue )
                 {
                     SetValue(rowIndex, constrainedValue);
                 }
             }
             Debug.Assert(this.minimum == value);
-            if (OwnsEditingNumericUpDown(rowIndex))
+            if ( OwnsEditingNumericUpDown(rowIndex) )
             {
                 this.EditingNumericUpDown.Minimum = value;
             }
@@ -751,7 +750,7 @@ namespace DataGridViewNumericUpDownElements
         internal void SetThousandsSeparator(int rowIndex, bool value)
         {
             this.thousandsSeparator = value;
-            if (OwnsEditingNumericUpDown(rowIndex))
+            if ( OwnsEditingNumericUpDown(rowIndex) )
             {
                 this.EditingNumericUpDown.ThousandsSeparator = value;
             }
@@ -771,11 +770,11 @@ namespace DataGridViewNumericUpDownElements
         /// </summary>
         internal static HorizontalAlignment TranslateAlignment(DataGridViewContentAlignment align)
         {
-            if ((align & anyRight) != 0)
+            if ( ( align & anyRight ) != 0 )
             {
                 return HorizontalAlignment.Right;
             }
-            else if ((align & anyCenter) != 0)
+            else if ( ( align & anyCenter ) != 0 )
             {
                 return HorizontalAlignment.Center;
             }

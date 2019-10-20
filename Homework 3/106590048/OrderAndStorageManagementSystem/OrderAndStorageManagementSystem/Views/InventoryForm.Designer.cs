@@ -46,9 +46,9 @@
             this._underTitleSectionLayout.SuspendLayout();
             this._productInfoLayout.SuspendLayout();
             this._productImageGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._productImage)).BeginInit();
+            ( ( System.ComponentModel.ISupportInitialize )( this._productImage ) ).BeginInit();
             this._productInfoGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._storageDataGridView)).BeginInit();
+            ( ( System.ComponentModel.ISupportInitialize )( this._storageDataGridView ) ).BeginInit();
             this.SuspendLayout();
             // 
             // _inventoryFormLayout
@@ -70,7 +70,7 @@
             // 
             this._windowTitle.AutoSize = true;
             this._windowTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._windowTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this._windowTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
             this._windowTitle.Location = new System.Drawing.Point(3, 0);
             this._windowTitle.Name = "_windowTitle";
             this._windowTitle.Size = new System.Drawing.Size(1025, 70);
@@ -144,7 +144,7 @@
             // _productNameAndDescription
             // 
             this._productNameAndDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._productNameAndDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this._productNameAndDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
             this._productNameAndDescription.Location = new System.Drawing.Point(3, 16);
             this._productNameAndDescription.Name = "_productNameAndDescription";
             this._productNameAndDescription.ReadOnly = true;
@@ -223,9 +223,9 @@
             this._underTitleSectionLayout.ResumeLayout(false);
             this._productInfoLayout.ResumeLayout(false);
             this._productImageGroupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this._productImage)).EndInit();
+            ( ( System.ComponentModel.ISupportInitialize )( this._productImage ) ).EndInit();
             this._productInfoGroupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this._storageDataGridView)).EndInit();
+            ( ( System.ComponentModel.ISupportInitialize )( this._storageDataGridView ) ).EndInit();
             this.ResumeLayout(false);
 
         }
