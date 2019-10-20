@@ -31,9 +31,9 @@ namespace OrderAndStorageManagementSystem.Views
             // Observers
             _model.OrderChanged += UpdateCartSectionView;
             _model.OrderCleared += () => _cartDataGridView.Rows.Clear();
-            _model.OrderAdded += (orderProduct) => _cartDataGridView.Rows.Add(null, orderProduct.Name, orderProduct.Type, orderProduct.Price.GetCurrencyFormat(), orderProduct.OrderQuantity, orderProduct.GetTotalPrice().GetCurrencyFormat());
+            _model.OrderAdded += (orderItem) => _cartDataGridView.Rows.Add(null, orderItem.Name, orderItem.Type, orderItem.Price.GetCurrencyFormat(), orderItem.OrderQuantity, orderItem.GetTotalPrice().GetCurrencyFormat());
             _model.OrderRemoved += (productIndex) => _cartDataGridView.Rows.RemoveAt(productIndex);
-            _model.OrderProductQuantityChanged += (productIndex) => _cartDataGridView.Rows[ productIndex ].Cells[ CART_PRODUCT_TOTAL_PRICE_COLUMN_INDEX ].Value = _model.GetOrderProductTotalPrice(productIndex);
+            _model.OrderItemQuantityChanged += (productIndex) => _cartDataGridView.Rows[ productIndex ].Cells[ CART_PRODUCT_TOTAL_PRICE_COLUMN_INDEX ].Value = _model.GetOrderItemTotalPrice(productIndex);
             // UI
             _cartDataGridView.CellPainting += CartDataGridViewCellPainting;
             _cartDataGridView.CellContentClick += CartDataGridViewCellContentClick;
@@ -58,7 +58,7 @@ namespace OrderAndStorageManagementSystem.Views
                 int currentRowIndex = eventArguments.RowIndex;
                 DataGridViewTextBoxCell textBoxCell = ( DataGridViewTextBoxCell )_cartDataGridView.Rows[ currentRowIndex ].Cells[ CART_PRODUCT_QUANTITY_COLUMN_INDEX ];
                 int newCartProductQuantity = int.Parse(textBoxCell.Value.ToString());
-                _model.SetOrderProductQuantity(currentRowIndex, newCartProductQuantity);
+                _model.SetOrderItemQuantity(currentRowIndex, newCartProductQuantity);
             }
         }
 
@@ -66,7 +66,7 @@ namespace OrderAndStorageManagementSystem.Views
         private void UpdateCartSectionView()
         {
             _cartTotalPrice.Text = AppDefinition.CART_TOTAL_PRICE_TEXT + _model.GetOrderTotalPrice();
-            _orderButton.Enabled = _model.GetOrderProductsCount() != 0;
+            _orderButton.Enabled = _model.GetOrderItemsCount() != 0;
         }
 
         // Protest on Dr.Smell

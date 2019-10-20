@@ -7,12 +7,12 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
     {
         private const int TOTAL_PRICE_INITIAL_VALUE = 0;
 
-        private List<OrderItem> _orderProducts;
+        private List<OrderItem> _orderItems;
         private Money _totalPrice;
 
         public Order()
         {
-            _orderProducts = new List<OrderItem>();
+            _orderItems = new List<OrderItem>();
             _totalPrice = new Money(TOTAL_PRICE_INITIAL_VALUE);
         }
 
@@ -23,60 +23,60 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         }
 
         // Protest on Dr.Smell
-        public bool IsNotInOrder(OrderItem orderProduct)
+        public bool IsNotInOrder(OrderItem orderItem)
         {
-            return !_orderProducts.Contains(orderProduct);
+            return !_orderItems.Contains(orderItem);
         }
 
         // Protest on Dr.Smell
-        public void AddOrderProduct(OrderItem orderProduct)
+        public void AddOrderItem(OrderItem orderItem)
         {
-            _totalPrice.Add(orderProduct.Price);
-            _orderProducts.Add(orderProduct);
+            _totalPrice.Add(orderItem.Price);
+            _orderItems.Add(orderItem);
         }
 
         // Protest on Dr.Smell
-        public void RemoveOrderProductAt(int orderProductIndex)
+        public void RemoveOrderItemAt(int orderItemIndex)
         {
-            _totalPrice.Subtract(_orderProducts[ orderProductIndex ].GetTotalPrice());
-            _orderProducts.RemoveAt(orderProductIndex);
+            _totalPrice.Subtract(_orderItems[ orderItemIndex ].GetTotalPrice());
+            _orderItems.RemoveAt(orderItemIndex);
         }
 
         // Protest on Dr.Smell
-        public int GetProductsCount()
+        public int GetOrderItemsCount()
         {
-            return _orderProducts.Count;
+            return _orderItems.Count;
         }
 
         // Protest on Dr.Smell
         public void ClearOrder()
         {
             _totalPrice.Set(TOTAL_PRICE_INITIAL_VALUE);
-            _orderProducts.Clear();
+            _orderItems.Clear();
         }
 
         // Protest on Dr.Smell
-        public bool IsValidQuantity(int orderProductIndex, int quantity)
+        public bool IsValidQuantity(int orderItemIndex, int quantity)
         {
-            return _orderProducts[ orderProductIndex ].StorageQuantity >= quantity;
+            return _orderItems[ orderItemIndex ].StorageQuantity >= quantity;
         }
 
         // Protest on Dr.Smell
-        public void SetOrderProductMaximumQuantity(int orderProductIndex)
+        public void SetOrderItemMaximumQuantity(int orderItemIndex)
         {
-            _orderProducts[ orderProductIndex ].SetMaximumOrderQuantity();
+            _orderItems[ orderItemIndex ].SetMaximumOrderQuantity();
         }
 
         // Protest on Dr.Smell
-        public void SetOrderProductQuantity(int orderProductIndex, int newOrderQuantity)
+        public void SetOrderItemQuantity(int orderItemIndex, int newOrderQuantity)
         {
-            _orderProducts[ orderProductIndex ].OrderQuantity = newOrderQuantity;
+            _orderItems[ orderItemIndex ].OrderQuantity = newOrderQuantity;
         }
 
         // Protest on Dr.Smell
-        public string GetOrderProductTotalPrice(int orderProductIndex)
+        public string GetOrderItemTotalPrice(int orderItemIndex)
         {
-            return _orderProducts[ orderProductIndex ].GetTotalPrice().GetCurrencyFormat();
+            return _orderItems[ orderItemIndex ].GetTotalPrice().GetCurrencyFormat();
         }
     }
 }

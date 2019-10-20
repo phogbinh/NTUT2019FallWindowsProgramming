@@ -10,12 +10,12 @@ namespace OrderAndStorageManagementSystem.Models
         private event OrderChangedEventHandler _orderChanged;
         public delegate void OrderClearedEventHandler();
         private event OrderClearedEventHandler _orderCleared;
-        public delegate void OrderAddedEventHandler(OrderItem orderProduct);
+        public delegate void OrderAddedEventHandler(OrderItem orderItem);
         private event OrderAddedEventHandler _orderAdded;
         public delegate void OrderRemovedEventHandler(int productIndex);
         private event OrderRemovedEventHandler _orderRemoved;
-        public delegate void OrderProductQuantityChangedEventHandler(int productIndex);
-        private event OrderProductQuantityChangedEventHandler _orderProductQuantityChanged;
+        public delegate void OrderItemQuantityChangedEventHandler(int productIndex);
+        private event OrderItemQuantityChangedEventHandler _orderItemQuantityChanged;
         public OrderChangedEventHandler OrderChanged
         {
             get
@@ -60,15 +60,15 @@ namespace OrderAndStorageManagementSystem.Models
                 _orderRemoved = value;
             }
         }
-        public OrderProductQuantityChangedEventHandler OrderProductQuantityChanged
+        public OrderItemQuantityChangedEventHandler OrderItemQuantityChanged
         {
             get
             {
-                return _orderProductQuantityChanged;
+                return _orderItemQuantityChanged;
             }
             set
             {
-                _orderProductQuantityChanged = value;
+                _orderItemQuantityChanged = value;
             }
         }
         public List<Product> Products
@@ -97,27 +97,27 @@ namespace OrderAndStorageManagementSystem.Models
         // Protest on Dr.Smell
         public void AddProductToOrderIfProductIsNotInOrder(Product product)
         {
-            var orderProduct = new OrderItem(product);
-            if ( IsNotInOrder(orderProduct) )
+            var orderItem = new OrderItem(product);
+            if ( IsNotInOrder(orderItem) )
             {
-                _order.AddOrderProduct(orderProduct);
-                NotifyObserverChangeAndAddOrder(orderProduct);
+                _order.AddOrderItem(orderItem);
+                NotifyObserverChangeAndAddOrder(orderItem);
             }
         }
 
         // Protest on Dr.Smell
-        private bool IsNotInOrder(OrderItem orderProduct)
+        private bool IsNotInOrder(OrderItem orderItem)
         {
-            return _order.IsNotInOrder(orderProduct);
+            return _order.IsNotInOrder(orderItem);
         }
 
         // Protest on Dr.Smell
-        private void NotifyObserverChangeAndAddOrder(OrderItem orderProduct)
+        private void NotifyObserverChangeAndAddOrder(OrderItem orderItem)
         {
             NotifyObserverChangeOrder();
             if ( OrderAdded != null )
             {
-                OrderAdded(orderProduct);
+                OrderAdded(orderItem);
             }
         }
 
@@ -130,7 +130,7 @@ namespace OrderAndStorageManagementSystem.Models
         // Protest on Dr.Smell
         public void RemoveProductFromOrder(int productIndex)
         {
-            _order.RemoveOrderProductAt(productIndex);
+            _order.RemoveOrderItemAt(productIndex);
             NotifyObserverChangeAndRemoveOrder(productIndex);
         }
 
@@ -154,9 +154,9 @@ namespace OrderAndStorageManagementSystem.Models
         }
 
         // Protest on Dr.Smell
-        public int GetOrderProductsCount()
+        public int GetOrderItemsCount()
         {
-            return _order.GetProductsCount();
+            return _order.GetOrderItemsCount();
         }
 
         // Protest on Dr.Smell
@@ -177,16 +177,16 @@ namespace OrderAndStorageManagementSystem.Models
         }
 
         // Protest on Dr.Smell
-        public void SetOrderProductQuantity(int productIndex, int newCartProductQuantity)
+        public void SetOrderItemQuantity(int productIndex, int newCartProductQuantity)
         {
             if ( IsValidQuantity(productIndex, newCartProductQuantity) )
             {
-                _order.SetOrderProductQuantity(productIndex, newCartProductQuantity);
-                NotifyObserverChangeOrderProductQuantity(productIndex);
+                _order.SetOrderItemQuantity(productIndex, newCartProductQuantity);
+                NotifyObserverChangeOrderItemQuantity(productIndex);
             }
             else
             {
-                _order.SetOrderProductMaximumQuantity(productIndex);
+                _order.SetOrderItemMaximumQuantity(productIndex);
                 // TODO: Notify observer to set back value
             }
         }
@@ -198,18 +198,18 @@ namespace OrderAndStorageManagementSystem.Models
         }
 
         // Protest on Dr.Smell
-        private void NotifyObserverChangeOrderProductQuantity(int productIndex)
+        private void NotifyObserverChangeOrderItemQuantity(int productIndex)
         {
-            if ( OrderProductQuantityChanged != null )
+            if ( OrderItemQuantityChanged != null )
             {
-                OrderProductQuantityChanged(productIndex);
+                OrderItemQuantityChanged(productIndex);
             }
         }
 
         // Protest on Dr.Smell
-        public string GetOrderProductTotalPrice(int productIndex)
+        public string GetOrderItemTotalPrice(int productIndex)
         {
-            return _order.GetOrderProductTotalPrice(productIndex);
+            return _order.GetOrderItemTotalPrice(productIndex);
         }
     }
 }
