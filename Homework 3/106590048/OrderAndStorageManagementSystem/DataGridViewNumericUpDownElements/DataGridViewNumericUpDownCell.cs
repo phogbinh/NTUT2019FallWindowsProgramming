@@ -34,7 +34,7 @@ namespace DataGridViewNumericUpDownElements
         // Default value of the Increment property
         internal const Decimal DATAGRIDVIEWNUMERICUPDOWNCELL_defaultIncrement = Decimal.One;
         // Default value of the Maximum property
-        internal const Decimal DATAGRIDVIEWNUMERICUPDOWNCELL_defaultMaximum = (Decimal)100.0;
+        internal const Decimal DATAGRIDVIEWNUMERICUPDOWNCELL_defaultMaximum = (Decimal)int.MaxValue;
         // Default value of the Minimum property
         internal const Decimal DATAGRIDVIEWNUMERICUPDOWNCELL_defaultMinimum = Decimal.Zero;
         // Default value of the ThousandsSeparator property
