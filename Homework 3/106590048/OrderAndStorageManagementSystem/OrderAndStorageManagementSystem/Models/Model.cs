@@ -200,6 +200,7 @@ namespace OrderAndStorageManagementSystem.Models
         // Protest on Dr.Smell
         private void NotifyObserverChangeOrderItemQuantity(int productIndex)
         {
+            NotifyObserverChangeOrder();
             if ( OrderItemQuantityChanged != null )
             {
                 OrderItemQuantityChanged(productIndex);
