@@ -23,9 +23,16 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         }
 
         // Protest on Dr.Smell
-        public bool IsNotInOrder(OrderItem orderItem)
+        public bool IsInOrder(OrderItem orderItem)
         {
-            return !_orderItems.Contains(orderItem);
+            foreach ( OrderItem item in _orderItems )
+            {
+                if ( item.Id == orderItem.Id )
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         // Protest on Dr.Smell

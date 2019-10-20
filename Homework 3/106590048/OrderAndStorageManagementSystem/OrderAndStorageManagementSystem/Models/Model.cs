@@ -98,7 +98,7 @@ namespace OrderAndStorageManagementSystem.Models
         public void AddProductToOrderIfProductIsNotInOrder(Product product)
         {
             var orderItem = new OrderItem(product);
-            if ( IsNotInOrder(orderItem) )
+            if ( !IsInOrder(orderItem) )
             {
                 _order.AddOrderItem(orderItem);
                 NotifyObserverChangeAndAddOrder(orderItem);
@@ -106,9 +106,9 @@ namespace OrderAndStorageManagementSystem.Models
         }
 
         // Protest on Dr.Smell
-        private bool IsNotInOrder(OrderItem orderItem)
+        private bool IsInOrder(OrderItem orderItem)
         {
-            return _order.IsNotInOrder(orderItem);
+            return _order.IsInOrder(orderItem);
         }
 
         // Protest on Dr.Smell
