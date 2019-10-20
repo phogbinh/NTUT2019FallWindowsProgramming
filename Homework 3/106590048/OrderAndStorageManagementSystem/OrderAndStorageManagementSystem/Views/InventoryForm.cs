@@ -9,6 +9,7 @@ namespace OrderAndStorageManagementSystem.Views
 {
     public partial class InventoryForm : Form
     {
+        private const int STORAGE_PRODUCT_QUANTITY_COLUMN_INDEX = 3;
         private const int STORAGE_SUPPLY_BUTTON_COLUMN_INDEX = 4;
         private InventoryPresentationModel _inventoryPresentationModel;
         private Model _model;
@@ -18,12 +19,27 @@ namespace OrderAndStorageManagementSystem.Views
             InitializeComponent();
             _inventoryPresentationModel = inventoryPresentationModelData;
             _model = modelData;
+            // Observers
+            _model.ProductStorageQuantityChanged += ProductStorageQuantityChanged;
             // UI
             _storageDataGridView.CellPainting += (sender, eventArguments) => DataGridViewHelper.InitializeButtonImageOfButtonColumn(eventArguments, STORAGE_SUPPLY_BUTTON_COLUMN_INDEX, Resources.img_delivery_truck);
             _storageDataGridView.CellContentClick += StorageDataGridViewCellContentClick;
             _storageDataGridView.SelectionChanged += (sender, eventArguments) => UpdateProductInfo();
             // Initial UI States
             InitializeStorageDataGridView();
+        }
+
+        // Protest on Dr.Smell
+        private void ProductStorageQuantityChanged(Product product)
+        {
+            for ( int rowIndex = 0; rowIndex < _storageDataGridView.Rows.Count; rowIndex++ )
+            {
+                if ( AppDefinition.GetHumanIndex(rowIndex) == product.Id )
+                {
+                    _storageDataGridView.Rows[ rowIndex ].Cells[ STORAGE_PRODUCT_QUANTITY_COLUMN_INDEX ].Value = product.StorageQuantity;
+                    break;
+                }
+            }
         }
 
         // Protest on Dr.Smell
