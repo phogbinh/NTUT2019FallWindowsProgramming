@@ -1,5 +1,6 @@
 ﻿using OrderAndStorageManagementSystem.Models;
 using OrderAndStorageManagementSystem.Models.Utilities;
+using OrderAndStorageManagementSystem.Views.Utilities;
 using System.Windows.Forms;
 
 namespace OrderAndStorageManagementSystem.Views
@@ -18,8 +19,16 @@ namespace OrderAndStorageManagementSystem.Views
             InitializeComponent();
             _model = modelData;
             _product = productData;
+            // UI
+            InitializeInputHandler();
             // Initial UI States
             InitializeProductInfo();
+        }
+
+        // Protest on Dr.Smell
+        private void InitializeInputHandler()
+        {
+            _productSupplyQuantityField.KeyPress += InputHelper.InputNumbersOrBackSpace;
         }
 
         // Protest on Dr.Smell
