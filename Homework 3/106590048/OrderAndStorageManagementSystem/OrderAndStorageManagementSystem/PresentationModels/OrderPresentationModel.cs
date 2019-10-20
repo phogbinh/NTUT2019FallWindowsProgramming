@@ -113,7 +113,6 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             if ( product == _currentSelectedProduct )
             {
                 UpdateAddButtonByCurrentSelectedProduct();
-                NotifyObserverChangeAddButtonEnabled();
             }
         }
 
@@ -121,6 +120,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         private void UpdateAddButtonByCurrentSelectedProduct()
         {
             _addButton.Enabled = _currentSelectedProduct != null && !_model.IsInOrder(new OrderItem(_currentSelectedProduct)) && _currentSelectedProduct.StorageQuantity > 0;
+            NotifyObserverChangeAddButtonEnabled();
         }
 
         // Protest on Dr.Smell
