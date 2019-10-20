@@ -85,5 +85,11 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         {
             return _orderItems[ orderItemIndex ].GetTotalPrice().GetCurrencyFormat();
         }
+
+        // Protest on Dr.Smell
+        public int GetStorageQuantity(int orderItemIndex)
+        {
+            return _orderItems[ orderItemIndex ].StorageQuantity;
+        }
     }
 }

@@ -12,6 +12,8 @@ namespace OrderAndStorageManagementSystem.Views
     public partial class OrderForm : Form
     {
         private const string TAB_PAGE_LAYOUT_NAME = "_productTabPageLayout";
+        private const string ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY_MESSAGE = "庫存不足";
+        private const string ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY_TITLE = "庫存狀態";
         private const int CART_PRODUCT_QUANTITY_COLUMN_INDEX = 4;
         private const int CART_PRODUCT_TOTAL_PRICE_COLUMN_INDEX = 5;
         private CreditCardPaymentForm _creditCardPaymentForm;
@@ -34,6 +36,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model.OrderAdded += (orderItem) => _cartDataGridView.Rows.Add(null, orderItem.Name, orderItem.Type, orderItem.Price.GetCurrencyFormat(), orderItem.OrderQuantity, orderItem.GetTotalPrice().GetCurrencyFormat());
             _model.OrderRemoved += (productIndex) => _cartDataGridView.Rows.RemoveAt(productIndex);
             _model.OrderItemQuantityChanged += (productIndex) => _cartDataGridView.Rows[ productIndex ].Cells[ CART_PRODUCT_TOTAL_PRICE_COLUMN_INDEX ].Value = _model.GetOrderItemTotalPrice(productIndex);
+            _model.OrderItemQuantityIsExceededStorageQuantity += OrderItemQuantityIsExceededStorageQuantity;
             // UI
             _cartDataGridView.CellPainting += CartDataGridViewCellPainting;
             _cartDataGridView.CellContentClick += CartDataGridViewCellContentClick;
@@ -55,6 +58,13 @@ namespace OrderAndStorageManagementSystem.Views
         {
             _cartTotalPrice.Text = AppDefinition.CART_TOTAL_PRICE_TEXT + _model.GetOrderTotalPrice();
             _orderButton.Enabled = _model.GetOrderItemsCount() != 0;
+        }
+
+        // Protest on Dr.Smell
+        private void OrderItemQuantityIsExceededStorageQuantity(int orderItemIndex, int storageQuantity)
+        {
+            MessageBox.Show(this, ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY_MESSAGE, ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY_TITLE);
+            _cartDataGridView.Rows[ orderItemIndex ].Cells[ CART_PRODUCT_QUANTITY_COLUMN_INDEX ].Value = storageQuantity;
         }
 
         // Protest on Dr.Smell

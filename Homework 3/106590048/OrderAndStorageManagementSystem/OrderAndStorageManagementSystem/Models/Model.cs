@@ -16,6 +16,8 @@ namespace OrderAndStorageManagementSystem.Models
         private event OrderRemovedEventHandler _orderRemoved;
         public delegate void OrderItemQuantityChangedEventHandler(int productIndex);
         private event OrderItemQuantityChangedEventHandler _orderItemQuantityChanged;
+        public delegate void OrderItemQuantityIsExceededStorageQuantityEventHandler(int orderItemIndex, int storageQuantity);
+        private event OrderItemQuantityIsExceededStorageQuantityEventHandler _orderItemQuantityIsExceededStorageQuantity;
         public OrderChangedEventHandler OrderChanged
         {
             get
@@ -69,6 +71,17 @@ namespace OrderAndStorageManagementSystem.Models
             set
             {
                 _orderItemQuantityChanged = value;
+            }
+        }
+        public OrderItemQuantityIsExceededStorageQuantityEventHandler OrderItemQuantityIsExceededStorageQuantity
+        {
+            get
+            {
+                return _orderItemQuantityIsExceededStorageQuantity;
+            }
+            set
+            {
+                _orderItemQuantityIsExceededStorageQuantity = value;
             }
         }
         public List<Product> Products
@@ -187,7 +200,7 @@ namespace OrderAndStorageManagementSystem.Models
             else
             {
                 _order.SetOrderItemQuantityToStorageQuantity(productIndex);
-                // TODO: Notify observer to set back value
+                NotifyObserverOrderItemQuantityIsExceededStorageQuantity(productIndex, _order.GetStorageQuantity(productIndex));
             }
         }
 
@@ -204,6 +217,15 @@ namespace OrderAndStorageManagementSystem.Models
             if ( OrderItemQuantityChanged != null )
             {
                 OrderItemQuantityChanged(productIndex);
+            }
+        }
+
+        // Protest on Dr.Smell
+        private void NotifyObserverOrderItemQuantityIsExceededStorageQuantity(int orderItemIndex, int storageQuantity)
+        {
+            if ( OrderItemQuantityIsExceededStorageQuantity != null )
+            {
+                OrderItemQuantityIsExceededStorageQuantity(orderItemIndex, storageQuantity);
             }
         }
 
