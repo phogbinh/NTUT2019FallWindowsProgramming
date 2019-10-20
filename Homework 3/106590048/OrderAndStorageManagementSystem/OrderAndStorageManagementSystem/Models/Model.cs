@@ -258,10 +258,16 @@ namespace OrderAndStorageManagementSystem.Models
             {
                 if ( product.Id == productId )
                 {
-                    return product.GetProductNameAndDescription();
+                    return GetProductNameAndDescription(product);
                 }
             }
             throw new ArgumentException(ERROR_INVALID_PRODUCT_ID);
+        }
+
+        // Protest on Dr.Smell
+        private string GetProductNameAndDescription(Product product)
+        {
+            return product.GetProductNameAndDescription();
         }
     }
 }

@@ -401,6 +401,11 @@
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>Views\Utilities\DataGridViewHelper.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>Views\Utilities\OrderProductTabPageButton.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
@@ -427,7 +432,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>4022</ProductionLoc>
+          <ProductionLoc>4098</ProductionLoc>
           <TestLoc>1503</TestLoc>
         </CodeReview>
       </Data>
