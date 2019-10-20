@@ -122,6 +122,7 @@
             // 
             this._productName.AutoSize = true;
             this._productName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._productName.Location = new System.Drawing.Point(3, 48);
             this._productName.Name = "_productName";
             this._productName.Size = new System.Drawing.Size(484, 48);
@@ -131,6 +132,7 @@
             // 
             this._productType.AutoSize = true;
             this._productType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productType.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._productType.Location = new System.Drawing.Point(3, 96);
             this._productType.Name = "_productType";
             this._productType.Size = new System.Drawing.Size(484, 48);
@@ -140,6 +142,7 @@
             // 
             this._productPrice.AutoSize = true;
             this._productPrice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._productPrice.Location = new System.Drawing.Point(3, 144);
             this._productPrice.Name = "_productPrice";
             this._productPrice.Size = new System.Drawing.Size(484, 48);
@@ -149,6 +152,7 @@
             // 
             this._productStorageQuantity.AutoSize = true;
             this._productStorageQuantity.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productStorageQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._productStorageQuantity.Location = new System.Drawing.Point(3, 192);
             this._productStorageQuantity.Name = "_productStorageQuantity";
             this._productStorageQuantity.Size = new System.Drawing.Size(484, 48);
@@ -157,8 +161,8 @@
             // _productSupplyQuantityFieldLayout
             // 
             this._productSupplyQuantityFieldLayout.ColumnCount = 2;
-            this._productSupplyQuantityFieldLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this._productSupplyQuantityFieldLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this._productSupplyQuantityFieldLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this._productSupplyQuantityFieldLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this._productSupplyQuantityFieldLayout.Controls.Add(this._productSupplyQuantityLabel, 0, 0);
             this._productSupplyQuantityFieldLayout.Controls.Add(this._productSupplyQuantityField, 1, 0);
             this._productSupplyQuantityFieldLayout.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -166,7 +170,6 @@
             this._productSupplyQuantityFieldLayout.Name = "_productSupplyQuantityFieldLayout";
             this._productSupplyQuantityFieldLayout.RowCount = 1;
             this._productSupplyQuantityFieldLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this._productSupplyQuantityFieldLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this._productSupplyQuantityFieldLayout.Size = new System.Drawing.Size(484, 42);
             this._productSupplyQuantityFieldLayout.TabIndex = 6;
             // 
@@ -174,17 +177,20 @@
             // 
             this._productSupplyQuantityLabel.AutoSize = true;
             this._productSupplyQuantityLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productSupplyQuantityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._productSupplyQuantityLabel.Location = new System.Drawing.Point(3, 0);
             this._productSupplyQuantityLabel.Name = "_productSupplyQuantityLabel";
-            this._productSupplyQuantityLabel.Size = new System.Drawing.Size(236, 42);
+            this._productSupplyQuantityLabel.Size = new System.Drawing.Size(128, 42);
             this._productSupplyQuantityLabel.TabIndex = 0;
+            this._productSupplyQuantityLabel.Text = "補貨數量： ";
             // 
             // _productSupplyQuantityField
             // 
             this._productSupplyQuantityField.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._productSupplyQuantityField.Location = new System.Drawing.Point(245, 3);
+            this._productSupplyQuantityField.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this._productSupplyQuantityField.Location = new System.Drawing.Point(137, 3);
             this._productSupplyQuantityField.Name = "_productSupplyQuantityField";
-            this._productSupplyQuantityField.Size = new System.Drawing.Size(236, 20);
+            this._productSupplyQuantityField.Size = new System.Drawing.Size(344, 32);
             this._productSupplyQuantityField.TabIndex = 1;
             // 
             // ReplenishmentForm
