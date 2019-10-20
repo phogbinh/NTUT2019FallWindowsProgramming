@@ -9,6 +9,8 @@ namespace OrderAndStorageManagementSystem.PresentationModels
     {
         public delegate void AddButtonEnabledChangedEventHandler();
         private event AddButtonEnabledChangedEventHandler _addButtonEnabledChanged;
+        public delegate void OrderFormProductStorageQuantityChangedEventHandler();
+        private event OrderFormProductStorageQuantityChangedEventHandler _orderFormProductStorageQuantityChanged;
         public AddButtonEnabledChangedEventHandler AddButtonEnabledChanged
         {
             get
@@ -18,6 +20,17 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             set
             {
                 _addButtonEnabledChanged = value;
+            }
+        }
+        public OrderFormProductStorageQuantityChangedEventHandler OrderFormProductStorageQuantityChanged
+        {
+            get
+            {
+                return _orderFormProductStorageQuantityChanged;
+            }
+            set
+            {
+                _orderFormProductStorageQuantityChanged = value;
             }
         }
         public ControlStates ProductNameAndDescription
@@ -97,6 +110,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             // Observers
             _model.OrderAdded += (orderItem) => AddOrRemoveProductFromOrder(orderItem.Product);
             _model.OrderRemoved += (orderItemIndex, removedProduct) => AddOrRemoveProductFromOrder(removedProduct);
+            _model.ProductStorageQuantityChanged += ProductStorageQuantityChanged;
             // UI
             _productNameAndDescription = new ControlStates();
             _productStorageQuantity = new ControlStates();
@@ -113,6 +127,32 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             if ( product == _currentSelectedProduct )
             {
                 UpdateAddButtonByCurrentSelectedProduct();
+            }
+        }
+
+        // Protest on Dr.Smell
+        private void ProductStorageQuantityChanged(Product product)
+        {
+            if ( product == _currentSelectedProduct )
+            {
+                UpdateProductStorageQuantityByCurrentSelectedProduct();
+                UpdateAddButtonByCurrentSelectedProduct();
+            }
+        }
+
+        // Protest on Dr.Smell
+        private void UpdateProductStorageQuantityByCurrentSelectedProduct()
+        {
+            _productStorageQuantity.Text = AppDefinition.PRODUCT_STORAGE_QUANTITY_TEXT + _currentSelectedProduct.GetStorageQuantity();
+            NotifyObserverChangeOrderFormProductStorageQuantity();
+        }
+
+        // Protest on Dr.Smell
+        private void NotifyObserverChangeOrderFormProductStorageQuantity()
+        {
+            if ( OrderFormProductStorageQuantityChanged != null )
+            {
+                OrderFormProductStorageQuantityChanged();
             }
         }
 
