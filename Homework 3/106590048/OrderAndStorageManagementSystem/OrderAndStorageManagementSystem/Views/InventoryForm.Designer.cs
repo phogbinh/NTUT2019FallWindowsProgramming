@@ -41,7 +41,7 @@
             this._storageProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._storageProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._storageProductQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._storageSupplyButton = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._storageSupplyButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this._inventoryFormLayout.SuspendLayout();
             this._underTitleSectionLayout.SuspendLayout();
             this._productInfoLayout.SuspendLayout();
@@ -206,6 +206,8 @@
             this._storageSupplyButton.HeaderText = "補貨";
             this._storageSupplyButton.Name = "_storageSupplyButton";
             this._storageSupplyButton.ReadOnly = true;
+            this._storageSupplyButton.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this._storageSupplyButton.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // InventoryForm
             // 
@@ -242,6 +244,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn _storageProductType;
         private System.Windows.Forms.DataGridViewTextBoxColumn _storageProductPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn _storageProductQuantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _storageSupplyButton;
+        private System.Windows.Forms.DataGridViewButtonColumn _storageSupplyButton;
     }
 }
