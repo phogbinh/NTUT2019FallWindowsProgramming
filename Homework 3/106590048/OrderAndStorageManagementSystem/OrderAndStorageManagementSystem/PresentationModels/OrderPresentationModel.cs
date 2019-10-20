@@ -143,7 +143,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         // Protest on Dr.Smell
         private void UpdateProductStorageQuantityByCurrentSelectedProduct()
         {
-            _productStorageQuantity.Text = AppDefinition.PRODUCT_STORAGE_QUANTITY_TEXT + _currentSelectedProduct.GetStorageQuantity();
+            _productStorageQuantity.Text = _currentSelectedProduct == null ? "" : AppDefinition.PRODUCT_STORAGE_QUANTITY_TEXT + _currentSelectedProduct.GetStorageQuantity();
             NotifyObserverChangeOrderFormProductStorageQuantity();
         }
 
@@ -255,16 +255,15 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         private void UpdateCurrentProductInfo()
         {
+            UpdateProductStorageQuantityByCurrentSelectedProduct();
             if ( _currentSelectedProduct == null )
             {
                 _productNameAndDescription.Text = "";
-                _productStorageQuantity.Text = "";
                 _productPrice.Text = "";
             }
             else
             {
                 _productNameAndDescription.Text = _currentSelectedProduct.GetProductNameAndDescription();
-                _productStorageQuantity.Text = AppDefinition.PRODUCT_STORAGE_QUANTITY_TEXT + _currentSelectedProduct.GetStorageQuantity();
                 _productPrice.Text = AppDefinition.PRODUCT_PRICE_TEXT + _currentSelectedProduct.GetPrice(AppDefinition.TAIWAN_CURRENCY_UNIT);
             }
         }
