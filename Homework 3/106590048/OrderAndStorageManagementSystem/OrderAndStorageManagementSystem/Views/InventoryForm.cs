@@ -44,10 +44,9 @@ namespace OrderAndStorageManagementSystem.Views
         // Protest on Dr.Smell
         private void UpdateProductInfo()
         {
-            int currentRowIndex = _storageDataGridView.CurrentRow.Index;
-            int currentProductId = AppDefinition.GetHumanIndex(currentRowIndex);
-            _productImage.Image = DataBaseManager.GetProductImageFromResources(currentProductId);
-            _productNameAndDescription.Text = _model.GetProductNameAndDescription(currentProductId);
+            Product currentSelectedProduct = _inventoryPresentationModel.GetProduct(_storageDataGridView.CurrentRow.Index);
+            _productImage.Image = DataBaseManager.GetProductImageFromResources(currentSelectedProduct.Id);
+            _productNameAndDescription.Text = _model.GetProductNameAndDescription(currentSelectedProduct.Id);
         }
 
         // Protest on Dr.Smell
