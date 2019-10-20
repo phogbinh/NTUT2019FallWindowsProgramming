@@ -193,7 +193,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// <summary>
         /// Select no product.
         /// </summary>
-        private void SelectNoProduct()
+        public void SelectNoProduct()
         {
             _currentSelectedProduct = null;
             UpdateCurrentProductInfo();

@@ -32,7 +32,7 @@ namespace OrderAndStorageManagementSystem.Views
             InitializeProductTabPageButtonsContainers();
             // Observers
             _model.OrderChanged += UpdateCartSectionView;
-            _model.OrderCleared += () => _cartDataGridView.Rows.Clear();
+            _model.OrderCleared += OrderCleared;
             _model.OrderAdded += (orderItem) => _cartDataGridView.Rows.Add(null, orderItem.Name, orderItem.Type, orderItem.Price.GetCurrencyFormat(), orderItem.OrderQuantity, orderItem.GetTotalPrice().GetCurrencyFormat());
             _model.OrderRemoved += (orderItemIndex, removedProduct) => _cartDataGridView.Rows.RemoveAt(orderItemIndex);
             _model.OrderItemQuantityChanged += (orderItemIndex, orderItemTotalPrice) => _cartDataGridView.Rows[ orderItemIndex ].Cells[ CART_PRODUCT_TOTAL_PRICE_COLUMN_INDEX ].Value = orderItemTotalPrice;
@@ -59,6 +59,20 @@ namespace OrderAndStorageManagementSystem.Views
         {
             _cartTotalPrice.Text = AppDefinition.CART_TOTAL_PRICE_TEXT + _model.GetOrderTotalPrice();
             _orderButton.Enabled = _model.GetOrderItemsCount() != 0;
+        }
+
+        // Protest on Dr.Smell
+        private void OrderCleared()
+        {
+            _cartDataGridView.Rows.Clear();
+            SelectNoProduct();
+        }
+
+        // Protest on Dr.Smell
+        private void SelectNoProduct()
+        {
+            _orderPresentationModel.SelectNoProduct();
+            RefreshControls();
         }
 
         // Protest on Dr.Smell
