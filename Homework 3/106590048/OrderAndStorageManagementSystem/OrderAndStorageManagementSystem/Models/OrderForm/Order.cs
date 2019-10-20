@@ -63,15 +63,15 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         }
 
         // Protest on Dr.Smell
-        public bool IsExceededMaximumQuantity(int orderItemIndex, int quantity)
+        public bool IsExceededStorageQuantity(int orderItemIndex, int quantity)
         {
             return quantity > _orderItems[ orderItemIndex ].StorageQuantity;
         }
 
         // Protest on Dr.Smell
-        public void SetOrderItemMaximumQuantity(int orderItemIndex)
+        public void SetOrderItemQuantityToStorageQuantity(int orderItemIndex)
         {
-            _orderItems[ orderItemIndex ].SetMaximumOrderQuantity();
+            _orderItems[ orderItemIndex ].SetOrderQuantityToStorageQuantity();
         }
 
         // Protest on Dr.Smell

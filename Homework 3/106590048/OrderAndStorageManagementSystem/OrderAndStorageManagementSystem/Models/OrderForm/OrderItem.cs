@@ -74,7 +74,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         }
 
         // Protest on Dr.Smell
-        public void SetMaximumOrderQuantity()
+        public void SetOrderQuantityToStorageQuantity()
         {
             _orderQuantity = StorageQuantity;
         }

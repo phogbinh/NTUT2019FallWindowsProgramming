@@ -179,22 +179,22 @@ namespace OrderAndStorageManagementSystem.Models
         // Protest on Dr.Smell
         public void SetOrderItemQuantity(int productIndex, int newCartProductQuantity)
         {
-            if ( !IsExceededMaximumQuantity(productIndex, newCartProductQuantity) )
+            if ( !IsExceededStorageQuantity(productIndex, newCartProductQuantity) )
             {
                 _order.SetOrderItemQuantity(productIndex, newCartProductQuantity);
                 NotifyObserverChangeOrderItemQuantity(productIndex);
             }
             else
             {
-                _order.SetOrderItemMaximumQuantity(productIndex);
+                _order.SetOrderItemQuantityToStorageQuantity(productIndex);
                 // TODO: Notify observer to set back value
             }
         }
 
         // Protest on Dr.Smell
-        private bool IsExceededMaximumQuantity(int productIndex, int quantity)
+        private bool IsExceededStorageQuantity(int productIndex, int quantity)
         {
-            return _order.IsExceededMaximumQuantity(productIndex, quantity);
+            return _order.IsExceededStorageQuantity(productIndex, quantity);
         }
 
         // Protest on Dr.Smell
