@@ -222,7 +222,14 @@ namespace OrderAndStorageManagementSystem.Models
         // Protest on Dr.Smell
         public void SubmitOrder()
         {
+            DecreaseProductStorageQuantitiesByOrderQuantities();
             ClearOrder();
+        }
+
+        // Protest on Dr.Smell
+        private void DecreaseProductStorageQuantitiesByOrderQuantities()
+        {
+            _order.DecreaseProductStorageQuantitiesByOrderQuantities();
         }
 
         // Protest on Dr.Smell

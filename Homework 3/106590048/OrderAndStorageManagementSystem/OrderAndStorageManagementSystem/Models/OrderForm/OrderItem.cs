@@ -39,6 +39,10 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             {
                 return _product.StorageQuantity;
             }
+            set
+            {
+                _product.StorageQuantity = value;
+            }
         }
         public string Description
         {

@@ -97,5 +97,14 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         {
             return _orderItems[ orderItemIndex ].Product;
         }
+
+        // Protest on Dr.Smell
+        public void DecreaseProductStorageQuantitiesByOrderQuantities()
+        {
+            foreach ( OrderItem item in _orderItems )
+            {
+                item.StorageQuantity -= item.OrderQuantity;
+            }
+        }
     }
 }

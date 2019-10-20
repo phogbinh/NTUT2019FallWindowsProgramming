@@ -38,6 +38,10 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             {
                 return _storageQuantity;
             }
+            set
+            {
+                _storageQuantity = value;
+            }
         }
         public string Description
         {
