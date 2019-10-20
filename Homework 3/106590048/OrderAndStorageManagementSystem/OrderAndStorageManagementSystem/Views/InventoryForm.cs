@@ -46,7 +46,7 @@ namespace OrderAndStorageManagementSystem.Views
         {
             Product currentSelectedProduct = _inventoryPresentationModel.GetProduct(_storageDataGridView.CurrentRow.Index);
             _productImage.Image = DataBaseManager.GetProductImageFromResources(currentSelectedProduct.Id);
-            _productNameAndDescription.Text = _model.GetProductNameAndDescription(currentSelectedProduct.Id);
+            _productNameAndDescription.Text = currentSelectedProduct.GetProductNameAndDescription();
         }
 
         // Protest on Dr.Smell
