@@ -1,5 +1,6 @@
 ﻿using OrderAndStorageManagementSystem.Models;
 using OrderAndStorageManagementSystem.Models.Utilities;
+using OrderAndStorageManagementSystem.PresentationModels;
 using OrderAndStorageManagementSystem.Properties;
 using OrderAndStorageManagementSystem.Views.Utilities;
 using System.Windows.Forms;
@@ -9,11 +10,13 @@ namespace OrderAndStorageManagementSystem.Views
     public partial class InventoryForm : Form
     {
         private const int STORAGE_SUPPLY_BUTTON_COLUMN_INDEX = 4;
+        private InventoryPresentationModel _inventoryPresentationModel;
         private Model _model;
 
-        public InventoryForm(Model modelData)
+        public InventoryForm(InventoryPresentationModel inventoryPresentationModelData, Model modelData)
         {
             InitializeComponent();
+            _inventoryPresentationModel = inventoryPresentationModelData;
             _model = modelData;
             // UI
             _storageDataGridView.CellPainting += (sender, eventArguments) => DataGridViewHelper.InitializeButtonImageOfButtonColumn(eventArguments, STORAGE_SUPPLY_BUTTON_COLUMN_INDEX, Resources.img_delivery_truck);
