@@ -179,7 +179,7 @@ namespace OrderAndStorageManagementSystem.Models
         // Protest on Dr.Smell
         public void SetOrderItemQuantity(int productIndex, int newCartProductQuantity)
         {
-            if ( IsValidQuantity(productIndex, newCartProductQuantity) )
+            if ( !IsExceededMaximumQuantity(productIndex, newCartProductQuantity) )
             {
                 _order.SetOrderItemQuantity(productIndex, newCartProductQuantity);
                 NotifyObserverChangeOrderItemQuantity(productIndex);
@@ -192,9 +192,9 @@ namespace OrderAndStorageManagementSystem.Models
         }
 
         // Protest on Dr.Smell
-        private bool IsValidQuantity(int productIndex, int quantity)
+        private bool IsExceededMaximumQuantity(int productIndex, int quantity)
         {
-            return _order.IsValidQuantity(productIndex, quantity);
+            return _order.IsExceededMaximumQuantity(productIndex, quantity);
         }
 
         // Protest on Dr.Smell
