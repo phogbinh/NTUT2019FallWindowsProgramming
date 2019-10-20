@@ -36,7 +36,7 @@ namespace OrderAndStorageManagementSystem.Views
             if ( eventArguments.ColumnIndex == STORAGE_SUPPLY_BUTTON_COLUMN_INDEX )
             {
                 ReplenishmentForm supplyForm;
-                supplyForm = new ReplenishmentForm();
+                supplyForm = new ReplenishmentForm(_model, _inventoryPresentationModel.GetProduct(_storageDataGridView.CurrentRow.Index));
                 supplyForm.ShowDialog();
             }
         }

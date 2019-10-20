@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OrderAndStorageManagementSystem.Models;
+using OrderAndStorageManagementSystem.Models.Utilities;
 using System.Windows.Forms;
 
 namespace OrderAndStorageManagementSystem.Views
 {
     public partial class ReplenishmentForm : Form
     {
-        public ReplenishmentForm()
+        private Model _model;
+        private Product _product;
+
+        public ReplenishmentForm(Model modelData, Product productData)
         {
             InitializeComponent();
+            _model = modelData;
+            _product = productData;
         }
     }
 }
