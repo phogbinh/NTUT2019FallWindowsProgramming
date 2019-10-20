@@ -19,6 +19,8 @@ namespace OrderAndStorageManagementSystem.Models
         private event OrderItemQuantityChangedEventHandler _orderItemQuantityChanged;
         public delegate void OrderItemQuantityIsExceededStorageQuantityEventHandler(int orderItemIndex, int storageQuantity);
         private event OrderItemQuantityIsExceededStorageQuantityEventHandler _orderItemQuantityIsExceededStorageQuantity;
+        public delegate void ProductStorageQuantityChangedEventHandler(Product product);
+        private event ProductStorageQuantityChangedEventHandler _productStorageQuantityChanged;
         public OrderChangedEventHandler OrderChanged
         {
             get
@@ -83,6 +85,17 @@ namespace OrderAndStorageManagementSystem.Models
             set
             {
                 _orderItemQuantityIsExceededStorageQuantity = value;
+            }
+        }
+        public ProductStorageQuantityChangedEventHandler ProductStorageQuantityChanged
+        {
+            get
+            {
+                return _productStorageQuantityChanged;
+            }
+            set
+            {
+                _productStorageQuantityChanged = value;
             }
         }
         public List<Product> Products
@@ -232,6 +245,10 @@ namespace OrderAndStorageManagementSystem.Models
         private void DecreaseProductStorageQuantitiesByOrderQuantities()
         {
             _order.DecreaseProductStorageQuantitiesByOrderQuantities();
+            foreach ( Product product in _order.GetProducts() )
+            {
+                NotifyObserverChangeProductStorageQuantity(product);
+            }
         }
 
         // Protest on Dr.Smell
@@ -268,6 +285,16 @@ namespace OrderAndStorageManagementSystem.Models
         public void SupplyProductStorageQuantity(Product product, int supplyQuantity)
         {
             product.StorageQuantity = product.StorageQuantity + supplyQuantity;
+            NotifyObserverChangeProductStorageQuantity(product);
+        }
+
+        // Protest on Dr.Smell
+        private void NotifyObserverChangeProductStorageQuantity(Product product)
+        {
+            if ( ProductStorageQuantityChanged != null )
+            {
+                ProductStorageQuantityChanged(product);
+            }
         }
     }
 }

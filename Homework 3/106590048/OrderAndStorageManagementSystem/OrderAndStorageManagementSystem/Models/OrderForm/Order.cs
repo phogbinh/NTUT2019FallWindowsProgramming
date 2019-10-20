@@ -106,5 +106,16 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
                 item.DecreaseProductStorageQuantityByOrderQuantity();
             }
         }
+
+        // Protest on Dr.Smell
+        public List<Product> GetProducts()
+        {
+            List<Product> products = new List<Product>();
+            foreach ( OrderItem item in _orderItems )
+            {
+                products.Add(item.Product);
+            }
+            return products;
+        }
     }
 }
