@@ -20,30 +20,30 @@ namespace OrderAndStorageManagementSystem.Views
             _inventoryPresentationModel = inventoryPresentationModelData;
             _model = modelData;
             // Observers
-            _model.ProductStorageQuantityChanged += ProductStorageQuantityChanged;
+            _model.ProductStorageQuantityChanged += UpdateProductStorageQuantityView;
             // UI
             _storageDataGridView.CellPainting += (sender, eventArguments) => DataGridViewHelper.InitializeButtonImageOfButtonColumn(eventArguments, STORAGE_SUPPLY_BUTTON_COLUMN_INDEX, Resources.img_delivery_truck);
-            _storageDataGridView.CellContentClick += StorageDataGridViewCellContentClick;
+            _storageDataGridView.CellContentClick += ClickStorageDataGridViewCellContent;
             _storageDataGridView.SelectionChanged += (sender, eventArguments) => UpdateProductInfo();
             // Initial UI States
             InitializeStorageDataGridView();
         }
 
         // Protest on Dr.Smell
-        private void ProductStorageQuantityChanged(Product product)
+        private void UpdateProductStorageQuantityView(Product product)
         {
-            for ( int rowIndex = 0; rowIndex < _storageDataGridView.Rows.Count; rowIndex++ )
-            {
-                if ( AppDefinition.GetHumanIndex(rowIndex) == product.Id )
-                {
-                    _storageDataGridView.Rows[ rowIndex ].Cells[ STORAGE_PRODUCT_QUANTITY_COLUMN_INDEX ].Value = product.StorageQuantity;
-                    break;
-                }
-            }
+            int rowIndex = GetProductRowIndexInStorageDataGridView(product);
+            _storageDataGridView.Rows[ rowIndex ].Cells[ STORAGE_PRODUCT_QUANTITY_COLUMN_INDEX ].Value = product.StorageQuantity;
         }
 
         // Protest on Dr.Smell
-        private void StorageDataGridViewCellContentClick(object sender, DataGridViewCellEventArgs eventArguments)
+        private int GetProductRowIndexInStorageDataGridView(Product product)
+        {
+            return product.Id - 1;
+        }
+
+        // Protest on Dr.Smell
+        private void ClickStorageDataGridViewCellContent(object sender, DataGridViewCellEventArgs eventArguments)
         {
             if ( eventArguments.RowIndex < 0 )
             {

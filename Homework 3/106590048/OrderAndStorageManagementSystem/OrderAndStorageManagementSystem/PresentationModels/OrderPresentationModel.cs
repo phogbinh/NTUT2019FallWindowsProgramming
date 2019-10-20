@@ -110,7 +110,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             // Observers
             _model.OrderAdded += (orderItem) => AddOrRemoveProductFromOrder(orderItem.Product);
             _model.OrderRemoved += (orderItemIndex, removedProduct) => AddOrRemoveProductFromOrder(removedProduct);
-            _model.ProductStorageQuantityChanged += ProductStorageQuantityChanged;
+            _model.ProductStorageQuantityChanged += UpdateProductStorageQuantityAndAddButtonIfChangedCurrentSelectedProductStorageQuantity;
             // UI
             _productNameAndDescription = new ControlStates();
             _productStorageQuantity = new ControlStates();
@@ -131,7 +131,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         }
 
         // Protest on Dr.Smell
-        private void ProductStorageQuantityChanged(Product product)
+        private void UpdateProductStorageQuantityAndAddButtonIfChangedCurrentSelectedProductStorageQuantity(Product product)
         {
             if ( product == _currentSelectedProduct )
             {

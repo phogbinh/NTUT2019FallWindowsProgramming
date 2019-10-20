@@ -32,18 +32,18 @@ namespace OrderAndStorageManagementSystem.Views
             _model = modelData;
             InitializeProductTabPageButtonsContainers();
             // Observers
-            _model.OrderChanged += UpdateCartSectionView;
-            _model.OrderCleared += OrderCleared;
+            _model.OrderChanged += UpdateCartSectionViewOnOrderChanged;
+            _model.OrderCleared += UpdateViewOnOrderCleared;
             _model.OrderAdded += (orderItem) => _cartDataGridView.Rows.Add(null, orderItem.Name, orderItem.Type, orderItem.Price.GetCurrencyFormat(), orderItem.OrderQuantity, orderItem.GetTotalPrice().GetCurrencyFormat());
             _model.OrderRemoved += (orderItemIndex, removedProduct) => _cartDataGridView.Rows.RemoveAt(orderItemIndex);
             _model.OrderItemQuantityChanged += (orderItemIndex, orderItemTotalPrice) => _cartDataGridView.Rows[ orderItemIndex ].Cells[ CART_PRODUCT_TOTAL_PRICE_COLUMN_INDEX ].Value = orderItemTotalPrice;
-            _model.OrderItemQuantityIsExceededStorageQuantity += OrderItemQuantityIsExceededStorageQuantity;
+            _model.OrderItemQuantityIsExceededStorageQuantity += UpdateViewOnOrderItemQuantityIsExceededStorageQuantity;
             _orderPresentationModel.AddButtonEnabledChanged += () => _addButton.Enabled = _orderPresentationModel.AddButton.Enabled;
             _orderPresentationModel.OrderFormProductStorageQuantityChanged += () => _productStorageQuantity.Text = _orderPresentationModel.ProductStorageQuantity.Text;
             // UI
             _cartDataGridView.CellPainting += (sender, eventArguments) => DataGridViewHelper.InitializeButtonImageOfButtonColumn(eventArguments, CART_DELETE_BUTTON_COLUMN_INDEX, Resources.img_trash_bin);
-            _cartDataGridView.CellContentClick += CartDataGridViewCellContentClick;
-            _cartDataGridView.CellValueChanged += CartDataGridViewCellValueChanged;
+            _cartDataGridView.CellContentClick += ClickCartDataGridViewCellContent;
+            _cartDataGridView.CellValueChanged += ChangeCartDataGridViewCellValue;
             _leftArrowButton.Click += (sender, events) => GoToPreviousPage();
             _rightArrowButton.Click += (sender, events) => GoToNextPage();
             _addButton.Click += (sender, eventArguments) => _orderPresentationModel.AddCurrentSelectedProductToOrderIfProductIsNotInOrder();
@@ -52,19 +52,19 @@ namespace OrderAndStorageManagementSystem.Views
             InitializeProductTabPages();
             // Initial UI States
             SelectProductTabPage(AppDefinition.MOTHER_BOARD_INDEX);
-            UpdateCartSectionView();
+            UpdateCartSectionViewOnOrderChanged();
             RefreshControls();
         }
 
         // Protest on Dr.Smell
-        private void UpdateCartSectionView()
+        private void UpdateCartSectionViewOnOrderChanged()
         {
             _cartTotalPrice.Text = AppDefinition.CART_TOTAL_PRICE_TEXT + _model.GetOrderTotalPrice();
             _orderButton.Enabled = _model.GetOrderItemsCount() != 0;
         }
 
         // Protest on Dr.Smell
-        private void OrderCleared()
+        private void UpdateViewOnOrderCleared()
         {
             _cartDataGridView.Rows.Clear();
             SelectNoProduct();
@@ -78,14 +78,14 @@ namespace OrderAndStorageManagementSystem.Views
         }
 
         // Protest on Dr.Smell
-        private void OrderItemQuantityIsExceededStorageQuantity(int orderItemIndex, int storageQuantity)
+        private void UpdateViewOnOrderItemQuantityIsExceededStorageQuantity(int orderItemIndex, int storageQuantity)
         {
             MessageBox.Show(this, ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY_MESSAGE, ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY_TITLE);
             _cartDataGridView.Rows[ orderItemIndex ].Cells[ CART_PRODUCT_QUANTITY_COLUMN_INDEX ].Value = storageQuantity;
         }
 
         // Protest on Dr.Smell
-        private void CartDataGridViewCellContentClick(object sender, DataGridViewCellEventArgs eventArguments)
+        private void ClickCartDataGridViewCellContent(object sender, DataGridViewCellEventArgs eventArguments)
         {
             if ( eventArguments.RowIndex < 0 )
             {
@@ -98,7 +98,7 @@ namespace OrderAndStorageManagementSystem.Views
         }
 
         // Protest on Dr.Smell
-        private void CartDataGridViewCellValueChanged(object sender, DataGridViewCellEventArgs eventArguments)
+        private void ChangeCartDataGridViewCellValue(object sender, DataGridViewCellEventArgs eventArguments)
         {
             if ( eventArguments.ColumnIndex == CART_PRODUCT_QUANTITY_COLUMN_INDEX )
             {
