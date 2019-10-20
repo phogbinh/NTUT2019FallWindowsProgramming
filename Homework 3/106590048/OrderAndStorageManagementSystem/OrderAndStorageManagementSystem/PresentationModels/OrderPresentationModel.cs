@@ -7,7 +7,6 @@ namespace OrderAndStorageManagementSystem.PresentationModels
 {
     public class OrderPresentationModel
     {
-        private const int CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE = 0;
         public delegate void AddButtonEnabledChangedEventHandler();
         private event AddButtonEnabledChangedEventHandler _addButtonEnabledChanged;
         public AddButtonEnabledChangedEventHandler AddButtonEnabledChanged
@@ -77,6 +76,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
                 return _currentSelectedProduct;
             }
         }
+        private const int CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE = 0;
         private OrderModel _orderModel;
         private Model _model;
         private ControlStates _productNameAndDescription;

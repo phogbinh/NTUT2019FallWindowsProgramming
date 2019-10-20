@@ -89,5 +89,11 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         {
             _orderQuantity = StorageQuantity;
         }
+
+        // Protest on Dr.Smell
+        public void DecreaseProductStorageQuantityByOrderQuantity()
+        {
+            StorageQuantity = StorageQuantity - OrderQuantity;
+        }
     }
 }

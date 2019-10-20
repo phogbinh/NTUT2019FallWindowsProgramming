@@ -103,7 +103,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         {
             foreach ( OrderItem item in _orderItems )
             {
-                item.StorageQuantity -= item.OrderQuantity;
+                item.DecreaseProductStorageQuantityByOrderQuantity();
             }
         }
     }
