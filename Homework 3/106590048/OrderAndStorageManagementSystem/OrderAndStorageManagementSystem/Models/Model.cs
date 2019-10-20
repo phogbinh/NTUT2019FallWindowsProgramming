@@ -14,6 +14,8 @@ namespace OrderAndStorageManagementSystem.Models
         private event OrderAddedEventHandler _orderAdded;
         public delegate void OrderRemovedEventHandler(int productIndex);
         private event OrderRemovedEventHandler _orderRemoved;
+        public delegate void OrderProductQuantityChangedEventHandler(int productIndex);
+        private event OrderProductQuantityChangedEventHandler _orderProductQuantityChanged;
         public OrderChangedEventHandler OrderChanged
         {
             get
@@ -56,6 +58,17 @@ namespace OrderAndStorageManagementSystem.Models
             set
             {
                 _orderRemoved = value;
+            }
+        }
+        public OrderProductQuantityChangedEventHandler OrderProductQuantityChanged
+        {
+            get
+            {
+                return _orderProductQuantityChanged;
+            }
+            set
+            {
+                _orderProductQuantityChanged = value;
             }
         }
         public List<Product> Products
@@ -169,7 +182,7 @@ namespace OrderAndStorageManagementSystem.Models
             if ( IsValidQuantity(productIndex, newCartProductQuantity) )
             {
                 _order.SetOrderProductQuantity(productIndex, newCartProductQuantity);
-                // TODO: Notify observer
+                NotifyObserverChangeOrderProductQuantity(productIndex);
             }
             else
             {
@@ -182,6 +195,21 @@ namespace OrderAndStorageManagementSystem.Models
         private bool IsValidQuantity(int productIndex, int quantity)
         {
             return _order.IsValidQuantity(productIndex, quantity);
+        }
+
+        // Protest on Dr.Smell
+        private void NotifyObserverChangeOrderProductQuantity(int productIndex)
+        {
+            if ( OrderProductQuantityChanged != null )
+            {
+                OrderProductQuantityChanged(productIndex);
+            }
+        }
+
+        // Protest on Dr.Smell
+        public string GetOrderProductTotalPrice(int productIndex)
+        {
+            return _order.GetOrderProductTotalPrice(productIndex);
         }
     }
 }

@@ -72,5 +72,11 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         {
             _orderProducts[ orderProductIndex ].OrderQuantity = newOrderQuantity;
         }
+
+        // Protest on Dr.Smell
+        public string GetOrderProductTotalPrice(int orderProductIndex)
+        {
+            return _orderProducts[ orderProductIndex ].GetTotalPrice().GetCurrencyFormat();
+        }
     }
 }

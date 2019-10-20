@@ -13,6 +13,7 @@ namespace OrderAndStorageManagementSystem.Views
     {
         private const string TAB_PAGE_LAYOUT_NAME = "_productTabPageLayout";
         private const int CART_PRODUCT_QUANTITY_COLUMN_INDEX = 4;
+        private const int CART_PRODUCT_TOTAL_PRICE_COLUMN_INDEX = 5;
         private CreditCardPaymentForm _creditCardPaymentForm;
         private OrderPresentationModel _orderPresentationModel;
         private OrderModel _orderModel;
@@ -27,11 +28,12 @@ namespace OrderAndStorageManagementSystem.Views
             _orderModel = orderModelData;
             _model = modelData;
             InitializeProductTabPageButtonsContainers();
-            // Event Handlers
+            // Observers
             _model.OrderChanged += UpdateCartSectionView;
             _model.OrderCleared += () => _cartDataGridView.Rows.Clear();
             _model.OrderAdded += (orderProduct) => _cartDataGridView.Rows.Add(null, orderProduct.Name, orderProduct.Type, orderProduct.Price.GetCurrencyFormat(), orderProduct.OrderQuantity, orderProduct.GetTotalPrice().GetCurrencyFormat());
             _model.OrderRemoved += (productIndex) => _cartDataGridView.Rows.RemoveAt(productIndex);
+            _model.OrderProductQuantityChanged += (productIndex) => _cartDataGridView.Rows[ productIndex ].Cells[ CART_PRODUCT_TOTAL_PRICE_COLUMN_INDEX ].Value = _model.GetOrderProductTotalPrice(productIndex);
             // UI
             _cartDataGridView.CellPainting += CartDataGridViewCellPainting;
             _cartDataGridView.CellContentClick += CartDataGridViewCellContentClick;
