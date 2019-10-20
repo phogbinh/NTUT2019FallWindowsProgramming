@@ -10,7 +10,7 @@ namespace OrderAndStorageManagementSystem.Models
         private event OrderChangedEventHandler _orderChanged;
         public delegate void OrderClearedEventHandler();
         private event OrderClearedEventHandler _orderCleared;
-        public delegate void OrderAddedEventHandler(OrderProduct orderProduct);
+        public delegate void OrderAddedEventHandler(OrderItem orderProduct);
         private event OrderAddedEventHandler _orderAdded;
         public delegate void OrderRemovedEventHandler(int productIndex);
         private event OrderRemovedEventHandler _orderRemoved;
@@ -97,7 +97,7 @@ namespace OrderAndStorageManagementSystem.Models
         // Protest on Dr.Smell
         public void AddProductToOrderIfProductIsNotInOrder(Product product)
         {
-            OrderProduct orderProduct = new OrderProduct(product.Id, product.Name, product.Type, product.Price, product.StorageQuantity, product.Description);
+            OrderItem orderProduct = new OrderItem(product.Id, product.Name, product.Type, product.Price, product.StorageQuantity, product.Description);
             if ( IsNotInOrder(orderProduct) )
             {
                 _order.AddOrderProduct(orderProduct);
@@ -106,13 +106,13 @@ namespace OrderAndStorageManagementSystem.Models
         }
 
         // Protest on Dr.Smell
-        private bool IsNotInOrder(OrderProduct orderProduct)
+        private bool IsNotInOrder(OrderItem orderProduct)
         {
             return _order.IsNotInOrder(orderProduct);
         }
 
         // Protest on Dr.Smell
-        private void NotifyObserverChangeAndAddOrder(OrderProduct orderProduct)
+        private void NotifyObserverChangeAndAddOrder(OrderItem orderProduct)
         {
             NotifyObserverChangeOrder();
             if ( OrderAdded != null )

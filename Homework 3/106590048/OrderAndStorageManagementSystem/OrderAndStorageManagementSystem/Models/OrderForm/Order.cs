@@ -7,12 +7,12 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
     {
         private const int TOTAL_PRICE_INITIAL_VALUE = 0;
 
-        private List<OrderProduct> _orderProducts;
+        private List<OrderItem> _orderProducts;
         private Money _totalPrice;
 
         public Order()
         {
-            _orderProducts = new List<OrderProduct>();
+            _orderProducts = new List<OrderItem>();
             _totalPrice = new Money(TOTAL_PRICE_INITIAL_VALUE);
         }
 
@@ -23,13 +23,13 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         }
 
         // Protest on Dr.Smell
-        public bool IsNotInOrder(OrderProduct orderProduct)
+        public bool IsNotInOrder(OrderItem orderProduct)
         {
             return !_orderProducts.Contains(orderProduct);
         }
 
         // Protest on Dr.Smell
-        public void AddOrderProduct(OrderProduct orderProduct)
+        public void AddOrderProduct(OrderItem orderProduct)
         {
             _totalPrice.Add(orderProduct.Price);
             _orderProducts.Add(orderProduct);
