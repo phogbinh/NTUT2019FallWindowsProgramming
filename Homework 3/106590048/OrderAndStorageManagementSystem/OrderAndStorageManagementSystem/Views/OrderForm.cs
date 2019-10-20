@@ -51,18 +51,6 @@ namespace OrderAndStorageManagementSystem.Views
         }
 
         // Protest on Dr.Smell
-        private void CartDataGridViewCellValueChanged(object sender, DataGridViewCellEventArgs eventArguments)
-        {
-            if ( eventArguments.ColumnIndex == CART_PRODUCT_QUANTITY_COLUMN_INDEX )
-            {
-                int currentRowIndex = eventArguments.RowIndex;
-                DataGridViewTextBoxCell textBoxCell = ( DataGridViewTextBoxCell )_cartDataGridView.Rows[ currentRowIndex ].Cells[ CART_PRODUCT_QUANTITY_COLUMN_INDEX ];
-                int newCartProductQuantity = int.Parse(textBoxCell.Value.ToString());
-                _model.SetOrderItemQuantity(currentRowIndex, newCartProductQuantity);
-            }
-        }
-
-        // Protest on Dr.Smell
         private void UpdateCartSectionView()
         {
             _cartTotalPrice.Text = AppDefinition.CART_TOTAL_PRICE_TEXT + _model.GetOrderTotalPrice();
@@ -99,6 +87,18 @@ namespace OrderAndStorageManagementSystem.Views
             if ( eventArguments.ColumnIndex == 0 )
             {
                 _model.RemoveProductFromOrder(eventArguments.RowIndex);
+            }
+        }
+
+        // Protest on Dr.Smell
+        private void CartDataGridViewCellValueChanged(object sender, DataGridViewCellEventArgs eventArguments)
+        {
+            if ( eventArguments.ColumnIndex == CART_PRODUCT_QUANTITY_COLUMN_INDEX )
+            {
+                int currentRowIndex = eventArguments.RowIndex;
+                DataGridViewTextBoxCell textBoxCell = ( DataGridViewTextBoxCell )_cartDataGridView.Rows[ currentRowIndex ].Cells[ CART_PRODUCT_QUANTITY_COLUMN_INDEX ];
+                int newCartProductQuantity = int.Parse(textBoxCell.Value.ToString());
+                _model.SetOrderItemQuantity(currentRowIndex, newCartProductQuantity);
             }
         }
 
