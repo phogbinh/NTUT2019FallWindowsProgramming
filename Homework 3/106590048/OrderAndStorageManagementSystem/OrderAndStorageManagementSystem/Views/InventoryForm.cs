@@ -17,9 +17,25 @@ namespace OrderAndStorageManagementSystem.Views
             _model = modelData;
             // UI
             _storageDataGridView.CellPainting += (sender, eventArguments) => DataGridViewHelper.InitializeButtonImageOfButtonColumn(eventArguments, STORAGE_SUPPLY_BUTTON_COLUMN_INDEX, Resources.img_delivery_truck);
+            _storageDataGridView.CellContentClick += StorageDataGridViewCellContentClick;
             _storageDataGridView.SelectionChanged += (sender, eventArguments) => UpdateProductInfo();
             // Initial UI States
             InitializeStorageDataGridView();
+        }
+
+        // Protest on Dr.Smell
+        private void StorageDataGridViewCellContentClick(object sender, DataGridViewCellEventArgs eventArguments)
+        {
+            if ( eventArguments.RowIndex < 0 )
+            {
+                return;
+            }
+            if ( eventArguments.ColumnIndex == STORAGE_SUPPLY_BUTTON_COLUMN_INDEX )
+            {
+                ReplenishmentForm supplyForm;
+                supplyForm = new ReplenishmentForm();
+                supplyForm.ShowDialog();
+            }
         }
 
         // Protest on Dr.Smell

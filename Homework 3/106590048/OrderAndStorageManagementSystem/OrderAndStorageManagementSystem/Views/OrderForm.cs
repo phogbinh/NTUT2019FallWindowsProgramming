@@ -90,7 +90,7 @@ namespace OrderAndStorageManagementSystem.Views
             {
                 return;
             }
-            if ( eventArguments.ColumnIndex == 0 )
+            if ( eventArguments.ColumnIndex == CART_DELETE_BUTTON_COLUMN_INDEX )
             {
                 _model.RemoveOrderItemAt(eventArguments.RowIndex);
             }
