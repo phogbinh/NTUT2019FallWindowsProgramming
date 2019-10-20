@@ -32,7 +32,7 @@ namespace OrderAndStorageManagementSystem.Views
         {
             if ( MessageBox.Show(ORDER_COMPLETE_MESSAGE) == DialogResult.OK )
             {
-                _model.ClearOrder();
+                _model.SubmitOrder();
                 this.Close();
             }
         }

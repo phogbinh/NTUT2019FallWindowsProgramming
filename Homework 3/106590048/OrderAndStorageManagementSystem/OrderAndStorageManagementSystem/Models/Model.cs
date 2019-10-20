@@ -174,7 +174,7 @@ namespace OrderAndStorageManagementSystem.Models
         }
 
         // Protest on Dr.Smell
-        public void ClearOrder()
+        private void ClearOrder()
         {
             _order.ClearOrder();
             NotifyObserverChangeAndClearOrder();
@@ -234,6 +234,12 @@ namespace OrderAndStorageManagementSystem.Models
         private string GetOrderItemTotalPrice(int orderItemIndex)
         {
             return _order.GetOrderItemTotalPrice(orderItemIndex);
+        }
+
+        // Protest on Dr.Smell
+        public void SubmitOrder()
+        {
+            ClearOrder();
         }
     }
 }
