@@ -22,11 +22,14 @@ namespace OrderAndStorageManagementSystem.Views
             _model = modelData;
             _product = productData;
             // UI
+            _productSupplyQuantityField.TextChanged += (sender, eventArguments) => RefreshControls();
+            _productSupplyQuantityField.Leave += (sender, eventArguments) => RefreshControls();
             _submitButton.Click += ClickSubmitButton;
             _cancelButton.Click += (sender, eventArguments) => this.Close();
             InitializeInputHandler();
             // Initial UI States
             InitializeProductInfo();
+            RefreshControls();
         }
 
         // Protest on Dr.Smell
@@ -56,6 +59,12 @@ namespace OrderAndStorageManagementSystem.Views
             _productType.Text = PRODUCT_TYPE_TEXT + _product.Type;
             _productPrice.Text = PRODUCT_PRICE_TEXT + _product.Price.GetStringWithCurrencyUnit(AppDefinition.TAIWAN_CURRENCY_UNIT);
             _productStorageQuantity.Text = PRODUCT_STORAGE_QUANTITY_TEXT + _product.StorageQuantity;
+        }
+
+        // Protest on Dr.Smell
+        private void RefreshControls()
+        {
+            _submitButton.Enabled = _productSupplyQuantityField.Text != "";
         }
     }
 }
