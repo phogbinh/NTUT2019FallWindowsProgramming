@@ -150,9 +150,7 @@ namespace OrderAndStorageManagementSystem.Models
         {
             NotifyObserverChangeOrder();
             if ( OrderAdded != null )
-            {
                 OrderAdded(orderItem);
-            }
         }
 
         /// <summary>
@@ -180,9 +178,7 @@ namespace OrderAndStorageManagementSystem.Models
         {
             NotifyObserverChangeOrder();
             if ( OrderRemoved != null )
-            {
                 OrderRemoved(orderItemIndex, removedProduct);
-            }
         }
 
         /// <summary>
@@ -191,9 +187,7 @@ namespace OrderAndStorageManagementSystem.Models
         private void NotifyObserverChangeOrder()
         {
             if ( OrderChanged != null )
-            {
                 OrderChanged();
-            }
         }
 
         /// <summary>
@@ -236,9 +230,7 @@ namespace OrderAndStorageManagementSystem.Models
         {
             NotifyObserverChangeOrder();
             if ( OrderItemQuantityChanged != null )
-            {
                 OrderItemQuantityChanged(orderItemIndex, orderItemTotalPrice);
-            }
         }
 
         /// <summary>
@@ -247,9 +239,7 @@ namespace OrderAndStorageManagementSystem.Models
         private void NotifyObserverOrderItemQuantityIsExceededStorageQuantity(int orderItemIndex, int storageQuantity)
         {
             if ( OrderItemQuantityIsExceededStorageQuantity != null )
-            {
                 OrderItemQuantityIsExceededStorageQuantity(orderItemIndex, storageQuantity);
-            }
         }
 
         /// <summary>
@@ -297,9 +287,7 @@ namespace OrderAndStorageManagementSystem.Models
         {
             NotifyObserverChangeOrder();
             if ( OrderCleared != null )
-            {
                 OrderCleared();
-            }
         }
 
         /// <summary>
@@ -332,9 +320,7 @@ namespace OrderAndStorageManagementSystem.Models
         private void NotifyObserverChangeProductStorageQuantity(Product product)
         {
             if ( ProductStorageQuantityChanged != null )
-            {
                 ProductStorageQuantityChanged(product);
-            }
         }
     }
 }

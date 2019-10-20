@@ -25,7 +25,7 @@ namespace OrderAndStorageManagementSystem.Views
             _productSupplyQuantityField.Leave += (sender, eventArguments) => RefreshControls();
             _submitButton.Click += ClickSubmitButton;
             _cancelButton.Click += (sender, eventArguments) => this.Close();
-            InitializeInputConstraint();
+            InitializeInputLimit();
             // Initial UI States
             InitializeProductInfoView();
             RefreshControls();
@@ -41,9 +41,9 @@ namespace OrderAndStorageManagementSystem.Views
         }
 
         /// <summary>
-        /// Initialize input constraint.
+        /// Initialize input limit.
         /// </summary>
-        private void InitializeInputConstraint()
+        private void InitializeInputLimit()
         {
             _productSupplyQuantityField.KeyPress += InputHelper.InputNumbersOrBackSpace;
         }

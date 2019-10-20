@@ -22,7 +22,7 @@ namespace OrderAndStorageManagementSystem.Views
             // UI
             this.FormClosed += (sender, eventArguments) => _cardSecurityCodeField.Text = AppDefinition.EMPTY_STRING;
             _submitButton.Click += ClickSubmitButton;
-            InitializeInputContraints();
+            InitializeInputLimits();
             InitializeControlInspectors();
             // Initial UI States
             InitializeInspectors();
@@ -42,9 +42,9 @@ namespace OrderAndStorageManagementSystem.Views
         }
 
         /// <summary>
-        /// Initialize input constraints.
+        /// Initialize input limits.
         /// </summary>
-        private void InitializeInputContraints()
+        private void InitializeInputLimits()
         {
             _lastNameField.KeyPress += InputHelper.InputLettersOrWhiteSpaceOrBackSpace;
             _firstNameField.KeyPress += InputHelper.InputLettersOrWhiteSpaceOrBackSpace;
