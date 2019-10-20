@@ -263,5 +263,11 @@ namespace OrderAndStorageManagementSystem.Models
             }
             throw new ArgumentException(ERROR_INVALID_PRODUCT_ID);
         }
+
+        // Protest on Dr.Smell
+        public void SupplyProductStorageQuantity(Product product, int supplyQuantity)
+        {
+            product.StorageQuantity = product.StorageQuantity + supplyQuantity;
+        }
     }
 }

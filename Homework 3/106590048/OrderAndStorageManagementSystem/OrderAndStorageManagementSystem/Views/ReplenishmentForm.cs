@@ -12,6 +12,7 @@ namespace OrderAndStorageManagementSystem.Views
         private const string PRODUCT_TYPE_TEXT = "商品類別： ";
         private const string PRODUCT_PRICE_TEXT = "商品單價： ";
         private const string PRODUCT_STORAGE_QUANTITY_TEXT = "庫存數量： ";
+        private const string ERROR_EMPTY_SUPPLY_QUANTITY_FIELD = "Supply quantity field is empty. Please enter the supply quantity for this product and try again.";
         private Model _model;
         private Product _product;
 
@@ -21,18 +22,25 @@ namespace OrderAndStorageManagementSystem.Views
             _model = modelData;
             _product = productData;
             // UI
-            _submitButton.Click += (sender, eventArguments) => CloseForm(DialogResult.OK);
-            _cancelButton.Click += (sender, eventArguments) => CloseForm(DialogResult.Cancel);
+            _submitButton.Click += ClickSubmitButton;
+            _cancelButton.Click += (sender, eventArguments) => this.Close();
             InitializeInputHandler();
             // Initial UI States
             InitializeProductInfo();
         }
 
         // Protest on Dr.Smell
-        private void CloseForm(DialogResult dialogResult)
+        private void ClickSubmitButton(object sender, EventArgs eventArguments)
         {
-            this.Close();
-            this.DialogResult = dialogResult;
+            if ( _productSupplyQuantityField.Text == "" )
+            {
+                MessageBox.Show(ERROR_EMPTY_SUPPLY_QUANTITY_FIELD);
+            }
+            else
+            {
+                this.Close();
+                _model.SupplyProductStorageQuantity(_product, int.Parse(_productSupplyQuantityField.Text));
+            }
         }
 
         // Protest on Dr.Smell
