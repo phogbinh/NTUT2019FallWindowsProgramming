@@ -191,6 +191,7 @@
             this._productSupplyQuantityField.Dock = System.Windows.Forms.DockStyle.Fill;
             this._productSupplyQuantityField.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._productSupplyQuantityField.Location = new System.Drawing.Point(137, 3);
+            this._productSupplyQuantityField.MaxLength = 9;
             this._productSupplyQuantityField.Name = "_productSupplyQuantityField";
             this._productSupplyQuantityField.Size = new System.Drawing.Size(344, 32);
             this._productSupplyQuantityField.TabIndex = 1;
