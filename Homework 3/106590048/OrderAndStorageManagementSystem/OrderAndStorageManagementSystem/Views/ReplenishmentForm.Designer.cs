@@ -89,6 +89,7 @@
             // _submitButton
             // 
             this._submitButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._submitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._submitButton.Location = new System.Drawing.Point(3, 3);
             this._submitButton.Name = "_submitButton";
             this._submitButton.Size = new System.Drawing.Size(236, 38);
@@ -99,6 +100,7 @@
             // _cancelButton
             // 
             this._cancelButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._cancelButton.Location = new System.Drawing.Point(245, 3);
             this._cancelButton.Name = "_cancelButton";
             this._cancelButton.Size = new System.Drawing.Size(236, 38);
