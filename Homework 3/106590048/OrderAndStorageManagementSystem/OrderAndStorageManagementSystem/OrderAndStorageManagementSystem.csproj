@@ -114,6 +114,7 @@
     <Compile Include="Views\ReplenishmentForm.Designer.cs">
       <DependentUpon>ReplenishmentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Utilities\DataGridViewHelper.cs" />
     <Compile Include="Views\Utilities\OrderProductTabPageButton.cs">
       <SubType>Component</SubType>
     </Compile>

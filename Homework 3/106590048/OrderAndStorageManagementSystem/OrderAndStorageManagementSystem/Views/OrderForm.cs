@@ -3,8 +3,8 @@ using OrderAndStorageManagementSystem.Models.OrderForm;
 using OrderAndStorageManagementSystem.Models.Utilities;
 using OrderAndStorageManagementSystem.PresentationModels;
 using OrderAndStorageManagementSystem.Properties;
+using OrderAndStorageManagementSystem.Views.Utilities;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace OrderAndStorageManagementSystem.Views
@@ -40,7 +40,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model.OrderItemQuantityIsExceededStorageQuantity += OrderItemQuantityIsExceededStorageQuantity;
             _orderPresentationModel.AddButtonEnabledChanged += () => _addButton.Enabled = _orderPresentationModel.AddButton.Enabled;
             // UI
-            _cartDataGridView.CellPainting += CartDataGridViewCellPainting;
+            _cartDataGridView.CellPainting += (sender, eventArguments) => DataGridViewHelper.InitializeButtonImageOfButtonColumn(eventArguments, CART_DELETE_BUTTON_COLUMN_INDEX, Resources.img_trash_bin);
             _cartDataGridView.CellContentClick += CartDataGridViewCellContentClick;
             _cartDataGridView.CellValueChanged += CartDataGridViewCellValueChanged;
             _leftArrowButton.Click += (sender, events) => GoToPreviousPage();
@@ -81,26 +81,6 @@ namespace OrderAndStorageManagementSystem.Views
         {
             MessageBox.Show(this, ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY_MESSAGE, ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY_TITLE);
             _cartDataGridView.Rows[ orderItemIndex ].Cells[ CART_PRODUCT_QUANTITY_COLUMN_INDEX ].Value = storageQuantity;
-        }
-
-        // Protest on Dr.Smell
-        private void CartDataGridViewCellPainting(object sender, DataGridViewCellPaintingEventArgs eventArguments)
-        {
-            if ( eventArguments.RowIndex < 0 )
-            {
-                return;
-            }
-            if ( eventArguments.ColumnIndex == CART_DELETE_BUTTON_COLUMN_INDEX )
-            {
-                Image image = Resources.img_trash_bin;
-                eventArguments.Paint(eventArguments.CellBounds, DataGridViewPaintParts.All);
-                int width = image.Width;
-                int height = image.Height;
-                int left = eventArguments.CellBounds.Left + ( eventArguments.CellBounds.Width - width ) / AppDefinition.TWO;
-                int top = eventArguments.CellBounds.Top + ( eventArguments.CellBounds.Height - height ) / AppDefinition.TWO;
-                eventArguments.Graphics.DrawImage(image, new Rectangle(left, top, width, height));
-                eventArguments.Handled = true;
-            }
         }
 
         // Protest on Dr.Smell
