@@ -252,25 +252,6 @@ namespace OrderAndStorageManagementSystem.Models
         }
 
         // Protest on Dr.Smell
-        public string GetProductNameAndDescription(int productId)
-        {
-            foreach ( Product product in _products )
-            {
-                if ( product.Id == productId )
-                {
-                    return GetProductNameAndDescription(product);
-                }
-            }
-            throw new ArgumentException(ERROR_INVALID_PRODUCT_ID);
-        }
-
-        // Protest on Dr.Smell
-        private string GetProductNameAndDescription(Product product)
-        {
-            return product.GetProductNameAndDescription();
-        }
-
-        // Protest on Dr.Smell
         public Product GetProduct(int productId)
         {
             foreach ( Product product in _products )
