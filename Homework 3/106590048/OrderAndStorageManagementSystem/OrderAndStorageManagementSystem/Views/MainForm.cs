@@ -49,7 +49,7 @@ namespace OrderAndStorageManagementSystem.Views
         private void ClickInventorySystemButton(object sender, System.EventArgs events)
         {
             InventoryForm inventoryForm;
-            inventoryForm = new InventoryForm();
+            inventoryForm = new InventoryForm(_model);
             inventoryForm.FormClosed += CloseInventoryForm;
             inventoryForm.Show();
             _mainPresentationModel.ClickInventorySystemButton();
