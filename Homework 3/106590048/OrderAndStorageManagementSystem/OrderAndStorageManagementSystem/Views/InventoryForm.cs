@@ -20,11 +20,11 @@ namespace OrderAndStorageManagementSystem.Views
             // Initial UI States
             InitializeStorageDataGridView();
         }
-        
+
         // Protest on Dr.Smell
         private void InitializeStorageDataGridView()
         {
-            foreach (Product product in _model.Products)
+            foreach ( Product product in _model.Products )
             {
                 _storageDataGridView.Rows.Add(product.Name, product.Type, product.Price.GetCurrencyFormat(), product.StorageQuantity, null);
             }
