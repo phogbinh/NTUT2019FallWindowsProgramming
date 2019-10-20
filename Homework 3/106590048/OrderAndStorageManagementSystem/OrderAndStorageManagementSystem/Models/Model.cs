@@ -97,7 +97,7 @@ namespace OrderAndStorageManagementSystem.Models
         // Protest on Dr.Smell
         public void AddProductToOrderIfProductIsNotInOrder(Product product)
         {
-            OrderItem orderProduct = new OrderItem(product.Id, product.Name, product.Type, product.Price, product.StorageQuantity, product.Description);
+            var orderProduct = new OrderItem(product);
             if ( IsNotInOrder(orderProduct) )
             {
                 _order.AddOrderProduct(orderProduct);

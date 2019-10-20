@@ -2,9 +2,51 @@
 
 namespace OrderAndStorageManagementSystem.Models.OrderForm
 {
-    public class OrderItem : Product
+    public class OrderItem
     {
         private const int ORDER_QUANTITY_INITIAL_VALUE = 1;
+        public int Id
+        {
+            get
+            {
+                return _product.Id;
+            }
+        }
+        public string Name
+        {
+            get
+            {
+                return _product.Name;
+            }
+        }
+        public string Type
+        {
+            get
+            {
+                return _product.Type;
+            }
+        }
+        public Money Price
+        {
+            get
+            {
+                return _product.Price;
+            }
+        }
+        public int StorageQuantity
+        {
+            get
+            {
+                return _product.StorageQuantity;
+            }
+        }
+        public string Description
+        {
+            get
+            {
+                return _product.Description;
+            }
+        }
         public int OrderQuantity
         {
             get
@@ -16,10 +58,12 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
                 _orderQuantity = value;
             }
         }
+        private Product _product;
         private int _orderQuantity;
 
-        public OrderItem(int idData, string nameData, string typeData, Money priceData, int storageQuantityData, string descriptionData) : base(idData, nameData, typeData, priceData, storageQuantityData, descriptionData)
+        public OrderItem(Product productData)
         {
+            _product = productData;
             _orderQuantity = ORDER_QUANTITY_INITIAL_VALUE;
         }
 
