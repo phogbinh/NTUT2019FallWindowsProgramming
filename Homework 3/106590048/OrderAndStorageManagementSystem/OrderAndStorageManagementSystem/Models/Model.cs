@@ -14,7 +14,7 @@ namespace OrderAndStorageManagementSystem.Models
         private event OrderAddedEventHandler _orderAdded;
         public delegate void OrderRemovedEventHandler(int productIndex);
         private event OrderRemovedEventHandler _orderRemoved;
-        public delegate void OrderItemQuantityChangedEventHandler(int productIndex);
+        public delegate void OrderItemQuantityChangedEventHandler(int productIndex, string orderItemTotalPrice);
         private event OrderItemQuantityChangedEventHandler _orderItemQuantityChanged;
         public delegate void OrderItemQuantityIsExceededStorageQuantityEventHandler(int orderItemIndex, int storageQuantity);
         private event OrderItemQuantityIsExceededStorageQuantityEventHandler _orderItemQuantityIsExceededStorageQuantity;
@@ -195,7 +195,7 @@ namespace OrderAndStorageManagementSystem.Models
             if ( !IsExceededStorageQuantity(productIndex, newCartProductQuantity) )
             {
                 _order.SetOrderItemQuantity(productIndex, newCartProductQuantity);
-                NotifyObserverChangeOrderItemQuantity(productIndex);
+                NotifyObserverChangeOrderItemQuantity(productIndex, GetOrderItemTotalPrice(productIndex));
             }
             else
             {
@@ -211,12 +211,12 @@ namespace OrderAndStorageManagementSystem.Models
         }
 
         // Protest on Dr.Smell
-        private void NotifyObserverChangeOrderItemQuantity(int productIndex)
+        private void NotifyObserverChangeOrderItemQuantity(int productIndex, string orderItemTotalPrice)
         {
             NotifyObserverChangeOrder();
             if ( OrderItemQuantityChanged != null )
             {
-                OrderItemQuantityChanged(productIndex);
+                OrderItemQuantityChanged(productIndex, orderItemTotalPrice);
             }
         }
 
@@ -230,7 +230,7 @@ namespace OrderAndStorageManagementSystem.Models
         }
 
         // Protest on Dr.Smell
-        public string GetOrderItemTotalPrice(int productIndex)
+        private string GetOrderItemTotalPrice(int productIndex)
         {
             return _order.GetOrderItemTotalPrice(productIndex);
         }
