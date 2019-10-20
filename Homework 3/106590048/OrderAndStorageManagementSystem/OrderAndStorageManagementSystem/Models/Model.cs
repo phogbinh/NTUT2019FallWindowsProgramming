@@ -1,5 +1,6 @@
 ﻿using OrderAndStorageManagementSystem.Models.OrderForm;
 using OrderAndStorageManagementSystem.Models.Utilities;
+using System;
 using System.Collections.Generic;
 
 namespace OrderAndStorageManagementSystem.Models
@@ -98,6 +99,7 @@ namespace OrderAndStorageManagementSystem.Models
                 return _order;
             }
         }
+        private const string ERROR_INVALID_PRODUCT_ID = "Product Id is invalid.";
         private List<Product> _products;
         private Order _order;
 
@@ -247,6 +249,19 @@ namespace OrderAndStorageManagementSystem.Models
             {
                 OrderCleared();
             }
+        }
+
+        // Protest on Dr.Smell
+        public string GetProductNameAndDescription(int productId)
+        {
+            foreach ( Product product in _products )
+            {
+                if ( product.Id == productId )
+                {
+                    return product.GetProductNameAndDescription();
+                }
+            }
+            throw new ArgumentException(ERROR_INVALID_PRODUCT_ID);
         }
     }
 }
