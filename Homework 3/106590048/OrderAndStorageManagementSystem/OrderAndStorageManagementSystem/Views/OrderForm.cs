@@ -14,6 +14,7 @@ namespace OrderAndStorageManagementSystem.Views
         private const string TAB_PAGE_LAYOUT_NAME = "_productTabPageLayout";
         private const string ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY_MESSAGE = "庫存不足";
         private const string ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY_TITLE = "庫存狀態";
+        private const int CART_DELETE_BUTTON_COLUMN_INDEX = 0;
         private const int CART_PRODUCT_QUANTITY_COLUMN_INDEX = 4;
         private const int CART_PRODUCT_TOTAL_PRICE_COLUMN_INDEX = 5;
         private CreditCardPaymentForm _creditCardPaymentForm;
@@ -89,7 +90,7 @@ namespace OrderAndStorageManagementSystem.Views
             {
                 return;
             }
-            if ( eventArguments.ColumnIndex == 0 )
+            if ( eventArguments.ColumnIndex == CART_DELETE_BUTTON_COLUMN_INDEX )
             {
                 Image image = Resources.img_trash_bin;
                 eventArguments.Paint(eventArguments.CellBounds, DataGridViewPaintParts.All);
