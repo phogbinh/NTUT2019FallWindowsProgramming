@@ -8,18 +8,21 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         private const int TOTAL_PRICE_INITIAL_VALUE = 0;
 
         private List<OrderItem> _orderItems;
-        private Money _totalPrice;
 
         public Order()
         {
             _orderItems = new List<OrderItem>();
-            _totalPrice = new Money(TOTAL_PRICE_INITIAL_VALUE);
         }
 
         // Protest on Dr.Smell
         public string GetTotalPrice(string currencyUnit)
         {
-            return _totalPrice.GetStringWithCurrencyUnit(currencyUnit);
+            Money totalPrice = new Money(TOTAL_PRICE_INITIAL_VALUE);
+            foreach ( OrderItem orderItem in _orderItems )
+            {
+                totalPrice.Add(orderItem.GetTotalPrice());
+            }
+            return totalPrice.GetStringWithCurrencyUnit(currencyUnit);
         }
 
         // Protest on Dr.Smell
@@ -38,14 +41,12 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         // Protest on Dr.Smell
         public void AddOrderItem(OrderItem orderItem)
         {
-            _totalPrice.Add(orderItem.Price);
             _orderItems.Add(orderItem);
         }
 
         // Protest on Dr.Smell
         public void RemoveOrderItemAt(int orderItemIndex)
         {
-            _totalPrice.Subtract(_orderItems[ orderItemIndex ].GetTotalPrice());
             _orderItems.RemoveAt(orderItemIndex);
         }
 
@@ -58,7 +59,6 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         // Protest on Dr.Smell
         public void ClearOrder()
         {
-            _totalPrice.Set(TOTAL_PRICE_INITIAL_VALUE);
             _orderItems.Clear();
         }
 
