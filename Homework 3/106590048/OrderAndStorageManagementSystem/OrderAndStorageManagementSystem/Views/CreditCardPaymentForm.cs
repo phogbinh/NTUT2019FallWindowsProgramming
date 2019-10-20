@@ -9,6 +9,7 @@ namespace OrderAndStorageManagementSystem.Views
 {
     public partial class CreditCardPaymentForm : Form
     {
+        private const string ORDER_COMPLETE_TITLE = "訂購狀態";
         private const string ORDER_COMPLETE_MESSAGE = "訂購完成";
         private CreditCardPaymentPresentationModel _creditCardPaymentPresentationModel;
         private Model _model;
@@ -33,7 +34,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void ClickSubmitButton(object sender, EventArgs eventArguments)
         {
-            if ( MessageBox.Show(ORDER_COMPLETE_MESSAGE) == DialogResult.OK )
+            if ( MessageBox.Show(this, ORDER_COMPLETE_MESSAGE, ORDER_COMPLETE_TITLE) == DialogResult.OK )
             {
                 _model.SubmitOrder();
                 this.Close();
