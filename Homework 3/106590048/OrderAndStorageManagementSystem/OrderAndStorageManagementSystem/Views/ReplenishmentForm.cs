@@ -1,6 +1,7 @@
 ﻿using OrderAndStorageManagementSystem.Models;
 using OrderAndStorageManagementSystem.Models.Utilities;
 using OrderAndStorageManagementSystem.Views.Utilities;
+using System;
 using System.Windows.Forms;
 
 namespace OrderAndStorageManagementSystem.Views
@@ -20,9 +21,18 @@ namespace OrderAndStorageManagementSystem.Views
             _model = modelData;
             _product = productData;
             // UI
+            _submitButton.Click += (sender, eventArguments) => CloseForm(DialogResult.OK);
+            _cancelButton.Click += (sender, eventArguments) => CloseForm(DialogResult.Cancel);
             InitializeInputHandler();
             // Initial UI States
             InitializeProductInfo();
+        }
+
+        // Protest on Dr.Smell
+        private void CloseForm(DialogResult dialogResult)
+        {
+            this.Close();
+            this.DialogResult = dialogResult;
         }
 
         // Protest on Dr.Smell
