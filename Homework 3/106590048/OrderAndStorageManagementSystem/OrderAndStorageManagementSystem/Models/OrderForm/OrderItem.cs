@@ -47,6 +47,13 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
                 return _product.Description;
             }
         }
+        public Product Product
+        {
+            get
+            {
+                return _product;
+            }
+        }
         public int OrderQuantity
         {
             get

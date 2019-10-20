@@ -1,4 +1,5 @@
-﻿using OrderAndStorageManagementSystem.Models;
+﻿using System;
+using OrderAndStorageManagementSystem.Models;
 using OrderAndStorageManagementSystem.Models.OrderForm;
 using OrderAndStorageManagementSystem.Models.Utilities;
 using OrderAndStorageManagementSystem.PresentationModels.Utilities;
@@ -8,6 +9,19 @@ namespace OrderAndStorageManagementSystem.PresentationModels
     public class OrderPresentationModel
     {
         private const int CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE = 0;
+        public delegate void AddButtonEnabledChangedEventHandler();
+        private event AddButtonEnabledChangedEventHandler _addButtonEnabledChanged;
+        public AddButtonEnabledChangedEventHandler AddButtonEnabledChanged
+        {
+            get
+            {
+                return _addButtonEnabledChanged;
+            }
+            set
+            {
+                _addButtonEnabledChanged = value;
+            }
+        }
         public ControlStates ProductNameAndDescription
         {
             get
@@ -81,6 +95,9 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             _orderModel = orderModelData;
             _model = modelData;
+            // Observers
+            _model.OrderAdded += OrderAdded;
+            // UI
             _productNameAndDescription = new ControlStates();
             _productStorageQuantity = new ControlStates();
             _productPrice = new ControlStates();
@@ -88,6 +105,25 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             _pageLabel = new ControlStates();
             _leftArrowButton = new ControlStates();
             _rightArrowButton = new ControlStates();
+        }
+
+        // Protest on Dr.Smell
+        private void OrderAdded(OrderItem orderItem)
+        {
+            if ( orderItem.Product == _currentSelectedProduct )
+            {
+                _addButton.Enabled = false;
+                NotifyObserverChangeAddButtonEnabled();
+            }
+        }
+
+        // Protest on Dr.Smell
+        private void NotifyObserverChangeAddButtonEnabled()
+        {
+            if ( AddButtonEnabledChanged != null )
+            {
+                AddButtonEnabledChanged();
+            }
         }
 
         // Protest on Dr.Smell
