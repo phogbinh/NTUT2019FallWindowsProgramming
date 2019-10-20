@@ -12,9 +12,9 @@ namespace OrderAndStorageManagementSystem.Models
         private event OrderClearedEventHandler _orderCleared;
         public delegate void OrderAddedEventHandler(OrderItem orderItem);
         private event OrderAddedEventHandler _orderAdded;
-        public delegate void OrderRemovedEventHandler(int productIndex);
+        public delegate void OrderRemovedEventHandler(int orderItemIndex);
         private event OrderRemovedEventHandler _orderRemoved;
-        public delegate void OrderItemQuantityChangedEventHandler(int productIndex, string orderItemTotalPrice);
+        public delegate void OrderItemQuantityChangedEventHandler(int orderItemIndex, string orderItemTotalPrice);
         private event OrderItemQuantityChangedEventHandler _orderItemQuantityChanged;
         public delegate void OrderItemQuantityIsExceededStorageQuantityEventHandler(int orderItemIndex, int storageQuantity);
         private event OrderItemQuantityIsExceededStorageQuantityEventHandler _orderItemQuantityIsExceededStorageQuantity;
@@ -141,19 +141,19 @@ namespace OrderAndStorageManagementSystem.Models
         }
 
         // Protest on Dr.Smell
-        public void RemoveProductFromOrder(int productIndex)
+        public void RemoveOrderItemAt(int orderItemIndex)
         {
-            _order.RemoveOrderItemAt(productIndex);
-            NotifyObserverChangeAndRemoveOrder(productIndex);
+            _order.RemoveOrderItemAt(orderItemIndex);
+            NotifyObserverChangeAndRemoveOrder(orderItemIndex);
         }
 
         // Protest on Dr.Smell
-        private void NotifyObserverChangeAndRemoveOrder(int productIndex)
+        private void NotifyObserverChangeAndRemoveOrder(int orderItemIndex)
         {
             NotifyObserverChangeOrder();
             if ( OrderRemoved != null )
             {
-                OrderRemoved(productIndex);
+                OrderRemoved(orderItemIndex);
             }
         }
 
@@ -190,33 +190,33 @@ namespace OrderAndStorageManagementSystem.Models
         }
 
         // Protest on Dr.Smell
-        public void SetOrderItemQuantity(int productIndex, int newCartProductQuantity)
+        public void SetOrderItemQuantity(int orderItemIndex, int newCartProductQuantity)
         {
-            if ( !IsExceededStorageQuantity(productIndex, newCartProductQuantity) )
+            if ( !IsExceededStorageQuantity(orderItemIndex, newCartProductQuantity) )
             {
-                _order.SetOrderItemQuantity(productIndex, newCartProductQuantity);
-                NotifyObserverChangeOrderItemQuantity(productIndex, GetOrderItemTotalPrice(productIndex));
+                _order.SetOrderItemQuantity(orderItemIndex, newCartProductQuantity);
+                NotifyObserverChangeOrderItemQuantity(orderItemIndex, GetOrderItemTotalPrice(orderItemIndex));
             }
             else
             {
-                _order.SetOrderItemQuantityToStorageQuantity(productIndex);
-                NotifyObserverOrderItemQuantityIsExceededStorageQuantity(productIndex, _order.GetStorageQuantity(productIndex));
+                _order.SetOrderItemQuantityToStorageQuantity(orderItemIndex);
+                NotifyObserverOrderItemQuantityIsExceededStorageQuantity(orderItemIndex, _order.GetStorageQuantity(orderItemIndex));
             }
         }
 
         // Protest on Dr.Smell
-        private bool IsExceededStorageQuantity(int productIndex, int quantity)
+        private bool IsExceededStorageQuantity(int orderItemIndex, int quantity)
         {
-            return _order.IsExceededStorageQuantity(productIndex, quantity);
+            return _order.IsExceededStorageQuantity(orderItemIndex, quantity);
         }
 
         // Protest on Dr.Smell
-        private void NotifyObserverChangeOrderItemQuantity(int productIndex, string orderItemTotalPrice)
+        private void NotifyObserverChangeOrderItemQuantity(int orderItemIndex, string orderItemTotalPrice)
         {
             NotifyObserverChangeOrder();
             if ( OrderItemQuantityChanged != null )
             {
-                OrderItemQuantityChanged(productIndex, orderItemTotalPrice);
+                OrderItemQuantityChanged(orderItemIndex, orderItemTotalPrice);
             }
         }
 
@@ -230,9 +230,9 @@ namespace OrderAndStorageManagementSystem.Models
         }
 
         // Protest on Dr.Smell
-        private string GetOrderItemTotalPrice(int productIndex)
+        private string GetOrderItemTotalPrice(int orderItemIndex)
         {
-            return _order.GetOrderItemTotalPrice(productIndex);
+            return _order.GetOrderItemTotalPrice(orderItemIndex);
         }
     }
 }

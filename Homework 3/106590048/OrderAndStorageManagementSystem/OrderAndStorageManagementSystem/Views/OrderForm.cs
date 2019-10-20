@@ -34,8 +34,8 @@ namespace OrderAndStorageManagementSystem.Views
             _model.OrderChanged += UpdateCartSectionView;
             _model.OrderCleared += () => _cartDataGridView.Rows.Clear();
             _model.OrderAdded += (orderItem) => _cartDataGridView.Rows.Add(null, orderItem.Name, orderItem.Type, orderItem.Price.GetCurrencyFormat(), orderItem.OrderQuantity, orderItem.GetTotalPrice().GetCurrencyFormat());
-            _model.OrderRemoved += (productIndex) => _cartDataGridView.Rows.RemoveAt(productIndex);
-            _model.OrderItemQuantityChanged += (productIndex, orderItemTotalPrice) => _cartDataGridView.Rows[ productIndex ].Cells[ CART_PRODUCT_TOTAL_PRICE_COLUMN_INDEX ].Value = orderItemTotalPrice;
+            _model.OrderRemoved += (orderItemIndex) => _cartDataGridView.Rows.RemoveAt(orderItemIndex);
+            _model.OrderItemQuantityChanged += (orderItemIndex, orderItemTotalPrice) => _cartDataGridView.Rows[ orderItemIndex ].Cells[ CART_PRODUCT_TOTAL_PRICE_COLUMN_INDEX ].Value = orderItemTotalPrice;
             _model.OrderItemQuantityIsExceededStorageQuantity += OrderItemQuantityIsExceededStorageQuantity;
             // UI
             _cartDataGridView.CellPainting += CartDataGridViewCellPainting;
@@ -96,7 +96,7 @@ namespace OrderAndStorageManagementSystem.Views
             }
             if ( eventArguments.ColumnIndex == 0 )
             {
-                _model.RemoveProductFromOrder(eventArguments.RowIndex);
+                _model.RemoveOrderItemAt(eventArguments.RowIndex);
             }
         }
 
