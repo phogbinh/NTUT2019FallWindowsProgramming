@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.852
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "106590018_HW3", "106590018_HW1\106590018_HW3.csproj", "{8935128C-4022-4DB3-B0EB-3ED6762EA557}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridViewNumericUpDownElements", "106590018_HW1\DataGridViewNumericUpDownElements\DataGridViewNumericUpDownElements.csproj", "{82B50731-BE90-433F-BB6E-9B509C5F3B7C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8935128C-4022-4DB3-B0EB-3ED6762EA557}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8935128C-4022-4DB3-B0EB-3ED6762EA557}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8935128C-4022-4DB3-B0EB-3ED6762EA557}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8935128C-4022-4DB3-B0EB-3ED6762EA557}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82B50731-BE90-433F-BB6E-9B509C5F3B7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82B50731-BE90-433F-BB6E-9B509C5F3B7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82B50731-BE90-433F-BB6E-9B509C5F3B7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82B50731-BE90-433F-BB6E-9B509C5F3B7C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {90CC3174-EBB9-4DA7-A9D6-A811312B118B}
+	EndGlobalSection
+EndGlobal
