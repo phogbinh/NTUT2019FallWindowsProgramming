@@ -219,10 +219,10 @@
               <Auto>false</Auto>
             </Smell>
           </Reviews>
-          <HashCodeIgnoreList />
-          <HashCodeRequestIgnoreList>
+          <HashCodeIgnoreList>
             <string>UnsuitableNaming.OrderAndStorageManagementSystem.Views.ReplenishmentForm.ReplenishmentForm</string>
-          </HashCodeRequestIgnoreList>
+          </HashCodeIgnoreList>
+          <HashCodeRequestIgnoreList />
           <AnalysisFileManager>
             <AnalysisFiles>
               <AnalysisFile>
