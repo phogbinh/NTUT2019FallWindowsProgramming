@@ -80,7 +80,6 @@
     <Compile Include="Models\OrderForm\OrderProductTabPageProductPage.cs" />
     <Compile Include="PresentationModels\InventoryPresentationModel.cs" />
     <Compile Include="PresentationModels\Utilities\ControlStates.cs" />
-    <Compile Include="PresentationModels\CreditCardPaymentPresentationModel.cs" />
     <Compile Include="PresentationModels\MainPresentationModel.cs" />
     <Compile Include="PresentationModels\OrderPresentationModel.cs" />
     <Compile Include="Views\CreditCardPaymentForm.cs">

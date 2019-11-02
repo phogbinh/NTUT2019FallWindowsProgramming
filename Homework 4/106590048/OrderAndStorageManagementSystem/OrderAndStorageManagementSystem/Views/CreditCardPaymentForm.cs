@@ -11,16 +11,14 @@ namespace OrderAndStorageManagementSystem.Views
     {
         private const string ORDER_COMPLETE_TITLE = "訂購狀態";
         private const string ORDER_COMPLETE_MESSAGE = "訂購完成";
-        private CreditCardPaymentPresentationModel _creditCardPaymentPresentationModel;
         private CreditCardPaymentModel _creditCardPaymentModel;
         private Model _model;
         private IDictionary<TextBox, int> _textBoxWithTextBoxModelIndexContainers;
         private IDictionary<ComboBox, int> _dropDownListWithDropDownListModelIndexContainers;
 
-        public CreditCardPaymentForm(CreditCardPaymentPresentationModel creditCardPaymentPresentationModelData, CreditCardPaymentModel creditCardPaymentModelData, Model modelData)
+        public CreditCardPaymentForm(CreditCardPaymentModel creditCardPaymentModelData, Model modelData)
         {
             InitializeComponent();
-            _creditCardPaymentPresentationModel = creditCardPaymentPresentationModelData;
             _creditCardPaymentModel = creditCardPaymentModelData;
             _model = modelData;
             // Observers
