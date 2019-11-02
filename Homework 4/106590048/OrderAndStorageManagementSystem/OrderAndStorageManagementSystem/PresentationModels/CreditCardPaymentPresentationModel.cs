@@ -56,13 +56,5 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             _submitButton.Enabled = _creditCardPaymentModel.AreAllValidInspectors();
         }
-
-        /// <summary>
-        /// Get the first InputInspector error of the control at controlIndex.
-        /// </summary>
-        public string GetControlError(int controlIndex)
-        {
-            return _creditCardPaymentModel.GetControlError(controlIndex);
-        }
     }
 }

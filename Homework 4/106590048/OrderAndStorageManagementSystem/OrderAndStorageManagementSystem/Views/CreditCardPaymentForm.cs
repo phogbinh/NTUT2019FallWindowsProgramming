@@ -106,7 +106,7 @@ namespace OrderAndStorageManagementSystem.Views
         private void UpdateControlInspectorsAndSetError(Control control, int controlIndex, Action updateControlInspectorsFunction)
         {
             updateControlInspectorsFunction();
-            _errorProvider.SetError(control, _creditCardPaymentPresentationModel.GetControlError(controlIndex));
+            _errorProvider.SetError(control, _creditCardPaymentModel.GetControlError(controlIndex));
             RefreshControls();
         }
 
