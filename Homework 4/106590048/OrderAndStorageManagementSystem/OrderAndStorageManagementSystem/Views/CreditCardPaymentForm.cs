@@ -163,8 +163,8 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void AssignTextBoxInspectorAndSetError(TextBox textBox, int textBoxIndex)
         {
-            textBox.TextChanged += (sender, eventArguments) => _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(textBoxIndex, textBox.Text, textBox.MaxLength);
-            textBox.Leave += (sender, eventArguments) => _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(textBoxIndex, textBox.Text, textBox.MaxLength);
+            textBox.TextChanged += (sender, eventArguments) => _creditCardPaymentModel.UpdateTextBoxInspectors(textBoxIndex, textBox.Text, textBox.MaxLength);
+            textBox.Leave += (sender, eventArguments) => _creditCardPaymentModel.UpdateTextBoxInspectors(textBoxIndex, textBox.Text, textBox.MaxLength);
         }
 
         /// <summary>
@@ -183,8 +183,8 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void AssignDropDownListInspectorsAndSetErrors(ComboBox dropDownList, int dropDownListIndex)
         {
-            dropDownList.SelectionChangeCommitted += (sender, eventArguments) => _creditCardPaymentPresentationModel.UpdateDropDownListInspectors(dropDownListIndex, dropDownList.SelectedIndex);
-            dropDownList.Leave += (sender, eventArguments) => _creditCardPaymentPresentationModel.UpdateDropDownListInspectors(dropDownListIndex, dropDownList.SelectedIndex);
+            dropDownList.SelectionChangeCommitted += (sender, eventArguments) => _creditCardPaymentModel.UpdateDropDownListInspectors(dropDownListIndex, dropDownList.SelectedIndex);
+            dropDownList.Leave += (sender, eventArguments) => _creditCardPaymentModel.UpdateDropDownListInspectors(dropDownListIndex, dropDownList.SelectedIndex);
         }
 
         /// <summary>
@@ -204,13 +204,13 @@ namespace OrderAndStorageManagementSystem.Views
             {
                 TextBox textBox = container.Key;
                 int textBoxModelIndex = container.Value;
-                _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(textBoxModelIndex, textBox.Text, textBox.MaxLength);
+                _creditCardPaymentModel.UpdateTextBoxInspectors(textBoxModelIndex, textBox.Text, textBox.MaxLength);
             }
             foreach ( KeyValuePair<ComboBox, int> container in _dropDownListWithDropDownListModelIndexContainers )
             {
                 ComboBox dropDownList = container.Key;
                 int dropDownListModelIndex = container.Value;
-                _creditCardPaymentPresentationModel.UpdateDropDownListInspectors(dropDownListModelIndex, dropDownList.SelectedIndex);
+                _creditCardPaymentModel.UpdateDropDownListInspectors(dropDownListModelIndex, dropDownList.SelectedIndex);
             }
         }
     }
