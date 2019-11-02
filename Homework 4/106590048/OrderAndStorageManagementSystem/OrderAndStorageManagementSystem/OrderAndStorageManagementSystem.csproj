@@ -63,12 +63,12 @@
   <ItemGroup>
     <Compile Include="Models\AppDefinition.cs" />
     <Compile Include="Models\CreditCardPaymentForm\CreditCardPaymentModel.cs" />
-    <Compile Include="Models\CreditCardPaymentForm\DropDownListIsSelectedInspector.cs" />
-    <Compile Include="Models\CreditCardPaymentForm\IInputInspector.cs" />
-    <Compile Include="Models\CreditCardPaymentForm\TextBoxInspector.cs" />
-    <Compile Include="Models\CreditCardPaymentForm\TextBoxIsMailInspector.cs" />
-    <Compile Include="Models\CreditCardPaymentForm\TextBoxIsOfFullLengthInspector.cs" />
-    <Compile Include="Models\CreditCardPaymentForm\TextBoxIsNotEmptyInspector.cs" />
+    <Compile Include="Models\Utilities\InputInspectorUtilities\DropDownListIsSelectedInspector.cs" />
+    <Compile Include="Models\Utilities\InputInspectorUtilities\IInputInspector.cs" />
+    <Compile Include="Models\Utilities\InputInspectorUtilities\TextBoxInspector.cs" />
+    <Compile Include="Models\Utilities\InputInspectorUtilities\TextBoxIsMailInspector.cs" />
+    <Compile Include="Models\Utilities\InputInspectorUtilities\TextBoxIsOfFullLengthInspector.cs" />
+    <Compile Include="Models\Utilities\InputInspectorUtilities\TextBoxIsNotEmptyInspector.cs" />
     <Compile Include="Models\Model.cs" />
     <Compile Include="Models\OrderForm\OrderItem.cs" />
     <Compile Include="Models\Utilities\DataBaseManager.cs" />
@@ -248,5 +248,6 @@
   <ItemGroup>
     <None Include="Resources\img_delivery_truck.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
