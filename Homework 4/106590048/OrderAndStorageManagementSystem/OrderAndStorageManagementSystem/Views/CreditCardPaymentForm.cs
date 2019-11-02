@@ -15,6 +15,7 @@ namespace OrderAndStorageManagementSystem.Views
         private CreditCardPaymentModel _creditCardPaymentModel;
         private Model _model;
         private IDictionary<TextBox, int> _textBoxWithTextBoxModelIndexContainers;
+        private IDictionary<ComboBox, int> _dropDownListWithDropDownListModelIndexContainers;
 
         public CreditCardPaymentForm(CreditCardPaymentPresentationModel creditCardPaymentPresentationModelData, CreditCardPaymentModel creditCardPaymentModelData, Model modelData)
         {
@@ -27,6 +28,7 @@ namespace OrderAndStorageManagementSystem.Views
             _submitButton.Click += ClickSubmitButton;
             InitializeInputLimits();
             InitializeTextBoxWithTextBoxModelIndexContainers();
+            InitializeDropDownListWithDropDownListModelIndexContainers();
             InitializeControlInspectors();
             // Initial UI States
             InitializeInspectors();
@@ -74,6 +76,16 @@ namespace OrderAndStorageManagementSystem.Views
             _textBoxWithTextBoxModelIndexContainers.Add(_cardSecurityCodeField, CreditCardPaymentModel.CARD_SECURITY_CODE_FIELD_INDEX);
             _textBoxWithTextBoxModelIndexContainers.Add(_mailField, CreditCardPaymentModel.MAIL_FIELD_INDEX);
             _textBoxWithTextBoxModelIndexContainers.Add(_addressField, CreditCardPaymentModel.ADDRESS_FIELD_INDEX);
+        }
+
+        /// <summary>
+        /// Initialize _dropDownListWithDropDownListModelIndexContainers.
+        /// </summary>
+        private void InitializeDropDownListWithDropDownListModelIndexContainers()
+        {
+            _dropDownListWithDropDownListModelIndexContainers = new Dictionary<ComboBox, int>();
+            _dropDownListWithDropDownListModelIndexContainers.Add(_cardDateMonthField, CreditCardPaymentModel.CARD_DATE_MONTH_FIELD_INDEX);
+            _dropDownListWithDropDownListModelIndexContainers.Add(_cardDateYearField, CreditCardPaymentModel.CARD_DATE_YEAR_FIELD_INDEX);
         }
 
         /// <summary>
@@ -129,8 +141,10 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void InitializeDropDownListInspectorsAndSetErrors()
         {
-            AssignDropDownListInspectorsAndSetErrors(_cardDateMonthField, CreditCardPaymentModel.CARD_DATE_MONTH_FIELD_INDEX);
-            AssignDropDownListInspectorsAndSetErrors(_cardDateYearField, CreditCardPaymentModel.CARD_DATE_YEAR_FIELD_INDEX);
+            foreach ( KeyValuePair<ComboBox, int> container in _dropDownListWithDropDownListModelIndexContainers )
+            {
+                AssignDropDownListInspectorsAndSetErrors(container.Key, container.Value);
+            }
         }
 
         /// <summary>
@@ -171,8 +185,12 @@ namespace OrderAndStorageManagementSystem.Views
                 int textBoxModelIndex = container.Value;
                 _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(textBoxModelIndex, textBox.Text, textBox.MaxLength);
             }
-            _creditCardPaymentPresentationModel.UpdateDropDownListInspectors(CreditCardPaymentModel.CARD_DATE_MONTH_FIELD_INDEX, _cardDateMonthField.SelectedIndex);
-            _creditCardPaymentPresentationModel.UpdateDropDownListInspectors(CreditCardPaymentModel.CARD_DATE_YEAR_FIELD_INDEX, _cardDateYearField.SelectedIndex);
+            foreach ( KeyValuePair<ComboBox, int> container in _dropDownListWithDropDownListModelIndexContainers )
+            {
+                ComboBox dropDownList = container.Key;
+                int dropDownListModelIndex = container.Value;
+                _creditCardPaymentPresentationModel.UpdateDropDownListInspectors(dropDownListModelIndex, dropDownList.SelectedIndex);
+            }
         }
 
         /// <summary>
