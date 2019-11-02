@@ -132,45 +132,45 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void InitializeControlInspectors()
         {
-            InitializeTextBoxInspectorsAndSetErrors();
-            InitializeDropDownListInspectorsAndSetErrors();
+            InitializeTextBoxInspectors();
+            InitializeDropDownListInspectors();
         }
 
         /// <summary>
-        /// Initialize inspectors for textboxes and set error for them.
+        /// Initialize inspectors for textboxes.
         /// </summary>
-        private void InitializeTextBoxInspectorsAndSetErrors()
+        private void InitializeTextBoxInspectors()
         {
             foreach ( KeyValuePair<TextBox, int> container in _textBoxWithTextBoxModelIndexContainers )
             {
-                AssignTextBoxInspectorAndSetError(container.Key, container.Value);
+                AssignTextBoxInspectors(container.Key, container.Value);
             }
         }
 
         /// <summary>
-        /// Assign inspectors for textbox and set error for it.
+        /// Assign inspectors for textbox.
         /// </summary>
-        private void AssignTextBoxInspectorAndSetError(TextBox textBox, int textBoxIndex)
+        private void AssignTextBoxInspectors(TextBox textBox, int textBoxIndex)
         {
             textBox.TextChanged += (sender, eventArguments) => _creditCardPaymentModel.UpdateTextBoxInspectors(textBoxIndex, textBox.Text, textBox.MaxLength);
             textBox.Leave += (sender, eventArguments) => _creditCardPaymentModel.UpdateTextBoxInspectors(textBoxIndex, textBox.Text, textBox.MaxLength);
         }
 
         /// <summary>
-        /// Initialize inspectors for drop-down lists and set error for them.
+        /// Initialize inspectors for drop-down lists.
         /// </summary>
-        private void InitializeDropDownListInspectorsAndSetErrors()
+        private void InitializeDropDownListInspectors()
         {
             foreach ( KeyValuePair<ComboBox, int> container in _dropDownListWithDropDownListModelIndexContainers )
             {
-                AssignDropDownListInspectorsAndSetErrors(container.Key, container.Value);
+                AssignDropDownListInspectors(container.Key, container.Value);
             }
         }
 
         /// <summary>
-        /// Assign inspectors for drop-down list and set error for it.
+        /// Assign inspectors for drop-down list.
         /// </summary>
-        private void AssignDropDownListInspectorsAndSetErrors(ComboBox dropDownList, int dropDownListIndex)
+        private void AssignDropDownListInspectors(ComboBox dropDownList, int dropDownListIndex)
         {
             dropDownList.SelectionChangeCommitted += (sender, eventArguments) => _creditCardPaymentModel.UpdateDropDownListInspectors(dropDownListIndex, dropDownList.SelectedIndex);
             dropDownList.Leave += (sender, eventArguments) => _creditCardPaymentModel.UpdateDropDownListInspectors(dropDownListIndex, dropDownList.SelectedIndex);
