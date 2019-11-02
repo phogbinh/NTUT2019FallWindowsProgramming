@@ -165,17 +165,14 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void UpdateInitialValuesForInspectors()
         {
-            _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(CreditCardPaymentModel.LAST_NAME_FIELD_INDEX, _lastNameField.Text, _lastNameField.MaxLength);
-            _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(CreditCardPaymentModel.FIRST_NAME_FIELD_INDEX, _firstNameField.Text, _firstNameField.MaxLength);
-            _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(CreditCardPaymentModel.CARD_NUMBER_FIRST_FIELD_INDEX, _cardNumberFirstField.Text, _cardNumberFirstField.MaxLength);
-            _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(CreditCardPaymentModel.CARD_NUMBER_SECOND_FIELD_INDEX, _cardNumberSecondField.Text, _cardNumberSecondField.MaxLength);
-            _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(CreditCardPaymentModel.CARD_NUMBER_THIRD_FIELD_INDEX, _cardNumberThirdField.Text, _cardNumberThirdField.MaxLength);
-            _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(CreditCardPaymentModel.CARD_NUMBER_FOURTH_FIELD_INDEX, _cardNumberFourthField.Text, _cardNumberFourthField.MaxLength);
+            foreach ( KeyValuePair<TextBox, int> container in _textBoxWithTextBoxModelIndexContainers )
+            {
+                TextBox textBox = container.Key;
+                int textBoxModelIndex = container.Value;
+                _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(textBoxModelIndex, textBox.Text, textBox.MaxLength);
+            }
             _creditCardPaymentPresentationModel.UpdateDropDownListInspectors(CreditCardPaymentModel.CARD_DATE_MONTH_FIELD_INDEX, _cardDateMonthField.SelectedIndex);
             _creditCardPaymentPresentationModel.UpdateDropDownListInspectors(CreditCardPaymentModel.CARD_DATE_YEAR_FIELD_INDEX, _cardDateYearField.SelectedIndex);
-            _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(CreditCardPaymentModel.CARD_SECURITY_CODE_FIELD_INDEX, _cardSecurityCodeField.Text, _cardSecurityCodeField.MaxLength);
-            _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(CreditCardPaymentModel.MAIL_FIELD_INDEX, _mailField.Text, _mailField.MaxLength);
-            _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(CreditCardPaymentModel.ADDRESS_FIELD_INDEX, _addressField.Text, _addressField.MaxLength);
         }
 
         /// <summary>
