@@ -5,6 +5,19 @@ namespace OrderAndStorageManagementSystem.Models
 {
     public class CreditCardPaymentModel
     {
+        public delegate void TextBoxInspectorChangedEventHandler(int textBoxIndex);
+        private event TextBoxInspectorChangedEventHandler _textBoxInspectorChanged;
+        public TextBoxInspectorChangedEventHandler TextBoxInspectorChanged
+        {
+            get
+            {
+                return _textBoxInspectorChanged;
+            }
+            set
+            {
+                _textBoxInspectorChanged = value;
+            }
+        }
         public const int LAST_NAME_FIELD_INDEX = 0;
         public const int FIRST_NAME_FIELD_INDEX = 1;
         public const int CARD_NUMBER_FIRST_FIELD_INDEX = 2;
@@ -81,6 +94,18 @@ namespace OrderAndStorageManagementSystem.Models
         public void UpdateTextBoxInspectors(int textBoxIndex, string text, int maxTextLength)
         {
             _inputInspectorManager.UpdateTextBoxInspectors(textBoxIndex, text, maxTextLength);
+            NotifyObserverChangeTextBoxInspector(textBoxIndex);
+        }
+
+        /// <summary>
+        /// Notify observer change textbox inspector.
+        /// </summary>
+        private void NotifyObserverChangeTextBoxInspector(int textBoxIndex)
+        {
+            if ( TextBoxInspectorChanged != null )
+            {
+                TextBoxInspectorChanged(textBoxIndex);
+            }
         }
 
         /// <summary>

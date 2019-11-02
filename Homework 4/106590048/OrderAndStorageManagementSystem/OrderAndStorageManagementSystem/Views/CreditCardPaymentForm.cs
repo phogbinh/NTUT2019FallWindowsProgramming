@@ -23,6 +23,8 @@ namespace OrderAndStorageManagementSystem.Views
             _creditCardPaymentPresentationModel = creditCardPaymentPresentationModelData;
             _creditCardPaymentModel = creditCardPaymentModelData;
             _model = modelData;
+            // Observers
+            _creditCardPaymentModel.TextBoxInspectorChanged += UpdateErrorProviderAndSubmitButtonOnTextBoxInspectorChanged;
             // UI
             this.FormClosed += (sender, eventArguments) => _cardSecurityCodeField.Text = AppDefinition.EMPTY_STRING;
             _submitButton.Click += ClickSubmitButton;
@@ -33,6 +35,30 @@ namespace OrderAndStorageManagementSystem.Views
             // Initial UI States
             InitializeInspectors();
             RefreshControls();
+        }
+
+        /// <summary>
+        /// Update error provider and submit button on TextBoxInspector changed.
+        /// </summary>
+        private void UpdateErrorProviderAndSubmitButtonOnTextBoxInspectorChanged(int textBoxIndex)
+        {
+            _errorProvider.SetError(GetTextBox(textBoxIndex), _creditCardPaymentModel.GetControlError(textBoxIndex));
+            _submitButton.Enabled = _creditCardPaymentModel.AreAllValidInspectors();
+        }
+
+        /// <summary>
+        /// Get textbox by textbox model index.
+        /// </summary>
+        private TextBox GetTextBox(int textBoxModelIndex)
+        {
+            foreach ( KeyValuePair<TextBox, int> container in _textBoxWithTextBoxModelIndexContainers )
+            {
+                if ( container.Value == textBoxModelIndex )
+                {
+                    return container.Key;
+                }
+            }
+            throw new ArgumentException(AppDefinition.ERROR_TEXT_BOX_MODEL_INDEX_OUT_OF_RANGE);
         }
 
         /// <summary>
@@ -113,17 +139,8 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void AssignTextBoxInspectorAndSetError(TextBox textBox, int textBoxIndex)
         {
-            textBox.TextChanged += (sender, eventArguments) => UpdateTextBoxInspectorsAndSetError(textBox, textBoxIndex);
-            textBox.Leave += (sender, eventArguments) => UpdateTextBoxInspectorsAndSetError(textBox, textBoxIndex);
-        }
-
-        /// <summary>
-        /// Update inspectors for textbox and set error for it.
-        /// </summary>
-        private void UpdateTextBoxInspectorsAndSetError(TextBox textBox, int textBoxIndex)
-        {
-            Action updateTextBoxInspectorsFunction = () => _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(textBoxIndex, textBox.Text, textBox.MaxLength);
-            UpdateControlInspectorsAndSetError(textBox, textBoxIndex, updateTextBoxInspectorsFunction);
+            textBox.TextChanged += (sender, eventArguments) => _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(textBoxIndex, textBox.Text, textBox.MaxLength);
+            textBox.Leave += (sender, eventArguments) => _creditCardPaymentPresentationModel.UpdateTextBoxInspectors(textBoxIndex, textBox.Text, textBox.MaxLength);
         }
 
         /// <summary>

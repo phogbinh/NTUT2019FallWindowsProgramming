@@ -13,6 +13,7 @@ namespace OrderAndStorageManagementSystem.Models
         public const int TWO = 2;
         // Debug
         public const string ERROR_TAB_PAGE_INDEX_OUT_OF_RANGE = "Tab page index is out of range.";
+        public const string ERROR_TEXT_BOX_MODEL_INDEX_OUT_OF_RANGE = "Text box model index is out of range.";
         // Product
         public const string PRODUCT_STORAGE_QUANTITY_TEXT = "庫存數量： ";
         public const string PRODUCT_PRICE_TEXT = "單價： ";
