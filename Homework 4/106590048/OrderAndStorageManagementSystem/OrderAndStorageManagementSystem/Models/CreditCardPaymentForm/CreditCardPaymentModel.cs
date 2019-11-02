@@ -21,6 +21,9 @@ namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
         private const string ERROR_FREE = "";
         private IDictionary<int, List<IInputInspector>> _controlWithInspectorsContainers;
         private List<int> _textBoxIsNotEmptyInspectorControlIndices;
+        private List<int> _textBoxIsOfFullLengthInspectorControlIndices;
+        private List<int> _textBoxIsMailInspectorControlIndices;
+        private List<int> _dropDownListIsSelectedInspectorControlIndices;
 
         public CreditCardPaymentModel()
         {
@@ -28,6 +31,18 @@ namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
             for ( int i = LAST_NAME_FIELD_INDEX; i <= ADDRESS_FIELD_INDEX; i++ )
             {
                 _textBoxIsNotEmptyInspectorControlIndices.Add(i);
+            }
+            _textBoxIsOfFullLengthInspectorControlIndices = new List<int>();
+            for ( int i = CARD_NUMBER_FIRST_FIELD_INDEX; i <= CARD_SECURITY_CODE_FIELD_INDEX; i++ )
+            {
+                _textBoxIsOfFullLengthInspectorControlIndices.Add(i);
+            }
+            _textBoxIsMailInspectorControlIndices = new List<int>();
+            _textBoxIsMailInspectorControlIndices.Add(MAIL_FIELD_INDEX);
+            _dropDownListIsSelectedInspectorControlIndices = new List<int>();
+            for ( int i = CARD_DATE_MONTH_FIELD_INDEX; i <= CARD_DATE_YEAR_FIELD_INDEX; i++ )
+            {
+                _dropDownListIsSelectedInspectorControlIndices.Add(i);
             }
             InitializeControlWithInspectorsContainers();
             InitializeTextBoxIsNotEmptyInspectors();
@@ -64,9 +79,9 @@ namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
         /// </summary>
         private void InitializeTextBoxIsOfFullLengthInspectors()
         {
-            for ( int i = CARD_NUMBER_FIRST_FIELD_INDEX; i <= CARD_SECURITY_CODE_FIELD_INDEX; i++ )
+            foreach ( int controlIndex in _textBoxIsOfFullLengthInspectorControlIndices )
             {
-                _controlWithInspectorsContainers[ i ].Add(new TextBoxIsOfFullLengthInspector());
+                _controlWithInspectorsContainers[ controlIndex ].Add(new TextBoxIsOfFullLengthInspector());
             }
         }
 
@@ -75,7 +90,10 @@ namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
         /// </summary>
         private void InitializeTextBoxIsMailInspector()
         {
-            _controlWithInspectorsContainers[ MAIL_FIELD_INDEX ].Add(new TextBoxIsMailInspector());
+            foreach ( int controlIndex in _textBoxIsMailInspectorControlIndices )
+            {
+                _controlWithInspectorsContainers[ controlIndex ].Add(new TextBoxIsMailInspector());
+            }
         }
 
         /// <summary>
@@ -83,9 +101,9 @@ namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
         /// </summary>
         private void InitializeDropDownListIsSelectedInspectors()
         {
-            for ( int i = CARD_DATE_MONTH_FIELD_INDEX; i <= CARD_DATE_YEAR_FIELD_INDEX; i++ )
+            foreach ( int controlIndex in _dropDownListIsSelectedInspectorControlIndices )
             {
-                _controlWithInspectorsContainers[ i ].Add(new DropDownListIsSelectedInspector());
+                _controlWithInspectorsContainers[ controlIndex ].Add(new DropDownListIsSelectedInspector());
             }
         }
 
