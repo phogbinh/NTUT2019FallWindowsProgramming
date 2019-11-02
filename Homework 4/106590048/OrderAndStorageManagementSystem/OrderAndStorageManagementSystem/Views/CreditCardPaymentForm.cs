@@ -32,7 +32,7 @@ namespace OrderAndStorageManagementSystem.Views
             InitializeDropDownListWithDropDownListModelIndexContainers();
             InitializeControlInspectors();
             // Initial UI States
-            InitializeInspectors();
+            UpdateInitialValuesForInspectors();
         }
 
         /// <summary>
@@ -174,14 +174,6 @@ namespace OrderAndStorageManagementSystem.Views
         {
             dropDownList.SelectionChangeCommitted += (sender, eventArguments) => _creditCardPaymentModel.UpdateDropDownListInspectors(dropDownListIndex, dropDownList.SelectedIndex);
             dropDownList.Leave += (sender, eventArguments) => _creditCardPaymentModel.UpdateDropDownListInspectors(dropDownListIndex, dropDownList.SelectedIndex);
-        }
-
-        /// <summary>
-        /// Initialize all inspectors.
-        /// </summary>
-        private void InitializeInspectors()
-        {
-            UpdateInitialValuesForInspectors();
         }
 
         /// <summary>
