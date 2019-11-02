@@ -22,8 +22,8 @@ namespace OrderAndStorageManagementSystem.Views
             _creditCardPaymentModel = creditCardPaymentModelData;
             _model = modelData;
             // Observers
-            _creditCardPaymentModel.TextBoxInspectorChanged += UpdateErrorProviderAndSubmitButtonOnTextBoxInspectorChanged;
-            _creditCardPaymentModel.DropDownListInspectorChanged += UpdateErrorProviderAndSubmitButtonOnDropDownListInspectorChanged;
+            _creditCardPaymentModel.TextBoxInspectorChanged += (textBoxIndex) => UpdateErrorProviderAndSubmitButtonOnControlInspectorChanged(textBoxIndex, GetTextBox);
+            _creditCardPaymentModel.DropDownListInspectorChanged += (dropDownListIndex) => UpdateErrorProviderAndSubmitButtonOnControlInspectorChanged(dropDownListIndex, GetDropDownList);
             // UI
             this.FormClosed += (sender, eventArguments) => _cardSecurityCodeField.Text = AppDefinition.EMPTY_STRING;
             _submitButton.Click += ClickSubmitButton;
@@ -36,11 +36,11 @@ namespace OrderAndStorageManagementSystem.Views
         }
 
         /// <summary>
-        /// Update error provider and submit button on TextBoxInspector changed.
+        /// Update error provider and submit button on control inspector changed.
         /// </summary>
-        private void UpdateErrorProviderAndSubmitButtonOnTextBoxInspectorChanged(int textBoxIndex)
+        private void UpdateErrorProviderAndSubmitButtonOnControlInspectorChanged(int controlIndex, Func<int, Control> getControlFunction)
         {
-            _errorProvider.SetError(GetTextBox(textBoxIndex), _creditCardPaymentModel.GetControlError(textBoxIndex));
+            _errorProvider.SetError(getControlFunction(controlIndex), _creditCardPaymentModel.GetControlError(controlIndex));
             _submitButton.Enabled = _creditCardPaymentModel.AreAllValidInspectors();
         }
 
@@ -57,15 +57,6 @@ namespace OrderAndStorageManagementSystem.Views
                 }
             }
             throw new ArgumentException(AppDefinition.ERROR_TEXT_BOX_MODEL_INDEX_OUT_OF_RANGE);
-        }
-
-        /// <summary>
-        /// Update error provider and submit button on TextBoxInspector changed.
-        /// </summary>
-        private void UpdateErrorProviderAndSubmitButtonOnDropDownListInspectorChanged(int dropDownListIndex)
-        {
-            _errorProvider.SetError(GetDropDownList(dropDownListIndex), _creditCardPaymentModel.GetControlError(dropDownListIndex));
-            _submitButton.Enabled = _creditCardPaymentModel.AreAllValidInspectors();
         }
 
         /// <summary>
