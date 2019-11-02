@@ -32,7 +32,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// <summary>
         /// Click order system button.
         /// </summary>
-        private void ClickOrderSystemButton(object sender, System.EventArgs events)
+        private void ClickOrderSystemButton(object sender, System.EventArgs eventArguments)
         {
             OrderForm orderForm;
             orderForm = new OrderForm(_creditCardPaymentForm, _orderPresentationModel, _orderModel, _model);
@@ -45,7 +45,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// <summary>
         /// Close order form.
         /// </summary>
-        private void CloseOrderForm(object sender, System.EventArgs events)
+        private void CloseOrderForm(object sender, System.EventArgs eventArguments)
         {
             _mainPresentationModel.CloseOrderForm();
             RefreshControls();
@@ -54,7 +54,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// <summary>
         /// Click inventory system button.
         /// </summary>
-        private void ClickInventorySystemButton(object sender, System.EventArgs events)
+        private void ClickInventorySystemButton(object sender, System.EventArgs eventArguments)
         {
             InventoryForm inventoryForm;
             inventoryForm = new InventoryForm(_inventoryPresentationModel, _model);
@@ -67,7 +67,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// <summary>
         /// Close inventory form.
         /// </summary>
-        private void CloseInventoryForm(object sender, System.EventArgs events)
+        private void CloseInventoryForm(object sender, System.EventArgs eventArguments)
         {
             _mainPresentationModel.CloseInventoryForm();
             RefreshControls();
@@ -76,7 +76,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// <summary>
         /// Click exit button.
         /// </summary>
-        private void ClickExitButton(object sender, System.EventArgs events)
+        private void ClickExitButton(object sender, System.EventArgs eventArguments)
         {
             Application.Exit();
         }

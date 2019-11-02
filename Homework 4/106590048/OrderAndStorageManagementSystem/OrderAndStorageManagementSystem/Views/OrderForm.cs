@@ -44,11 +44,11 @@ namespace OrderAndStorageManagementSystem.Views
             _cartDataGridView.CellPainting += (sender, eventArguments) => DataGridViewHelper.InitializeButtonImageOfButtonColumn(eventArguments, CART_DELETE_BUTTON_COLUMN_INDEX, Resources.img_trash_bin);
             _cartDataGridView.CellContentClick += ClickCartDataGridViewCellContent;
             _cartDataGridView.CellValueChanged += ChangeCartDataGridViewCellValue;
-            _leftArrowButton.Click += (sender, events) => GoToPreviousProductPage();
-            _rightArrowButton.Click += (sender, events) => GoToNextProductPage();
+            _leftArrowButton.Click += (sender, eventArguments) => GoToPreviousProductPage();
+            _rightArrowButton.Click += (sender, eventArguments) => GoToNextProductPage();
             _addButton.Click += (sender, eventArguments) => _orderPresentationModel.AddCurrentSelectedProductToOrderIfProductIsNotInOrder();
             _orderButton.Click += ClickOrderButton;
-            _productTabControl.SelectedIndexChanged += (sender, events) => SelectProductTabPage(_productTabControl.SelectedIndex);
+            _productTabControl.SelectedIndexChanged += (sender, eventArguments) => SelectProductTabPage(_productTabControl.SelectedIndex);
             InitializeProductTabPages();
             // Initial UI States
             SelectProductTabPage(AppDefinition.MOTHER_BOARD_INDEX);
