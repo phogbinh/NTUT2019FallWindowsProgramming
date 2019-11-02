@@ -20,9 +20,15 @@ namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
         private const int CONTROLS_COUNT = 11;
         private const string ERROR_FREE = "";
         private IDictionary<int, List<IInputInspector>> _controlWithInspectorsContainers;
+        private List<int> _textBoxIsNotEmptyInspectorControlIndices;
 
         public CreditCardPaymentModel()
         {
+            _textBoxIsNotEmptyInspectorControlIndices = new List<int>();
+            for ( int i = LAST_NAME_FIELD_INDEX; i <= ADDRESS_FIELD_INDEX; i++ )
+            {
+                _textBoxIsNotEmptyInspectorControlIndices.Add(i);
+            }
             InitializeControlWithInspectorsContainers();
             InitializeTextBoxIsNotEmptyInspectors();
             InitializeTextBoxIsOfFullLengthInspectors();
@@ -47,9 +53,9 @@ namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
         /// </summary>
         private void InitializeTextBoxIsNotEmptyInspectors()
         {
-            for ( int i = LAST_NAME_FIELD_INDEX; i <= ADDRESS_FIELD_INDEX; i++ )
+            foreach (int controlIndex in _textBoxIsNotEmptyInspectorControlIndices)
             {
-                _controlWithInspectorsContainers[ i ].Add(new TextBoxIsNotEmptyInspector());
+                _controlWithInspectorsContainers[ controlIndex ].Add(new TextBoxIsNotEmptyInspector());
             }
         }
 
