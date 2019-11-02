@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
+namespace OrderAndStorageManagementSystem.Models
 {
     public class CreditCardPaymentModel
     {

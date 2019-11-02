@@ -1,5 +1,4 @@
 ﻿using OrderAndStorageManagementSystem.Models;
-using OrderAndStorageManagementSystem.Models.CreditCardPaymentForm;
 using OrderAndStorageManagementSystem.PresentationModels;
 using OrderAndStorageManagementSystem.Views.Utilities;
 using System;
