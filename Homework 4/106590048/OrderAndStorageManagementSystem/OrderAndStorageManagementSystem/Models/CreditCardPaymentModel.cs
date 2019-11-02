@@ -72,10 +72,8 @@ namespace OrderAndStorageManagementSystem.Models
         private void InitializeDropDownListIsSelectedInspectorControlIndices()
         {
             _dropDownListIsSelectedInspectorControlIndices = new List<int>();
-            for ( int i = CARD_DATE_MONTH_FIELD_INDEX; i <= CARD_DATE_YEAR_FIELD_INDEX; i++ )
-            {
-                _dropDownListIsSelectedInspectorControlIndices.Add(i);
-            }
+            _dropDownListIsSelectedInspectorControlIndices.Add(CARD_DATE_MONTH_FIELD_INDEX);
+            _dropDownListIsSelectedInspectorControlIndices.Add(CARD_DATE_YEAR_FIELD_INDEX);
         }
 
         /// <summary>
