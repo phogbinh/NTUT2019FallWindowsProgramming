@@ -35,7 +35,6 @@ namespace OrderAndStorageManagementSystem.Views
             InitializeControlInspectors();
             // Initial UI States
             InitializeInspectors();
-            RefreshControls();
         }
 
         /// <summary>
@@ -194,7 +193,6 @@ namespace OrderAndStorageManagementSystem.Views
         private void InitializeInspectors()
         {
             UpdateInitialValuesForInspectors();
-            RefreshControls();
         }
 
         /// <summary>
@@ -214,14 +212,6 @@ namespace OrderAndStorageManagementSystem.Views
                 int dropDownListModelIndex = container.Value;
                 _creditCardPaymentPresentationModel.UpdateDropDownListInspectors(dropDownListModelIndex, dropDownList.SelectedIndex);
             }
-        }
-
-        /// <summary>
-        /// Refresh controls.
-        /// </summary>
-        private void RefreshControls()
-        {
-            _submitButton.Enabled = _creditCardPaymentPresentationModel.SubmitButton.Enabled;
         }
     }
 }

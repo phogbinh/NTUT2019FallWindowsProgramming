@@ -6,20 +6,11 @@ namespace OrderAndStorageManagementSystem.PresentationModels
 {
     public class CreditCardPaymentPresentationModel
     {
-        public ControlStates SubmitButton
-        {
-            get
-            {
-                return _submitButton;
-            }
-        }
         private CreditCardPaymentModel _creditCardPaymentModel;
-        private ControlStates _submitButton;
 
         public CreditCardPaymentPresentationModel(CreditCardPaymentModel creditCardPaymentModelData)
         {
             _creditCardPaymentModel = creditCardPaymentModelData;
-            _submitButton = new ControlStates();
         }
 
         /// <summary>
@@ -46,15 +37,6 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         private void UpdateControlInspectors(Action updateControlInspectorsFunction)
         {
             updateControlInspectorsFunction();
-            UpdateSubmitButton();
-        }
-
-        /// <summary>
-        /// Update enabled state of the submit button.
-        /// </summary>
-        private void UpdateSubmitButton()
-        {
-            _submitButton.Enabled = _creditCardPaymentModel.AreAllValidInspectors();
         }
     }
 }
