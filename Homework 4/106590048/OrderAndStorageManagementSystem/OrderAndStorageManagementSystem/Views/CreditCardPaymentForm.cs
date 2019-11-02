@@ -25,6 +25,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model = modelData;
             // Observers
             _creditCardPaymentModel.TextBoxInspectorChanged += UpdateErrorProviderAndSubmitButtonOnTextBoxInspectorChanged;
+            _creditCardPaymentModel.DropDownListInspectorChanged += UpdateErrorProviderAndSubmitButtonOnDropDownListInspectorChanged;
             // UI
             this.FormClosed += (sender, eventArguments) => _cardSecurityCodeField.Text = AppDefinition.EMPTY_STRING;
             _submitButton.Click += ClickSubmitButton;
@@ -59,6 +60,30 @@ namespace OrderAndStorageManagementSystem.Views
                 }
             }
             throw new ArgumentException(AppDefinition.ERROR_TEXT_BOX_MODEL_INDEX_OUT_OF_RANGE);
+        }
+
+        /// <summary>
+        /// Update error provider and submit button on TextBoxInspector changed.
+        /// </summary>
+        private void UpdateErrorProviderAndSubmitButtonOnDropDownListInspectorChanged(int dropDownListIndex)
+        {
+            _errorProvider.SetError(GetDropDownList(dropDownListIndex), _creditCardPaymentModel.GetControlError(dropDownListIndex));
+            _submitButton.Enabled = _creditCardPaymentModel.AreAllValidInspectors();
+        }
+
+        /// <summary>
+        /// Get ComboBox by drop-down list model index.
+        /// </summary>
+        private ComboBox GetDropDownList(int dropDownListModelIndex)
+        {
+            foreach ( KeyValuePair<ComboBox, int> container in _dropDownListWithDropDownListModelIndexContainers )
+            {
+                if ( container.Value == dropDownListModelIndex )
+                {
+                    return container.Key;
+                }
+            }
+            throw new ArgumentException(AppDefinition.ERROR_DROP_DOWN_LIST_MODEL_INDEX_OUT_OF_RANGE);
         }
 
         /// <summary>
@@ -144,16 +169,6 @@ namespace OrderAndStorageManagementSystem.Views
         }
 
         /// <summary>
-        /// Update inspectors for control and set error for it.
-        /// </summary>
-        private void UpdateControlInspectorsAndSetError(Control control, int controlIndex, Action updateControlInspectorsFunction)
-        {
-            updateControlInspectorsFunction();
-            _errorProvider.SetError(control, _creditCardPaymentModel.GetControlError(controlIndex));
-            RefreshControls();
-        }
-
-        /// <summary>
         /// Initialize inspectors for drop-down lists and set error for them.
         /// </summary>
         private void InitializeDropDownListInspectorsAndSetErrors()
@@ -169,17 +184,8 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void AssignDropDownListInspectorsAndSetErrors(ComboBox dropDownList, int dropDownListIndex)
         {
-            dropDownList.SelectionChangeCommitted += (sender, eventArguments) => UpdateDropDownListInspectorsAndSetError(dropDownList, dropDownListIndex);
-            dropDownList.Leave += (sender, eventArguments) => UpdateDropDownListInspectorsAndSetError(dropDownList, dropDownListIndex);
-        }
-
-        /// <summary>
-        /// Update inspectors for drop-down list and set error for it.
-        /// </summary>
-        private void UpdateDropDownListInspectorsAndSetError(ComboBox dropDownList, int dropDownListIndex)
-        {
-            Action updateDropDownListInspectorsFunction = () => _creditCardPaymentPresentationModel.UpdateDropDownListInspectors(dropDownListIndex, dropDownList.SelectedIndex);
-            UpdateControlInspectorsAndSetError(dropDownList, dropDownListIndex, updateDropDownListInspectorsFunction);
+            dropDownList.SelectionChangeCommitted += (sender, eventArguments) => _creditCardPaymentPresentationModel.UpdateDropDownListInspectors(dropDownListIndex, dropDownList.SelectedIndex);
+            dropDownList.Leave += (sender, eventArguments) => _creditCardPaymentPresentationModel.UpdateDropDownListInspectors(dropDownListIndex, dropDownList.SelectedIndex);
         }
 
         /// <summary>

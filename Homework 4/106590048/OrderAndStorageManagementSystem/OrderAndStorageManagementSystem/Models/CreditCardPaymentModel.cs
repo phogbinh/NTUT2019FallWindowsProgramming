@@ -7,6 +7,8 @@ namespace OrderAndStorageManagementSystem.Models
     {
         public delegate void TextBoxInspectorChangedEventHandler(int textBoxIndex);
         private event TextBoxInspectorChangedEventHandler _textBoxInspectorChanged;
+        public delegate void DropDownListInspectorChangedEventHandler(int dropDownListIndex);
+        private event DropDownListInspectorChangedEventHandler _dropDownListInspectorChanged;
         public TextBoxInspectorChangedEventHandler TextBoxInspectorChanged
         {
             get
@@ -16,6 +18,17 @@ namespace OrderAndStorageManagementSystem.Models
             set
             {
                 _textBoxInspectorChanged = value;
+            }
+        }
+        public DropDownListInspectorChangedEventHandler DropDownListInspectorChanged
+        {
+            get
+            {
+                return _dropDownListInspectorChanged;
+            }
+            set
+            {
+                _dropDownListInspectorChanged = value;
             }
         }
         public const int LAST_NAME_FIELD_INDEX = 0;
@@ -114,6 +127,18 @@ namespace OrderAndStorageManagementSystem.Models
         public void UpdateDropDownListInspectors(int dropDownListIndex, int selectedIndex)
         {
             _inputInspectorManager.UpdateDropDownListInspectors(dropDownListIndex, selectedIndex);
+            NotifyObserverChangeDropDownListInspector(dropDownListIndex);
+        }
+
+        /// <summary>
+        /// Notify observer change drop-down list inspector.
+        /// </summary>
+        private void NotifyObserverChangeDropDownListInspector(int dropDownListIndex)
+        {
+            if ( DropDownListInspectorChanged != null )
+            {
+                DropDownListInspectorChanged(dropDownListIndex);
+            }
         }
 
         /// <summary>
