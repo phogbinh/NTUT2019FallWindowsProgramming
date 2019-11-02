@@ -1,4 +1,4 @@
-﻿namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
+﻿namespace OrderAndStorageManagementSystem.Models.Utilities.InputInspectorUtilities
 {
     public interface IInputInspector
     {

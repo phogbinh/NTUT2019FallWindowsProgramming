@@ -1,6 +1,6 @@
 ﻿using System.Net.Mail;
 
-namespace OrderAndStorageManagementSystem.Models.CreditCardPaymentForm
+namespace OrderAndStorageManagementSystem.Models.Utilities.InputInspectorUtilities
 {
     public class TextBoxIsMailInspector : TextBoxInspector
     {
