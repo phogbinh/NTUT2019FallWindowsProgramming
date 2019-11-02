@@ -2,6 +2,7 @@
 using OrderAndStorageManagementSystem.PresentationModels;
 using OrderAndStorageManagementSystem.Views.Utilities;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace OrderAndStorageManagementSystem.Views
@@ -13,6 +14,7 @@ namespace OrderAndStorageManagementSystem.Views
         private CreditCardPaymentPresentationModel _creditCardPaymentPresentationModel;
         private CreditCardPaymentModel _creditCardPaymentModel;
         private Model _model;
+        private IDictionary<TextBox, int> _textBoxWithTextBoxModelIndexContainers;
 
         public CreditCardPaymentForm(CreditCardPaymentPresentationModel creditCardPaymentPresentationModelData, CreditCardPaymentModel creditCardPaymentModelData, Model modelData)
         {
@@ -24,6 +26,7 @@ namespace OrderAndStorageManagementSystem.Views
             this.FormClosed += (sender, eventArguments) => _cardSecurityCodeField.Text = AppDefinition.EMPTY_STRING;
             _submitButton.Click += ClickSubmitButton;
             InitializeInputLimits();
+            InitializeTextBoxWithTextBoxModelIndexContainers();
             InitializeControlInspectors();
             // Initial UI States
             InitializeInspectors();
@@ -57,6 +60,23 @@ namespace OrderAndStorageManagementSystem.Views
         }
 
         /// <summary>
+        /// Initialize _textBoxWithTextBoxModelIndexContainers.
+        /// </summary>
+        private void InitializeTextBoxWithTextBoxModelIndexContainers()
+        {
+            _textBoxWithTextBoxModelIndexContainers = new Dictionary<TextBox, int>();
+            _textBoxWithTextBoxModelIndexContainers.Add(_lastNameField, CreditCardPaymentModel.LAST_NAME_FIELD_INDEX);
+            _textBoxWithTextBoxModelIndexContainers.Add(_firstNameField, CreditCardPaymentModel.FIRST_NAME_FIELD_INDEX);
+            _textBoxWithTextBoxModelIndexContainers.Add(_cardNumberFirstField, CreditCardPaymentModel.CARD_NUMBER_FIRST_FIELD_INDEX);
+            _textBoxWithTextBoxModelIndexContainers.Add(_cardNumberSecondField, CreditCardPaymentModel.CARD_NUMBER_SECOND_FIELD_INDEX);
+            _textBoxWithTextBoxModelIndexContainers.Add(_cardNumberThirdField, CreditCardPaymentModel.CARD_NUMBER_THIRD_FIELD_INDEX);
+            _textBoxWithTextBoxModelIndexContainers.Add(_cardNumberFourthField, CreditCardPaymentModel.CARD_NUMBER_FOURTH_FIELD_INDEX);
+            _textBoxWithTextBoxModelIndexContainers.Add(_cardSecurityCodeField, CreditCardPaymentModel.CARD_SECURITY_CODE_FIELD_INDEX);
+            _textBoxWithTextBoxModelIndexContainers.Add(_mailField, CreditCardPaymentModel.MAIL_FIELD_INDEX);
+            _textBoxWithTextBoxModelIndexContainers.Add(_addressField, CreditCardPaymentModel.ADDRESS_FIELD_INDEX);
+        }
+
+        /// <summary>
         /// Initialize inspectors for all textboxes and drop-down lists.
         /// </summary>
         private void InitializeControlInspectors()
@@ -70,15 +90,10 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void InitializeTextBoxInspectorsAndSetErrors()
         {
-            AssignTextBoxInspectorAndSetError(_lastNameField, CreditCardPaymentModel.LAST_NAME_FIELD_INDEX);
-            AssignTextBoxInspectorAndSetError(_firstNameField, CreditCardPaymentModel.FIRST_NAME_FIELD_INDEX);
-            AssignTextBoxInspectorAndSetError(_cardNumberFirstField, CreditCardPaymentModel.CARD_NUMBER_FIRST_FIELD_INDEX);
-            AssignTextBoxInspectorAndSetError(_cardNumberSecondField, CreditCardPaymentModel.CARD_NUMBER_SECOND_FIELD_INDEX);
-            AssignTextBoxInspectorAndSetError(_cardNumberThirdField, CreditCardPaymentModel.CARD_NUMBER_THIRD_FIELD_INDEX);
-            AssignTextBoxInspectorAndSetError(_cardNumberFourthField, CreditCardPaymentModel.CARD_NUMBER_FOURTH_FIELD_INDEX);
-            AssignTextBoxInspectorAndSetError(_cardSecurityCodeField, CreditCardPaymentModel.CARD_SECURITY_CODE_FIELD_INDEX);
-            AssignTextBoxInspectorAndSetError(_mailField, CreditCardPaymentModel.MAIL_FIELD_INDEX);
-            AssignTextBoxInspectorAndSetError(_addressField, CreditCardPaymentModel.ADDRESS_FIELD_INDEX);
+            foreach ( KeyValuePair<TextBox, int> container in _textBoxWithTextBoxModelIndexContainers )
+            {
+                AssignTextBoxInspectorAndSetError(container.Key, container.Value);
+            }
         }
 
         /// <summary>
