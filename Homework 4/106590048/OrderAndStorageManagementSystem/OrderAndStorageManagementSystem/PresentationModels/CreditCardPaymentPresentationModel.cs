@@ -18,8 +18,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         public void UpdateTextBoxInspectors(int textBoxIndex, string text, int maxTextLength)
         {
-            Action updateTextBoxInspectorsFunction = () => _creditCardPaymentModel.UpdateTextBoxInspectors(textBoxIndex, text, maxTextLength);
-            UpdateControlInspectors(updateTextBoxInspectorsFunction);
+            _creditCardPaymentModel.UpdateTextBoxInspectors(textBoxIndex, text, maxTextLength);
         }
 
         /// <summary>
@@ -27,16 +26,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         public void UpdateDropDownListInspectors(int dropDownListIndex, int selectedIndex)
         {
-            Action updateDropDownListInspectorsFunction = () => _creditCardPaymentModel.UpdateDropDownListInspectors(dropDownListIndex, selectedIndex);
-            UpdateControlInspectors(updateDropDownListInspectorsFunction);
-        }
-
-        /// <summary>
-        /// Update member variable(s) of all InputInspectors of the control at controlIndex.
-        /// </summary>
-        private void UpdateControlInspectors(Action updateControlInspectorsFunction)
-        {
-            updateControlInspectorsFunction();
+            _creditCardPaymentModel.UpdateDropDownListInspectors(dropDownListIndex, selectedIndex);
         }
     }
 }
