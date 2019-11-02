@@ -82,14 +82,14 @@
             this._buttonsLayout.Name = "_buttonsLayout";
             this._buttonsLayout.RowCount = 1;
             this._buttonsLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this._buttonsLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this._buttonsLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this._buttonsLayout.Size = new System.Drawing.Size(484, 40);
             this._buttonsLayout.TabIndex = 0;
             // 
             // _submitButton
             // 
             this._submitButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._submitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
+            this._submitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._submitButton.Location = new System.Drawing.Point(3, 3);
             this._submitButton.Name = "_submitButton";
             this._submitButton.Size = new System.Drawing.Size(236, 34);
@@ -100,7 +100,7 @@
             // _cancelButton
             // 
             this._cancelButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
+            this._cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._cancelButton.Location = new System.Drawing.Point(245, 3);
             this._cancelButton.Name = "_cancelButton";
             this._cancelButton.Size = new System.Drawing.Size(236, 34);
@@ -112,7 +112,7 @@
             // 
             this._windowTitle.AutoSize = true;
             this._windowTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._windowTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
+            this._windowTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._windowTitle.Location = new System.Drawing.Point(3, 0);
             this._windowTitle.Name = "_windowTitle";
             this._windowTitle.Size = new System.Drawing.Size(484, 87);
@@ -124,7 +124,7 @@
             // 
             this._productName.AutoSize = true;
             this._productName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._productName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
+            this._productName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._productName.Location = new System.Drawing.Point(3, 87);
             this._productName.Name = "_productName";
             this._productName.Size = new System.Drawing.Size(484, 41);
@@ -134,7 +134,7 @@
             // 
             this._productType.AutoSize = true;
             this._productType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._productType.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
+            this._productType.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._productType.Location = new System.Drawing.Point(3, 128);
             this._productType.Name = "_productType";
             this._productType.Size = new System.Drawing.Size(484, 41);
@@ -144,7 +144,7 @@
             // 
             this._productPrice.AutoSize = true;
             this._productPrice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._productPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
+            this._productPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._productPrice.Location = new System.Drawing.Point(3, 169);
             this._productPrice.Name = "_productPrice";
             this._productPrice.Size = new System.Drawing.Size(484, 41);
@@ -154,7 +154,7 @@
             // 
             this._productStorageQuantity.AutoSize = true;
             this._productStorageQuantity.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._productStorageQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
+            this._productStorageQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._productStorageQuantity.Location = new System.Drawing.Point(3, 210);
             this._productStorageQuantity.Name = "_productStorageQuantity";
             this._productStorageQuantity.Size = new System.Drawing.Size(484, 41);
@@ -179,7 +179,7 @@
             // 
             this._productSupplyQuantityLabel.AutoSize = true;
             this._productSupplyQuantityLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._productSupplyQuantityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
+            this._productSupplyQuantityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._productSupplyQuantityLabel.Location = new System.Drawing.Point(3, 0);
             this._productSupplyQuantityLabel.Name = "_productSupplyQuantityLabel";
             this._productSupplyQuantityLabel.Size = new System.Drawing.Size(128, 35);
@@ -189,11 +189,12 @@
             // _productSupplyQuantityField
             // 
             this._productSupplyQuantityField.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._productSupplyQuantityField.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
+            this._productSupplyQuantityField.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._productSupplyQuantityField.Location = new System.Drawing.Point(137, 3);
+            this._productSupplyQuantityField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this._productSupplyQuantityField.MaxLength = 9;
             this._productSupplyQuantityField.Name = "_productSupplyQuantityField";
-            this._productSupplyQuantityField.Size = new System.Drawing.Size(344, 32);
+            this._productSupplyQuantityField.Size = new System.Drawing.Size(327, 32);
             this._productSupplyQuantityField.TabIndex = 1;
             // 
             // ReplenishmentForm
