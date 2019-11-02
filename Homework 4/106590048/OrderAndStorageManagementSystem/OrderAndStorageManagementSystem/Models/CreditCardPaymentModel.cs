@@ -1,5 +1,4 @@
 ﻿using OrderAndStorageManagementSystem.Models.Utilities.InputInspectorUtilities;
-using System;
 using System.Collections.Generic;
 
 namespace OrderAndStorageManagementSystem.Models
