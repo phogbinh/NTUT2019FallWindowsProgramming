@@ -36,6 +36,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
                 }
                 products.Add(CreateProduct(GetTableRowValues(line)));
             }
+            reader.Close();
             return products;
         }
 
