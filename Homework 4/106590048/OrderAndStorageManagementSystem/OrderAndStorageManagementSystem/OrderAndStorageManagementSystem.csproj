@@ -62,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\AppDefinition.cs" />
-    <Compile Include="Models\CreditCardPaymentForm\CreditCardPaymentModel.cs" />
+    <Compile Include="Models\CreditCardPaymentModel.cs" />
     <Compile Include="Models\Utilities\InputInspectorUtilities\DropDownListIsSelectedInspector.cs" />
     <Compile Include="Models\Utilities\InputInspectorUtilities\IInputInspector.cs" />
     <Compile Include="Models\Utilities\InputInspectorUtilities\TextBoxInspector.cs" />
