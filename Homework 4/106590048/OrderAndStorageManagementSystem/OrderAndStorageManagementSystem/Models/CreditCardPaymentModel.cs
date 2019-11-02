@@ -26,24 +26,56 @@ namespace OrderAndStorageManagementSystem.Models
 
         public CreditCardPaymentModel()
         {
+            InitializeTextBoxIsNotEmptyInspectorControlIndices();
+            InitializeTextBoxIsOfFullLengthInspectorControlIndices();
+            InitializeTextBoxIsMailInspectorControlIndices();
+            InitializeDropDownListIsSelectedInspectorControlIndices();
+            _inputInspectorManager = new InputInspectorManager(CONTROLS_COUNT, _textBoxIsNotEmptyInspectorControlIndices, _textBoxIsOfFullLengthInspectorControlIndices, _textBoxIsMailInspectorControlIndices, _dropDownListIsSelectedInspectorControlIndices);
+        }
+
+        /// <summary>
+        /// Initialize _textBoxIsNotEmptyInspectorControlIndices.
+        /// </summary>
+        private void InitializeTextBoxIsNotEmptyInspectorControlIndices()
+        {
             _textBoxIsNotEmptyInspectorControlIndices = new List<int>();
             for ( int i = LAST_NAME_FIELD_INDEX; i <= ADDRESS_FIELD_INDEX; i++ )
             {
                 _textBoxIsNotEmptyInspectorControlIndices.Add(i);
             }
+        }
+
+        /// <summary>
+        /// Initialize _textBoxIsOfFullLengthInspectorControlIndices.
+        /// </summary>
+        private void InitializeTextBoxIsOfFullLengthInspectorControlIndices()
+        {
             _textBoxIsOfFullLengthInspectorControlIndices = new List<int>();
             for ( int i = CARD_NUMBER_FIRST_FIELD_INDEX; i <= CARD_SECURITY_CODE_FIELD_INDEX; i++ )
             {
                 _textBoxIsOfFullLengthInspectorControlIndices.Add(i);
             }
+        }
+
+        /// <summary>
+        /// Initialize _textBoxIsMailInspectorControlIndices.
+        /// </summary>
+        private void InitializeTextBoxIsMailInspectorControlIndices()
+        {
             _textBoxIsMailInspectorControlIndices = new List<int>();
             _textBoxIsMailInspectorControlIndices.Add(MAIL_FIELD_INDEX);
+        }
+
+        /// <summary>
+        /// Initialize _dropDownListIsSelectedInspectorControlIndices.
+        /// </summary>
+        private void InitializeDropDownListIsSelectedInspectorControlIndices()
+        {
             _dropDownListIsSelectedInspectorControlIndices = new List<int>();
             for ( int i = CARD_DATE_MONTH_FIELD_INDEX; i <= CARD_DATE_YEAR_FIELD_INDEX; i++ )
             {
                 _dropDownListIsSelectedInspectorControlIndices.Add(i);
             }
-            _inputInspectorManager = new InputInspectorManager(CONTROLS_COUNT, _textBoxIsNotEmptyInspectorControlIndices, _textBoxIsOfFullLengthInspectorControlIndices, _textBoxIsMailInspectorControlIndices, _dropDownListIsSelectedInspectorControlIndices);
         }
 
         /// <summary>
