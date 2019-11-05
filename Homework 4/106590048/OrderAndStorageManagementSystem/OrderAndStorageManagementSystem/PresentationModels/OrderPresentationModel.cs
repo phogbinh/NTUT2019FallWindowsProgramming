@@ -8,30 +8,14 @@ namespace OrderAndStorageManagementSystem.PresentationModels
     public class OrderPresentationModel
     {
         public delegate void AddButtonEnabledChangedEventHandler();
-        private event AddButtonEnabledChangedEventHandler _addButtonEnabledChanged;
         public delegate void OrderFormProductStorageQuantityTextChangedEventHandler();
-        private event OrderFormProductStorageQuantityTextChangedEventHandler _orderFormProductStorageQuantityTextChanged;
         public AddButtonEnabledChangedEventHandler AddButtonEnabledChanged
         {
-            get
-            {
-                return _addButtonEnabledChanged;
-            }
-            set
-            {
-                _addButtonEnabledChanged = value;
-            }
+            get; set;
         }
         public OrderFormProductStorageQuantityTextChangedEventHandler OrderFormProductStorageQuantityTextChanged
         {
-            get
-            {
-                return _orderFormProductStorageQuantityTextChanged;
-            }
-            set
-            {
-                _orderFormProductStorageQuantityTextChanged = value;
-            }
+            get; set;
         }
         public ControlStates ProductNameAndDescription
         {
