@@ -189,9 +189,9 @@
             <Smell>
               <Id>1</Id>
               <SmellType>Large class(過大類別)</SmellType>
-              <HashCode>LargeClass.OrderAndStorageManagementSystem.Models.Model.311</HashCode>
+              <HashCode>LargeClass.OrderAndStorageManagementSystem.Models.Model.318</HashCode>
               <Severity>Warning</Severity>
-              <Weight>311</Weight>
+              <Weight>318</Weight>
               <Project>OrderAndStorageManagementSystem</Project>
               <File>Model.cs</File>
               <Line>8</Line>
@@ -204,13 +204,13 @@
             </Smell>
             <Smell>
               <Id>2</Id>
-              <SmellType>Unsuitable naming(名不符實)-ReplenishmentForm(replenishment)</SmellType>
-              <HashCode>UnsuitableNaming.OrderAndStorageManagementSystem.Views.ReplenishmentForm.ReplenishmentForm</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
+              <SmellType>Large class(過大類別)</SmellType>
+              <HashCode>LargeClass.OrderAndStorageManagementSystem.PresentationModels.OrderPresentationModel.305</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>305</Weight>
               <Project>OrderAndStorageManagementSystem</Project>
-              <File>ReplenishmentForm.cs</File>
-              <Line>9</Line>
+              <File>OrderPresentationModel.cs</File>
+              <Line>8</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -220,6 +220,22 @@
             </Smell>
             <Smell>
               <Id>3</Id>
+              <SmellType>Unsuitable naming(名不符實)-ReplenishmentForm(replenishment)</SmellType>
+              <HashCode>UnsuitableNaming.OrderAndStorageManagementSystem.Views.ReplenishmentForm.ReplenishmentForm</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>ReplenishmentForm.cs</File>
+              <Line>10</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>4</Id>
               <SmellType>Unsuitable naming(名不符實)-ReplenishmentForm(replenishment)</SmellType>
               <HashCode>UnsuitableNaming.OrderAndStorageManagementSystem.Views.ReplenishmentForm.ReplenishmentForm</HashCode>
               <Severity>Red</Severity>
@@ -503,7 +519,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>4656</ProductionLoc>
+          <ProductionLoc>4942</ProductionLoc>
           <TestLoc>1499</TestLoc>
         </CodeReview>
       </Data>

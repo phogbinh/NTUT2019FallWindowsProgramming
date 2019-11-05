@@ -20,7 +20,7 @@ namespace OrderAndStorageManagementSystem.Views
             InitializeComponent();
             _inventoryPresentationModel = inventoryPresentationModelData;
             _model = modelData;
-            this.Disposed += UnsubscribeEvents;
+            this.Disposed += RemoveEvents;
             // Observers
             _model.ProductStorageQuantityChanged += UpdateProductStorageQuantityInStorageDataGridView;
             // UI
@@ -34,7 +34,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// <summary>
         /// Unsubscribe from all events that were subscribed by this form.
         /// </summary>
-        private void UnsubscribeEvents(object sender, EventArgs eventArguments)
+        private void RemoveEvents(object sender, EventArgs eventArguments)
         {
             _model.ProductStorageQuantityChanged -= UpdateProductStorageQuantityInStorageDataGridView;
         }

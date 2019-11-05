@@ -32,7 +32,7 @@ namespace OrderAndStorageManagementSystem.Views
             _orderModel = orderModelData;
             _model = modelData;
             InitializeProductTabPageButtonsContainers();
-            this.Disposed += UnsubscribeEvents;
+            this.Disposed += RemoveEvents;
             // Observers
             _model.OrderChanged += UpdateCartSectionViewOnOrderChanged;
             _model.OrderCleared += UpdateViewOnOrderCleared;
@@ -62,7 +62,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// <summary>
         /// Unsubscribe from all events that were subscribed by this form.
         /// </summary>
-        private void UnsubscribeEvents(object sender, EventArgs eventArguments)
+        private void RemoveEvents(object sender, EventArgs eventArguments)
         {
             _model.OrderChanged -= UpdateCartSectionViewOnOrderChanged;
             _model.OrderCleared -= UpdateViewOnOrderCleared;
