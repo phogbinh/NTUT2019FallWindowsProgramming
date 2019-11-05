@@ -1,8 +1,6 @@
 ﻿using OrderAndStorageManagementSystem.Models;
-using OrderAndStorageManagementSystem.PresentationModels;
 using OrderAndStorageManagementSystem.Views.Utilities;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace OrderAndStorageManagementSystem.Views

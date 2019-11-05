@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace InputInspectingElements
+﻿namespace InputInspectingElements
 {
     public static class BitHelper
     {
@@ -21,7 +15,7 @@ namespace InputInspectingElements
         /// </summary>
         private static bool IsOneBitOnFlag(int flag)
         {
-            return (flag & ( flag - 1 )) == 0;
+            return ( flag & ( flag - 1 ) ) == 0;
         }
     }
 }
