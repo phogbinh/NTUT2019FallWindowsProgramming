@@ -39,7 +39,7 @@
             this._productStorageQuantity = new System.Windows.Forms.Label();
             this._productSupplyQuantityFieldLayout = new System.Windows.Forms.TableLayoutPanel();
             this._productSupplyQuantityLabel = new System.Windows.Forms.Label();
-            this._productSupplyQuantityField = new System.Windows.Forms.TextBox();
+            this._productSupplyQuantityField = new InputInspectingElements.InputInspectingControls.InputInspectingTextBox();
             this._supplyFormLayout.SuspendLayout();
             this._buttonsLayout.SuspendLayout();
             this._productSupplyQuantityFieldLayout.SuspendLayout();
@@ -227,6 +227,6 @@
         private System.Windows.Forms.Label _productStorageQuantity;
         private System.Windows.Forms.TableLayoutPanel _productSupplyQuantityFieldLayout;
         private System.Windows.Forms.Label _productSupplyQuantityLabel;
-        private System.Windows.Forms.TextBox _productSupplyQuantityField;
+        private InputInspectingElements.InputInspectingControls.InputInspectingTextBox _productSupplyQuantityField;
     }
 }
