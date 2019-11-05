@@ -36,6 +36,8 @@ namespace OrderAndStorageManagementSystem.Views
             InitializeInputInspectingDropDownListsDropDownListInspectorsCollectionChangedEventHandlers();
             // Input inspectors collection
             InitializeInputInspectorsCollection();
+            // Initialize UI state
+            UpdateSubmitButtonView();
         }
 
         /// <summary>
@@ -114,6 +116,14 @@ namespace OrderAndStorageManagementSystem.Views
         private void UpdateErrorProviderAndSubmitButtonView(Control control, string controlInputInspectorsError)
         {
             _errorProvider.SetError(control, controlInputInspectorsError);
+            UpdateSubmitButtonView();
+        }
+
+        /// <summary>
+        /// Update the enabled state of the submit button.
+        /// </summary>
+        private void UpdateSubmitButtonView()
+        {
             _submitButton.Enabled = _inputInspectorsCollection.AreAllValidInputInspectors();
         }
 
