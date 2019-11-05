@@ -52,6 +52,7 @@ namespace OrderAndStorageManagementSystem.Views
             InitializeProductTabPages();
             // Initial UI States
             SelectProductTabPage(AppDefinition.MOTHER_BOARD_INDEX);
+            InitializeCartDataGridView();
             UpdateCartSectionViewOnOrderChanged();
             RefreshControls();
         }
@@ -267,6 +268,17 @@ namespace OrderAndStorageManagementSystem.Views
             for ( int i = 0; i < AppDefinition.TAB_PAGE_MAX_PRODUCTS_COUNT; i++ )
             {
                 productTabPageButtons[ i ].Product = _orderPresentationModel.GetProductAtCurrentProductPage(currentTabPageIndex, i);
+            }
+        }
+
+        /// <summary>
+        /// Initialize cart data grid view.
+        /// </summary>
+        private void InitializeCartDataGridView()
+        {
+            foreach ( OrderItem orderItem in _model.GetOrderItems() )
+            {
+                _cartDataGridView.Rows.Add(null, orderItem.Name, orderItem.Type, orderItem.Price.GetCurrencyFormat(), orderItem.OrderQuantity, orderItem.GetTotalPrice().GetCurrencyFormat());
             }
         }
 

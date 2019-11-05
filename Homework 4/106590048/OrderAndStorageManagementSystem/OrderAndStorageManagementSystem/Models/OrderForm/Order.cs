@@ -145,5 +145,13 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             }
             return products;
         }
+
+        /// <summary>
+        /// Get all the order items in the order.
+        /// </summary>
+        public List<OrderItem> GetOrderItems()
+        {
+            return _orderItems;
+        }
     }
 }

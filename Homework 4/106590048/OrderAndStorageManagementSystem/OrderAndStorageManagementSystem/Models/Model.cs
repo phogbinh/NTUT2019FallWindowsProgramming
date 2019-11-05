@@ -336,5 +336,13 @@ namespace OrderAndStorageManagementSystem.Models
                 ProductStorageQuantityChanged(product);
             }
         }
+
+        /// <summary>
+        /// Get all the order items in the order.
+        /// </summary>
+        public List<OrderItem> GetOrderItems()
+        {
+            return _order.GetOrderItems();
+        }
     }
 }
