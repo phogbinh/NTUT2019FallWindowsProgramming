@@ -57,5 +57,13 @@ namespace InputInspectingElements.InputInspectorsCollections
         {
             return inspector.GetError();
         }
+
+        /// <summary>
+        /// Add an input inspectors list.
+        /// </summary>
+        public void AddInputInspectorsList(List<IInputInspector> inputInspectors)
+        {
+            _inspectors.AddRange(inputInspectors);
+        }
     }
 }

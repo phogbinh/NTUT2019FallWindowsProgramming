@@ -1,5 +1,6 @@
 ﻿using InputInspectingElements;
 using InputInspectingElements.InputInspectingControls;
+using InputInspectingElements.InputInspectorsCollections;
 using OrderAndStorageManagementSystem.Models;
 using OrderAndStorageManagementSystem.Views.Utilities;
 using System;
@@ -15,6 +16,7 @@ namespace OrderAndStorageManagementSystem.Views
         private Model _model;
         private List<InputInspectingTextBox> _textBoxes;
         private List<InputInspectingDropDownList> _dropDownLists;
+        private InputInspectorsCollection _inputInspectorsCollection;
 
         public CreditCardPaymentForm(Model modelData)
         {
@@ -32,6 +34,8 @@ namespace OrderAndStorageManagementSystem.Views
             InitializeInputInspectingDropDownListsDropDownListInspectors();
             InitializeInputInspectingDropDownLists();
             InitializeInputInspectingDropDownListsDropDownListInspectorsCollectionChangedEventHandlers();
+            // Input inspectors collection
+            InitializeInputInspectorsCollection();
         }
 
         /// <summary>
@@ -100,16 +104,17 @@ namespace OrderAndStorageManagementSystem.Views
         {
             foreach ( InputInspectingTextBox textBox in _textBoxes )
             {
-                textBox.TextBoxInspectorsCollectionChanged += () => UpdateErrorProviderView(textBox, textBox.GetInputInspectorsError());
+                textBox.TextBoxInspectorsCollectionChanged += () => UpdateErrorProviderAndSubmitButtonView(textBox, textBox.GetInputInspectorsError());
             }
         }
 
         /// <summary>
-        /// Update the view of the error provider.
+        /// Update the view of the error provider and the submit button.
         /// </summary>
-        private void UpdateErrorProviderView(Control control, string controlInputInspectorsError)
+        private void UpdateErrorProviderAndSubmitButtonView(Control control, string controlInputInspectorsError)
         {
             _errorProvider.SetError(control, controlInputInspectorsError);
+            _submitButton.Enabled = _inputInspectorsCollection.AreAllValidInputInspectors();
         }
 
         /// <summary>
@@ -138,7 +143,23 @@ namespace OrderAndStorageManagementSystem.Views
         {
             foreach ( InputInspectingDropDownList dropDownList in _dropDownLists )
             {
-                dropDownList.DropDownListInspectorsCollectionChanged += () => UpdateErrorProviderView(dropDownList, dropDownList.GetInputInspectorsError());
+                dropDownList.DropDownListInspectorsCollectionChanged += () => UpdateErrorProviderAndSubmitButtonView(dropDownList, dropDownList.GetInputInspectorsError());
+            }
+        }
+
+        /// <summary>
+        /// Initialize the input inspectors collection.
+        /// </summary>
+        private void InitializeInputInspectorsCollection()
+        {
+            _inputInspectorsCollection = new InputInspectorsCollection();
+            foreach ( InputInspectingTextBox textBox in _textBoxes )
+            {
+                _inputInspectorsCollection.AddInputInspectorsList(textBox.GetInputInspectors());
+            }
+            foreach ( InputInspectingDropDownList dropDownList in _dropDownLists )
+            {
+                _inputInspectorsCollection.AddInputInspectorsList(dropDownList.GetInputInspectors());
             }
         }
     }
