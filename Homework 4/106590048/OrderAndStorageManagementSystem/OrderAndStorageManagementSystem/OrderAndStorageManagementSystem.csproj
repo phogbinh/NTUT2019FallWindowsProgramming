@@ -62,14 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\AppDefinition.cs" />
-    <Compile Include="Models\CreditCardPaymentModel.cs" />
-    <Compile Include="Models\Utilities\InputInspectorUtilities\DropDownListIsSelectedInspector.cs" />
-    <Compile Include="Models\Utilities\InputInspectorUtilities\IInputInspector.cs" />
-    <Compile Include="Models\Utilities\InputInspectorUtilities\InputInspectorManager.cs" />
-    <Compile Include="Models\Utilities\InputInspectorUtilities\TextBoxInspector.cs" />
-    <Compile Include="Models\Utilities\InputInspectorUtilities\TextBoxIsMailInspector.cs" />
-    <Compile Include="Models\Utilities\InputInspectorUtilities\TextBoxIsOfFullLengthInspector.cs" />
-    <Compile Include="Models\Utilities\InputInspectorUtilities\TextBoxIsNotEmptyInspector.cs" />
     <Compile Include="Models\Model.cs" />
     <Compile Include="Models\OrderForm\OrderItem.cs" />
     <Compile Include="Models\Utilities\DataBaseManager.cs" />
