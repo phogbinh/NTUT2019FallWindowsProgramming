@@ -28,7 +28,7 @@
         /// </summary>
         public static bool IsContainingTextBoxIsMailFlag(int inputInspectorTypeFlag)
         {
-            return BitHelper.IsContainingOneBitOnFlag(inputInspectorTypeFlag, FLAG_TEXT_BOX_IS_MAIL);
+            return BinaryNumberHelper.IsContainingOneBinaryNumberOnFlag(inputInspectorTypeFlag, FLAG_TEXT_BOX_IS_MAIL);
         }
 
         /// <summary>
@@ -36,7 +36,7 @@
         /// </summary>
         public static bool IsContainingTextBoxIsNotEmptyFlag(int inputInspectorTypeFlag)
         {
-            return BitHelper.IsContainingOneBitOnFlag(inputInspectorTypeFlag, FLAG_TEXT_BOX_IS_NOT_EMPTY);
+            return BinaryNumberHelper.IsContainingOneBinaryNumberOnFlag(inputInspectorTypeFlag, FLAG_TEXT_BOX_IS_NOT_EMPTY);
         }
 
         /// <summary>
@@ -44,7 +44,7 @@
         /// </summary>
         public static bool IsContainingTextBoxIsOfFullLengthFlag(int inputInspectorTypeFlag)
         {
-            return BitHelper.IsContainingOneBitOnFlag(inputInspectorTypeFlag, FLAG_TEXT_BOX_IS_OF_FULL_LENGTH);
+            return BinaryNumberHelper.IsContainingOneBinaryNumberOnFlag(inputInspectorTypeFlag, FLAG_TEXT_BOX_IS_OF_FULL_LENGTH);
         }
 
         /// <summary>
@@ -52,7 +52,7 @@
         /// </summary>
         public static bool IsContainingDropDownListIsSelectedFlag(int inputInspectorTypeFlag)
         {
-            return BitHelper.IsContainingOneBitOnFlag(inputInspectorTypeFlag, FLAG_DROP_DOWN_LIST_IS_SELECTED);
+            return BinaryNumberHelper.IsContainingOneBinaryNumberOnFlag(inputInspectorTypeFlag, FLAG_DROP_DOWN_LIST_IS_SELECTED);
         }
     }
 }

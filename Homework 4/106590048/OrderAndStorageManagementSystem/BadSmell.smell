@@ -188,6 +188,22 @@
           <Reviews>
             <Smell>
               <Id>1</Id>
+              <SmellType>Large class(過大類別)</SmellType>
+              <HashCode>LargeClass.OrderAndStorageManagementSystem.Models.Model.311</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>311</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>Model.cs</File>
+              <Line>8</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>2</Id>
               <SmellType>Unsuitable naming(名不符實)-ReplenishmentForm(replenishment)</SmellType>
               <HashCode>UnsuitableNaming.OrderAndStorageManagementSystem.Views.ReplenishmentForm.ReplenishmentForm</HashCode>
               <Severity>Red</Severity>
@@ -203,7 +219,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>2</Id>
+              <Id>3</Id>
               <SmellType>Unsuitable naming(名不符實)-ReplenishmentForm(replenishment)</SmellType>
               <HashCode>UnsuitableNaming.OrderAndStorageManagementSystem.Views.ReplenishmentForm.ReplenishmentForm</HashCode>
               <Severity>Red</Severity>
@@ -227,41 +243,6 @@
             <AnalysisFiles>
               <AnalysisFile>
                 <RelativePath>Models\AppDefinition.cs</RelativePath>
-                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Models\CreditCardPaymentForm\CreditCardPaymentModel.cs</RelativePath>
-                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Models\CreditCardPaymentForm\DropDownListIsSelectedInspector.cs</RelativePath>
-                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Models\CreditCardPaymentForm\IInputInspector.cs</RelativePath>
-                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Models\CreditCardPaymentForm\TextBoxInspector.cs</RelativePath>
-                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Models\CreditCardPaymentForm\TextBoxIsMailInspector.cs</RelativePath>
-                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Models\CreditCardPaymentForm\TextBoxIsNotEmptyInspector.cs</RelativePath>
-                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Models\CreditCardPaymentForm\TextBoxIsOfFullLengthInspector.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -307,11 +288,6 @@
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Models\Utilities\Product.cs</RelativePath>
-                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>PresentationModels\CreditCardPaymentPresentationModel.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -440,9 +416,94 @@
                 <ProjectName>DataGridViewNumericUpDownElements</ProjectName>
                 <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>BinaryNumberHelper.cs</RelativePath>
+                <ProjectName>InputInspectingElements</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>InputInspectingControls\IInputInspectingControl.cs</RelativePath>
+                <ProjectName>InputInspectingElements</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>InputInspectingControls\InputInspectingDropDownList.cs</RelativePath>
+                <ProjectName>InputInspectingElements</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>InputInspectingControls\InputInspectingTextBox.cs</RelativePath>
+                <ProjectName>InputInspectingElements</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>InputInspectors\DropDownListIsSelectedInspector.cs</RelativePath>
+                <ProjectName>InputInspectingElements</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>InputInspectors\IInputInspector.cs</RelativePath>
+                <ProjectName>InputInspectingElements</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>InputInspectors\TextBoxInspector.cs</RelativePath>
+                <ProjectName>InputInspectingElements</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>InputInspectors\TextBoxIsMailInspector.cs</RelativePath>
+                <ProjectName>InputInspectingElements</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>InputInspectors\TextBoxIsNotEmptyInspector.cs</RelativePath>
+                <ProjectName>InputInspectingElements</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>InputInspectors\TextBoxIsOfFullLengthInspector.cs</RelativePath>
+                <ProjectName>InputInspectingElements</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>InputInspectorsCollections\DropDownListInspectorsCollection.cs</RelativePath>
+                <ProjectName>InputInspectingElements</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>InputInspectorsCollections\InputInspectorsCollection.cs</RelativePath>
+                <ProjectName>InputInspectingElements</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>InputInspectorsCollections\TextBoxInspectorsCollection.cs</RelativePath>
+                <ProjectName>InputInspectingElements</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>InputInspectorTypeHelper.cs</RelativePath>
+                <ProjectName>InputInspectingElements</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Properties\AssemblyInfo.cs</RelativePath>
+                <ProjectName>InputInspectingElements</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Properties\Resources.Designer.cs</RelativePath>
+                <ProjectName>InputInspectingElements</ProjectName>
+                <AnalysisFileType>Designer</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Properties\Settings.Designer.cs</RelativePath>
+                <ProjectName>InputInspectingElements</ProjectName>
+                <AnalysisFileType>Designer</AnalysisFileType>
+              </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>4561</ProductionLoc>
+          <ProductionLoc>4656</ProductionLoc>
           <TestLoc>1499</TestLoc>
         </CodeReview>
       </Data>
