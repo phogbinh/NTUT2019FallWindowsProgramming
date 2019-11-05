@@ -10,7 +10,7 @@ namespace InputInspectingElements.InputInspectorsCollections
         /// <summary>
         /// Add drop-down list inspectors by dropDownListInspectorTypeFlag.
         /// </summary>
-        public void AddDropDownListInspectors(int dropDownListInspectorTypeFlag)
+        public void AddDropDownListInspectors(int dropDownListInspectorTypeFlag, int selectedIndex)
         {
             if ( !InputInspectorTypeHelper.IsInRangeOfDropDownListInspectorTypes(dropDownListInspectorTypeFlag) )
             {
@@ -18,7 +18,7 @@ namespace InputInspectingElements.InputInspectorsCollections
             }
             if ( InputInspectorTypeHelper.IsContainingDropDownListIsSelectedFlag(dropDownListInspectorTypeFlag) )
             {
-                _inspectors.Add(new DropDownListIsSelectedInspector());
+                _inspectors.Add(new DropDownListIsSelectedInspector(selectedIndex));
             }
         }
 

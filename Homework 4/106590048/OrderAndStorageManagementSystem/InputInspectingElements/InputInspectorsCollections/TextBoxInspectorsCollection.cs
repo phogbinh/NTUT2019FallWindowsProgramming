@@ -10,7 +10,7 @@ namespace InputInspectingElements.InputInspectorsCollections
         /// <summary>
         /// Add textbox inspectors by textBoxInspectorTypeFlag.
         /// </summary>
-        public void AddTextBoxInspectors(int textBoxInspectorTypeFlag)
+        public void AddTextBoxInspectors(int textBoxInspectorTypeFlag, string text, int maxTextLength)
         {
             if ( !InputInspectorTypeHelper.IsInRangeOfTextBoxInspectorTypes(textBoxInspectorTypeFlag) )
             {
@@ -18,15 +18,15 @@ namespace InputInspectingElements.InputInspectorsCollections
             }
             if ( InputInspectorTypeHelper.IsContainingTextBoxIsMailFlag(textBoxInspectorTypeFlag) )
             {
-                _inspectors.Add(new TextBoxIsMailInspector());
+                _inspectors.Add(new TextBoxIsMailInspector(text, maxTextLength));
             }
             if ( InputInspectorTypeHelper.IsContainingTextBoxIsNotEmptyFlag(textBoxInspectorTypeFlag) )
             {
-                _inspectors.Add(new TextBoxIsNotEmptyInspector());
+                _inspectors.Add(new TextBoxIsNotEmptyInspector(text, maxTextLength));
             }
             if ( InputInspectorTypeHelper.IsContainingTextBoxIsOfFullLengthFlag(textBoxInspectorTypeFlag) )
             {
-                _inspectors.Add(new TextBoxIsOfFullLengthInspector());
+                _inspectors.Add(new TextBoxIsOfFullLengthInspector(text, maxTextLength));
             }
         }
 

@@ -5,9 +5,9 @@
         private const string ERROR_DROP_DOWN_LIST_IS_IGNORED = "This field has not been selected.";
         private int _selectedIndex;
 
-        public DropDownListIsSelectedInspector()
+        public DropDownListIsSelectedInspector(int selectedIndexData)
         {
-            /* Body intentionally empty */
+            _selectedIndex = selectedIndexData;
         }
 
         /// <summary>

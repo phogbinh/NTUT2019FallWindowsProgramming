@@ -18,7 +18,7 @@
             }
         }
 
-        public TextBoxIsOfFullLengthInspector() : base()
+        public TextBoxIsOfFullLengthInspector(string textData, int maxTextLengthData) : base(textData, maxTextLengthData)
         {
             /* Body intentionally empty */
         }

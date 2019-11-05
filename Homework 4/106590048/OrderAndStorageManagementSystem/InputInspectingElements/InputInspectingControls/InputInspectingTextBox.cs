@@ -54,7 +54,7 @@ namespace InputInspectingElements.InputInspectingControls
         /// </summary>
         public void AddTextBoxInspectors(int textBoxInspectorTypeFlag)
         {
-            _textBoxInspectorsCollection.AddTextBoxInspectors(textBoxInspectorTypeFlag);
+            _textBoxInspectorsCollection.AddTextBoxInspectors(textBoxInspectorTypeFlag, this.Text, this.MaxLength);
         }
 
         /// <summary>

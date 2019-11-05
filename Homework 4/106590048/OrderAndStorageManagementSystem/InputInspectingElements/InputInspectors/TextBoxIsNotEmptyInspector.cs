@@ -4,7 +4,7 @@
     {
         private const string ERROR_TEXT_BOX_IS_EMPTY = "This field is empty.";
 
-        public TextBoxIsNotEmptyInspector() : base()
+        public TextBoxIsNotEmptyInspector(string textData, int maxTextLengthData) : base(textData, maxTextLengthData)
         {
             /* Body intentionally empty */
         }

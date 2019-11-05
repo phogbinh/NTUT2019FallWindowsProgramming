@@ -5,9 +5,10 @@
         protected string _text;
         protected int _maxTextLength;
 
-        public TextBoxInspector()
+        public TextBoxInspector(string textData, int maxTextLengthData)
         {
-            /* Body intentionally empty */
+            _text = textData;
+            _maxTextLength = maxTextLengthData;
         }
 
         /// <summary>

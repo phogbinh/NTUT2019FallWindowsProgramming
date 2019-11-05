@@ -54,7 +54,7 @@ namespace InputInspectingElements.InputInspectingControls
         /// </summary>
         public void AddDropDownListInspectors(int dropDownListInspectorTypeFlag)
         {
-            _dropDownListInspectorsCollection.AddDropDownListInspectors(dropDownListInspectorTypeFlag);
+            _dropDownListInspectorsCollection.AddDropDownListInspectors(dropDownListInspectorTypeFlag, this.SelectedIndex);
         }
 
         /// <summary>
