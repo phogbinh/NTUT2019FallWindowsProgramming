@@ -14,5 +14,10 @@ namespace InputInspectingElements.InputInspectingControls
         /// Get error of the input inspectors of the input inspecting control.
         /// </summary>
         string GetInputInspectorsError();
+
+        /// <summary>
+        /// Return true if all of its input inspectors is valid.
+        /// </summary>
+        bool IsValid();
     }
 }

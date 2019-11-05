@@ -72,5 +72,13 @@ namespace InputInspectingElements.InputInspectingControls
         {
             return _textBoxInspectorsCollection.GetError();
         }
+
+        /// <summary>
+        /// Return true if all of its input inspectors is valid.
+        /// </summary>
+        public bool IsValid()
+        {
+            return _textBoxInspectorsCollection.AreAllValidInputInspectors();
+        }
     }
 }
