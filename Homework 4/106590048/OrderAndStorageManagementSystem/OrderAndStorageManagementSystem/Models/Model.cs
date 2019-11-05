@@ -8,95 +8,39 @@ namespace OrderAndStorageManagementSystem.Models
     public class Model
     {
         public delegate void OrderChangedEventHandler();
-        private event OrderChangedEventHandler _orderChanged;
         public delegate void OrderClearedEventHandler();
-        private event OrderClearedEventHandler _orderCleared;
         public delegate void OrderAddedEventHandler(OrderItem orderItem);
-        private event OrderAddedEventHandler _orderAdded;
         public delegate void OrderRemovedEventHandler(int orderItemIndex, Product removedProduct);
-        private event OrderRemovedEventHandler _orderRemoved;
         public delegate void OrderItemQuantityChangedEventHandler(int orderItemIndex, string orderItemTotalPrice);
-        private event OrderItemQuantityChangedEventHandler _orderItemQuantityChanged;
         public delegate void OrderItemQuantityIsExceededStorageQuantityEventHandler(int orderItemIndex, int storageQuantity);
-        private event OrderItemQuantityIsExceededStorageQuantityEventHandler _orderItemQuantityIsExceededStorageQuantity;
         public delegate void ProductStorageQuantityChangedEventHandler(Product product);
-        private event ProductStorageQuantityChangedEventHandler _productStorageQuantityChanged;
         public OrderChangedEventHandler OrderChanged
         {
-            get
-            {
-                return _orderChanged;
-            }
-            set
-            {
-                _orderChanged = value;
-            }
+            get; set;
         }
         public OrderClearedEventHandler OrderCleared
         {
-            get
-            {
-                return _orderCleared;
-            }
-            set
-            {
-                _orderCleared = value;
-            }
+            get; set;
         }
         public OrderAddedEventHandler OrderAdded
         {
-            get
-            {
-                return _orderAdded;
-            }
-            set
-            {
-                _orderAdded = value;
-            }
+            get; set;
         }
         public OrderRemovedEventHandler OrderRemoved
         {
-            get
-            {
-                return _orderRemoved;
-            }
-            set
-            {
-                _orderRemoved = value;
-            }
+            get; set;
         }
         public OrderItemQuantityChangedEventHandler OrderItemQuantityChanged
         {
-            get
-            {
-                return _orderItemQuantityChanged;
-            }
-            set
-            {
-                _orderItemQuantityChanged = value;
-            }
+            get; set;
         }
         public OrderItemQuantityIsExceededStorageQuantityEventHandler OrderItemQuantityIsExceededStorageQuantity
         {
-            get
-            {
-                return _orderItemQuantityIsExceededStorageQuantity;
-            }
-            set
-            {
-                _orderItemQuantityIsExceededStorageQuantity = value;
-            }
+            get; set;
         }
         public ProductStorageQuantityChangedEventHandler ProductStorageQuantityChanged
         {
-            get
-            {
-                return _productStorageQuantityChanged;
-            }
-            set
-            {
-                _productStorageQuantityChanged = value;
-            }
+            get; set;
         }
         public List<Product> Products
         {
