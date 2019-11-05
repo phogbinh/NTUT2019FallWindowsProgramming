@@ -273,7 +273,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// <summary>
         /// Referesh controls.
         /// </summary>
-        public void RefreshControls()
+        private void RefreshControls()
         {
             _productNameAndDescription.Text = _orderPresentationModel.ProductNameAndDescription.Text;
             _productPrice.Text = _orderPresentationModel.ProductPrice.Text;
