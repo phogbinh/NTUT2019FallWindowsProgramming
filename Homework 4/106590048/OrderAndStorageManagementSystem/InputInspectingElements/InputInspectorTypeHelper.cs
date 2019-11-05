@@ -12,7 +12,7 @@
         /// </summary>
         public static bool IsInRangeOfTextBoxInspectorTypes(int inputInspectorTypeFlag)
         {
-            return ( FLAG_TEXT_BOX_IS_MAIL <= inputInspectorTypeFlag ) && ( inputInspectorTypeFlag <= ( FLAG_TEXT_BOX_IS_MAIL & FLAG_TEXT_BOX_IS_NOT_EMPTY & FLAG_TEXT_BOX_IS_OF_FULL_LENGTH ) );
+            return ( FLAG_TEXT_BOX_IS_MAIL <= inputInspectorTypeFlag ) && ( inputInspectorTypeFlag <= ( FLAG_TEXT_BOX_IS_MAIL | FLAG_TEXT_BOX_IS_NOT_EMPTY | FLAG_TEXT_BOX_IS_OF_FULL_LENGTH ) );
         }
 
         /// <summary>
