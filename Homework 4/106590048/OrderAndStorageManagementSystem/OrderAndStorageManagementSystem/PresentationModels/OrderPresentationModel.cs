@@ -103,13 +103,20 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         private int _currentTabPageIndex;
         private int _currentProductPageIndex;
 
+        ~OrderPresentationModel()
+        {
+            _model.OrderAdded -= HandleModelOrderAdded;
+            _model.OrderRemoved -= HandleModelOrderRemoved;
+            _model.ProductStorageQuantityChanged -= UpdateProductStorageQuantityAndAddButtonIfChangedCurrentSelectedProductStorageQuantity;
+        }
+
         public OrderPresentationModel(OrderModel orderModelData, Model modelData)
         {
             _orderModel = orderModelData;
             _model = modelData;
             // Observers
-            _model.OrderAdded += (orderItem) => UpdateAddButtonIfCurrentSelectedProductIsAddedToOrRemovedFromOrder(orderItem.Product);
-            _model.OrderRemoved += (orderItemIndex, removedProduct) => UpdateAddButtonIfCurrentSelectedProductIsAddedToOrRemovedFromOrder(removedProduct);
+            _model.OrderAdded += HandleModelOrderAdded;
+            _model.OrderRemoved += HandleModelOrderRemoved;
             _model.ProductStorageQuantityChanged += UpdateProductStorageQuantityAndAddButtonIfChangedCurrentSelectedProductStorageQuantity;
             // UI
             _productNameAndDescription = new ControlStates();
@@ -119,6 +126,22 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             _pageLabel = new ControlStates();
             _leftArrowButton = new ControlStates();
             _rightArrowButton = new ControlStates();
+        }
+
+        /// <summary>
+        /// Handle the event OrderAdded of model.
+        /// </summary>
+        private void HandleModelOrderAdded(OrderItem orderItem)
+        {
+            UpdateAddButtonIfCurrentSelectedProductIsAddedToOrRemovedFromOrder(orderItem.Product);
+        }
+
+        /// <summary>
+        /// Handle the event OrderRemoved of model.
+        /// </summary>
+        private void HandleModelOrderRemoved(int orderItemIndex, Product removedProduct)
+        {
+            UpdateAddButtonIfCurrentSelectedProductIsAddedToOrRemovedFromOrder(removedProduct);
         }
 
         /// <summary>

@@ -3,6 +3,7 @@ using OrderAndStorageManagementSystem.Models.Utilities;
 using OrderAndStorageManagementSystem.PresentationModels;
 using OrderAndStorageManagementSystem.Properties;
 using OrderAndStorageManagementSystem.Views.Utilities;
+using System;
 using System.Windows.Forms;
 
 namespace OrderAndStorageManagementSystem.Views
@@ -19,6 +20,7 @@ namespace OrderAndStorageManagementSystem.Views
             InitializeComponent();
             _inventoryPresentationModel = inventoryPresentationModelData;
             _model = modelData;
+            this.Disposed += UnsubscribeEvents;
             // Observers
             _model.ProductStorageQuantityChanged += UpdateProductStorageQuantityInStorageDataGridView;
             // UI
@@ -27,6 +29,14 @@ namespace OrderAndStorageManagementSystem.Views
             _storageDataGridView.SelectionChanged += (sender, eventArguments) => UpdateProductInfoView();
             // Initial UI States
             InitializeStorageDataGridView();
+        }
+
+        /// <summary>
+        /// Unsubscribe from all events that were subscribed by this form.
+        /// </summary>
+        private void UnsubscribeEvents(object sender, EventArgs eventArguments)
+        {
+            _model.ProductStorageQuantityChanged -= UpdateProductStorageQuantityInStorageDataGridView;
         }
 
         /// <summary>

@@ -4,6 +4,7 @@ using OrderAndStorageManagementSystem.Models.Utilities;
 using OrderAndStorageManagementSystem.PresentationModels;
 using OrderAndStorageManagementSystem.Properties;
 using OrderAndStorageManagementSystem.Views.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -31,15 +32,16 @@ namespace OrderAndStorageManagementSystem.Views
             _orderModel = orderModelData;
             _model = modelData;
             InitializeProductTabPageButtonsContainers();
+            this.Disposed += UnsubscribeEvents;
             // Observers
             _model.OrderChanged += UpdateCartSectionViewOnOrderChanged;
             _model.OrderCleared += UpdateViewOnOrderCleared;
-            _model.OrderAdded += (orderItem) => _cartDataGridView.Rows.Add(null, orderItem.Name, orderItem.Type, orderItem.Price.GetCurrencyFormat(), orderItem.OrderQuantity, orderItem.GetTotalPrice().GetCurrencyFormat());
-            _model.OrderRemoved += (orderItemIndex, removedProduct) => _cartDataGridView.Rows.RemoveAt(orderItemIndex);
-            _model.OrderItemQuantityChanged += (orderItemIndex, orderItemTotalPrice) => _cartDataGridView.Rows[ orderItemIndex ].Cells[ CART_PRODUCT_TOTAL_PRICE_COLUMN_INDEX ].Value = orderItemTotalPrice;
+            _model.OrderAdded += AddOrderItemToCartDataGridView;
+            _model.OrderRemoved += RemoveOrderItemAtFromCartDataGridView;
+            _model.OrderItemQuantityChanged += UpdateOrderItemTotalPriceAtInCartDataGridView;
             _model.OrderItemQuantityIsExceededStorageQuantity += UpdateViewOnOrderItemQuantityIsExceededStorageQuantity;
-            _orderPresentationModel.AddButtonEnabledChanged += () => _addButton.Enabled = _orderPresentationModel.AddButton.Enabled;
-            _orderPresentationModel.OrderFormProductStorageQuantityTextChanged += () => _productStorageQuantity.Text = _orderPresentationModel.ProductStorageQuantity.Text;
+            _orderPresentationModel.AddButtonEnabledChanged += UpdateAddButtonView;
+            _orderPresentationModel.OrderFormProductStorageQuantityTextChanged += UpdateProductStorageQuantityView;
             // UI
             _cartDataGridView.CellPainting += (sender, eventArguments) => DataGridViewHelper.InitializeButtonImageOfButtonColumn(eventArguments, CART_DELETE_BUTTON_COLUMN_INDEX, Resources.img_trash_bin);
             _cartDataGridView.CellContentClick += ClickCartDataGridViewCellContent;
@@ -55,6 +57,21 @@ namespace OrderAndStorageManagementSystem.Views
             InitializeCartDataGridView();
             UpdateCartSectionViewOnOrderChanged();
             RefreshControls();
+        }
+
+        /// <summary>
+        /// Unsubscribe from all events that were subscribed by this form.
+        /// </summary>
+        private void UnsubscribeEvents(object sender, EventArgs eventArguments)
+        {
+            _model.OrderChanged -= UpdateCartSectionViewOnOrderChanged;
+            _model.OrderCleared -= UpdateViewOnOrderCleared;
+            _model.OrderAdded -= AddOrderItemToCartDataGridView;
+            _model.OrderRemoved -= RemoveOrderItemAtFromCartDataGridView;
+            _model.OrderItemQuantityChanged -= UpdateOrderItemTotalPriceAtInCartDataGridView;
+            _model.OrderItemQuantityIsExceededStorageQuantity -= UpdateViewOnOrderItemQuantityIsExceededStorageQuantity;
+            _orderPresentationModel.AddButtonEnabledChanged -= UpdateAddButtonView;
+            _orderPresentationModel.OrderFormProductStorageQuantityTextChanged -= UpdateProductStorageQuantityView;
         }
 
         /// <summary>
@@ -85,12 +102,52 @@ namespace OrderAndStorageManagementSystem.Views
         }
 
         /// <summary>
+        /// Add order item to the cart data grid view.
+        /// </summary>
+        private void AddOrderItemToCartDataGridView(OrderItem orderItem)
+        {
+            _cartDataGridView.Rows.Add(null, orderItem.Name, orderItem.Type, orderItem.Price.GetCurrencyFormat(), orderItem.OrderQuantity, orderItem.GetTotalPrice().GetCurrencyFormat());
+        }
+
+        /// <summary>
+        /// Remove order item at orderItemIndex from cart data grid view.
+        /// </summary>
+        private void RemoveOrderItemAtFromCartDataGridView(int orderItemIndex, Product removedProduct)
+        {
+            _cartDataGridView.Rows.RemoveAt(orderItemIndex);
+        }
+
+        /// <summary>
+        /// Update order item total price at orderItemIndex in cart data grid view.
+        /// </summary>
+        private void UpdateOrderItemTotalPriceAtInCartDataGridView(int orderItemIndex, string orderItemTotalPrice)
+        {
+            _cartDataGridView.Rows[ orderItemIndex ].Cells[ CART_PRODUCT_TOTAL_PRICE_COLUMN_INDEX ].Value = orderItemTotalPrice;
+        }
+
+        /// <summary>
         /// Update view on order quantity of order item is exceeded its storage quantity.
         /// </summary>
         private void UpdateViewOnOrderItemQuantityIsExceededStorageQuantity(int orderItemIndex, int storageQuantity)
         {
             MessageBox.Show(this, ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY_MESSAGE, ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY_TITLE);
             _cartDataGridView.Rows[ orderItemIndex ].Cells[ CART_PRODUCT_QUANTITY_COLUMN_INDEX ].Value = storageQuantity;
+        }
+
+        /// <summary>
+        /// Update enabled state of add button.
+        /// </summary>
+        private void UpdateAddButtonView()
+        {
+            _addButton.Enabled = _orderPresentationModel.AddButton.Enabled;
+        }
+
+        /// <summary>
+        /// Update text of product storage quantity.
+        /// </summary>
+        private void UpdateProductStorageQuantityView()
+        {
+            _productStorageQuantity.Text = _orderPresentationModel.ProductStorageQuantity.Text;
         }
 
         /// <summary>
