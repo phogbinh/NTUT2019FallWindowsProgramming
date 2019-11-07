@@ -49,13 +49,6 @@ namespace OrderAndStorageManagementSystem.Models
                 return _products;
             }
         }
-        public Order Order
-        {
-            get
-            {
-                return _order;
-            }
-        }
         private const string ERROR_INVALID_PRODUCT_ID = "Product Id is invalid.";
         private List<Product> _products;
         private Order _order;

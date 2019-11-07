@@ -52,27 +52,11 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         }
 
         /// <summary>
-        /// Substract value from the money.
-        /// </summary>
-        public void Subtract(Money subtractValue)
-        {
-            _value = _value - subtractValue._value;
-        }
-
-        /// <summary>
         /// Return the money multiplication of the money with constant.
         /// </summary>
         public Money MultiplyConstant(int constant)
         {
             return new Money(_value * constant);
-        }
-
-        /// <summary>
-        /// Set the value of the money.
-        /// </summary>
-        public void Set(int value)
-        {
-            _value = value;
         }
     }
 }

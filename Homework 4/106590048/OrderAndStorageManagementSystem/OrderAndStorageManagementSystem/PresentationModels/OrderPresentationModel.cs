@@ -66,13 +66,6 @@ namespace OrderAndStorageManagementSystem.PresentationModels
                 return _rightArrowButton;
             }
         }
-        public Product CurrentSelectedProduct
-        {
-            get
-            {
-                return _currentSelectedProduct;
-            }
-        }
         private const int CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE = 0;
         private OrderModel _orderModel;
         private Model _model;

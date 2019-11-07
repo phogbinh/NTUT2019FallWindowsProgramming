@@ -41,13 +41,6 @@
                 _storageQuantity = value;
             }
         }
-        public string Description
-        {
-            get
-            {
-                return _description;
-            }
-        }
         private int _id;
         private string _name;
         private string _type;
