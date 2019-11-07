@@ -15,7 +15,15 @@ namespace InputInspectingElements
             {
                 throw new ArgumentException(ERROR_INVALID_ONE_BINARY_NUMBER_ON_FLAG);
             }
-            return ( flag & oneBinaryNumberOnFlag ) == oneBinaryNumberOnFlag;
+            return IsContainingFlag(flag, oneBinaryNumberOnFlag);
+        }
+
+        /// <summary>
+        /// Return true if the given flag has all the on-bit of partialFlag on.
+        /// </summary>
+        private static bool IsContainingFlag(int flag, int partialFlag)
+        {
+            return ( flag & partialFlag ) == partialFlag;
         }
 
         /// <summary>
