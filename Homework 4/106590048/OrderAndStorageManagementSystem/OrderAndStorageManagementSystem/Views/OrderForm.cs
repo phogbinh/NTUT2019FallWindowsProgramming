@@ -35,7 +35,7 @@ namespace OrderAndStorageManagementSystem.Views
             this.Disposed += RemoveEvents;
             // Observers
             _model.OrderChanged += UpdateCartSectionViewOnOrderChanged;
-            _model.OrderCleared += UpdateViewOnOrderCleared;
+            _model.OrderCleared += ClearCartDataGridViewOnOrderCleared;
             _model.OrderAdded += AddOrderItemToCartDataGridView;
             _model.OrderRemoved += RemoveOrderItemAtFromCartDataGridView;
             _model.OrderItemQuantityChanged += UpdateOrderItemTotalPriceAtInCartDataGridView;
@@ -65,7 +65,7 @@ namespace OrderAndStorageManagementSystem.Views
         private void RemoveEvents(object sender, EventArgs eventArguments)
         {
             _model.OrderChanged -= UpdateCartSectionViewOnOrderChanged;
-            _model.OrderCleared -= UpdateViewOnOrderCleared;
+            _model.OrderCleared -= ClearCartDataGridViewOnOrderCleared;
             _model.OrderAdded -= AddOrderItemToCartDataGridView;
             _model.OrderRemoved -= RemoveOrderItemAtFromCartDataGridView;
             _model.OrderItemQuantityChanged -= UpdateOrderItemTotalPriceAtInCartDataGridView;
@@ -84,9 +84,9 @@ namespace OrderAndStorageManagementSystem.Views
         }
 
         /// <summary>
-        /// Update view on ordered clear.
+        /// Clear cart data grid view on order cleared.
         /// </summary>
-        private void UpdateViewOnOrderCleared()
+        private void ClearCartDataGridViewOnOrderCleared()
         {
             _cartDataGridView.Rows.Clear();
         }
