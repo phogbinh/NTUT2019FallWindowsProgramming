@@ -82,6 +82,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
 
         ~OrderPresentationModel()
         {
+            _model.OrderCleared -= UpdateAddButtonByCurrentSelectedProduct;
             _model.OrderAdded -= HandleModelOrderAdded;
             _model.OrderRemoved -= HandleModelOrderRemoved;
             _model.ProductStorageQuantityChanged -= UpdateProductStorageQuantityAndAddButtonIfChangedCurrentSelectedProductStorageQuantity;
@@ -92,6 +93,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             _orderModel = orderModelData;
             _model = modelData;
             // Observers
+            _model.OrderCleared += UpdateAddButtonByCurrentSelectedProduct;
             _model.OrderAdded += HandleModelOrderAdded;
             _model.OrderRemoved += HandleModelOrderRemoved;
             _model.ProductStorageQuantityChanged += UpdateProductStorageQuantityAndAddButtonIfChangedCurrentSelectedProductStorageQuantity;
@@ -257,7 +259,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// <summary>
         /// Select no product.
         /// </summary>
-        public void SelectNoProduct()
+        private void SelectNoProduct()
         {
             _currentSelectedProduct = null;
             UpdateCurrentProductInfo();

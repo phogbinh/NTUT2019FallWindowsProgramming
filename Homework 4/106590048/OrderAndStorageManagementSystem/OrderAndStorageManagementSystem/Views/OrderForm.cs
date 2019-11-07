@@ -89,16 +89,6 @@ namespace OrderAndStorageManagementSystem.Views
         private void UpdateViewOnOrderCleared()
         {
             _cartDataGridView.Rows.Clear();
-            SelectNoProduct();
-        }
-
-        /// <summary>
-        /// Select no product.
-        /// </summary>
-        private void SelectNoProduct()
-        {
-            _orderPresentationModel.SelectNoProduct();
-            RefreshControls();
         }
 
         /// <summary>
