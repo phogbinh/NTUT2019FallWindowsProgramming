@@ -246,7 +246,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             {
                 _leftArrowButton.Enabled = true;
             }
-            if ( humanIndex == _orderModel.GetTabPageProductPagesCount(_currentTabPageIndex) )
+            if ( humanIndex == _model.GetTabPageProductPagesCount(_currentTabPageIndex) )
             {
                 _rightArrowButton.Enabled = false;
             }
