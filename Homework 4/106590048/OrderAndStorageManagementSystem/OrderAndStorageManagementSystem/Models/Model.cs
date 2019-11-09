@@ -8,7 +8,6 @@ namespace OrderAndStorageManagementSystem.Models
     public class Model
     {
         public delegate void OrderChangedEventHandler();
-        public delegate void OrderClearedEventHandler();
         public delegate void OrderAddedEventHandler(OrderItem orderItem);
         public delegate void OrderRemovedEventHandler(int orderItemIndex, Product removedProduct);
         public delegate void OrderItemQuantityChangedEventHandler(int orderItemIndex, string orderItemTotalPrice);
@@ -18,9 +17,16 @@ namespace OrderAndStorageManagementSystem.Models
         {
             get; set;
         }
-        public OrderClearedEventHandler OrderCleared
+        public Order.OrderClearedEventHandler OrderCleared
         {
-            get; set;
+            get
+            {
+                return _order.OrderCleared;
+            }
+            set
+            {
+                _order.OrderCleared = value;
+            }
         }
         public OrderAddedEventHandler OrderAdded
         {
@@ -224,19 +230,7 @@ namespace OrderAndStorageManagementSystem.Models
         private void ClearOrder()
         {
             _order.ClearOrder();
-            NotifyObserverChangeAndClearOrder();
-        }
-
-        /// <summary>
-        /// Notify observer change and clear order.
-        /// </summary>
-        private void NotifyObserverChangeAndClearOrder()
-        {
             NotifyObserverChangeOrder();
-            if ( OrderCleared != null )
-            {
-                OrderCleared();
-            }
         }
 
         /// <summary>

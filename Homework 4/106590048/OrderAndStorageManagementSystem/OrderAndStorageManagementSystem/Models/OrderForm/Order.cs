@@ -5,6 +5,11 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
 {
     public class Order
     {
+        public delegate void OrderClearedEventHandler();
+        public OrderClearedEventHandler OrderCleared
+        {
+            get; set;
+        }
         private const int TOTAL_PRICE_INITIAL_VALUE = 0;
 
         private List<OrderItem> _orderItems;
@@ -72,6 +77,18 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         public void ClearOrder()
         {
             _orderItems.Clear();
+            NotifyObserverClearOrder();
+        }
+
+        /// <summary>
+        /// Notify observer clear order.
+        /// </summary>
+        private void NotifyObserverClearOrder()
+        {
+            if ( OrderCleared != null )
+            {
+                OrderCleared();
+            }
         }
 
         /// <summary>
