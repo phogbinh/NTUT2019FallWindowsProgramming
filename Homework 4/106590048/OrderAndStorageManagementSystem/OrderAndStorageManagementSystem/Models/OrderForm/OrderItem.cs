@@ -80,14 +80,6 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         }
 
         /// <summary>
-        /// Set the order quantity of the order item to its storage quantity.
-        /// </summary>
-        public void SetOrderQuantityToStorageQuantity()
-        {
-            _orderQuantity = StorageQuantity;
-        }
-
-        /// <summary>
         /// Decrease the storage quantity of the order item by its order quantity.
         /// </summary>
         public void DecreaseProductStorageQuantityByOrderQuantity()
