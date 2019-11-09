@@ -224,7 +224,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         /// <summary>
         /// Set the order quantity of the order item at orderItemIndex to newOrderQuantity.
         /// </summary>
-        public void SetOrderItemQuantity(int orderItemIndex, int newOrderQuantity)
+        private void SetOrderItemQuantity(int orderItemIndex, int newOrderQuantity)
         {
             _orderItems[ orderItemIndex ].OrderQuantity = newOrderQuantity;
             NotifyObserverChangeOrderAndChangeOrderItemQuantity(orderItemIndex, GetOrderItemTotalPrice(orderItemIndex));
@@ -261,7 +261,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         /// <summary>
         /// Set the order quantity of the order item at orderItemIndex to its storage quantity.
         /// </summary>
-        public void SetOrderItemQuantityToStorageQuantity(int orderItemIndex)
+        private void SetOrderItemQuantityToStorageQuantity(int orderItemIndex)
         {
             _orderItems[ orderItemIndex ].SetOrderQuantityToStorageQuantity();
             NotifyObserverOrderItemQuantityIsExceededStorageQuantity(orderItemIndex, GetStorageQuantity(orderItemIndex));
