@@ -57,7 +57,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             {
                 throw new ArgumentException(ERROR_PRODUCT_TYPES_IS_EMPTY);
             }
-            return 0 <= productTypeIndex && productTypeIndex <= _productTypes.Count - 1;
+            return AppDefinition.IsInIntervalRange(productTypeIndex, 0, _productTypes.Count - 1);
         }
     }
 }

@@ -72,5 +72,13 @@ namespace OrderAndStorageManagementSystem.Models
         {
             return machineIndex + 1;
         }
+
+        /// <summary>
+        /// Return true if value is in [ intervalLeftValue, intervalRightValue ].
+        /// </summary>
+        public static bool IsInIntervalRange(int value, int intervalLeftValue, int intervalRightValue)
+        {
+            return intervalLeftValue <= value && value <= intervalRightValue;
+        }
     }
 }
