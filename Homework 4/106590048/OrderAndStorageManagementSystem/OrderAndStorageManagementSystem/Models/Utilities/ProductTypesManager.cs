@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace OrderAndStorageManagementSystem.Models.Utilities
 {
@@ -11,6 +12,8 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
                 return _productTypes;
             }
         }
+        private string ERROR_PRODUCT_TYPE_INDEX_OUT_OF_RANGE = "The given product type index is out of range.";
+        private string ERROR_PRODUCT_TYPES_IS_EMPTY = "Product types is empty.";
         private List<string> _productTypes;
 
         public ProductTypesManager(List<Product> initialDataBaseProducts)
@@ -38,7 +41,23 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// </summary>
         public string GetProductType(int productTypeIndex)
         {
+            if ( !IsInProductTypesIndexRange(productTypeIndex) )
+            {
+                throw new ArgumentException(ERROR_PRODUCT_TYPE_INDEX_OUT_OF_RANGE);
+            }
             return _productTypes[ productTypeIndex ];
+        }
+
+        /// <summary>
+        /// Return true if the given product type index is in range of _productTypes.
+        /// </summary>
+        private bool IsInProductTypesIndexRange(int productTypeIndex)
+        {
+            if ( _productTypes.Count <= 0 )
+            {
+                throw new ArgumentException(ERROR_PRODUCT_TYPES_IS_EMPTY);
+            }
+            return 0 <= productTypeIndex && productTypeIndex <= _productTypes.Count - 1;
         }
     }
 }
