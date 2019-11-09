@@ -11,17 +11,15 @@ namespace OrderAndStorageManagementSystem.Views
         private InventoryPresentationModel _inventoryPresentationModel;
         private MainPresentationModel _mainPresentationModel;
         private OrderPresentationModel _orderPresentationModel;
-        private OrderModel _orderModel;
         private Model _model;
 
-        public MainForm(CreditCardPaymentForm creditCardPaymentFormData, InventoryPresentationModel inventoryPresentationModelData, MainPresentationModel mainPresentationModelData, OrderPresentationModel orderPresentationModelData, OrderModel orderModelData, Model modelData)
+        public MainForm(CreditCardPaymentForm creditCardPaymentFormData, InventoryPresentationModel inventoryPresentationModelData, MainPresentationModel mainPresentationModelData, OrderPresentationModel orderPresentationModelData, Model modelData)
         {
             InitializeComponent();
             _creditCardPaymentForm = creditCardPaymentFormData;
             _inventoryPresentationModel = inventoryPresentationModelData;
             _mainPresentationModel = mainPresentationModelData;
             _orderPresentationModel = orderPresentationModelData;
-            _orderModel = orderModelData;
             _model = modelData;
             _orderSystemButton.Click += ClickOrderSystemButton;
             _inventorySystemButton.Click += ClickInventorySystemButton;
