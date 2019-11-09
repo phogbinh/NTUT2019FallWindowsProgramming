@@ -92,6 +92,7 @@ namespace OrderAndStorageManagementSystem.Models
         }
         private ProductsManager _productsManager;
         private ProductTypesManager _productTypesManager;
+        private ProductsAndProductTypesManager _productsAndProductTypesManager;
         private Order _order;
 
         public Model()
@@ -99,6 +100,7 @@ namespace OrderAndStorageManagementSystem.Models
             List<Product> initialDataBaseProducts = DataBaseManager.GetProductsFromProductTable();
             _productsManager = new ProductsManager(initialDataBaseProducts);
             _productTypesManager = new ProductTypesManager(initialDataBaseProducts);
+            _productsAndProductTypesManager = new ProductsAndProductTypesManager(_productsManager, _productTypesManager);
             _order = new Order();
         }
 
@@ -197,6 +199,14 @@ namespace OrderAndStorageManagementSystem.Models
         public List<string> GetProductTypes()
         {
             return _productTypesManager.ProductTypes;
+        }
+
+        /// <summary>
+        /// Get the number of product pages of the tab page whose index is tabPageIndex.
+        /// </summary>
+        public int GetTabPageProductPagesCount(int tabPageIndex)
+        {
+            return _productsAndProductTypesManager.GetProductTypeProductPagesCount(_productTypesManager.GetProductType(tabPageIndex));
         }
     }
 }

@@ -32,5 +32,13 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
                 }
             }
         }
+
+        /// <summary>
+        /// Get product type by product type index.
+        /// </summary>
+        public string GetProductType(int productTypeIndex)
+        {
+            return _productTypes[ productTypeIndex ];
+        }
     }
 }

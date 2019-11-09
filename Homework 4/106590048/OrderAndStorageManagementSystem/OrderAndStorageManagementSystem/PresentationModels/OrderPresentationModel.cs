@@ -227,7 +227,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         private void UpdateCurrentProductPage()
         {
-            _pageLabel.Text = AppDefinition.PAGE_LABEL_TEXT + AppDefinition.GetHumanIndex(_currentProductPageIndex) + AppDefinition.PAGE_LABEL_DELIMITER + _orderModel.GetTabPageProductPagesCount(_currentTabPageIndex);
+            _pageLabel.Text = AppDefinition.PAGE_LABEL_TEXT + AppDefinition.GetHumanIndex(_currentProductPageIndex) + AppDefinition.PAGE_LABEL_DELIMITER + _model.GetTabPageProductPagesCount(_currentTabPageIndex);
             UpdatePageNavigationButtons();
             SelectNoProduct();
         }
