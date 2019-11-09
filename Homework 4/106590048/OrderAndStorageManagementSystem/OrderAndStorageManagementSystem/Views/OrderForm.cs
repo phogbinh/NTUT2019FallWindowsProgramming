@@ -277,7 +277,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// <summary>
         /// Initialize product tab pages.
         /// </summary>
-        public void InitializeProductTabPages()
+        private void InitializeProductTabPages()
         {
             TabControl.TabPageCollection tabPages = _productTabControl.TabPages;
             for ( int i = 0; i < _model.GetProductTypesCount(); i++ )
