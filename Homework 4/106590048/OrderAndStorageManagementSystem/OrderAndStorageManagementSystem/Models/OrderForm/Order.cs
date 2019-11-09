@@ -78,6 +78,14 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         public void AddOrderItem(OrderItem orderItem)
         {
             _orderItems.Add(orderItem);
+            NotifyObserverChangeOrderAndAddOrder(orderItem);
+        }
+
+        /// <summary>
+        /// Notify observer change order and add order.
+        /// </summary>
+        private void NotifyObserverChangeOrderAndAddOrder(OrderItem orderItem)
+        {
             NotifyObserverChangeOrder();
             NotifyObserverAddOrder(orderItem);
         }
@@ -111,8 +119,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         {
             Product removeProduct = GetProduct(orderItemIndex);
             _orderItems.RemoveAt(orderItemIndex);
-            NotifyObserverChangeOrder();
-            NotifyObserverRemoveOrder(orderItemIndex, removeProduct);
+            NotifyObserverChangeOrderAndRemoveOrder(orderItemIndex, removeProduct);
         }
 
         /// <summary>
@@ -121,6 +128,15 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         private Product GetProduct(int orderItemIndex)
         {
             return _orderItems[ orderItemIndex ].Product;
+        }
+
+        /// <summary>
+        /// Notify observer change order and remove order.
+        /// </summary>
+        private void NotifyObserverChangeOrderAndRemoveOrder(int orderItemIndex, Product removedProduct)
+        {
+            NotifyObserverChangeOrder();
+            NotifyObserverRemoveOrder(orderItemIndex, removedProduct);
         }
 
         /// <summary>
@@ -148,6 +164,14 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         public void ClearOrder()
         {
             _orderItems.Clear();
+            NotifyObserverChangeOrderAndClearOrder();
+        }
+
+        /// <summary>
+        /// Notify observer change order and clear order.
+        /// </summary>
+        private void NotifyObserverChangeOrderAndClearOrder()
+        {
             NotifyObserverChangeOrder();
             NotifyObserverClearOrder();
         }
@@ -177,8 +201,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         public void SetOrderItemQuantity(int orderItemIndex, int newOrderQuantity)
         {
             _orderItems[ orderItemIndex ].OrderQuantity = newOrderQuantity;
-            NotifyObserverChangeOrder();
-            NotifyObserverChangeOrderItemQuantity(orderItemIndex, GetOrderItemTotalPrice(orderItemIndex));
+            NotifyObserverChangeOrderAndChangeOrderItemQuantity(orderItemIndex, GetOrderItemTotalPrice(orderItemIndex));
         }
 
         /// <summary>
@@ -187,6 +210,15 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         private string GetOrderItemTotalPrice(int orderItemIndex)
         {
             return _orderItems[ orderItemIndex ].GetTotalPrice().GetCurrencyFormat();
+        }
+
+        /// <summary>
+        /// Notify observer change order and change order item quantity.
+        /// </summary>
+        private void NotifyObserverChangeOrderAndChangeOrderItemQuantity(int orderItemIndex, string orderItemTotalPrice)
+        {
+            NotifyObserverChangeOrder();
+            NotifyObserverChangeOrderItemQuantity(orderItemIndex, orderItemTotalPrice);
         }
 
         /// <summary>
