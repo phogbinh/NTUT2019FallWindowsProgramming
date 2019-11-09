@@ -51,7 +51,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// <summary>
         /// Add the storage quantity of the product with the supplyQuantity.
         /// </summary>
-        public void SupplyProductStorageQuantity(Product product, int supplyQuantity)
+        public void AddProductStorageQuantity(Product product, int supplyQuantity)
         {
             product.StorageQuantity = product.StorageQuantity + supplyQuantity;
         }

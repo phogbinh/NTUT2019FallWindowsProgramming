@@ -183,7 +183,7 @@ namespace OrderAndStorageManagementSystem.Models
         /// </summary>
         public void SupplyProductStorageQuantity(Product product, int supplyQuantity)
         {
-            _productsManager.SupplyProductStorageQuantity(product, supplyQuantity);
+            _productsManager.AddProductStorageQuantity(product, supplyQuantity);
             NotifyObserverChangeProductStorageQuantity(product);
         }
 
