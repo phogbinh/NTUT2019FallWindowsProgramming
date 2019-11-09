@@ -144,22 +144,7 @@ namespace OrderAndStorageManagementSystem.Models
         /// </summary>
         public void SetOrderItemQuantity(int orderItemIndex, int newCartProductQuantity)
         {
-            if ( !IsExceededStorageQuantity(orderItemIndex, newCartProductQuantity) )
-            {
-                _order.SetOrderItemQuantity(orderItemIndex, newCartProductQuantity);
-            }
-            else
-            {
-                _order.SetOrderItemQuantityToStorageQuantity(orderItemIndex);
-            }
-        }
-
-        /// <summary>
-        /// Return true if the given quantity is bigger than the storage quantity of the order item at orderItemIndex.
-        /// </summary>
-        private bool IsExceededStorageQuantity(int orderItemIndex, int quantity)
-        {
-            return _order.IsExceededStorageQuantity(orderItemIndex, quantity);
+            _order.SetOrderItemQuantityNotExceedingStorageQuantity(orderItemIndex, newCartProductQuantity);
         }
 
         /// <summary>

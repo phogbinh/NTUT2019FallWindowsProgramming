@@ -188,6 +188,21 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         }
 
         /// <summary>
+        /// Set the order quantity of the order item whose index is orderItemIndex to min( newCartProductQuantity, order item storage quantity ).
+        /// </summary>
+        public void SetOrderItemQuantityNotExceedingStorageQuantity(int orderItemIndex, int newCartProductQuantity)
+        {
+            if ( !IsExceededStorageQuantity(orderItemIndex, newCartProductQuantity) )
+            {
+                SetOrderItemQuantity(orderItemIndex, newCartProductQuantity);
+            }
+            else
+            {
+                SetOrderItemQuantityToStorageQuantity(orderItemIndex);
+            }
+        }
+
+        /// <summary>
         /// Return true if the given quantity is bigger than the storage quantity of the order item at orderItemIndex.
         /// </summary>
         public bool IsExceededStorageQuantity(int orderItemIndex, int quantity)
