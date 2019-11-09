@@ -157,6 +157,14 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         }
 
         /// <summary>
+        /// Get the total price of the order item at orderItemIndex.
+        /// </summary>
+        private string GetOrderItemTotalPrice(int orderItemIndex)
+        {
+            return _orderItems[ orderItemIndex ].GetTotalPrice().GetCurrencyFormat();
+        }
+
+        /// <summary>
         /// Notify observer change order quantity of order item.
         /// </summary>
         private void NotifyObserverChangeOrderItemQuantity(int orderItemIndex, string orderItemTotalPrice)
@@ -173,14 +181,6 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         public void SetOrderItemQuantityToStorageQuantity(int orderItemIndex)
         {
             _orderItems[ orderItemIndex ].SetOrderQuantityToStorageQuantity();
-        }
-
-        /// <summary>
-        /// Get the total price of the order item at orderItemIndex.
-        /// </summary>
-        public string GetOrderItemTotalPrice(int orderItemIndex)
-        {
-            return _orderItems[ orderItemIndex ].GetTotalPrice().GetCurrencyFormat();
         }
 
         /// <summary>
