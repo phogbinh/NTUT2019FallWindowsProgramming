@@ -8,7 +8,6 @@ namespace OrderAndStorageManagementSystem.Models
     public class Model
     {
         public delegate void OrderChangedEventHandler();
-        public delegate void OrderItemQuantityIsExceededStorageQuantityEventHandler(int orderItemIndex, int storageQuantity);
         public delegate void ProductStorageQuantityChangedEventHandler(Product product);
         public OrderChangedEventHandler OrderChanged
         {
@@ -58,9 +57,16 @@ namespace OrderAndStorageManagementSystem.Models
                 _order.OrderItemQuantityChanged = value;
             }
         }
-        public OrderItemQuantityIsExceededStorageQuantityEventHandler OrderItemQuantityIsExceededStorageQuantity
+        public Order.OrderItemQuantityIsExceededStorageQuantityEventHandler OrderItemQuantityIsExceededStorageQuantity
         {
-            get; set;
+            get
+            {
+                return _order.OrderItemQuantityIsExceededStorageQuantity;
+            }
+            set
+            {
+                _order.OrderItemQuantityIsExceededStorageQuantity = value;
+            }
         }
         public ProductStorageQuantityChangedEventHandler ProductStorageQuantityChanged
         {
@@ -153,7 +159,6 @@ namespace OrderAndStorageManagementSystem.Models
             else
             {
                 _order.SetOrderItemQuantityToStorageQuantity(orderItemIndex);
-                NotifyObserverOrderItemQuantityIsExceededStorageQuantity(orderItemIndex, _order.GetStorageQuantity(orderItemIndex));
             }
         }
 
@@ -163,17 +168,6 @@ namespace OrderAndStorageManagementSystem.Models
         private bool IsExceededStorageQuantity(int orderItemIndex, int quantity)
         {
             return _order.IsExceededStorageQuantity(orderItemIndex, quantity);
-        }
-
-        /// <summary>
-        /// Notify observer order quantity of order item is exceeded its storage quantity.
-        /// </summary>
-        private void NotifyObserverOrderItemQuantityIsExceededStorageQuantity(int orderItemIndex, int storageQuantity)
-        {
-            if ( OrderItemQuantityIsExceededStorageQuantity != null )
-            {
-                OrderItemQuantityIsExceededStorageQuantity(orderItemIndex, storageQuantity);
-            }
         }
 
         /// <summary>
