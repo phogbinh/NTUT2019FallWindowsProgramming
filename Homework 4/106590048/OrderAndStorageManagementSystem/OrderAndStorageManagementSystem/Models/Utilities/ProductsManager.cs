@@ -44,7 +44,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             {
                 Product product = container.Key;
                 int productOrderQuantity = container.Value;
-                product.StorageQuantity -= productOrderQuantity;
+                AddProductStorageQuantity(product, -productOrderQuantity);
             }
         }
 
