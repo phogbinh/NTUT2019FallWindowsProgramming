@@ -6,7 +6,12 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
     public class Order
     {
         public delegate void OrderClearedEventHandler();
+        public delegate void OrderAddedEventHandler(OrderItem orderItem);
         public OrderClearedEventHandler OrderCleared
+        {
+            get; set;
+        }
+        public OrderAddedEventHandler OrderAdded
         {
             get; set;
         }
@@ -53,6 +58,18 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         public void AddOrderItem(OrderItem orderItem)
         {
             _orderItems.Add(orderItem);
+            NotifyObserverAddOrder(orderItem);
+        }
+
+        /// <summary>
+        /// Notify observer add order.
+        /// </summary>
+        private void NotifyObserverAddOrder(OrderItem orderItem)
+        {
+            if ( OrderAdded != null )
+            {
+                OrderAdded(orderItem);
+            }
         }
 
         /// <summary>
