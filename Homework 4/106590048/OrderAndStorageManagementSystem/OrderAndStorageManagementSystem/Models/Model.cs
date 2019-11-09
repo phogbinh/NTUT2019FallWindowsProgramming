@@ -155,7 +155,7 @@ namespace OrderAndStorageManagementSystem.Models
         /// </summary>
         private void DecreaseProductStorageQuantitiesByOrderQuantities()
         {
-            _order.DecreaseProductStorageQuantitiesByOrderQuantities();
+            _productsManager.DecreaseProductStorageQuantitiesByOrderQuantities(_order.GetProductWithOrderQuantityContainers());
             foreach ( Product product in _order.GetProducts() )
             {
                 NotifyObserverChangeProductStorageQuantity(product);

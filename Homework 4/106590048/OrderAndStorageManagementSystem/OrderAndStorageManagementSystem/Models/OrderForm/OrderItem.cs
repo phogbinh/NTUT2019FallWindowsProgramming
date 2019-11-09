@@ -78,13 +78,5 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         {
             return Price.MultiplyConstant(_orderQuantity);
         }
-
-        /// <summary>
-        /// Decrease the storage quantity of the order item by its order quantity.
-        /// </summary>
-        public void DecreaseProductStorageQuantityByOrderQuantity()
-        {
-            StorageQuantity = StorageQuantity - OrderQuantity;
-        }
     }
 }

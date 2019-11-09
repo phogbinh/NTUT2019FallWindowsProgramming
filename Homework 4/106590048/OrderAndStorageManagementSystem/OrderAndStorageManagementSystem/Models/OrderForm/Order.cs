@@ -278,14 +278,16 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         }
 
         /// <summary>
-        /// Decrease the storage quantity of all order items by theirs order quantity.
+        /// Get all products with their order quantities.
         /// </summary>
-        public void DecreaseProductStorageQuantitiesByOrderQuantities()
+        public IDictionary<Product, int> GetProductWithOrderQuantityContainers()
         {
+            IDictionary<Product, int> productWithOrderQuantityContainers = new Dictionary<Product, int>();
             foreach ( OrderItem item in _orderItems )
             {
-                item.DecreaseProductStorageQuantityByOrderQuantity();
+                productWithOrderQuantityContainers.Add(item.Product, item.OrderQuantity);
             }
+            return productWithOrderQuantityContainers;
         }
 
         /// <summary>

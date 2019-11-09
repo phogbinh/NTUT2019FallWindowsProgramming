@@ -34,5 +34,18 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             }
             throw new ArgumentException(ERROR_INVALID_PRODUCT_ID);
         }
+
+        /// <summary>
+        /// Decrease the storage quantity of all products in the order by theirs order quantity.
+        /// </summary>
+        public void DecreaseProductStorageQuantitiesByOrderQuantities(IDictionary<Product, int> productWithOrderQuantityContainers)
+        {
+            foreach ( KeyValuePair<Product, int> container in productWithOrderQuantityContainers )
+            {
+                Product product = container.Key;
+                int productOrderQuantity = container.Value;
+                product.StorageQuantity -= productOrderQuantity;
+            }
+        }
     }
 }
