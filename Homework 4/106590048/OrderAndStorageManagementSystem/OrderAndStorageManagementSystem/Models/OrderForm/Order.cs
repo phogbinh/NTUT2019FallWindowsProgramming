@@ -88,6 +88,14 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         }
 
         /// <summary>
+        /// Get the corresponding product of the order item at orderItemIndex.
+        /// </summary>
+        private Product GetProduct(int orderItemIndex)
+        {
+            return _orderItems[ orderItemIndex ].Product;
+        }
+
+        /// <summary>
         /// Notify observer remove order.
         /// </summary>
         private void NotifyObserverRemoveOrder(int orderItemIndex, Product removedProduct)
@@ -164,14 +172,6 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         public int GetStorageQuantity(int orderItemIndex)
         {
             return _orderItems[ orderItemIndex ].StorageQuantity;
-        }
-
-        /// <summary>
-        /// Get the corresponding product of the order item at orderItemIndex.
-        /// </summary>
-        public Product GetProduct(int orderItemIndex)
-        {
-            return _orderItems[ orderItemIndex ].Product;
         }
 
         /// <summary>
