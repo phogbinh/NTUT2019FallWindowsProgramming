@@ -32,15 +32,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// </summary>
         private int GetProductTypeProductsCount(string productType)
         {
-            int productsCount = 0;
-            foreach ( Product product in _productsManager.Products )
-            {
-                if ( product.Type == productType )
-                {
-                    productsCount++;
-                }
-            }
-            return productsCount;
+            return GetProductTypeProducts(productType).Count;
         }
 
         /// <summary>
