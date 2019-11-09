@@ -82,16 +82,16 @@ namespace OrderAndStorageManagementSystem.Models
         {
             get
             {
-                return _products;
+                return _productsManager.Products;
             }
         }
         private const string ERROR_INVALID_PRODUCT_ID = "Product Id is invalid.";
-        private List<Product> _products;
+        private ProductsManager _productsManager;
         private Order _order;
 
         public Model()
         {
-            _products = DataBaseManager.GetProductsFromProductTable();
+            _productsManager = new ProductsManager();
             _order = new Order();
         }
 
@@ -177,7 +177,7 @@ namespace OrderAndStorageManagementSystem.Models
         /// </summary>
         public Product GetProduct(int productId)
         {
-            foreach ( Product product in _products )
+            foreach ( Product product in Products )
             {
                 if ( product.Id == productId )
                 {
