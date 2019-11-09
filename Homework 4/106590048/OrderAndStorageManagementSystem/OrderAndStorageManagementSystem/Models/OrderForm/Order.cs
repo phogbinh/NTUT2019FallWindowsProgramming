@@ -205,7 +205,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         /// <summary>
         /// Return true if the given quantity is bigger than the storage quantity of the order item at orderItemIndex.
         /// </summary>
-        public bool IsExceededStorageQuantity(int orderItemIndex, int quantity)
+        private bool IsExceededStorageQuantity(int orderItemIndex, int quantity)
         {
             return quantity > _orderItems[ orderItemIndex ].StorageQuantity;
         }
