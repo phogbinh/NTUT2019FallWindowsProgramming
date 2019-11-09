@@ -62,10 +62,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         /// </summary>
         public void AddProductToOrderIfProductIsNotInOrder(Product product)
         {
-            var orderItem = new OrderItem(product);
-            if ( !IsInOrder(orderItem.Id) )
+            if ( !IsInOrder(product.Id) )
             {
-                AddOrderItem(orderItem);
+                AddOrderItem(new OrderItem(product));
             }
         }
 
