@@ -147,7 +147,7 @@ namespace OrderAndStorageManagementSystem.Models
         public void SubmitOrder()
         {
             DecreaseProductStorageQuantitiesByOrderQuantities();
-            ClearOrder();
+            _order.ClearOrder();
         }
 
         /// <summary>
@@ -160,14 +160,6 @@ namespace OrderAndStorageManagementSystem.Models
             {
                 NotifyObserverChangeProductStorageQuantity(product);
             }
-        }
-
-        /// <summary>
-        /// Clear the order.
-        /// </summary>
-        private void ClearOrder()
-        {
-            _order.ClearOrder();
         }
 
         /// <summary>
