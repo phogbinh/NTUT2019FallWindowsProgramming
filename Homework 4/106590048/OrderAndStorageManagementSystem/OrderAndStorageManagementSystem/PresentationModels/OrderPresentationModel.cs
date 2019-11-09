@@ -67,7 +67,6 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             }
         }
         private const int CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE = 0;
-        private OrderModel _orderModel;
         private Model _model;
         private ControlStates _productNameAndDescription;
         private ControlStates _productStorageQuantity;
@@ -88,9 +87,8 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             _model.ProductStorageQuantityChanged -= UpdateProductStorageQuantityAndAddButtonIfChangedCurrentSelectedProductStorageQuantity;
         }
 
-        public OrderPresentationModel(OrderModel orderModelData, Model modelData)
+        public OrderPresentationModel(Model modelData)
         {
-            _orderModel = orderModelData;
             _model = modelData;
             // Observers
             _model.OrderCleared += UpdateAddButtonByCurrentSelectedProduct;
