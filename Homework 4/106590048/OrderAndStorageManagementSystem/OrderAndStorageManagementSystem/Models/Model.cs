@@ -177,14 +177,6 @@ namespace OrderAndStorageManagementSystem.Models
         }
 
         /// <summary>
-        /// Get the total price of the order item whose index is orderItemIndex.
-        /// </summary>
-        private string GetOrderItemTotalPrice(int orderItemIndex)
-        {
-            return _order.GetOrderItemTotalPrice(orderItemIndex);
-        }
-
-        /// <summary>
         /// Submit the order.
         /// </summary>
         public void SubmitOrder()
