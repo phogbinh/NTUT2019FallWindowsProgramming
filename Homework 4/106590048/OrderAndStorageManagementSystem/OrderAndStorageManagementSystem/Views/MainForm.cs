@@ -23,6 +23,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model = modelData;
             _orderSystemButton.Click += ClickOrderSystemButton;
             _inventorySystemButton.Click += ClickInventorySystemButton;
+            _productManageSystemButton.Click += ClickProductManageSystemButton;
             _exitButton.Click += ClickExitButton;
             RefreshControls();
         }
@@ -72,6 +73,28 @@ namespace OrderAndStorageManagementSystem.Views
         }
 
         /// <summary>
+        /// Click product manage system button.
+        /// </summary>
+        private void ClickProductManageSystemButton(object sender, System.EventArgs eventArguments)
+        {
+            ProductManagementForm productManagementForm;
+            productManagementForm = new ProductManagementForm();
+            productManagementForm.FormClosed += CloseProductMangementForm;
+            productManagementForm.Show();
+            _mainPresentationModel.ClickProductManageSystemButton();
+            RefreshControls();
+        }
+
+        /// <summary>
+        /// Close product management form.
+        /// </summary>
+        private void CloseProductMangementForm(object sender, System.EventArgs eventArguments)
+        {
+            _mainPresentationModel.CloseProductManagementForm();
+            RefreshControls();
+        }
+
+        /// <summary>
         /// Click exit button.
         /// </summary>
         private void ClickExitButton(object sender, System.EventArgs eventArguments)
@@ -86,6 +109,7 @@ namespace OrderAndStorageManagementSystem.Views
         {
             _orderSystemButton.Enabled = _mainPresentationModel.OrderSystemButton.Enabled;
             _inventorySystemButton.Enabled = _mainPresentationModel.InventorySystemButton.Enabled;
+            _productManageSystemButton.Enabled = _mainPresentationModel.ProductManageSystemButton.Enabled;
         }
     }
 }

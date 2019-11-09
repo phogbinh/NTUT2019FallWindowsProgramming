@@ -18,13 +18,22 @@ namespace OrderAndStorageManagementSystem.PresentationModels
                 return _inventorySystemButton;
             }
         }
+        public ControlStates ProductManageSystemButton
+        {
+            get
+            {
+                return _productManageSystemButton;
+            }
+        }
         private ControlStates _orderSystemButton;
         private ControlStates _inventorySystemButton;
+        private ControlStates _productManageSystemButton;
 
         public MainPresentationModel()
         {
             _orderSystemButton = new ControlStates();
             _inventorySystemButton = new ControlStates();
+            _productManageSystemButton = new ControlStates();
         }
 
         /// <summary>
@@ -44,6 +53,14 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         }
 
         /// <summary>
+        /// Close the product management form.
+        /// </summary>
+        public void CloseProductManagementForm()
+        {
+            _productManageSystemButton.Enabled = true;
+        }
+
+        /// <summary>
         /// Click order system button.
         /// </summary>
         public void ClickOrderSystemButton()
@@ -57,6 +74,14 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         public void ClickInventorySystemButton()
         {
             _inventorySystemButton.Enabled = false;
+        }
+
+        /// <summary>
+        /// Click product manage system button.
+        /// </summary>
+        public void ClickProductManageSystemButton()
+        {
+            _productManageSystemButton.Enabled = false;
         }
     }
 }
