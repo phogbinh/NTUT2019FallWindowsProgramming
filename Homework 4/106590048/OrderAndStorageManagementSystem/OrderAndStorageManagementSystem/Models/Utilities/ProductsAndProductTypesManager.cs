@@ -14,11 +14,15 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         }
 
         /// <summary>
-        /// Get the number of product pages whose products are of the given product type.
+        /// Get the number of product pages whose products are of the given product type. Return 1 if there is no product of productType.
         /// </summary>
         public int GetProductTypeProductPagesCount(string productType)
         {
             int productTypeProductsCount = GetProductTypeProductsCount(productType);
+            if ( productTypeProductsCount == 0 )
+            {
+                return 1;
+            }
             int completelyPopulatedProductPagesCount = productTypeProductsCount / AppDefinition.TAB_PAGE_MAX_PRODUCTS_COUNT;
             return productTypeProductsCount % AppDefinition.TAB_PAGE_MAX_PRODUCTS_COUNT == 0 ? completelyPopulatedProductPagesCount : completelyPopulatedProductPagesCount + 1;
         }
