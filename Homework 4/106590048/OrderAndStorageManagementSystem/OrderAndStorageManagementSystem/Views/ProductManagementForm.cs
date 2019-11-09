@@ -1,5 +1,7 @@
 ﻿using OrderAndStorageManagementSystem.Models;
+using OrderAndStorageManagementSystem.Models.Utilities;
 using OrderAndStorageManagementSystem.PresentationModels;
+using OrderAndStorageManagementSystem.Views.Utilities;
 using System.Windows.Forms;
 
 namespace OrderAndStorageManagementSystem.Views
@@ -14,6 +16,19 @@ namespace OrderAndStorageManagementSystem.Views
             InitializeComponent();
             _productManagementPresentationModel = productManagementPresentationModelData;
             _model = modelData;
+            // Initial UI States
+            InitializeProductsListBox();
+        }
+
+        /// <summary>
+        /// Initialize _productsListBox.
+        /// </summary>
+        private void InitializeProductsListBox()
+        {
+            foreach ( Product product in _model.Products )
+            {
+                _productsListBox.Items.Add(new ProductsListBoxItem(product));
+            }
         }
     }
 }

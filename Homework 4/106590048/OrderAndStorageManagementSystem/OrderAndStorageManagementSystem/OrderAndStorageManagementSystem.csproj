@@ -119,6 +119,7 @@
     <Compile Include="Views\Utilities\OrderProductTabPageButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Views\Utilities\ProductsListBoxItem.cs" />
     <EmbeddedResource Include="Views\CreditCardPaymentForm.resx">
       <DependentUpon>CreditCardPaymentForm.cs</DependentUpon>
     </EmbeddedResource>
