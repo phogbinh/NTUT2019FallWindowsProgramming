@@ -291,19 +291,6 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         }
 
         /// <summary>
-        /// Get all the products in the order.
-        /// </summary>
-        public List<Product> GetProducts()
-        {
-            List<Product> products = new List<Product>();
-            foreach ( OrderItem item in _orderItems )
-            {
-                products.Add(item.Product);
-            }
-            return products;
-        }
-
-        /// <summary>
         /// Get all the order items in the order.
         /// </summary>
         public List<OrderItem> GetOrderItems()
