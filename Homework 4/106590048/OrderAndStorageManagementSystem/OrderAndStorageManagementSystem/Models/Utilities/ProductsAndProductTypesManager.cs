@@ -1,4 +1,6 @@
-﻿namespace OrderAndStorageManagementSystem.Models.Utilities
+﻿using System.Collections.Generic;
+
+namespace OrderAndStorageManagementSystem.Models.Utilities
 {
     public class ProductsAndProductTypesManager
     {
@@ -35,6 +37,40 @@
                 }
             }
             return productsCount;
+        }
+
+        /// <summary>
+        /// Get the product at productIndex in the product page of productPageIndex, which is of type productType. Return null if product does not exist.
+        /// </summary>
+        public Product GetProduct(string productType, int productPageIndex, int productIndex)
+        {
+            List<Product> productTypeProducts = GetProductTypeProducts(productType);
+            if ( productTypeProducts.Count == 0 )
+            {
+                return null;
+            }
+            int productTypeProductsIndex = productPageIndex * AppDefinition.TAB_PAGE_MAX_PRODUCTS_COUNT + productIndex;
+            if ( !AppDefinition.IsInIntervalRange(productTypeProductsIndex, 0, productTypeProducts.Count - 1) )
+            {
+                return null;
+            }
+            return productTypeProducts[ productTypeProductsIndex ];
+        }
+
+        /// <summary>
+        /// Get all products of the given product type.
+        /// </summary>
+        private List<Product> GetProductTypeProducts(string productType)
+        {
+            var productTypeProducts = new List<Product>();
+            foreach ( Product product in _productsManager.Products )
+            {
+                if ( product.Type == productType )
+                {
+                    productTypeProducts.Add(product);
+                }
+            }
+            return productTypeProducts;
         }
     }
 }

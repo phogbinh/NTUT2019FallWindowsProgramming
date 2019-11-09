@@ -208,5 +208,13 @@ namespace OrderAndStorageManagementSystem.Models
         {
             return _productsAndProductTypesManager.GetProductTypeProductPagesCount(_productTypesManager.GetProductType(tabPageIndex));
         }
+
+        /// <summary>
+        /// Get the product at productIndex in the product page of productPageIndex, which is inside the tab page whose index is tabPageIndex.
+        /// </summary>
+        public Product GetProduct(int tabPageIndex, int productPageIndex, int productIndex)
+        {
+            return _productsAndProductTypesManager.GetProduct(_productTypesManager.GetProductType(tabPageIndex), productPageIndex, productIndex);
+        }
     }
 }

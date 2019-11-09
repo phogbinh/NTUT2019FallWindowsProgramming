@@ -299,7 +299,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         public Product GetProductAtCurrentProductPage(int tabPageIndex, int productIndex)
         {
-            return _orderModel.GetProduct(tabPageIndex, _currentProductPageIndex, productIndex);
+            return _model.GetProduct(tabPageIndex, _currentProductPageIndex, productIndex);
         }
 
         /// <summary>
