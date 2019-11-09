@@ -18,6 +18,7 @@ namespace OrderAndStorageManagementSystem.Views
         private const int CART_DELETE_BUTTON_COLUMN_INDEX = 0;
         private const int CART_PRODUCT_QUANTITY_COLUMN_INDEX = 4;
         private const int CART_PRODUCT_TOTAL_PRICE_COLUMN_INDEX = 5;
+        private const int FIRST_PRODUCT_TAB_PAGE_INDEX = 0;
         private CreditCardPaymentForm _creditCardPaymentForm;
         private OrderPresentationModel _orderPresentationModel;
         private Model _model;
@@ -52,7 +53,7 @@ namespace OrderAndStorageManagementSystem.Views
             InitializeTabPages();
             InitializeProductTabPages();
             // Initial UI States
-            SelectProductTabPage(AppDefinition.MOTHER_BOARD_INDEX);
+            SelectProductTabPage(FIRST_PRODUCT_TAB_PAGE_INDEX);
             InitializeCartDataGridView();
             UpdateCartSectionViewOnOrderChanged();
             RefreshControls();
@@ -174,7 +175,7 @@ namespace OrderAndStorageManagementSystem.Views
         private void InitializeProductTabPageButtonsContainers()
         {
             _productTabPageButtonsContainers = new List<List<OrderProductTabPageButton>>();
-            for ( int i = 0; i < AppDefinition.TAB_PAGES_COUNT; i++ )
+            for ( int i = 0; i < _model.GetProductTypesCount(); i++ )
             {
                 _productTabPageButtonsContainers.Add(CreateProductTabPageButtons());
             }
