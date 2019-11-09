@@ -6,7 +6,6 @@ namespace OrderAndStorageManagementSystem.Models
 {
     public class Model
     {
-        public delegate void ProductStorageQuantityChangedEventHandler(Product product);
         public Order.OrderChangedEventHandler OrderChanged
         {
             get
@@ -73,9 +72,16 @@ namespace OrderAndStorageManagementSystem.Models
                 _order.OrderItemQuantityIsExceededStorageQuantity = value;
             }
         }
-        public ProductStorageQuantityChangedEventHandler ProductStorageQuantityChanged
+        public ProductsManager.ProductStorageQuantityChangedEventHandler ProductStorageQuantityChanged
         {
-            get; set;
+            get
+            {
+                return _productsManager.ProductStorageQuantityChanged;
+            }
+            set
+            {
+                _productsManager.ProductStorageQuantityChanged = value;
+            }
         }
         public List<Product> Products
         {
@@ -156,10 +162,6 @@ namespace OrderAndStorageManagementSystem.Models
         private void DecreaseProductStorageQuantitiesByOrderQuantities()
         {
             _productsManager.DecreaseProductStorageQuantitiesByOrderQuantities(_order.GetProductWithOrderQuantityContainers());
-            foreach ( Product product in _order.GetProducts() )
-            {
-                NotifyObserverChangeProductStorageQuantity(product);
-            }
         }
 
         /// <summary>
@@ -176,18 +178,6 @@ namespace OrderAndStorageManagementSystem.Models
         public void SupplyProductStorageQuantity(Product product, int supplyQuantity)
         {
             _productsManager.AddProductStorageQuantity(product, supplyQuantity);
-            NotifyObserverChangeProductStorageQuantity(product);
-        }
-
-        /// <summary>
-        /// Notify observer change storage quantity of product.
-        /// </summary>
-        private void NotifyObserverChangeProductStorageQuantity(Product product)
-        {
-            if ( ProductStorageQuantityChanged != null )
-            {
-                ProductStorageQuantityChanged(product);
-            }
         }
 
         /// <summary>

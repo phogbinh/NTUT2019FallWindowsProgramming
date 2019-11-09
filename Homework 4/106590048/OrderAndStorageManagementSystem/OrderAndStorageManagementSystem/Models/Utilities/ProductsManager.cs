@@ -5,6 +5,11 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
 {
     public class ProductsManager
     {
+        public delegate void ProductStorageQuantityChangedEventHandler(Product product);
+        public ProductStorageQuantityChangedEventHandler ProductStorageQuantityChanged
+        {
+            get; set;
+        }
         public List<Product> Products
         {
             get
@@ -54,6 +59,18 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         public void AddProductStorageQuantity(Product product, int additionalQuantity)
         {
             product.StorageQuantity = product.StorageQuantity + additionalQuantity;
+            NotifyObserverChangeProductStorageQuantity(product);
+        }
+
+        /// <summary>
+        /// Notify observer change storage quantity of product.
+        /// </summary>
+        private void NotifyObserverChangeProductStorageQuantity(Product product)
+        {
+            if ( ProductStorageQuantityChanged != null )
+            {
+                ProductStorageQuantityChanged(product);
+            }
         }
     }
 }
