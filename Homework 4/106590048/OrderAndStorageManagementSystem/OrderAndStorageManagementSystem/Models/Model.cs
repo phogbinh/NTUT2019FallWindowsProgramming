@@ -182,5 +182,13 @@ namespace OrderAndStorageManagementSystem.Models
         {
             return _order.GetOrderItems();
         }
+
+        /// <summary>
+        /// Get all product types.
+        /// </summary>
+        public List<string> GetProductTypes()
+        {
+            return _productTypesManager.ProductTypes;
+        }
     }
 }

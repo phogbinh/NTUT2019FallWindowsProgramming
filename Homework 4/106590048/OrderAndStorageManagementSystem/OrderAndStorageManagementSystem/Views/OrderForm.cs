@@ -51,6 +51,7 @@ namespace OrderAndStorageManagementSystem.Views
             _addButton.Click += (sender, eventArguments) => _orderPresentationModel.AddCurrentSelectedProductToOrderIfProductIsNotInOrder();
             _orderButton.Click += ClickOrderButton;
             _productTabControl.SelectedIndexChanged += (sender, eventArguments) => SelectProductTabPage(_productTabControl.SelectedIndex);
+            InitializeTabPages();
             InitializeProductTabPages();
             // Initial UI States
             SelectProductTabPage(AppDefinition.MOTHER_BOARD_INDEX);
@@ -247,6 +248,17 @@ namespace OrderAndStorageManagementSystem.Views
         {
             UpdateProductTabPageButtonsInCurrentProductTabPageAtCurrentProductPage();
             RefreshControls();
+        }
+
+        /// <summary>
+        /// Initialize tab pages.
+        /// </summary>
+        private void InitializeTabPages()
+        {
+            foreach ( string productType in _model.GetProductTypes() )
+            {
+                _productTabControl.Controls.Add(new TabPage(productType));
+            }
         }
 
         /// <summary>

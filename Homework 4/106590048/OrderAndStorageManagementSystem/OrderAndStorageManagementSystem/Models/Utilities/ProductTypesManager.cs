@@ -4,6 +4,13 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
 {
     public class ProductTypesManager
     {
+        public List<string> ProductTypes
+        {
+            get
+            {
+                return _productTypes;
+            }
+        }
         private List<string> _productTypes;
 
         public ProductTypesManager(List<Product> initialDataBaseProducts)

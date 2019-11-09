@@ -31,12 +31,6 @@
             this._productGroupBox = new System.Windows.Forms.GroupBox();
             this._productGroupBoxLayout = new System.Windows.Forms.TableLayoutPanel();
             this._productTabControl = new System.Windows.Forms.TabControl();
-            this._motherBoardTabPage = new System.Windows.Forms.TabPage();
-            this._centralProcessingUnitTabPage = new System.Windows.Forms.TabPage();
-            this._randomAccessMemoryTabPage = new System.Windows.Forms.TabPage();
-            this._hardDiskTabPage = new System.Windows.Forms.TabPage();
-            this._graphicsCardTabPage = new System.Windows.Forms.TabPage();
-            this._computerSetTabPage = new System.Windows.Forms.TabPage();
             this._productInfoGroupBox = new System.Windows.Forms.GroupBox();
             this._productInfoGroupBoxLayout = new System.Windows.Forms.TableLayoutPanel();
             this._productNameAndDescription = new System.Windows.Forms.RichTextBox();
@@ -64,7 +58,6 @@
             this._orderButton = new System.Windows.Forms.Button();
             this._productGroupBox.SuspendLayout();
             this._productGroupBoxLayout.SuspendLayout();
-            this._productTabControl.SuspendLayout();
             this._productInfoGroupBox.SuspendLayout();
             this._productInfoGroupBoxLayout.SuspendLayout();
             this._productStorageQuantityAndPriceLayout.SuspendLayout();
@@ -72,7 +65,7 @@
             this._pageArrowsLayout.SuspendLayout();
             this._orderFormLayout.SuspendLayout();
             this._cartSectionLayout.SuspendLayout();
-            ( ( System.ComponentModel.ISupportInitialize )( this._cartDataGridView ) ).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._cartDataGridView)).BeginInit();
             this._cartSectionLastRowLayout.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,78 +100,12 @@
             // 
             // _productTabControl
             // 
-            this._productTabControl.Controls.Add(this._motherBoardTabPage);
-            this._productTabControl.Controls.Add(this._centralProcessingUnitTabPage);
-            this._productTabControl.Controls.Add(this._randomAccessMemoryTabPage);
-            this._productTabControl.Controls.Add(this._hardDiskTabPage);
-            this._productTabControl.Controls.Add(this._graphicsCardTabPage);
-            this._productTabControl.Controls.Add(this._computerSetTabPage);
             this._productTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this._productTabControl.Location = new System.Drawing.Point(3, 3);
             this._productTabControl.Name = "_productTabControl";
             this._productTabControl.SelectedIndex = 0;
             this._productTabControl.Size = new System.Drawing.Size(435, 251);
             this._productTabControl.TabIndex = 0;
-            // 
-            // _motherBoardTabPage
-            // 
-            this._motherBoardTabPage.Location = new System.Drawing.Point(4, 22);
-            this._motherBoardTabPage.Name = "_motherBoardTabPage";
-            this._motherBoardTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this._motherBoardTabPage.Size = new System.Drawing.Size(427, 225);
-            this._motherBoardTabPage.TabIndex = 0;
-            this._motherBoardTabPage.Text = "主機板";
-            this._motherBoardTabPage.UseVisualStyleBackColor = true;
-            // 
-            // _centralProcessingUnitTabPage
-            // 
-            this._centralProcessingUnitTabPage.Location = new System.Drawing.Point(4, 22);
-            this._centralProcessingUnitTabPage.Name = "_centralProcessingUnitTabPage";
-            this._centralProcessingUnitTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this._centralProcessingUnitTabPage.Size = new System.Drawing.Size(427, 225);
-            this._centralProcessingUnitTabPage.TabIndex = 1;
-            this._centralProcessingUnitTabPage.Text = "CPU";
-            this._centralProcessingUnitTabPage.UseVisualStyleBackColor = true;
-            // 
-            // _randomAccessMemoryTabPage
-            // 
-            this._randomAccessMemoryTabPage.Location = new System.Drawing.Point(4, 22);
-            this._randomAccessMemoryTabPage.Name = "_randomAccessMemoryTabPage";
-            this._randomAccessMemoryTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this._randomAccessMemoryTabPage.Size = new System.Drawing.Size(427, 225);
-            this._randomAccessMemoryTabPage.TabIndex = 2;
-            this._randomAccessMemoryTabPage.Text = "記憶體";
-            this._randomAccessMemoryTabPage.UseVisualStyleBackColor = true;
-            // 
-            // _hardDiskTabPage
-            // 
-            this._hardDiskTabPage.Location = new System.Drawing.Point(4, 22);
-            this._hardDiskTabPage.Name = "_hardDiskTabPage";
-            this._hardDiskTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this._hardDiskTabPage.Size = new System.Drawing.Size(427, 225);
-            this._hardDiskTabPage.TabIndex = 3;
-            this._hardDiskTabPage.Text = "硬碟";
-            this._hardDiskTabPage.UseVisualStyleBackColor = true;
-            // 
-            // _graphicsCardTabPage
-            // 
-            this._graphicsCardTabPage.Location = new System.Drawing.Point(4, 22);
-            this._graphicsCardTabPage.Name = "_graphicsCardTabPage";
-            this._graphicsCardTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this._graphicsCardTabPage.Size = new System.Drawing.Size(427, 225);
-            this._graphicsCardTabPage.TabIndex = 4;
-            this._graphicsCardTabPage.Text = "顯示卡";
-            this._graphicsCardTabPage.UseVisualStyleBackColor = true;
-            // 
-            // _computerSetTabPage
-            // 
-            this._computerSetTabPage.Location = new System.Drawing.Point(4, 22);
-            this._computerSetTabPage.Name = "_computerSetTabPage";
-            this._computerSetTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this._computerSetTabPage.Size = new System.Drawing.Size(427, 225);
-            this._computerSetTabPage.TabIndex = 5;
-            this._computerSetTabPage.Text = "套裝電腦";
-            this._computerSetTabPage.UseVisualStyleBackColor = true;
             // 
             // _productInfoGroupBox
             // 
@@ -209,7 +136,7 @@
             // _productNameAndDescription
             // 
             this._productNameAndDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._productNameAndDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
+            this._productNameAndDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._productNameAndDescription.Location = new System.Drawing.Point(3, 3);
             this._productNameAndDescription.Name = "_productNameAndDescription";
             this._productNameAndDescription.ReadOnly = true;
@@ -236,7 +163,7 @@
             // _productPrice
             // 
             this._productPrice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._productPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
+            this._productPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._productPrice.Location = new System.Drawing.Point(3, 84);
             this._productPrice.Name = "_productPrice";
             this._productPrice.ReadOnly = true;
@@ -247,7 +174,7 @@
             // _productStorageQuantity
             // 
             this._productStorageQuantity.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._productStorageQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
+            this._productStorageQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._productStorageQuantity.Location = new System.Drawing.Point(3, 3);
             this._productStorageQuantity.Name = "_productStorageQuantity";
             this._productStorageQuantity.ReadOnly = true;
@@ -275,8 +202,8 @@
             // 
             // _addButton
             // 
-            this._addButton.Anchor = ( ( System.Windows.Forms.AnchorStyles )( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
-            | System.Windows.Forms.AnchorStyles.Right ) ) );
+            this._addButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._addButton.Image = global::OrderAndStorageManagementSystem.Properties.Resources.img_add;
             this._addButton.Location = new System.Drawing.Point(333, 3);
             this._addButton.Name = "_addButton";
@@ -322,10 +249,10 @@
             // 
             // _pageLabel
             // 
-            this._pageLabel.Anchor = ( ( System.Windows.Forms.AnchorStyles )( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
-            | System.Windows.Forms.AnchorStyles.Left ) ) );
+            this._pageLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this._pageLabel.AutoSize = true;
-            this._pageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
+            this._pageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._pageLabel.Location = new System.Drawing.Point(3, 0);
             this._pageLabel.Name = "_pageLabel";
             this._pageLabel.Size = new System.Drawing.Size(0, 53);
@@ -428,7 +355,7 @@
             // 
             this._cartSectionTitle.AutoSize = true;
             this._cartSectionTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._cartSectionTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
+            this._cartSectionTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._cartSectionTitle.Location = new System.Drawing.Point(3, 0);
             this._cartSectionTitle.Name = "_cartSectionTitle";
             this._cartSectionTitle.Size = new System.Drawing.Size(442, 66);
@@ -455,7 +382,7 @@
             // 
             this._cartTotalPrice.AutoSize = true;
             this._cartTotalPrice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._cartTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
+            this._cartTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._cartTotalPrice.Location = new System.Drawing.Point(3, 0);
             this._cartTotalPrice.Name = "_cartTotalPrice";
             this._cartTotalPrice.Size = new System.Drawing.Size(296, 62);
@@ -465,7 +392,7 @@
             // _orderButton
             // 
             this._orderButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._orderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
+            this._orderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this._orderButton.Location = new System.Drawing.Point(305, 3);
             this._orderButton.Name = "_orderButton";
             this._orderButton.Size = new System.Drawing.Size(134, 56);
@@ -483,7 +410,6 @@
             this.Text = "訂購";
             this._productGroupBox.ResumeLayout(false);
             this._productGroupBoxLayout.ResumeLayout(false);
-            this._productTabControl.ResumeLayout(false);
             this._productInfoGroupBox.ResumeLayout(false);
             this._productInfoGroupBoxLayout.ResumeLayout(false);
             this._productStorageQuantityAndPriceLayout.ResumeLayout(false);
@@ -494,7 +420,7 @@
             this._orderFormLayout.PerformLayout();
             this._cartSectionLayout.ResumeLayout(false);
             this._cartSectionLayout.PerformLayout();
-            ( ( System.ComponentModel.ISupportInitialize )( this._cartDataGridView ) ).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._cartDataGridView)).EndInit();
             this._cartSectionLastRowLayout.ResumeLayout(false);
             this._cartSectionLastRowLayout.PerformLayout();
             this.ResumeLayout(false);
@@ -507,12 +433,6 @@
         private System.Windows.Forms.TableLayoutPanel _orderFormLayout;
         private System.Windows.Forms.TableLayoutPanel _productGroupBoxLayout;
         private System.Windows.Forms.TabControl _productTabControl;
-        private System.Windows.Forms.TabPage _motherBoardTabPage;
-        private System.Windows.Forms.TabPage _centralProcessingUnitTabPage;
-        private System.Windows.Forms.TabPage _randomAccessMemoryTabPage;
-        private System.Windows.Forms.TabPage _hardDiskTabPage;
-        private System.Windows.Forms.TabPage _graphicsCardTabPage;
-        private System.Windows.Forms.TabPage _computerSetTabPage;
         private System.Windows.Forms.GroupBox _productInfoGroupBox;
         private System.Windows.Forms.RichTextBox _productNameAndDescription;
         private System.Windows.Forms.TableLayoutPanel _productInfoGroupBoxLayout;
