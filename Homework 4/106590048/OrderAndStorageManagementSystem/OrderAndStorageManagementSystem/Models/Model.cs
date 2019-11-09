@@ -104,11 +104,11 @@ namespace OrderAndStorageManagementSystem.Models
         }
 
         /// <summary>
-        /// Return true if the orderItem is in order.
+        /// Return true if the given productId is in order.
         /// </summary>
-        public bool IsInOrder(OrderItem orderItem)
+        public bool IsInOrder(int productId)
         {
-            return _order.IsInOrder(orderItem.Id);
+            return _order.IsInOrder(productId);
         }
 
         /// <summary>

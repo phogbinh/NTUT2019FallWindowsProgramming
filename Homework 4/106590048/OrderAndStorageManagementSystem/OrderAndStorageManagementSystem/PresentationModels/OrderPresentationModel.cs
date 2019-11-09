@@ -171,7 +171,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         private void UpdateAddButtonByCurrentSelectedProduct()
         {
-            _addButton.Enabled = _currentSelectedProduct != null && !_model.IsInOrder(new OrderItem(_currentSelectedProduct)) && _currentSelectedProduct.StorageQuantity > 0;
+            _addButton.Enabled = _currentSelectedProduct != null && !_model.IsInOrder(_currentSelectedProduct.Id) && _currentSelectedProduct.StorageQuantity > 0;
             NotifyObserverChangeAddButtonEnabled();
         }
 
