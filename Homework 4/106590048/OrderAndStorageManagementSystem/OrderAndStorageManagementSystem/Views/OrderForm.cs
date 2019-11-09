@@ -20,16 +20,14 @@ namespace OrderAndStorageManagementSystem.Views
         private const int CART_PRODUCT_TOTAL_PRICE_COLUMN_INDEX = 5;
         private CreditCardPaymentForm _creditCardPaymentForm;
         private OrderPresentationModel _orderPresentationModel;
-        private OrderModel _orderModel;
         private Model _model;
         private List<List<OrderProductTabPageButton>> _productTabPageButtonsContainers;
 
-        public OrderForm(CreditCardPaymentForm creditCardPaymentFormData, OrderPresentationModel orderPresentationModelData, OrderModel orderModelData, Model modelData)
+        public OrderForm(CreditCardPaymentForm creditCardPaymentFormData, OrderPresentationModel orderPresentationModelData, Model modelData)
         {
             InitializeComponent();
             _creditCardPaymentForm = creditCardPaymentFormData;
             _orderPresentationModel = orderPresentationModelData;
-            _orderModel = orderModelData;
             _model = modelData;
             InitializeProductTabPageButtonsContainers();
             this.Disposed += RemoveEvents;

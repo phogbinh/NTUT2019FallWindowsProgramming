@@ -35,7 +35,7 @@ namespace OrderAndStorageManagementSystem.Views
         private void ClickOrderSystemButton(object sender, System.EventArgs eventArguments)
         {
             OrderForm orderForm;
-            orderForm = new OrderForm(_creditCardPaymentForm, _orderPresentationModel, _orderModel, _model);
+            orderForm = new OrderForm(_creditCardPaymentForm, _orderPresentationModel, _model);
             orderForm.FormClosed += CloseOrderForm;
             orderForm.Show();
             _mainPresentationModel.ClickOrderSystemButton();
