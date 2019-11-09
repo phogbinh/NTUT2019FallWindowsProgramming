@@ -143,19 +143,19 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         }
 
         /// <summary>
-        /// Set the order quantity of the order item at orderItemIndex to its storage quantity.
-        /// </summary>
-        public void SetOrderItemQuantityToStorageQuantity(int orderItemIndex)
-        {
-            _orderItems[ orderItemIndex ].SetOrderQuantityToStorageQuantity();
-        }
-
-        /// <summary>
         /// Set the order quantity of the order item at orderItemIndex to newOrderQuantity.
         /// </summary>
         public void SetOrderItemQuantity(int orderItemIndex, int newOrderQuantity)
         {
             _orderItems[ orderItemIndex ].OrderQuantity = newOrderQuantity;
+        }
+
+        /// <summary>
+        /// Set the order quantity of the order item at orderItemIndex to its storage quantity.
+        /// </summary>
+        public void SetOrderItemQuantityToStorageQuantity(int orderItemIndex)
+        {
+            _orderItems[ orderItemIndex ].SetOrderQuantityToStorageQuantity();
         }
 
         /// <summary>
