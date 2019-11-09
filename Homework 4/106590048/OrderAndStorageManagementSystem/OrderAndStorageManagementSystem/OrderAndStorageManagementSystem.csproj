@@ -71,6 +71,7 @@
     <Compile Include="Models\OrderForm\OrderProductTabPage.cs" />
     <Compile Include="Models\OrderForm\OrderProductTabPageProductPage.cs" />
     <Compile Include="Models\Utilities\ProductsManager.cs" />
+    <Compile Include="Models\Utilities\ProductTypesManager.cs" />
     <Compile Include="PresentationModels\InventoryPresentationModel.cs" />
     <Compile Include="PresentationModels\Utilities\ControlStates.cs" />
     <Compile Include="PresentationModels\MainPresentationModel.cs" />

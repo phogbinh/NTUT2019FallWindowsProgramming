@@ -91,12 +91,14 @@ namespace OrderAndStorageManagementSystem.Models
             }
         }
         private ProductsManager _productsManager;
+        private ProductTypesManager _productTypesManager;
         private Order _order;
 
         public Model()
         {
             List<Product> initialDataBaseProducts = DataBaseManager.GetProductsFromProductTable();
             _productsManager = new ProductsManager(initialDataBaseProducts);
+            _productTypesManager = new ProductTypesManager(initialDataBaseProducts);
             _order = new Order();
         }
 
