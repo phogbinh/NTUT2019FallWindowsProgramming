@@ -11,15 +11,17 @@ namespace OrderAndStorageManagementSystem.Views
         private InventoryPresentationModel _inventoryPresentationModel;
         private MainPresentationModel _mainPresentationModel;
         private OrderPresentationModel _orderPresentationModel;
+        private ProductManagementPresentationModel _productManagementPresentationModel;
         private Model _model;
 
-        public MainForm(CreditCardPaymentForm creditCardPaymentFormData, InventoryPresentationModel inventoryPresentationModelData, MainPresentationModel mainPresentationModelData, OrderPresentationModel orderPresentationModelData, Model modelData)
+        public MainForm(CreditCardPaymentForm creditCardPaymentFormData, InventoryPresentationModel inventoryPresentationModelData, MainPresentationModel mainPresentationModelData, OrderPresentationModel orderPresentationModelData, ProductManagementPresentationModel productManagementPresentationModelData, Model modelData)
         {
             InitializeComponent();
             _creditCardPaymentForm = creditCardPaymentFormData;
             _inventoryPresentationModel = inventoryPresentationModelData;
             _mainPresentationModel = mainPresentationModelData;
             _orderPresentationModel = orderPresentationModelData;
+            _productManagementPresentationModel = productManagementPresentationModelData;
             _model = modelData;
             _orderSystemButton.Click += ClickOrderSystemButton;
             _inventorySystemButton.Click += ClickInventorySystemButton;
@@ -78,7 +80,7 @@ namespace OrderAndStorageManagementSystem.Views
         private void ClickProductManageSystemButton(object sender, System.EventArgs eventArguments)
         {
             ProductManagementForm productManagementForm;
-            productManagementForm = new ProductManagementForm();
+            productManagementForm = new ProductManagementForm(_productManagementPresentationModel, _model);
             productManagementForm.FormClosed += CloseProductMangementForm;
             productManagementForm.Show();
             _mainPresentationModel.ClickProductManageSystemButton();
