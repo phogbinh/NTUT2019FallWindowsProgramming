@@ -39,7 +39,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model.OrderAdded += AddOrderItemToCartDataGridView;
             _model.OrderRemoved += RemoveOrderItemAtFromCartDataGridView;
             _model.OrderItemQuantityChanged += UpdateOrderItemTotalPriceAtInCartDataGridView;
-            _model.OrderItemQuantityIsExceededStorageQuantity += UpdateViewOnOrderItemQuantityIsExceededStorageQuantity;
+            _model.OrderItemQuantityIsExceededStorageQuantity += ShowMessageBoxAndSetOrderItemQuantityToStorageQuantityOnOrderItemQuantityIsExceededStorageQuantity;
             _orderPresentationModel.AddButtonEnabledChanged += UpdateAddButtonView;
             _orderPresentationModel.OrderFormProductStorageQuantityTextChanged += UpdateProductStorageQuantityView;
             // UI
@@ -69,7 +69,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model.OrderAdded -= AddOrderItemToCartDataGridView;
             _model.OrderRemoved -= RemoveOrderItemAtFromCartDataGridView;
             _model.OrderItemQuantityChanged -= UpdateOrderItemTotalPriceAtInCartDataGridView;
-            _model.OrderItemQuantityIsExceededStorageQuantity -= UpdateViewOnOrderItemQuantityIsExceededStorageQuantity;
+            _model.OrderItemQuantityIsExceededStorageQuantity -= ShowMessageBoxAndSetOrderItemQuantityToStorageQuantityOnOrderItemQuantityIsExceededStorageQuantity;
             _orderPresentationModel.AddButtonEnabledChanged -= UpdateAddButtonView;
             _orderPresentationModel.OrderFormProductStorageQuantityTextChanged -= UpdateProductStorageQuantityView;
         }
@@ -116,9 +116,9 @@ namespace OrderAndStorageManagementSystem.Views
         }
 
         /// <summary>
-        /// Update view on order quantity of order item is exceeded its storage quantity.
+        /// Show MessageBox and set order item quantity to its storage quantity on order quantity of order item is exceeded its storage quantity.
         /// </summary>
-        private void UpdateViewOnOrderItemQuantityIsExceededStorageQuantity(int orderItemIndex, int storageQuantity)
+        private void ShowMessageBoxAndSetOrderItemQuantityToStorageQuantityOnOrderItemQuantityIsExceededStorageQuantity(int orderItemIndex, int storageQuantity)
         {
             MessageBox.Show(this, ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY_MESSAGE, ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY_TITLE);
             _cartDataGridView.Rows[ orderItemIndex ].Cells[ CART_PRODUCT_QUANTITY_COLUMN_INDEX ].Value = storageQuantity;
