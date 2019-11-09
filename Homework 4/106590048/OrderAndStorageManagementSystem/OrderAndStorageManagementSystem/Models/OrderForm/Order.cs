@@ -70,13 +70,13 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         }
 
         /// <summary>
-        /// Return true if the orderItemId matches that of an order item in the order.
+        /// Return true if the productId matches that of an order item in the order.
         /// </summary>
-        public bool IsInOrder(int orderItemId)
+        public bool IsInOrder(int productId)
         {
             foreach ( OrderItem item in _orderItems )
             {
-                if ( item.Id == orderItemId )
+                if ( item.Id == productId )
                 {
                     return true;
                 }
