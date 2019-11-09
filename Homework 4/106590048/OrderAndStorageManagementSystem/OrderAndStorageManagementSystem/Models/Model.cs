@@ -152,16 +152,8 @@ namespace OrderAndStorageManagementSystem.Models
         /// </summary>
         public void SubmitOrder()
         {
-            DecreaseProductStorageQuantitiesByOrderQuantities();
-            _order.ClearOrder();
-        }
-
-        /// <summary>
-        /// Decrease the storage quantity of all order items by theirs order quantity.
-        /// </summary>
-        private void DecreaseProductStorageQuantitiesByOrderQuantities()
-        {
             _productsManager.DecreaseProductStorageQuantitiesByOrderQuantities(_order.GetProductWithOrderQuantityContainers());
+            _order.ClearOrder();
         }
 
         /// <summary>
