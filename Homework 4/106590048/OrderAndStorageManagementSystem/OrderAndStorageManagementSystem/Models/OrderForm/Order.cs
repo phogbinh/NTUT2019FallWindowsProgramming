@@ -5,11 +5,16 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
 {
     public class Order
     {
+        public delegate void OrderChangedEventHandler();
         public delegate void OrderClearedEventHandler();
         public delegate void OrderAddedEventHandler(OrderItem orderItem);
         public delegate void OrderRemovedEventHandler(int orderItemIndex, Product removedProduct);
         public delegate void OrderItemQuantityChangedEventHandler(int orderItemIndex, string orderItemTotalPrice);
         public delegate void OrderItemQuantityIsExceededStorageQuantityEventHandler(int orderItemIndex, int storageQuantity);
+        public OrderChangedEventHandler OrderChanged
+        {
+            get; set;
+        }
         public OrderClearedEventHandler OrderCleared
         {
             get; set;
@@ -73,7 +78,19 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         public void AddOrderItem(OrderItem orderItem)
         {
             _orderItems.Add(orderItem);
+            NotifyObserverChangeOrder();
             NotifyObserverAddOrder(orderItem);
+        }
+
+        /// <summary>
+        /// Notify observer change order.
+        /// </summary>
+        private void NotifyObserverChangeOrder()
+        {
+            if ( OrderChanged != null )
+            {
+                OrderChanged();
+            }
         }
 
         /// <summary>
@@ -94,6 +111,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         {
             Product removeProduct = GetProduct(orderItemIndex);
             _orderItems.RemoveAt(orderItemIndex);
+            NotifyObserverChangeOrder();
             NotifyObserverRemoveOrder(orderItemIndex, removeProduct);
         }
 
@@ -130,6 +148,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         public void ClearOrder()
         {
             _orderItems.Clear();
+            NotifyObserverChangeOrder();
             NotifyObserverClearOrder();
         }
 
@@ -158,6 +177,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         public void SetOrderItemQuantity(int orderItemIndex, int newOrderQuantity)
         {
             _orderItems[ orderItemIndex ].OrderQuantity = newOrderQuantity;
+            NotifyObserverChangeOrder();
             NotifyObserverChangeOrderItemQuantity(orderItemIndex, GetOrderItemTotalPrice(orderItemIndex));
         }
 

@@ -7,11 +7,17 @@ namespace OrderAndStorageManagementSystem.Models
 {
     public class Model
     {
-        public delegate void OrderChangedEventHandler();
         public delegate void ProductStorageQuantityChangedEventHandler(Product product);
-        public OrderChangedEventHandler OrderChanged
+        public Order.OrderChangedEventHandler OrderChanged
         {
-            get; set;
+            get
+            {
+                return _order.OrderChanged;
+            }
+            set
+            {
+                _order.OrderChanged = value;
+            }
         }
         public Order.OrderClearedEventHandler OrderCleared
         {
@@ -98,7 +104,6 @@ namespace OrderAndStorageManagementSystem.Models
             if ( !IsInOrder(orderItem) )
             {
                 _order.AddOrderItem(orderItem);
-                NotifyObserverChangeOrder();
             }
         }
 
@@ -124,18 +129,6 @@ namespace OrderAndStorageManagementSystem.Models
         public void RemoveOrderItemAt(int orderItemIndex)
         {
             _order.RemoveOrderItemAt(orderItemIndex);
-            NotifyObserverChangeOrder();
-        }
-
-        /// <summary>
-        /// Notify observer change order.
-        /// </summary>
-        private void NotifyObserverChangeOrder()
-        {
-            if ( OrderChanged != null )
-            {
-                OrderChanged();
-            }
         }
 
         /// <summary>
@@ -154,7 +147,6 @@ namespace OrderAndStorageManagementSystem.Models
             if ( !IsExceededStorageQuantity(orderItemIndex, newCartProductQuantity) )
             {
                 _order.SetOrderItemQuantity(orderItemIndex, newCartProductQuantity);
-                NotifyObserverChangeOrder();
             }
             else
             {
@@ -197,7 +189,6 @@ namespace OrderAndStorageManagementSystem.Models
         private void ClearOrder()
         {
             _order.ClearOrder();
-            NotifyObserverChangeOrder();
         }
 
         /// <summary>
