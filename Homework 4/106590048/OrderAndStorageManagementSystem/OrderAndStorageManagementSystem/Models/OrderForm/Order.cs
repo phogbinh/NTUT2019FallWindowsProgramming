@@ -190,6 +190,14 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         }
 
         /// <summary>
+        /// Get the storage quantity of the order item at orderItemIndex.
+        /// </summary>
+        private int GetStorageQuantity(int orderItemIndex)
+        {
+            return _orderItems[ orderItemIndex ].StorageQuantity;
+        }
+
+        /// <summary>
         /// Notify observer order quantity of order item is exceeded its storage quantity.
         /// </summary>
         private void NotifyObserverOrderItemQuantityIsExceededStorageQuantity(int orderItemIndex, int storageQuantity)
@@ -198,14 +206,6 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             {
                 OrderItemQuantityIsExceededStorageQuantity(orderItemIndex, storageQuantity);
             }
-        }
-
-        /// <summary>
-        /// Get the storage quantity of the order item at orderItemIndex.
-        /// </summary>
-        public int GetStorageQuantity(int orderItemIndex)
-        {
-            return _orderItems[ orderItemIndex ].StorageQuantity;
         }
 
         /// <summary>
