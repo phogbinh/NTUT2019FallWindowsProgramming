@@ -251,6 +251,19 @@ namespace OrderAndStorageManagementSystem.Views
         }
 
         /// <summary>
+        /// Update the product tab page buttons in the current product tab page, at the current product page.
+        /// </summary>
+        private void UpdateProductTabPageButtonsInCurrentProductTabPageAtCurrentProductPage()
+        {
+            int currentTabPageIndex = _productTabControl.SelectedIndex;
+            List<OrderProductTabPageButton> productTabPageButtons = _productTabPageButtonsContainers[ currentTabPageIndex ];
+            for ( int i = 0; i < AppDefinition.TAB_PAGE_MAX_PRODUCTS_COUNT; i++ )
+            {
+                productTabPageButtons[ i ].Product = _orderPresentationModel.GetProductAtCurrentProductPage(currentTabPageIndex, i);
+            }
+        }
+
+        /// <summary>
         /// Initialize tab pages.
         /// </summary>
         private void InitializeTabPages()
@@ -314,19 +327,6 @@ namespace OrderAndStorageManagementSystem.Views
                     button.Dock = DockStyle.Fill; // Make button fill in table cell
                     productTabPageButtonsCount++;
                 }
-            }
-        }
-
-        /// <summary>
-        /// Update the product tab page buttons in the current product tab page, at the current product page.
-        /// </summary>
-        private void UpdateProductTabPageButtonsInCurrentProductTabPageAtCurrentProductPage()
-        {
-            int currentTabPageIndex = _productTabControl.SelectedIndex;
-            List<OrderProductTabPageButton> productTabPageButtons = _productTabPageButtonsContainers[ currentTabPageIndex ];
-            for ( int i = 0; i < AppDefinition.TAB_PAGE_MAX_PRODUCTS_COUNT; i++ )
-            {
-                productTabPageButtons[ i ].Product = _orderPresentationModel.GetProductAtCurrentProductPage(currentTabPageIndex, i);
             }
         }
 
