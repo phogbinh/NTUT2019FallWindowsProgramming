@@ -140,7 +140,7 @@ namespace OrderAndStorageManagementSystem.Models
         /// </summary>
         public void SetOrderItemQuantity(int orderItemIndex, int newCartProductQuantity)
         {
-            _order.SetOrderItemQuantityNotExceedingStorageQuantity(orderItemIndex, newCartProductQuantity);
+            _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(orderItemIndex, newCartProductQuantity);
         }
 
         /// <summary>
