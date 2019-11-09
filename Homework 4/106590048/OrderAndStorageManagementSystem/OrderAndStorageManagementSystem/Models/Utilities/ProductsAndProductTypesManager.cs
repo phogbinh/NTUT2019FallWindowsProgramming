@@ -23,8 +23,8 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             {
                 return 1;
             }
-            int completelyPopulatedProductPagesCount = productTypeProductsCount / AppDefinition.TAB_PAGE_MAX_PRODUCTS_COUNT;
-            return productTypeProductsCount % AppDefinition.TAB_PAGE_MAX_PRODUCTS_COUNT == 0 ? completelyPopulatedProductPagesCount : completelyPopulatedProductPagesCount + 1;
+            int fullPopulatedProductPagesCount = productTypeProductsCount / AppDefinition.TAB_PAGE_MAX_PRODUCTS_COUNT;
+            return productTypeProductsCount % AppDefinition.TAB_PAGE_MAX_PRODUCTS_COUNT == 0 ? fullPopulatedProductPagesCount : fullPopulatedProductPagesCount + 1;
         }
 
         /// <summary>

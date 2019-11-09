@@ -12,8 +12,8 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
                 return _productTypes;
             }
         }
-        private string ERROR_PRODUCT_TYPE_INDEX_OUT_OF_RANGE = "The given product type index is out of range.";
-        private string ERROR_PRODUCT_TYPES_IS_EMPTY = "Product types is empty.";
+        private const string ERROR_PRODUCT_TYPE_INDEX_OUT_OF_RANGE = "The given product type index is out of range.";
+        private const string ERROR_PRODUCT_TYPES_IS_EMPTY = "Product types is empty.";
         private List<string> _productTypes;
 
         public ProductTypesManager(List<Product> initialDataBaseProducts)
