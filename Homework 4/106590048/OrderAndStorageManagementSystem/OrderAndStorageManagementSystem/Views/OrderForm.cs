@@ -267,7 +267,7 @@ namespace OrderAndStorageManagementSystem.Views
         public void InitializeProductTabPages()
         {
             TabControl.TabPageCollection tabPages = _productTabControl.TabPages;
-            for ( int i = 0; i < AppDefinition.TAB_PAGES_COUNT; i++ )
+            for ( int i = 0; i < _model.GetProductTypesCount(); i++ )
             {
                 TabPage tabPage = tabPages[ i ];
                 tabPage.Controls.Add(CreateTableLayout(TAB_PAGE_LAYOUT_NAME, AppDefinition.TAB_PAGE_LAYOUT_ROW_COUNT, AppDefinition.TAB_PAGE_LAYOUT_COLUMN_COUNT));

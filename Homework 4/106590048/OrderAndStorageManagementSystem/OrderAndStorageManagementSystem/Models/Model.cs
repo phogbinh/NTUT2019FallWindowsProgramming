@@ -184,6 +184,14 @@ namespace OrderAndStorageManagementSystem.Models
         }
 
         /// <summary>
+        /// Get the total number of product types.
+        /// </summary>
+        public int GetProductTypesCount()
+        {
+            return GetProductTypes().Count;
+        }
+
+        /// <summary>
         /// Get all product types.
         /// </summary>
         public List<string> GetProductTypes()
