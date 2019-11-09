@@ -8,7 +8,6 @@ namespace OrderAndStorageManagementSystem.Models
     public class Model
     {
         public delegate void OrderChangedEventHandler();
-        public delegate void OrderItemQuantityChangedEventHandler(int orderItemIndex, string orderItemTotalPrice);
         public delegate void OrderItemQuantityIsExceededStorageQuantityEventHandler(int orderItemIndex, int storageQuantity);
         public delegate void ProductStorageQuantityChangedEventHandler(Product product);
         public OrderChangedEventHandler OrderChanged
@@ -48,9 +47,16 @@ namespace OrderAndStorageManagementSystem.Models
                 _order.OrderRemoved = value;
             }
         }
-        public OrderItemQuantityChangedEventHandler OrderItemQuantityChanged
+        public Order.OrderItemQuantityChangedEventHandler OrderItemQuantityChanged
         {
-            get; set;
+            get
+            {
+                return _order.OrderItemQuantityChanged;
+            }
+            set
+            {
+                _order.OrderItemQuantityChanged = value;
+            }
         }
         public OrderItemQuantityIsExceededStorageQuantityEventHandler OrderItemQuantityIsExceededStorageQuantity
         {
@@ -142,7 +148,7 @@ namespace OrderAndStorageManagementSystem.Models
             if ( !IsExceededStorageQuantity(orderItemIndex, newCartProductQuantity) )
             {
                 _order.SetOrderItemQuantity(orderItemIndex, newCartProductQuantity);
-                NotifyObserverChangeOrderItemQuantity(orderItemIndex, GetOrderItemTotalPrice(orderItemIndex));
+                NotifyObserverChangeOrder();
             }
             else
             {
@@ -157,18 +163,6 @@ namespace OrderAndStorageManagementSystem.Models
         private bool IsExceededStorageQuantity(int orderItemIndex, int quantity)
         {
             return _order.IsExceededStorageQuantity(orderItemIndex, quantity);
-        }
-
-        /// <summary>
-        /// Notify observer change order quantity of order item.
-        /// </summary>
-        private void NotifyObserverChangeOrderItemQuantity(int orderItemIndex, string orderItemTotalPrice)
-        {
-            NotifyObserverChangeOrder();
-            if ( OrderItemQuantityChanged != null )
-            {
-                OrderItemQuantityChanged(orderItemIndex, orderItemTotalPrice);
-            }
         }
 
         /// <summary>

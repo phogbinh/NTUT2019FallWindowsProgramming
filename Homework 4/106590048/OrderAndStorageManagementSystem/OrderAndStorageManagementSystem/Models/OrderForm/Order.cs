@@ -8,6 +8,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         public delegate void OrderClearedEventHandler();
         public delegate void OrderAddedEventHandler(OrderItem orderItem);
         public delegate void OrderRemovedEventHandler(int orderItemIndex, Product removedProduct);
+        public delegate void OrderItemQuantityChangedEventHandler(int orderItemIndex, string orderItemTotalPrice);
         public OrderClearedEventHandler OrderCleared
         {
             get; set;
@@ -17,6 +18,10 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             get; set;
         }
         public OrderRemovedEventHandler OrderRemoved
+        {
+            get; set;
+        }
+        public OrderItemQuantityChangedEventHandler OrderItemQuantityChanged
         {
             get; set;
         }
@@ -148,6 +153,18 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         public void SetOrderItemQuantity(int orderItemIndex, int newOrderQuantity)
         {
             _orderItems[ orderItemIndex ].OrderQuantity = newOrderQuantity;
+            NotifyObserverChangeOrderItemQuantity(orderItemIndex, GetOrderItemTotalPrice(orderItemIndex));
+        }
+
+        /// <summary>
+        /// Notify observer change order quantity of order item.
+        /// </summary>
+        private void NotifyObserverChangeOrderItemQuantity(int orderItemIndex, string orderItemTotalPrice)
+        {
+            if ( OrderItemQuantityChanged != null )
+            {
+                OrderItemQuantityChanged(orderItemIndex, orderItemTotalPrice);
+            }
         }
 
         /// <summary>
