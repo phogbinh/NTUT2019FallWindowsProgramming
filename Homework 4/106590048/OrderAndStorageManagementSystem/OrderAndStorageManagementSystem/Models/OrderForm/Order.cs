@@ -58,6 +58,18 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         }
 
         /// <summary>
+        /// Add the product to order if the product is not in order.
+        /// </summary>
+        public void AddProductToOrderIfProductIsNotInOrder(Product product)
+        {
+            var orderItem = new OrderItem(product);
+            if ( !IsInOrder(orderItem.Id) )
+            {
+                AddOrderItem(orderItem);
+            }
+        }
+
+        /// <summary>
         /// Return true if the orderItemId matches that of an order item in the order.
         /// </summary>
         public bool IsInOrder(int orderItemId)

@@ -100,11 +100,7 @@ namespace OrderAndStorageManagementSystem.Models
         /// </summary>
         public void AddProductToOrderIfProductIsNotInOrder(Product product)
         {
-            var orderItem = new OrderItem(product);
-            if ( !IsInOrder(orderItem) )
-            {
-                _order.AddOrderItem(orderItem);
-            }
+            _order.AddProductToOrderIfProductIsNotInOrder(product);
         }
 
         /// <summary>
