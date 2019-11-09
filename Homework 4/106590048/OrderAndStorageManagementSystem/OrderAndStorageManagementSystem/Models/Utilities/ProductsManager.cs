@@ -20,9 +20,9 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         private const string ERROR_INVALID_PRODUCT_ID = "Product Id is invalid.";
         private List<Product> _products;
 
-        public ProductsManager()
+        public ProductsManager(List<Product> initialDataBaseProducts)
         {
-            _products = DataBaseManager.GetProductsFromProductTable();
+            _products = initialDataBaseProducts;
         }
 
         /// <summary>
