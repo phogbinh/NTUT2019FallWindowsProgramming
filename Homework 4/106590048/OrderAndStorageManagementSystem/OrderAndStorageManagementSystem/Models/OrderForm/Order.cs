@@ -209,7 +209,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             }
             else
             {
-                SetOrderItemQuantityToStorageQuantity(orderItemIndex);
+                NotifyObserverOrderItemQuantityIsExceededStorageQuantity(orderItemIndex, GetStorageQuantity(orderItemIndex));
             }
         }
 
@@ -256,15 +256,6 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             {
                 OrderItemQuantityChanged(orderItemIndex, orderItemTotalPrice);
             }
-        }
-
-        /// <summary>
-        /// Set the order quantity of the order item at orderItemIndex to its storage quantity.
-        /// </summary>
-        private void SetOrderItemQuantityToStorageQuantity(int orderItemIndex)
-        {
-            _orderItems[ orderItemIndex ].SetOrderQuantityToStorageQuantity();
-            NotifyObserverOrderItemQuantityIsExceededStorageQuantity(orderItemIndex, GetStorageQuantity(orderItemIndex));
         }
 
         /// <summary>
