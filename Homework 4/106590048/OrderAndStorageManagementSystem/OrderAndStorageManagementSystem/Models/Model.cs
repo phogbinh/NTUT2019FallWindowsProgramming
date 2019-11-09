@@ -8,7 +8,6 @@ namespace OrderAndStorageManagementSystem.Models
     public class Model
     {
         public delegate void OrderChangedEventHandler();
-        public delegate void OrderRemovedEventHandler(int orderItemIndex, Product removedProduct);
         public delegate void OrderItemQuantityChangedEventHandler(int orderItemIndex, string orderItemTotalPrice);
         public delegate void OrderItemQuantityIsExceededStorageQuantityEventHandler(int orderItemIndex, int storageQuantity);
         public delegate void ProductStorageQuantityChangedEventHandler(Product product);
@@ -38,9 +37,16 @@ namespace OrderAndStorageManagementSystem.Models
                 _order.OrderAdded = value;
             }
         }
-        public OrderRemovedEventHandler OrderRemoved
+        public Order.OrderRemovedEventHandler OrderRemoved
         {
-            get; set;
+            get
+            {
+                return _order.OrderRemoved;
+            }
+            set
+            {
+                _order.OrderRemoved = value;
+            }
         }
         public OrderItemQuantityChangedEventHandler OrderItemQuantityChanged
         {
@@ -105,21 +111,8 @@ namespace OrderAndStorageManagementSystem.Models
         /// </summary>
         public void RemoveOrderItemAt(int orderItemIndex)
         {
-            Product removeProduct = _order.GetProduct(orderItemIndex);
             _order.RemoveOrderItemAt(orderItemIndex);
-            NotifyObserverChangeAndRemoveOrder(orderItemIndex, removeProduct);
-        }
-
-        /// <summary>
-        /// Notify observer change and remove order.
-        /// </summary>
-        private void NotifyObserverChangeAndRemoveOrder(int orderItemIndex, Product removedProduct)
-        {
             NotifyObserverChangeOrder();
-            if ( OrderRemoved != null )
-            {
-                OrderRemoved(orderItemIndex, removedProduct);
-            }
         }
 
         /// <summary>

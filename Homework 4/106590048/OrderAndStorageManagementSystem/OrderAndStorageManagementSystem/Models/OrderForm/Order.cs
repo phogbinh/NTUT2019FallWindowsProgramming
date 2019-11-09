@@ -7,11 +7,16 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
     {
         public delegate void OrderClearedEventHandler();
         public delegate void OrderAddedEventHandler(OrderItem orderItem);
+        public delegate void OrderRemovedEventHandler(int orderItemIndex, Product removedProduct);
         public OrderClearedEventHandler OrderCleared
         {
             get; set;
         }
         public OrderAddedEventHandler OrderAdded
+        {
+            get; set;
+        }
+        public OrderRemovedEventHandler OrderRemoved
         {
             get; set;
         }
@@ -77,7 +82,20 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         /// </summary>
         public void RemoveOrderItemAt(int orderItemIndex)
         {
+            Product removeProduct = GetProduct(orderItemIndex);
             _orderItems.RemoveAt(orderItemIndex);
+            NotifyObserverRemoveOrder(orderItemIndex, removeProduct);
+        }
+
+        /// <summary>
+        /// Notify observer remove order.
+        /// </summary>
+        private void NotifyObserverRemoveOrder(int orderItemIndex, Product removedProduct)
+        {
+            if ( OrderRemoved != null )
+            {
+                OrderRemoved(orderItemIndex, removedProduct);
+            }
         }
 
         /// <summary>
