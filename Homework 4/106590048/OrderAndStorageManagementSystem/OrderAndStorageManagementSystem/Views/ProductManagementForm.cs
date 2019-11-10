@@ -10,6 +10,7 @@ namespace OrderAndStorageManagementSystem.Views
 {
     public partial class ProductManagementForm : Form
     {
+        private const string ERROR_NULL_CURRENT_SELECTED_PRODUCT = "The current selected product is null.";
         private ProductManagementPresentationModel _productManagementPresentationModel;
         private Model _model;
 
@@ -48,6 +49,10 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void UpdateProductInfoView()
         {
+            if ( _productManagementPresentationModel.CurrentSelectedProduct == null )
+            {
+                throw new ArgumentException(ERROR_NULL_CURRENT_SELECTED_PRODUCT);
+            }
             _productNameField.Text = _productManagementPresentationModel.CurrentSelectedProduct.Name;
             _productPriceField.Text = _productManagementPresentationModel.CurrentSelectedProduct.Price.GetString();
             _productTypeField.Text = _productManagementPresentationModel.CurrentSelectedProduct.Type;
