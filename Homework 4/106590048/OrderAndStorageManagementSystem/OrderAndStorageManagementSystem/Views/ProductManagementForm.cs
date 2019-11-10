@@ -3,6 +3,7 @@ using OrderAndStorageManagementSystem.Models;
 using OrderAndStorageManagementSystem.Models.Utilities;
 using OrderAndStorageManagementSystem.PresentationModels;
 using OrderAndStorageManagementSystem.Views.Utilities;
+using System;
 using System.Windows.Forms;
 
 namespace OrderAndStorageManagementSystem.Views
@@ -17,8 +18,11 @@ namespace OrderAndStorageManagementSystem.Views
             InitializeComponent();
             _productManagementPresentationModel = productManagementPresentationModelData;
             _model = modelData;
+            this.Disposed += RemoveEvents;
+            // Observers
+            _productManagementPresentationModel.CurrentSelectedProductChanged += UpdateProductInfoView;
             // UI
-            _productsListBox.SelectedIndexChanged += (sender, eventArguments) => UpdateProductInfoView();
+            _productsListBox.SelectedIndexChanged += (sender, eventArguments) => _productManagementPresentationModel.SetCurrentSelectedProduct(( ( ProductsListBoxItem )_productsListBox.SelectedItem ).Product);
             _productNameField.AddTextBoxInspectors(InputInspectorTypeHelper.FLAG_TEXT_BOX_IS_NOT_EMPTY);
             _productNameField.TextBoxInspectorsCollectionChanged += () => UpdateErrorProviderView(_productNameField, _productNameField.GetInputInspectorsError());
             _productPriceField.KeyPress += InputHelper.InputNumbersOrBackSpace;
@@ -30,16 +34,23 @@ namespace OrderAndStorageManagementSystem.Views
         }
 
         /// <summary>
+        /// Unsubscribe from all events that were subscribed by this form.
+        /// </summary>
+        private void RemoveEvents(object sender, EventArgs eventArguments)
+        {
+            _productManagementPresentationModel.CurrentSelectedProductChanged -= UpdateProductInfoView;
+        }
+
+        /// <summary>
         /// Update product info view.
         /// </summary>
         private void UpdateProductInfoView()
         {
-            Product currentSelectedProduct = ( ( ProductsListBoxItem )_productsListBox.SelectedItem ).Product;
-            _productNameField.Text = currentSelectedProduct.Name;
-            _productPriceField.Text = currentSelectedProduct.Price.GetString();
-            _productTypeField.Text = currentSelectedProduct.Type;
-            _productImagePathField.Text = currentSelectedProduct.ImagePath;
-            _productDescriptionField.Text = currentSelectedProduct.Description;
+            _productNameField.Text = _productManagementPresentationModel.CurrentSelectedProduct.Name;
+            _productPriceField.Text = _productManagementPresentationModel.CurrentSelectedProduct.Price.GetString();
+            _productTypeField.Text = _productManagementPresentationModel.CurrentSelectedProduct.Type;
+            _productImagePathField.Text = _productManagementPresentationModel.CurrentSelectedProduct.ImagePath;
+            _productDescriptionField.Text = _productManagementPresentationModel.CurrentSelectedProduct.Description;
             RefreshControls();
         }
 
