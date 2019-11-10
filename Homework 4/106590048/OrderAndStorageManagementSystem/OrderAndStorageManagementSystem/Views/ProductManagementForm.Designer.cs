@@ -252,11 +252,13 @@
             // _productTypeField
             // 
             this._productTypeField.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productTypeField.DropDownListInspectorsCollectionChanged = null;
             this._productTypeField.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._productTypeField.FormattingEnabled = true;
             this._productTypeField.Location = new System.Drawing.Point(78, 3);
+            this._productTypeField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this._productTypeField.Name = "_productTypeField";
-            this._productTypeField.Size = new System.Drawing.Size(170, 21);
+            this._productTypeField.Size = new System.Drawing.Size(153, 21);
             this._productTypeField.TabIndex = 1;
             // 
             // _productPriceLayout
@@ -299,9 +301,11 @@
             // 
             this._productPriceField.Dock = System.Windows.Forms.DockStyle.Fill;
             this._productPriceField.Location = new System.Drawing.Point(78, 3);
+            this._productPriceField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this._productPriceField.Name = "_productPriceField";
-            this._productPriceField.Size = new System.Drawing.Size(119, 20);
+            this._productPriceField.Size = new System.Drawing.Size(102, 20);
             this._productPriceField.TabIndex = 2;
+            this._productPriceField.TextBoxInspectorsCollectionChanged = null;
             // 
             // _productDescriptionLayout
             // 
@@ -394,9 +398,11 @@
             // 
             this._productImagePathField.Dock = System.Windows.Forms.DockStyle.Fill;
             this._productImagePathField.Location = new System.Drawing.Point(105, 3);
+            this._productImagePathField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this._productImagePathField.Name = "_productImagePathField";
-            this._productImagePathField.Size = new System.Drawing.Size(302, 20);
+            this._productImagePathField.Size = new System.Drawing.Size(285, 20);
             this._productImagePathField.TabIndex = 1;
+            this._productImagePathField.TextBoxInspectorsCollectionChanged = null;
             // 
             // _productImageBrowseButton
             // 
