@@ -326,6 +326,7 @@
             // _productDescriptionField
             // 
             this._productDescriptionField.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productDescriptionField.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._productDescriptionField.Location = new System.Drawing.Point(3, 36);
             this._productDescriptionField.Name = "_productDescriptionField";
             this._productDescriptionField.Size = new System.Drawing.Size(508, 181);
