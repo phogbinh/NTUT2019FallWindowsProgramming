@@ -203,8 +203,9 @@
             // 
             this._productNameField.Dock = System.Windows.Forms.DockStyle.Fill;
             this._productNameField.Location = new System.Drawing.Point(81, 3);
+            this._productNameField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this._productNameField.Name = "_productNameField";
-            this._productNameField.Size = new System.Drawing.Size(430, 20);
+            this._productNameField.Size = new System.Drawing.Size(413, 20);
             this._productNameField.TabIndex = 1;
             this._productNameField.TextBoxInspectorsCollectionChanged = null;
             // 
