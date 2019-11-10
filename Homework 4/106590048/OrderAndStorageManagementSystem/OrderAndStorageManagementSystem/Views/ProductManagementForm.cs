@@ -27,7 +27,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model = modelData;
             this.Disposed += RemoveEvents;
             // Observers
-            _productManagementPresentationModel.CurrentSelectedProductChanged += UpdateProductInfoView;
+            _productManagementPresentationModel.CurrentSelectedProductChanged += UpdateProductInfoViewAndSetIsEditedProductInfo;
             _productManagementPresentationModel.SaveButtonEnabledChanged += UpdateSaveButtonView;
             // UI
             _productsListBox.SelectedIndexChanged += (sender, eventArguments) => _productManagementPresentationModel.SetCurrentSelectedProduct(( ( ProductsListBoxItem )_productsListBox.SelectedItem ).Product);
@@ -60,14 +60,14 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void RemoveEvents(object sender, EventArgs eventArguments)
         {
-            _productManagementPresentationModel.CurrentSelectedProductChanged -= UpdateProductInfoView;
+            _productManagementPresentationModel.CurrentSelectedProductChanged -= UpdateProductInfoViewAndSetIsEditedProductInfo;
             _productManagementPresentationModel.SaveButtonEnabledChanged -= UpdateSaveButtonView;
         }
 
         /// <summary>
-        /// Update product info view.
+        /// Update product info view and set _isEditedProductInfo in the presentation model.
         /// </summary>
-        private void UpdateProductInfoView()
+        private void UpdateProductInfoViewAndSetIsEditedProductInfo()
         {
             if ( _productManagementPresentationModel.CurrentSelectedProduct == null )
             {
@@ -78,6 +78,7 @@ namespace OrderAndStorageManagementSystem.Views
             _productTypeField.Text = _productManagementPresentationModel.CurrentSelectedProduct.Type;
             _productImagePathField.Text = _productManagementPresentationModel.CurrentSelectedProduct.ImagePath;
             _productDescriptionField.Text = _productManagementPresentationModel.CurrentSelectedProduct.Description;
+            _productManagementPresentationModel.SetIsEditedProductInfo(false);
         }
 
         /// <summary>
