@@ -51,9 +51,9 @@
             this._productDescriptionField = new System.Windows.Forms.RichTextBox();
             this._productInfoGroupBoxLastRowLayout = new System.Windows.Forms.TableLayoutPanel();
             this._saveButton = new System.Windows.Forms.Button();
-            this._productImageLayout = new System.Windows.Forms.TableLayoutPanel();
-            this._productImageLabel = new System.Windows.Forms.Label();
-            this._productImageField = new System.Windows.Forms.TextBox();
+            this._productImagePathLayout = new System.Windows.Forms.TableLayoutPanel();
+            this._productImagePathLabel = new System.Windows.Forms.Label();
+            this._productImagePathField = new System.Windows.Forms.TextBox();
             this._productImageBrowseButton = new System.Windows.Forms.Button();
             this._productsManagementTabPageLeftSectionLayout = new System.Windows.Forms.TableLayoutPanel();
             this._addProductButton = new System.Windows.Forms.Button();
@@ -71,7 +71,7 @@
             this._productPriceLayout.SuspendLayout();
             this._productDescriptionLayout.SuspendLayout();
             this._productInfoGroupBoxLastRowLayout.SuspendLayout();
-            this._productImageLayout.SuspendLayout();
+            this._productImagePathLayout.SuspendLayout();
             this._productsManagementTabPageLeftSectionLayout.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -158,7 +158,7 @@
             this._productInfoGroupBoxLayout.Controls.Add(this._productPriceAndTypeLayout, 0, 1);
             this._productInfoGroupBoxLayout.Controls.Add(this._productDescriptionLayout, 0, 3);
             this._productInfoGroupBoxLayout.Controls.Add(this._productInfoGroupBoxLastRowLayout, 0, 4);
-            this._productInfoGroupBoxLayout.Controls.Add(this._productImageLayout, 0, 2);
+            this._productInfoGroupBoxLayout.Controls.Add(this._productImagePathLayout, 0, 2);
             this._productInfoGroupBoxLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this._productInfoGroupBoxLayout.Location = new System.Drawing.Point(3, 16);
             this._productInfoGroupBoxLayout.Name = "_productInfoGroupBoxLayout";
@@ -216,7 +216,7 @@
             this._productPriceAndTypeLayout.Name = "_productPriceAndTypeLayout";
             this._productPriceAndTypeLayout.RowCount = 1;
             this._productPriceAndTypeLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this._productPriceAndTypeLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
+            this._productPriceAndTypeLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this._productPriceAndTypeLayout.Size = new System.Drawing.Size(514, 46);
             this._productPriceAndTypeLayout.TabIndex = 1;
             // 
@@ -343,7 +343,7 @@
             this._productInfoGroupBoxLastRowLayout.Name = "_productInfoGroupBoxLastRowLayout";
             this._productInfoGroupBoxLastRowLayout.RowCount = 1;
             this._productInfoGroupBoxLastRowLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this._productInfoGroupBoxLastRowLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this._productInfoGroupBoxLastRowLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this._productInfoGroupBoxLastRowLayout.Size = new System.Drawing.Size(514, 47);
             this._productInfoGroupBoxLastRowLayout.TabIndex = 4;
             // 
@@ -357,40 +357,40 @@
             this._saveButton.Text = "儲存";
             this._saveButton.UseVisualStyleBackColor = true;
             // 
-            // _productImageLayout
+            // _productImagePathLayout
             // 
-            this._productImageLayout.ColumnCount = 3;
-            this._productImageLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this._productImageLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this._productImageLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this._productImageLayout.Controls.Add(this._productImageLabel, 0, 0);
-            this._productImageLayout.Controls.Add(this._productImageField, 1, 0);
-            this._productImageLayout.Controls.Add(this._productImageBrowseButton, 2, 0);
-            this._productImageLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._productImageLayout.Location = new System.Drawing.Point(3, 107);
-            this._productImageLayout.Name = "_productImageLayout";
-            this._productImageLayout.RowCount = 1;
-            this._productImageLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this._productImageLayout.Size = new System.Drawing.Size(514, 46);
-            this._productImageLayout.TabIndex = 5;
+            this._productImagePathLayout.ColumnCount = 3;
+            this._productImagePathLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this._productImagePathLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this._productImagePathLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this._productImagePathLayout.Controls.Add(this._productImagePathLabel, 0, 0);
+            this._productImagePathLayout.Controls.Add(this._productImagePathField, 1, 0);
+            this._productImagePathLayout.Controls.Add(this._productImageBrowseButton, 2, 0);
+            this._productImagePathLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productImagePathLayout.Location = new System.Drawing.Point(3, 107);
+            this._productImagePathLayout.Name = "_productImagePathLayout";
+            this._productImagePathLayout.RowCount = 1;
+            this._productImagePathLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this._productImagePathLayout.Size = new System.Drawing.Size(514, 46);
+            this._productImagePathLayout.TabIndex = 5;
             // 
-            // _productImageLabel
+            // _productImagePathLabel
             // 
-            this._productImageLabel.AutoSize = true;
-            this._productImageLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._productImageLabel.Location = new System.Drawing.Point(3, 0);
-            this._productImageLabel.Name = "_productImageLabel";
-            this._productImageLabel.Size = new System.Drawing.Size(96, 46);
-            this._productImageLabel.TabIndex = 0;
-            this._productImageLabel.Text = "商品圖片路徑(*)";
+            this._productImagePathLabel.AutoSize = true;
+            this._productImagePathLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productImagePathLabel.Location = new System.Drawing.Point(3, 0);
+            this._productImagePathLabel.Name = "_productImagePathLabel";
+            this._productImagePathLabel.Size = new System.Drawing.Size(96, 46);
+            this._productImagePathLabel.TabIndex = 0;
+            this._productImagePathLabel.Text = "商品圖片路徑(*)";
             // 
-            // _productImageField
+            // _productImagePathField
             // 
-            this._productImageField.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._productImageField.Location = new System.Drawing.Point(105, 3);
-            this._productImageField.Name = "_productImageField";
-            this._productImageField.Size = new System.Drawing.Size(302, 20);
-            this._productImageField.TabIndex = 1;
+            this._productImagePathField.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productImagePathField.Location = new System.Drawing.Point(105, 3);
+            this._productImagePathField.Name = "_productImagePathField";
+            this._productImagePathField.Size = new System.Drawing.Size(302, 20);
+            this._productImagePathField.TabIndex = 1;
             // 
             // _productImageBrowseButton
             // 
@@ -441,7 +441,7 @@
             this._productTypesManagementTabPage.Location = new System.Drawing.Point(4, 22);
             this._productTypesManagementTabPage.Name = "_productTypesManagementTabPage";
             this._productTypesManagementTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this._productTypesManagementTabPage.Size = new System.Drawing.Size(1086, 425);
+            this._productTypesManagementTabPage.Size = new System.Drawing.Size(823, 466);
             this._productTypesManagementTabPage.TabIndex = 1;
             this._productTypesManagementTabPage.Text = "類別管理";
             this._productTypesManagementTabPage.UseVisualStyleBackColor = true;
@@ -471,8 +471,8 @@
             this._productDescriptionLayout.ResumeLayout(false);
             this._productDescriptionLayout.PerformLayout();
             this._productInfoGroupBoxLastRowLayout.ResumeLayout(false);
-            this._productImageLayout.ResumeLayout(false);
-            this._productImageLayout.PerformLayout();
+            this._productImagePathLayout.ResumeLayout(false);
+            this._productImagePathLayout.PerformLayout();
             this._productsManagementTabPageLeftSectionLayout.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -507,9 +507,9 @@
         private System.Windows.Forms.RichTextBox _productDescriptionField;
         private System.Windows.Forms.TableLayoutPanel _productInfoGroupBoxLastRowLayout;
         private System.Windows.Forms.Button _saveButton;
-        private System.Windows.Forms.TableLayoutPanel _productImageLayout;
-        private System.Windows.Forms.Label _productImageLabel;
-        private System.Windows.Forms.TextBox _productImageField;
+        private System.Windows.Forms.TableLayoutPanel _productImagePathLayout;
+        private System.Windows.Forms.Label _productImagePathLabel;
+        private System.Windows.Forms.TextBox _productImagePathField;
         private System.Windows.Forms.Button _productImageBrowseButton;
     }
 }
