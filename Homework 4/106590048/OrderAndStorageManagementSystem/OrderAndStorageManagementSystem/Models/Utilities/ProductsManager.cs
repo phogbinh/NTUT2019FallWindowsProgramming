@@ -6,7 +6,12 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
     public class ProductsManager
     {
         public delegate void ProductStorageQuantityChangedEventHandler(Product product);
+        public delegate void ProductInfoChangedEventHandler(Product product);
         public ProductStorageQuantityChangedEventHandler ProductStorageQuantityChanged
+        {
+            get; set;
+        }
+        public ProductInfoChangedEventHandler ProductInfoChanged
         {
             get; set;
         }
@@ -70,6 +75,30 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             if ( ProductStorageQuantityChanged != null )
             {
                 ProductStorageQuantityChanged(product);
+            }
+        }
+
+        /// <summary>
+        /// Update product info according to the new product data.
+        /// </summary>
+        public void UpdateProductInfo(Product product, Product newProductData)
+        {
+            product.Name = newProductData.Name;
+            product.Type = newProductData.Type;
+            product.Price = newProductData.Price;
+            product.Description = newProductData.Description;
+            product.ImagePath = newProductData.ImagePath;
+            NotifyObserverChangeProductInfo(product);
+        }
+
+        /// <summary>
+        /// Notify observer change product info
+        /// </summary>
+        private void NotifyObserverChangeProductInfo(Product product)
+        {
+            if ( ProductInfoChanged != null )
+            {
+                ProductInfoChanged(product);
             }
         }
     }

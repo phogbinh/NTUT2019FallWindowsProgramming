@@ -33,7 +33,7 @@ namespace OrderAndStorageManagementSystem.Views
             _productsListBox.SelectedIndexChanged += (sender, eventArguments) => _productManagementPresentationModel.SetCurrentSelectedProduct(( ( ProductsListBoxItem )_productsListBox.SelectedItem ).Product);
             _productPriceField.KeyPress += InputHelper.InputNumbersOrBackSpace;
             _productImageBrowseButton.Click += (sender, eventArguments) => BrowseImageAndSetProductImagePath();
-            _saveButton.Click += (sender, eventArguments) => _productManagementPresentationModel.SetIsEditedProductInfo(false);
+            _saveButton.Click += (sender, eventArguments) => UpdateCurrentSelectedProductInfoAndSetIsEditedProductInfo();
             // Product info
             _productNameField.TextChanged += (sender, eventArguments) => _productManagementPresentationModel.SetIsEditedProductInfo(true);
             _productPriceField.TextChanged += (sender, eventArguments) => _productManagementPresentationModel.SetIsEditedProductInfo(true);
@@ -100,6 +100,15 @@ namespace OrderAndStorageManagementSystem.Views
             {
                 _productImagePathField.Text = dialog.FileName;
             }
+        }
+
+        /// <summary>
+        /// Update current selected product info and set _isEditedProductInfo in the presentation model.
+        /// </summary>
+        private void UpdateCurrentSelectedProductInfoAndSetIsEditedProductInfo()
+        {
+            _productManagementPresentationModel.UpdateCurrentSelectedProductInfo(new Product(_productNameField.Text, _productTypeField.Text, _productPriceField.Text, _productDescriptionField.Text, _productImagePathField.Text));
+            _productManagementPresentationModel.SetIsEditedProductInfo(false);
         }
 
         /// <summary>

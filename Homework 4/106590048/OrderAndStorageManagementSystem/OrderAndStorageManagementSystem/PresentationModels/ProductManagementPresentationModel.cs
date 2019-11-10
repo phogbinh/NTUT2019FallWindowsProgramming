@@ -1,4 +1,5 @@
-﻿using OrderAndStorageManagementSystem.Models.Utilities;
+﻿using OrderAndStorageManagementSystem.Models;
+using OrderAndStorageManagementSystem.Models.Utilities;
 using OrderAndStorageManagementSystem.PresentationModels.Utilities;
 
 namespace OrderAndStorageManagementSystem.PresentationModels
@@ -39,13 +40,15 @@ namespace OrderAndStorageManagementSystem.PresentationModels
                 return _saveButton;
             }
         }
+        private Model _model;
         private Product _currentSelectedProduct;
         private ControlStates _saveButton;
         private bool _isValidProductInfo;
         private bool _isEditedProductInfo;
 
-        public ProductManagementPresentationModel()
+        public ProductManagementPresentationModel(Model modelData)
         {
+            _model = modelData;
             this.CurrentSelectedProductChanged += UpdateSaveButton;
             this.IsValidProductInfoChanged += UpdateSaveButton;
             this.IsEditedProductInfoChanged += UpdateSaveButton;
@@ -135,6 +138,14 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             {
                 IsEditedProductInfoChanged();
             }
+        }
+
+        /// <summary>
+        /// Update current product info with the given parameters.
+        /// </summary>
+        public void UpdateCurrentSelectedProductInfo(Product newProductData)
+        {
+            _model.UpdateProductInfo(_currentSelectedProduct, newProductData);
         }
     }
 }

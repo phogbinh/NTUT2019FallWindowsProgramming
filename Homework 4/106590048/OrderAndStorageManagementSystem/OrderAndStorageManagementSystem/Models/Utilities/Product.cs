@@ -17,6 +17,10 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             {
                 return _name;
             }
+            set
+            {
+                _name = value;
+            }
         }
         public string Type
         {
@@ -24,12 +28,20 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             {
                 return _type;
             }
+            set
+            {
+                _type = value;
+            }
         }
         public Money Price
         {
             get
             {
                 return _price;
+            }
+            set
+            {
+                _price = value;
             }
         }
         public int StorageQuantity
@@ -82,6 +94,15 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             _storageQuantity = storageQuantityData;
             _description = descriptionData;
             _imagePath = Directory.GetCurrentDirectory() + AppDefinition.RELATIVE_PATH_FROM_APPLICATION_BINARY_DIRECTORY_TO_RESOURCES_FOLDER + AppDefinition.APP_DATA_BASE_PRODUCTS_TABLE_IMAGE_NAME + _id.ToString() + AppDefinition.FILE_NAME_EXTENSION_JOINT_PHOTOGRAPHIC_GROUP;
+        }
+
+        public Product(string nameData, string typeData, string priceData, string descriptionData, string imagePathData)
+        {
+            _name = nameData;
+            _type = typeData;
+            _price = new Money(int.Parse(priceData));
+            _description = descriptionData;
+            _imagePath = imagePathData;
         }
 
         /// <summary>

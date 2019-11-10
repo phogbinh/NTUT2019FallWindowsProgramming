@@ -19,7 +19,7 @@ namespace OrderAndStorageManagementSystem
             Model model = new Model();
             OrderPresentationModel orderPresentationModel = new OrderPresentationModel(model);
             CreditCardPaymentForm creditCardPaymentForm = new CreditCardPaymentForm(model);
-            MainForm mainForm = new MainForm(creditCardPaymentForm, new InventoryPresentationModel(model), new MainPresentationModel(), orderPresentationModel, new ProductManagementPresentationModel(), model);
+            MainForm mainForm = new MainForm(creditCardPaymentForm, new InventoryPresentationModel(model), new MainPresentationModel(), orderPresentationModel, new ProductManagementPresentationModel(model), model);
             Application.Run(mainForm);
         }
     }

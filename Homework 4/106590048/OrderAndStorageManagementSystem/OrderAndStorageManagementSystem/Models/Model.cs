@@ -216,5 +216,13 @@ namespace OrderAndStorageManagementSystem.Models
         {
             return _productsAndProductTypesManager.GetProduct(_productTypesManager.GetProductType(tabPageIndex), productPageIndex, productIndex);
         }
+
+        /// <summary>
+        /// Update product info according to the new product data.
+        /// </summary>
+        public void UpdateProductInfo(Product product, Product newProductData)
+        {
+            _productsManager.UpdateProductInfo(product, newProductData);
+        }
     }
 }
