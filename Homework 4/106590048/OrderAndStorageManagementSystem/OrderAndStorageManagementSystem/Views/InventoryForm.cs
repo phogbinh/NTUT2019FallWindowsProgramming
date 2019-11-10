@@ -23,6 +23,7 @@ namespace OrderAndStorageManagementSystem.Views
             this.Disposed += RemoveEvents;
             // Observers
             _model.ProductStorageQuantityChanged += UpdateProductStorageQuantityInStorageDataGridView;
+            _model.ProductInfoChanged += ResetStorageDataGridViewOnProductInfoChanged;
             // UI
             _storageDataGridView.CellPainting += (sender, eventArguments) => DataGridViewHelper.InitializeButtonImageOfButtonColumn(eventArguments, STORAGE_SUPPLY_BUTTON_COLUMN_INDEX, Resources.img_delivery_truck);
             _storageDataGridView.CellContentClick += ClickStorageDataGridViewCellContent;
@@ -37,6 +38,7 @@ namespace OrderAndStorageManagementSystem.Views
         private void RemoveEvents(object sender, EventArgs eventArguments)
         {
             _model.ProductStorageQuantityChanged -= UpdateProductStorageQuantityInStorageDataGridView;
+            _model.ProductInfoChanged -= ResetStorageDataGridViewOnProductInfoChanged;
         }
 
         /// <summary>
@@ -54,6 +56,15 @@ namespace OrderAndStorageManagementSystem.Views
         private int GetProductRowIndexInStorageDataGridView(Product product)
         {
             return product.Id - 1;
+        }
+
+        /// <summary>
+        /// Reset storage data grid view on product info changed.
+        /// </summary>
+        private void ResetStorageDataGridViewOnProductInfoChanged(Product product)
+        {
+            _storageDataGridView.Rows.Clear();
+            InitializeStorageDataGridView();
         }
 
         /// <summary>
