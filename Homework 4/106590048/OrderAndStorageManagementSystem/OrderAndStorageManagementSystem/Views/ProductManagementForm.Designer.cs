@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this._productManagementFormLayout = new System.Windows.Forms.TableLayoutPanel();
             this._windowTitle = new System.Windows.Forms.Label();
             this._tabControl = new System.Windows.Forms.TabControl();
@@ -59,6 +60,7 @@
             this._addProductButton = new System.Windows.Forms.Button();
             this._productsListBox = new System.Windows.Forms.ListBox();
             this._productTypesManagementTabPage = new System.Windows.Forms.TabPage();
+            this._errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this._productManagementFormLayout.SuspendLayout();
             this._tabControl.SuspendLayout();
             this._productsManagementTabPage.SuspendLayout();
@@ -73,6 +75,7 @@
             this._productInfoGroupBoxLastRowLayout.SuspendLayout();
             this._productImagePathLayout.SuspendLayout();
             this._productsManagementTabPageLeftSectionLayout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // _productManagementFormLayout
@@ -203,6 +206,7 @@
             this._productNameField.Name = "_productNameField";
             this._productNameField.Size = new System.Drawing.Size(430, 20);
             this._productNameField.TabIndex = 1;
+            this._productNameField.TextBoxInspectorsCollectionChanged = null;
             // 
             // _productPriceAndTypeLayout
             // 
@@ -447,6 +451,10 @@
             this._productTypesManagementTabPage.Text = "類別管理";
             this._productTypesManagementTabPage.UseVisualStyleBackColor = true;
             // 
+            // _errorProvider
+            // 
+            this._errorProvider.ContainerControl = this;
+            // 
             // ProductManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -475,6 +483,7 @@
             this._productImagePathLayout.ResumeLayout(false);
             this._productImagePathLayout.PerformLayout();
             this._productsManagementTabPageLeftSectionLayout.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -512,5 +521,6 @@
         private System.Windows.Forms.Label _productImagePathLabel;
         private System.Windows.Forms.TextBox _productImagePathField;
         private System.Windows.Forms.Button _productImageBrowseButton;
+        private System.Windows.Forms.ErrorProvider _errorProvider;
     }
 }
