@@ -157,6 +157,7 @@ namespace OrderAndStorageManagementSystem.Views
             _addProductButton.Enabled = false;
             _productInfoGroupBox.Text = PRODUCT_INFO_GROUP_BOX_TEXT_ADD_PRODUCT;
             _saveButton.Text = SAVE_BUTTON_TEXT_ADD_PRODUCT;
+            ResetProductInfoAndErrorProviderView();
         }
 
         /// <summary>
