@@ -17,7 +17,19 @@ namespace OrderAndStorageManagementSystem.Views
             _productManagementPresentationModel = productManagementPresentationModelData;
             _model = modelData;
             // Initial UI States
+            InitializeProductTypeField();
             InitializeProductsListBox();
+        }
+
+        /// <summary>
+        /// Initialize _productTypeField.
+        /// </summary>
+        private void InitializeProductTypeField()
+        {
+            foreach ( string productType in _model.GetProductTypes() )
+            {
+                _productTypeField.Items.Add(productType);
+            }
         }
 
         /// <summary>
