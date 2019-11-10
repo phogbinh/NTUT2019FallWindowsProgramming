@@ -40,7 +40,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model.OrderItemQuantityChanged += UpdateOrderItemTotalPriceAtInCartDataGridView;
             _model.OrderItemQuantityIsExceededStorageQuantity += ShowMessageBoxAndSetOrderItemQuantityToStorageQuantityOnOrderItemQuantityIsExceededStorageQuantity;
             _orderPresentationModel.AddButtonEnabledChanged += UpdateAddButtonView;
-            _orderPresentationModel.CurrentProductInfoChanged += UpdateProductStorageQuantityView;
+            _orderPresentationModel.CurrentProductInfoChanged += UpdateProductInfoView;
             // UI
             _cartDataGridView.CellPainting += (sender, eventArguments) => DataGridViewHelper.InitializeButtonImageOfButtonColumn(eventArguments, CART_DELETE_BUTTON_COLUMN_INDEX, Resources.img_trash_bin);
             _cartDataGridView.CellContentClick += ClickCartDataGridViewCellContent;
@@ -71,7 +71,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model.OrderItemQuantityChanged -= UpdateOrderItemTotalPriceAtInCartDataGridView;
             _model.OrderItemQuantityIsExceededStorageQuantity -= ShowMessageBoxAndSetOrderItemQuantityToStorageQuantityOnOrderItemQuantityIsExceededStorageQuantity;
             _orderPresentationModel.AddButtonEnabledChanged -= UpdateAddButtonView;
-            _orderPresentationModel.CurrentProductInfoChanged -= UpdateProductStorageQuantityView;
+            _orderPresentationModel.CurrentProductInfoChanged -= UpdateProductInfoView;
         }
 
         /// <summary>
@@ -135,9 +135,11 @@ namespace OrderAndStorageManagementSystem.Views
         /// <summary>
         /// Update text of product storage quantity.
         /// </summary>
-        private void UpdateProductStorageQuantityView()
+        private void UpdateProductInfoView()
         {
             _productStorageQuantity.Text = _orderPresentationModel.ProductStorageQuantity.Text;
+            _productNameAndDescription.Text = _orderPresentationModel.ProductNameAndDescription.Text;
+            _productPrice.Text = _orderPresentationModel.ProductPrice.Text;
         }
 
         /// <summary>
@@ -345,8 +347,6 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void RefreshControls()
         {
-            _productNameAndDescription.Text = _orderPresentationModel.ProductNameAndDescription.Text;
-            _productPrice.Text = _orderPresentationModel.ProductPrice.Text;
             _pageLabel.Text = _orderPresentationModel.PageLabel.Text;
             _leftArrowButton.Enabled = _orderPresentationModel.LeftArrowButton.Enabled;
             _rightArrowButton.Enabled = _orderPresentationModel.RightArrowButton.Enabled;
