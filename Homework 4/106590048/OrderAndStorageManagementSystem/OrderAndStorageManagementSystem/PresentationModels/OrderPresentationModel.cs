@@ -140,18 +140,9 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             if ( product == _currentSelectedProduct )
             {
-                UpdateProductStorageQuantityByCurrentSelectedProduct();
+                UpdateCurrentProductInfo();
                 UpdateAddButtonByCurrentSelectedProduct();
             }
-        }
-
-        /// <summary>
-        /// Update text of product storage quantity by the current selected product.
-        /// </summary>
-        private void UpdateProductStorageQuantityByCurrentSelectedProduct()
-        {
-            _productStorageQuantity.Text = _currentSelectedProduct == null ? "" : AppDefinition.PRODUCT_STORAGE_QUANTITY_TEXT + _currentSelectedProduct.GetStorageQuantity();
-            NotifyObserverChangeOrderFormProductStorageQuantityText();
         }
 
         /// <summary>
@@ -280,7 +271,8 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         private void UpdateCurrentProductInfo()
         {
-            UpdateProductStorageQuantityByCurrentSelectedProduct();
+            _productStorageQuantity.Text = _currentSelectedProduct == null ? "" : AppDefinition.PRODUCT_STORAGE_QUANTITY_TEXT + _currentSelectedProduct.GetStorageQuantity();
+            NotifyObserverChangeOrderFormProductStorageQuantityText();
             _productNameAndDescription.Text = _currentSelectedProduct == null ? "" : _currentSelectedProduct.GetProductNameAndDescription();
             _productPrice.Text = _currentSelectedProduct == null ? "" : AppDefinition.PRODUCT_PRICE_TEXT + _currentSelectedProduct.GetPrice(AppDefinition.TAIWAN_CURRENCY_UNIT);
         }
