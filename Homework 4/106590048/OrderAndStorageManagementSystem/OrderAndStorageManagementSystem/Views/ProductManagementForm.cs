@@ -83,14 +83,6 @@ namespace OrderAndStorageManagementSystem.Views
         }
 
         /// <summary>
-        /// Update the view of the error provider.
-        /// </summary>
-        private void UpdateErrorProviderView(Control control, string controlInputInspectorsError)
-        {
-            _errorProvider.SetError(control, controlInputInspectorsError);
-        }
-
-        /// <summary>
         /// Browse for image and set _productImagePathField.
         /// </summary>
         private void BrowseImageAndSetProductImagePath()
@@ -132,6 +124,14 @@ namespace OrderAndStorageManagementSystem.Views
             {
                 textBox.TextBoxInspectorsCollectionChanged += () => UpdateErrorProviderView(textBox, textBox.GetInputInspectorsError());
             }
+        }
+
+        /// <summary>
+        /// Update the view of the error provider.
+        /// </summary>
+        private void UpdateErrorProviderView(Control control, string controlInputInspectorsError)
+        {
+            _errorProvider.SetError(control, controlInputInspectorsError);
         }
 
         /// <summary>
