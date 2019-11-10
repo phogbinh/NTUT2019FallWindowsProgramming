@@ -42,11 +42,11 @@
             this._productPriceAndTypeLayout = new System.Windows.Forms.TableLayoutPanel();
             this._productTypeLayout = new System.Windows.Forms.TableLayoutPanel();
             this._productTypeLabel = new System.Windows.Forms.Label();
-            this._productTypeField = new System.Windows.Forms.ComboBox();
+            this._productTypeField = new InputInspectingElements.InputInspectingControls.InputInspectingDropDownList();
             this._productPriceLayout = new System.Windows.Forms.TableLayoutPanel();
             this._unitLabel = new System.Windows.Forms.Label();
             this._productPriceLabel = new System.Windows.Forms.Label();
-            this._productPriceField = new System.Windows.Forms.TextBox();
+            this._productPriceField = new InputInspectingElements.InputInspectingControls.InputInspectingTextBox();
             this._productDescriptionLayout = new System.Windows.Forms.TableLayoutPanel();
             this._productDescriptionLabel = new System.Windows.Forms.Label();
             this._productDescriptionField = new System.Windows.Forms.RichTextBox();
@@ -54,7 +54,7 @@
             this._saveButton = new System.Windows.Forms.Button();
             this._productImagePathLayout = new System.Windows.Forms.TableLayoutPanel();
             this._productImagePathLabel = new System.Windows.Forms.Label();
-            this._productImagePathField = new System.Windows.Forms.TextBox();
+            this._productImagePathField = new InputInspectingElements.InputInspectingControls.InputInspectingTextBox();
             this._productImageBrowseButton = new System.Windows.Forms.Button();
             this._productsManagementTabPageLeftSectionLayout = new System.Windows.Forms.TableLayoutPanel();
             this._addProductButton = new System.Windows.Forms.Button();
@@ -508,11 +508,11 @@
         private System.Windows.Forms.TableLayoutPanel _productPriceAndTypeLayout;
         private System.Windows.Forms.TableLayoutPanel _productTypeLayout;
         private System.Windows.Forms.Label _productTypeLabel;
-        private System.Windows.Forms.ComboBox _productTypeField;
+        private InputInspectingElements.InputInspectingControls.InputInspectingDropDownList _productTypeField;
         private System.Windows.Forms.TableLayoutPanel _productPriceLayout;
         private System.Windows.Forms.Label _unitLabel;
         private System.Windows.Forms.Label _productPriceLabel;
-        private System.Windows.Forms.TextBox _productPriceField;
+        private InputInspectingElements.InputInspectingControls.InputInspectingTextBox _productPriceField;
         private System.Windows.Forms.TableLayoutPanel _productDescriptionLayout;
         private System.Windows.Forms.Label _productDescriptionLabel;
         private System.Windows.Forms.RichTextBox _productDescriptionField;
@@ -520,7 +520,7 @@
         private System.Windows.Forms.Button _saveButton;
         private System.Windows.Forms.TableLayoutPanel _productImagePathLayout;
         private System.Windows.Forms.Label _productImagePathLabel;
-        private System.Windows.Forms.TextBox _productImagePathField;
+        private InputInspectingElements.InputInspectingControls.InputInspectingTextBox _productImagePathField;
         private System.Windows.Forms.Button _productImageBrowseButton;
         private System.Windows.Forms.ErrorProvider _errorProvider;
     }
