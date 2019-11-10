@@ -33,6 +33,7 @@ namespace OrderAndStorageManagementSystem.Views
             _productsListBox.SelectedIndexChanged += (sender, eventArguments) => _productManagementPresentationModel.SetCurrentSelectedProduct(( ( ProductsListBoxItem )_productsListBox.SelectedItem ).Product);
             _productPriceField.KeyPress += InputHelper.InputNumbersOrBackSpace;
             _productImageBrowseButton.Click += (sender, eventArguments) => BrowseImageAndSetProductImagePath();
+            _saveButton.Click += (sender, eventArguments) => _productManagementPresentationModel.SetIsEditedProductInfo(false);
             // Product info
             _productNameField.TextChanged += (sender, eventArguments) => _productManagementPresentationModel.SetIsEditedProductInfo(true);
             _productPriceField.TextChanged += (sender, eventArguments) => _productManagementPresentationModel.SetIsEditedProductInfo(true);
