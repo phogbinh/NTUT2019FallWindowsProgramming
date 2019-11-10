@@ -25,7 +25,7 @@ namespace InputInspectingElements.InputInspectingControls
         public InputInspectingDropDownList()
         {
             _dropDownListInspectorsCollection = new DropDownListInspectorsCollection();
-            this.SelectionChangeCommitted += (sender, eventArguments) => UpdateDropDownListInspectorsCollection();
+            this.TextChanged += (sender, eventArguments) => UpdateDropDownListInspectorsCollection();
             this.Leave += (sender, eventArguments) => UpdateDropDownListInspectorsCollection();
         }
 
