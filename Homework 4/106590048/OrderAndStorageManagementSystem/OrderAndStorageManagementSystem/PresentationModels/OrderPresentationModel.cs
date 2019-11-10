@@ -85,6 +85,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             _model.OrderAdded -= HandleModelOrderAdded;
             _model.OrderRemoved -= HandleModelOrderRemoved;
             _model.ProductStorageQuantityChanged -= UpdateCurrentProductInfoAndAddButtonIfChangedCurrentSelectedProductStorageQuantity;
+            _model.ProductInfoChanged -= UpdateCurrentProductInfoIfChangedCurrentSelectedProductInfo;
         }
 
         public OrderPresentationModel(Model modelData)
