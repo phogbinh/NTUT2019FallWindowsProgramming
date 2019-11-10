@@ -8,6 +8,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         public delegate void CurrentSelectedProductChangedEventHandler();
         public delegate void SaveButtonEnabledChangedEventHandler();
         private delegate void IsValidProductInfoChangedEventHandler();
+        private delegate void IsEditedProductInfoChangedEventHandler();
         public CurrentSelectedProductChangedEventHandler CurrentSelectedProductChanged
         {
             get; set;
@@ -17,6 +18,10 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             get; set;
         }
         private IsValidProductInfoChangedEventHandler IsValidProductInfoChanged
+        {
+            get; set;
+        }
+        private IsEditedProductInfoChangedEventHandler IsEditedProductInfoChanged
         {
             get; set;
         }
@@ -37,16 +42,19 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         private Product _currentSelectedProduct;
         private ControlStates _saveButton;
         private bool _isValidProductInfo;
+        private bool _isEditedProductInfo;
 
         public ProductManagementPresentationModel()
         {
             this.CurrentSelectedProductChanged += UpdateSaveButton;
             this.IsValidProductInfoChanged += UpdateSaveButton;
+            this.IsEditedProductInfoChanged += UpdateSaveButton;
             // UI
             _saveButton = new ControlStates();
             // Initial states
             SetCurrentSelectedProduct(null);
             SetIsValidProductInfo(false);
+            SetIsEditedProductInfo(false);
         }
 
         /// <summary>
@@ -74,7 +82,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         private void UpdateSaveButton()
         {
-            _saveButton.Enabled = _currentSelectedProduct != null && _isValidProductInfo;
+            _saveButton.Enabled = _currentSelectedProduct != null && _isValidProductInfo && _isEditedProductInfo;
             NotifyObserverChangeSaveButtonEnabled();
         }
 
@@ -106,6 +114,26 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             if ( IsValidProductInfoChanged != null )
             {
                 IsValidProductInfoChanged();
+            }
+        }
+        
+        /// <summary>
+        /// Set _isEditedProductInfo.
+        /// </summary>
+        public void SetIsEditedProductInfo(bool value)
+        {
+            _isEditedProductInfo = value;
+            NotifyObserverChangeIsEditedProductInfo();
+        }
+
+        /// <summary>
+        /// Notify observer change _isEditedProductInfo.
+        /// </summary>
+        private void NotifyObserverChangeIsEditedProductInfo()
+        {
+            if ( IsEditedProductInfoChanged != null )
+            {
+                IsEditedProductInfoChanged();
             }
         }
     }
