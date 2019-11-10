@@ -22,6 +22,7 @@ namespace OrderAndStorageManagementSystem.Views
             _productNameField.AddTextBoxInspectors(InputInspectorTypeHelper.FLAG_TEXT_BOX_IS_NOT_EMPTY);
             _productNameField.TextBoxInspectorsCollectionChanged += () => UpdateErrorProviderView(_productNameField, _productNameField.GetInputInspectorsError());
             _productPriceField.KeyPress += InputHelper.InputNumbersOrBackSpace;
+            _productImageBrowseButton.Click += (sender, eventArguments) => BrowseImageAndSetProductImagePath();
             // Initial UI States
             InitializeProductTypeField();
             InitializeProductsListBox();
@@ -48,6 +49,18 @@ namespace OrderAndStorageManagementSystem.Views
         private void UpdateErrorProviderView(Control control, string controlInputInspectorsError)
         {
             _errorProvider.SetError(control, controlInputInspectorsError);
+        }
+
+        /// <summary>
+        /// Browse for image and set _productImagePathField.
+        /// </summary>
+        private void BrowseImageAndSetProductImagePath()
+        {
+            var dialog = new OpenFileDialog();
+            if ( dialog.ShowDialog() == DialogResult.OK )
+            {
+                _productImagePathField.Text = dialog.FileName;
+            }
         }
 
         /// <summary>
