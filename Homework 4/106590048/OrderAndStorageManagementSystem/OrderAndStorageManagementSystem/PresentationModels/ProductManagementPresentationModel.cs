@@ -20,7 +20,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
 
         public ProductManagementPresentationModel()
         {
-            _currentSelectedProduct = null;
+            SetCurrentSelectedProduct(null);
         }
 
         /// <summary>
