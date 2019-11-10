@@ -73,6 +73,7 @@ namespace OrderAndStorageManagementSystem.Views
         private void UpdateViewOnProductInfoChanged(Product product)
         {
             ResetProductsListBoxView();
+            ResetProductInfoAndErrorProviderView();
         }
 
         /// <summary>
@@ -82,6 +83,19 @@ namespace OrderAndStorageManagementSystem.Views
         {
             _productsListBox.Items.Clear();
             InitializeProductsListBox();
+        }
+
+        /// <summary>
+        /// Reset product info and error provider view.
+        /// </summary>
+        private void ResetProductInfoAndErrorProviderView()
+        {
+            _productNameField.Text = "";
+            _productPriceField.Text = "";
+            _productTypeField.SelectedIndex = -1;
+            _productImagePathField.Text = "";
+            _productDescriptionField.Text = "";
+            _errorProvider.Clear();
         }
 
         /// <summary>
