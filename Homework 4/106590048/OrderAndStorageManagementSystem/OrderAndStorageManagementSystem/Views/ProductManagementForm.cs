@@ -36,7 +36,7 @@ namespace OrderAndStorageManagementSystem.Views
             _productManagementPresentationModel.CurrentSelectedProductChanged += UpdateProductInfoViewAndSetIsEditedProductInfo;
             _productManagementPresentationModel.SaveButtonEnabledChanged += UpdateSaveButtonView;
             // UI
-            _productsListBox.SelectedIndexChanged += (sender, eventArguments) => _productManagementPresentationModel.SetCurrentSelectedProduct(( ( ProductsListBoxItem )_productsListBox.SelectedItem ).Product);
+            _productsListBox.SelectedIndexChanged += ChangeProductsListBoxSelectedIndex;
             _productPriceField.KeyPress += InputHelper.InputNumbersOrBackSpace;
             _productImageBrowseButton.Click += (sender, eventArguments) => BrowseImageAndSetProductImagePath();
             _saveButton.Click += (sender, eventArguments) => _productManagementPresentationModel.ClickSaveButton(new Product(_productNameField.Text, _productTypeField.Text, _productPriceField.Text, _productDescriptionField.Text, _productImagePathField.Text));
@@ -128,6 +128,26 @@ namespace OrderAndStorageManagementSystem.Views
         private void UpdateSaveButtonView()
         {
             _saveButton.Enabled = _productManagementPresentationModel.SaveButton.Enabled;
+        }
+
+        /// <summary>
+        /// Change _productsListBox.SelectedIndex.
+        /// </summary>
+        private void ChangeProductsListBoxSelectedIndex(object sender, EventArgs eventArguments)
+        {
+            _productManagementPresentationModel.SetState(State.EditProduct);
+            _productManagementPresentationModel.SetCurrentSelectedProduct(( ( ProductsListBoxItem )_productsListBox.SelectedItem ).Product);
+            UpdateViewOnProductsListBoxSelectedIndexChanged();
+        }
+
+        /// <summary>
+        /// Update view on _productsListBox.SelectedIndexChanged.
+        /// </summary>
+        private void UpdateViewOnProductsListBoxSelectedIndexChanged()
+        {
+            _addProductButton.Enabled = true;
+            _productInfoGroupBox.Text = PRODUCT_INFO_GROUP_BOX_TEXT_EDIT_PRODUCT;
+            _saveButton.Text = SAVE_BUTTON_TEXT_SAVE_PRODUCT;
         }
 
         /// <summary>
