@@ -4,6 +4,13 @@ namespace OrderAndStorageManagementSystem.Views.Utilities
 {
     public class ProductsListBoxItem
     {
+        public Product Product
+        {
+            get
+            {
+                return _product;
+            }
+        }
         private Product _product;
 
         public ProductsListBoxItem(Product productData)
