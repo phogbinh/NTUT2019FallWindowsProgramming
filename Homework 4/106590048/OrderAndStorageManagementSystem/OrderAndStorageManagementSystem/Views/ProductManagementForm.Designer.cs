@@ -418,17 +418,17 @@
             this._productsManagementTabPageLeftSectionLayout.Location = new System.Drawing.Point(3, 3);
             this._productsManagementTabPageLeftSectionLayout.Name = "_productsManagementTabPageLeftSectionLayout";
             this._productsManagementTabPageLeftSectionLayout.RowCount = 2;
-            this._productsManagementTabPageLeftSectionLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this._productsManagementTabPageLeftSectionLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this._productsManagementTabPageLeftSectionLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this._productsManagementTabPageLeftSectionLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this._productsManagementTabPageLeftSectionLayout.Size = new System.Drawing.Size(279, 454);
             this._productsManagementTabPageLeftSectionLayout.TabIndex = 2;
             // 
             // _addProductButton
             // 
             this._addProductButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._addProductButton.Location = new System.Drawing.Point(3, 388);
+            this._addProductButton.Location = new System.Drawing.Point(3, 411);
             this._addProductButton.Name = "_addProductButton";
-            this._addProductButton.Size = new System.Drawing.Size(273, 63);
+            this._addProductButton.Size = new System.Drawing.Size(273, 40);
             this._addProductButton.TabIndex = 0;
             this._addProductButton.Text = "新增商品";
             this._addProductButton.UseVisualStyleBackColor = true;
@@ -439,7 +439,7 @@
             this._productsListBox.FormattingEnabled = true;
             this._productsListBox.Location = new System.Drawing.Point(3, 3);
             this._productsListBox.Name = "_productsListBox";
-            this._productsListBox.Size = new System.Drawing.Size(273, 379);
+            this._productsListBox.Size = new System.Drawing.Size(273, 402);
             this._productsListBox.TabIndex = 1;
             // 
             // _productTypesManagementTabPage
