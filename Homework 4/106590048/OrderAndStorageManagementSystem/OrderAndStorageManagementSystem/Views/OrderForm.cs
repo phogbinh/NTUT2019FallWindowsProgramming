@@ -39,6 +39,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model.OrderRemoved += RemoveOrderItemAtFromCartDataGridView;
             _model.OrderItemQuantityChanged += UpdateOrderItemTotalPriceAtInCartDataGridView;
             _model.OrderItemQuantityIsExceededStorageQuantity += ShowMessageBoxAndSetOrderItemQuantityToStorageQuantityOnOrderItemQuantityIsExceededStorageQuantity;
+            _model.ProductInfoChanged += UpdateViewOnProductInfoChanged;
             _orderPresentationModel.AddButtonEnabledChanged += UpdateAddButtonView;
             _orderPresentationModel.CurrentProductInfoChanged += UpdateProductInfoView;
             // UI
@@ -70,6 +71,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model.OrderRemoved -= RemoveOrderItemAtFromCartDataGridView;
             _model.OrderItemQuantityChanged -= UpdateOrderItemTotalPriceAtInCartDataGridView;
             _model.OrderItemQuantityIsExceededStorageQuantity -= ShowMessageBoxAndSetOrderItemQuantityToStorageQuantityOnOrderItemQuantityIsExceededStorageQuantity;
+            _model.ProductInfoChanged -= UpdateViewOnProductInfoChanged;
             _orderPresentationModel.AddButtonEnabledChanged -= UpdateAddButtonView;
             _orderPresentationModel.CurrentProductInfoChanged -= UpdateProductInfoView;
         }
@@ -122,6 +124,14 @@ namespace OrderAndStorageManagementSystem.Views
         {
             MessageBox.Show(this, ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY_MESSAGE, ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY_TITLE);
             _cartDataGridView.Rows[ orderItemIndex ].Cells[ CART_PRODUCT_QUANTITY_COLUMN_INDEX ].Value = storageQuantity;
+        }
+
+        /// <summary>
+        /// Update view on product info changed.
+        /// </summary>
+        private void UpdateViewOnProductInfoChanged(Product product)
+        {
+            SelectProductTabPage(_productTabControl.SelectedIndex); // Reselect the current page to update product type and image in the product tab page view.
         }
 
         /// <summary>
