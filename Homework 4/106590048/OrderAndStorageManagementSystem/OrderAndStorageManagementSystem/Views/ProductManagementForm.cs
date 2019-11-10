@@ -16,9 +16,24 @@ namespace OrderAndStorageManagementSystem.Views
             InitializeComponent();
             _productManagementPresentationModel = productManagementPresentationModelData;
             _model = modelData;
+            // UI
+            _productsListBox.SelectedIndexChanged += (sender, eventArguments) => UpdateProductInfoView();
             // Initial UI States
             InitializeProductTypeField();
             InitializeProductsListBox();
+        }
+
+        /// <summary>
+        /// Update product info view.
+        /// </summary>
+        private void UpdateProductInfoView()
+        {
+            Product currentSelectedProduct = ( ( ProductsListBoxItem )_productsListBox.SelectedItem ).Product;
+            _productNameField.Text = currentSelectedProduct.Name;
+            _productPriceField.Text = currentSelectedProduct.Price.GetString();
+            _productTypeField.Text = currentSelectedProduct.Type;
+            _productImagePathField.Text = currentSelectedProduct.ImagePath;
+            _productDescriptionField.Text = currentSelectedProduct.Description;
         }
 
         /// <summary>
