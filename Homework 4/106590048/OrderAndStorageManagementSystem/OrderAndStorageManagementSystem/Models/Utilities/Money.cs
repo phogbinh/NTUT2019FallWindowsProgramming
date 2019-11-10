@@ -27,7 +27,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         public string GetCurrencyFormat()
         {
             var reversedValueInCurrencyFormat = new StringBuilder();
-            string valueString = _value.ToString();
+            string valueString = GetString();
             int count = 0;
             for ( int i = valueString.Length - 1; i >= 0; i-- )
             {
@@ -57,6 +57,14 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         public Money MultiplyConstant(int constant)
         {
             return new Money(_value * constant);
+        }
+
+        /// <summary>
+        /// Get value string.
+        /// </summary>
+        public string GetString()
+        {
+            return _value.ToString();
         }
     }
 }
