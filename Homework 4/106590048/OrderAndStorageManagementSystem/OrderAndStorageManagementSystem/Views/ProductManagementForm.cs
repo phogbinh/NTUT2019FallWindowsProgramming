@@ -21,6 +21,7 @@ namespace OrderAndStorageManagementSystem.Views
             this.Disposed += RemoveEvents;
             // Observers
             _productManagementPresentationModel.CurrentSelectedProductChanged += UpdateProductInfoView;
+            _productManagementPresentationModel.SaveButtonEnabledChanged += UpdateSaveButtonView;
             // UI
             _productsListBox.SelectedIndexChanged += (sender, eventArguments) => _productManagementPresentationModel.SetCurrentSelectedProduct(( ( ProductsListBoxItem )_productsListBox.SelectedItem ).Product);
             _productNameField.AddTextBoxInspectors(InputInspectorTypeHelper.FLAG_TEXT_BOX_IS_NOT_EMPTY);
@@ -30,7 +31,7 @@ namespace OrderAndStorageManagementSystem.Views
             // Initial UI States
             InitializeProductTypeField();
             InitializeProductsListBox();
-            RefreshControls();
+            UpdateSaveButtonView();
         }
 
         /// <summary>
@@ -39,6 +40,7 @@ namespace OrderAndStorageManagementSystem.Views
         private void RemoveEvents(object sender, EventArgs eventArguments)
         {
             _productManagementPresentationModel.CurrentSelectedProductChanged -= UpdateProductInfoView;
+            _productManagementPresentationModel.SaveButtonEnabledChanged -= UpdateSaveButtonView;
         }
 
         /// <summary>
@@ -51,7 +53,14 @@ namespace OrderAndStorageManagementSystem.Views
             _productTypeField.Text = _productManagementPresentationModel.CurrentSelectedProduct.Type;
             _productImagePathField.Text = _productManagementPresentationModel.CurrentSelectedProduct.ImagePath;
             _productDescriptionField.Text = _productManagementPresentationModel.CurrentSelectedProduct.Description;
-            RefreshControls();
+        }
+
+        /// <summary>
+        /// Update save button view.
+        /// </summary>
+        private void UpdateSaveButtonView()
+        {
+            _saveButton.Enabled = _productManagementPresentationModel.SaveButton.Enabled;
         }
 
         /// <summary>
@@ -94,14 +103,6 @@ namespace OrderAndStorageManagementSystem.Views
             {
                 _productsListBox.Items.Add(new ProductsListBoxItem(product));
             }
-        }
-
-        /// <summary>
-        /// Refresh controls.
-        /// </summary>
-        private void RefreshControls()
-        {
-            _saveButton.Enabled = _productsListBox.SelectedIndex >= 0;
         }
     }
 }
