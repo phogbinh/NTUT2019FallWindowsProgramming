@@ -21,6 +21,7 @@ namespace OrderAndStorageManagementSystem.Views
             _productsListBox.SelectedIndexChanged += (sender, eventArguments) => UpdateProductInfoView();
             _productNameField.AddTextBoxInspectors(InputInspectorTypeHelper.FLAG_TEXT_BOX_IS_NOT_EMPTY);
             _productNameField.TextBoxInspectorsCollectionChanged += () => UpdateErrorProviderView(_productNameField, _productNameField.GetInputInspectorsError());
+            _productPriceField.KeyPress += InputHelper.InputNumbersOrBackSpace;
             // Initial UI States
             InitializeProductTypeField();
             InitializeProductsListBox();
