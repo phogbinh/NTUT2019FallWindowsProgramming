@@ -146,17 +146,6 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         }
 
         /// <summary>
-        /// Notify observer change current product info.
-        /// </summary>
-        private void NotifyObserverChangeCurrentProductInfo()
-        {
-            if ( CurrentProductInfoChanged != null )
-            {
-                CurrentProductInfoChanged();
-            }
-        }
-
-        /// <summary>
         /// Update enabled state of add button by current selected product.
         /// </summary>
         private void UpdateAddButtonByCurrentSelectedProduct()
@@ -275,6 +264,17 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             _productNameAndDescription.Text = _currentSelectedProduct == null ? "" : _currentSelectedProduct.GetProductNameAndDescription();
             _productPrice.Text = _currentSelectedProduct == null ? "" : AppDefinition.PRODUCT_PRICE_TEXT + _currentSelectedProduct.GetPrice(AppDefinition.TAIWAN_CURRENCY_UNIT);
             NotifyObserverChangeCurrentProductInfo();
+        }
+
+        /// <summary>
+        /// Notify observer change current product info.
+        /// </summary>
+        private void NotifyObserverChangeCurrentProductInfo()
+        {
+            if ( CurrentProductInfoChanged != null )
+            {
+                CurrentProductInfoChanged();
+            }
         }
 
         /// <summary>
