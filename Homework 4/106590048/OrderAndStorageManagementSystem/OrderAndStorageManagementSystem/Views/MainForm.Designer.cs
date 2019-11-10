@@ -60,7 +60,7 @@
             // _orderSystemButton
             // 
             this._orderSystemButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._orderSystemButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this._orderSystemButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
             this._orderSystemButton.Location = new System.Drawing.Point(3, 3);
             this._orderSystemButton.Name = "_orderSystemButton";
             this._orderSystemButton.Size = new System.Drawing.Size(794, 106);
@@ -71,7 +71,7 @@
             // _inventorySystemButton
             // 
             this._inventorySystemButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._inventorySystemButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this._inventorySystemButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
             this._inventorySystemButton.Location = new System.Drawing.Point(3, 115);
             this._inventorySystemButton.Name = "_inventorySystemButton";
             this._inventorySystemButton.Size = new System.Drawing.Size(794, 106);
@@ -97,7 +97,7 @@
             // _exitButton
             // 
             this._exitButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this._exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
             this._exitButton.Location = new System.Drawing.Point(400, 3);
             this._exitButton.Name = "_exitButton";
             this._exitButton.Size = new System.Drawing.Size(391, 102);
@@ -108,7 +108,7 @@
             // _productManageSystemButton
             // 
             this._productManageSystemButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._productManageSystemButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this._productManageSystemButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ( ( byte )( 136 ) ));
             this._productManageSystemButton.Location = new System.Drawing.Point(3, 227);
             this._productManageSystemButton.Name = "_productManageSystemButton";
             this._productManageSystemButton.Size = new System.Drawing.Size(794, 106);

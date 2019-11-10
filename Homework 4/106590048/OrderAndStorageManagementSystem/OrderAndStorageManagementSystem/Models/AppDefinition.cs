@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace OrderAndStorageManagementSystem.Models
+﻿namespace OrderAndStorageManagementSystem.Models
 {
     public static class AppDefinition
     {
