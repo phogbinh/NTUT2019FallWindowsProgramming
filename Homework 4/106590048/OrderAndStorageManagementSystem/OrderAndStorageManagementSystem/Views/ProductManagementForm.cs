@@ -21,6 +21,7 @@ namespace OrderAndStorageManagementSystem.Views
             // Initial UI States
             InitializeProductTypeField();
             InitializeProductsListBox();
+            RefreshControls();
         }
 
         /// <summary>
@@ -34,6 +35,7 @@ namespace OrderAndStorageManagementSystem.Views
             _productTypeField.Text = currentSelectedProduct.Type;
             _productImagePathField.Text = currentSelectedProduct.ImagePath;
             _productDescriptionField.Text = currentSelectedProduct.Description;
+            RefreshControls();
         }
 
         /// <summary>
@@ -56,6 +58,14 @@ namespace OrderAndStorageManagementSystem.Views
             {
                 _productsListBox.Items.Add(new ProductsListBoxItem(product));
             }
+        }
+
+        /// <summary>
+        /// Refresh controls.
+        /// </summary>
+        private void RefreshControls()
+        {
+            _saveButton.Enabled = _productsListBox.SelectedIndex >= 0;
         }
     }
 }
