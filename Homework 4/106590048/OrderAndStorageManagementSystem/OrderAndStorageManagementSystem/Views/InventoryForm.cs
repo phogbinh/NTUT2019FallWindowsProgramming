@@ -79,7 +79,7 @@ namespace OrderAndStorageManagementSystem.Views
         private void UpdateProductInfoView()
         {
             Product currentSelectedProduct = _inventoryPresentationModel.GetProduct(_storageDataGridView.CurrentRow.Index);
-            _productImage.Image = DataBaseManager.GetProductImageFromResources(currentSelectedProduct.Id);
+            _productImage.Image = System.Drawing.Image.FromFile(currentSelectedProduct.ImagePath);
             _productNameAndDescription.Text = currentSelectedProduct.GetProductNameAndDescription();
         }
 

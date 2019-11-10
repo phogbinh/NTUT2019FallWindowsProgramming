@@ -1,6 +1,5 @@
 ﻿using OrderAndStorageManagementSystem.Properties;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 
 namespace OrderAndStorageManagementSystem.Models.Utilities
@@ -65,15 +64,6 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             int productStorageQuantity = int.Parse(tableRowValues[ PRODUCT_STORAGE_QUANTITY_COLUMN_INDEX ]);
             string productDescription = tableRowValues[ PRODUCT_DESCRIPTION_COLUMN_INDEX ].Replace(FILE_PRODUCT_DESCRIPTION_LINE_DELIMITER, APP_PRODUCT_DESCRIPTION_LINE_DELIMITER);
             return new Product(productId, productName, productType, productPrice, productStorageQuantity, productDescription);
-        }
-
-        /// <summary>
-        /// Get product image from resources using product id.
-        /// </summary>
-        public static Bitmap GetProductImageFromResources(int productId)
-        {
-            string productImageName = AppDefinition.APP_DATA_BASE_PRODUCTS_TABLE_IMAGE_NAME + productId.ToString();
-            return ( Bitmap )Resources.ResourceManager.GetObject(productImageName);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace OrderAndStorageManagementSystem.Views
                 this.Visible = _product != null;
                 if ( _product != null )
                 {
-                    this.Image = DataBaseManager.GetProductImageFromResources(_product.Id);
+                    this.Image = System.Drawing.Image.FromFile(_product.ImagePath);
                 }
             }
         }
