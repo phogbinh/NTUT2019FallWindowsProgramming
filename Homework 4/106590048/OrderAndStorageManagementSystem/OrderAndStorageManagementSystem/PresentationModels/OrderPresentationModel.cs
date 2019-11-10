@@ -84,7 +84,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             _model.OrderCleared -= UpdateAddButtonByCurrentSelectedProduct;
             _model.OrderAdded -= HandleModelOrderAdded;
             _model.OrderRemoved -= HandleModelOrderRemoved;
-            _model.ProductStorageQuantityChanged -= UpdateProductStorageQuantityAndAddButtonIfChangedCurrentSelectedProductStorageQuantity;
+            _model.ProductStorageQuantityChanged -= UpdateCurrentProductInfoAndAddButtonIfChangedCurrentSelectedProductStorageQuantity;
         }
 
         public OrderPresentationModel(Model modelData)
@@ -95,7 +95,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             _model.OrderCleared += UpdateAddButtonByCurrentSelectedProduct;
             _model.OrderAdded += HandleModelOrderAdded;
             _model.OrderRemoved += HandleModelOrderRemoved;
-            _model.ProductStorageQuantityChanged += UpdateProductStorageQuantityAndAddButtonIfChangedCurrentSelectedProductStorageQuantity;
+            _model.ProductStorageQuantityChanged += UpdateCurrentProductInfoAndAddButtonIfChangedCurrentSelectedProductStorageQuantity;
             // UI
             _productNameAndDescription = new ControlStates();
             _productStorageQuantity = new ControlStates();
@@ -134,9 +134,9 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         }
 
         /// <summary>
-        /// Update text of product storage quantity and enabled state of add button if the storage quantity of the current selected product is changed.
+        /// Update current product info and enabled state of add button if the storage quantity of the current selected product is changed.
         /// </summary>
-        private void UpdateProductStorageQuantityAndAddButtonIfChangedCurrentSelectedProductStorageQuantity(Product product)
+        private void UpdateCurrentProductInfoAndAddButtonIfChangedCurrentSelectedProductStorageQuantity(Product product)
         {
             if ( product == _currentSelectedProduct )
             {
