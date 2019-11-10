@@ -160,21 +160,13 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             if ( _state == State.EditProduct )
             {
-                UpdateCurrentSelectedProductInfo(newProductData);
+                _model.UpdateProductInfo(_currentSelectedProduct, newProductData);
                 SetIsEditedProductInfo(false);
             }
             else
             {
                 /* Body intentionally empty */
             }
-        }
-
-        /// <summary>
-        /// Update current product info with the given parameters.
-        /// </summary>
-        public void UpdateCurrentSelectedProductInfo(Product newProductData)
-        {
-            _model.UpdateProductInfo(_currentSelectedProduct, newProductData);
         }
 
         /// <summary>
