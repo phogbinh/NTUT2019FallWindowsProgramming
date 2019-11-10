@@ -235,5 +235,13 @@ namespace OrderAndStorageManagementSystem.Models
         {
             _productsManager.UpdateProductInfo(product, newProductData);
         }
+
+        /// <summary>
+        /// Get order item at orderItemIndex.
+        /// </summary>
+        public OrderItem GetOrderItemAt(int orderItemIndex)
+        {
+            return _order.GetOrderItemAt(orderItemIndex);
+        }
     }
 }

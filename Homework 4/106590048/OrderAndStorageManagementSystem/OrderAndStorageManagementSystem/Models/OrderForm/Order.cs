@@ -297,5 +297,13 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         {
             return _orderItems;
         }
+
+        /// <summary>
+        /// Get order item at orderItemIndex.
+        /// </summary>
+        public OrderItem GetOrderItemAt(int orderItemIndex)
+        {
+            return _orderItems[ orderItemIndex ];
+        }
     }
 }

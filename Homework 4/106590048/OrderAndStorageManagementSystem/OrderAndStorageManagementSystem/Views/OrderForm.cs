@@ -16,6 +16,9 @@ namespace OrderAndStorageManagementSystem.Views
         private const string ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY_MESSAGE = "庫存不足";
         private const string ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY_TITLE = "庫存狀態";
         private const int CART_DELETE_BUTTON_COLUMN_INDEX = 0;
+        private const int CART_PRODUCT_NAME_COLUMN_INDEX = 1;
+        private const int CART_PRODUCT_TYPE_COLUMN_INDEX = 2;
+        private const int CART_PRODUCT_PRICE_COLUMN_INDEX = 3;
         private const int CART_PRODUCT_QUANTITY_COLUMN_INDEX = 4;
         private const int CART_PRODUCT_TOTAL_PRICE_COLUMN_INDEX = 5;
         private const int FIRST_PRODUCT_TAB_PAGE_INDEX = 0;
@@ -132,6 +135,14 @@ namespace OrderAndStorageManagementSystem.Views
         private void UpdateViewOnProductInfoChanged(Product product)
         {
             SelectProductTabPage(_productTabControl.SelectedIndex); // Reselect the current page to update product type and image in the product tab page view.
+            for ( int rowIndex = 0; rowIndex < _cartDataGridView.Rows.Count; rowIndex++ )
+            {
+                OrderItem orderItem = _model.GetOrderItemAt(rowIndex);
+                _cartDataGridView.Rows[ rowIndex ].Cells[ CART_PRODUCT_NAME_COLUMN_INDEX ].Value = orderItem.Name;
+                _cartDataGridView.Rows[ rowIndex ].Cells[ CART_PRODUCT_TYPE_COLUMN_INDEX ].Value = orderItem.Type;
+                _cartDataGridView.Rows[ rowIndex ].Cells[ CART_PRODUCT_PRICE_COLUMN_INDEX ].Value = orderItem.Price.GetCurrencyFormat();
+                _cartDataGridView.Rows[ rowIndex ].Cells[ CART_PRODUCT_TOTAL_PRICE_COLUMN_INDEX ].Value = orderItem.GetTotalPrice().GetCurrencyFormat();
+            }
         }
 
         /// <summary>
