@@ -134,6 +134,22 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         }
 
         /// <summary>
+        /// Click save button.
+        /// </summary>
+        public void ClickSaveButton(Product newProductData)
+        {
+            if ( _state == State.EditProduct )
+            {
+                _model.UpdateProductInfo(_currentSelectedProduct, newProductData);
+                SetIsEditedProductInfo(false);
+            }
+            else
+            {
+                /* Body intentionally empty */
+            }
+        }
+
+        /// <summary>
         /// Set _isEditedProductInfo.
         /// </summary>
         public void SetIsEditedProductInfo(bool value)
@@ -150,22 +166,6 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             if ( IsEditedProductInfoChanged != null )
             {
                 IsEditedProductInfoChanged();
-            }
-        }
-
-        /// <summary>
-        /// Click save button.
-        /// </summary>
-        public void ClickSaveButton(Product newProductData)
-        {
-            if ( _state == State.EditProduct )
-            {
-                _model.UpdateProductInfo(_currentSelectedProduct, newProductData);
-                SetIsEditedProductInfo(false);
-            }
-            else
-            {
-                /* Body intentionally empty */
             }
         }
 
