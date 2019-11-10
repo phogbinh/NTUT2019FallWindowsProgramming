@@ -37,7 +37,7 @@
             this._productInfoGroupBoxLayout = new System.Windows.Forms.TableLayoutPanel();
             this._productNameLayout = new System.Windows.Forms.TableLayoutPanel();
             this._productNameLabel = new System.Windows.Forms.Label();
-            this._productNameField = new System.Windows.Forms.TextBox();
+            this._productNameField = new InputInspectingElements.InputInspectingControls.InputInspectingTextBox();
             this._productPriceAndTypeLayout = new System.Windows.Forms.TableLayoutPanel();
             this._productTypeLayout = new System.Windows.Forms.TableLayoutPanel();
             this._productTypeLabel = new System.Windows.Forms.Label();
@@ -494,7 +494,7 @@
         private System.Windows.Forms.TableLayoutPanel _productInfoGroupBoxLayout;
         private System.Windows.Forms.TableLayoutPanel _productNameLayout;
         private System.Windows.Forms.Label _productNameLabel;
-        private System.Windows.Forms.TextBox _productNameField;
+        private InputInspectingElements.InputInspectingControls.InputInspectingTextBox _productNameField;
         private System.Windows.Forms.TableLayoutPanel _productPriceAndTypeLayout;
         private System.Windows.Forms.TableLayoutPanel _productTypeLayout;
         private System.Windows.Forms.Label _productTypeLabel;
