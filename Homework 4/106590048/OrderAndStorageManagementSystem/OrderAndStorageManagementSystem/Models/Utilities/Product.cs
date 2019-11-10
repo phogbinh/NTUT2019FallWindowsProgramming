@@ -1,4 +1,6 @@
-﻿namespace OrderAndStorageManagementSystem.Models.Utilities
+﻿using System.IO;
+
+namespace OrderAndStorageManagementSystem.Models.Utilities
 {
     public class Product
     {
@@ -41,12 +43,24 @@
                 _storageQuantity = value;
             }
         }
+        public string ImagePath
+        {
+            get
+            {
+                return _imagePath;
+            }
+            set
+            {
+                _imagePath = value;
+            }
+        }
         private int _id;
         private string _name;
         private string _type;
         private Money _price;
         private int _storageQuantity;
         private string _description;
+        private string _imagePath;
 
         public Product(int idData, string nameData, string typeData, Money priceData, int storageQuantityData, string descriptionData)
         {
@@ -56,6 +70,7 @@
             _price = priceData;
             _storageQuantity = storageQuantityData;
             _description = descriptionData;
+            _imagePath = Directory.GetCurrentDirectory() + AppDefinition.RELATIVE_PATH_FROM_APPLICATION_BINARY_DIRECTORY_TO_RESOURCES_FOLDER + AppDefinition.APP_DATA_BASE_PRODUCTS_TABLE_IMAGE_NAME + _id.ToString() + AppDefinition.FILE_NAME_EXTENSION_PNG;
         }
 
         /// <summary>
