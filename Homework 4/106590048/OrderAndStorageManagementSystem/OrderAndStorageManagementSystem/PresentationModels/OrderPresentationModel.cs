@@ -96,6 +96,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             _model.OrderAdded += HandleModelOrderAdded;
             _model.OrderRemoved += HandleModelOrderRemoved;
             _model.ProductStorageQuantityChanged += UpdateCurrentProductInfoAndAddButtonIfChangedCurrentSelectedProductStorageQuantity;
+            _model.ProductInfoChanged += UpdateCurrentProductInfoIfChangedCurrentSelectedProductInfo;
             // UI
             _productNameAndDescription = new ControlStates();
             _productStorageQuantity = new ControlStates();
@@ -162,6 +163,17 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             if ( AddButtonEnabledChanged != null )
             {
                 AddButtonEnabledChanged();
+            }
+        }
+
+        /// <summary>
+        /// Update current product info if the current selected product info is changed.
+        /// </summary>
+        private void UpdateCurrentProductInfoIfChangedCurrentSelectedProductInfo(Product product)
+        {
+            if ( product == _currentSelectedProduct )
+            {
+                UpdateCurrentProductInfo();
             }
         }
 
