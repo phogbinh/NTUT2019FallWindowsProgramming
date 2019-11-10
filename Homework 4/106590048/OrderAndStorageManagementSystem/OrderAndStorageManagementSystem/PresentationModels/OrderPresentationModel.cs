@@ -8,12 +8,12 @@ namespace OrderAndStorageManagementSystem.PresentationModels
     public class OrderPresentationModel
     {
         public delegate void AddButtonEnabledChangedEventHandler();
-        public delegate void OrderFormProductStorageQuantityTextChangedEventHandler();
+        public delegate void CurrentProductInfoChangedEventHandler();
         public AddButtonEnabledChangedEventHandler AddButtonEnabledChanged
         {
             get; set;
         }
-        public OrderFormProductStorageQuantityTextChangedEventHandler OrderFormProductStorageQuantityTextChanged
+        public CurrentProductInfoChangedEventHandler CurrentProductInfoChanged
         {
             get; set;
         }
@@ -146,13 +146,13 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         }
 
         /// <summary>
-        /// Notify observer change text of order form product storage quantity.
+        /// Notify observer change current product info.
         /// </summary>
-        private void NotifyObserverChangeOrderFormProductStorageQuantityText()
+        private void NotifyObserverChangeCurrentProductInfo()
         {
-            if ( OrderFormProductStorageQuantityTextChanged != null )
+            if ( CurrentProductInfoChanged != null )
             {
-                OrderFormProductStorageQuantityTextChanged();
+                CurrentProductInfoChanged();
             }
         }
 
@@ -272,7 +272,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         private void UpdateCurrentProductInfo()
         {
             _productStorageQuantity.Text = _currentSelectedProduct == null ? "" : AppDefinition.PRODUCT_STORAGE_QUANTITY_TEXT + _currentSelectedProduct.GetStorageQuantity();
-            NotifyObserverChangeOrderFormProductStorageQuantityText();
+            NotifyObserverChangeCurrentProductInfo();
             _productNameAndDescription.Text = _currentSelectedProduct == null ? "" : _currentSelectedProduct.GetProductNameAndDescription();
             _productPrice.Text = _currentSelectedProduct == null ? "" : AppDefinition.PRODUCT_PRICE_TEXT + _currentSelectedProduct.GetPrice(AppDefinition.TAIWAN_CURRENCY_UNIT);
         }

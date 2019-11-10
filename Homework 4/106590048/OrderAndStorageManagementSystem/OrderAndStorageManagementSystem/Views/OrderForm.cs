@@ -40,7 +40,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model.OrderItemQuantityChanged += UpdateOrderItemTotalPriceAtInCartDataGridView;
             _model.OrderItemQuantityIsExceededStorageQuantity += ShowMessageBoxAndSetOrderItemQuantityToStorageQuantityOnOrderItemQuantityIsExceededStorageQuantity;
             _orderPresentationModel.AddButtonEnabledChanged += UpdateAddButtonView;
-            _orderPresentationModel.OrderFormProductStorageQuantityTextChanged += UpdateProductStorageQuantityView;
+            _orderPresentationModel.CurrentProductInfoChanged += UpdateProductStorageQuantityView;
             // UI
             _cartDataGridView.CellPainting += (sender, eventArguments) => DataGridViewHelper.InitializeButtonImageOfButtonColumn(eventArguments, CART_DELETE_BUTTON_COLUMN_INDEX, Resources.img_trash_bin);
             _cartDataGridView.CellContentClick += ClickCartDataGridViewCellContent;
@@ -71,7 +71,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model.OrderItemQuantityChanged -= UpdateOrderItemTotalPriceAtInCartDataGridView;
             _model.OrderItemQuantityIsExceededStorageQuantity -= ShowMessageBoxAndSetOrderItemQuantityToStorageQuantityOnOrderItemQuantityIsExceededStorageQuantity;
             _orderPresentationModel.AddButtonEnabledChanged -= UpdateAddButtonView;
-            _orderPresentationModel.OrderFormProductStorageQuantityTextChanged -= UpdateProductStorageQuantityView;
+            _orderPresentationModel.CurrentProductInfoChanged -= UpdateProductStorageQuantityView;
         }
 
         /// <summary>
