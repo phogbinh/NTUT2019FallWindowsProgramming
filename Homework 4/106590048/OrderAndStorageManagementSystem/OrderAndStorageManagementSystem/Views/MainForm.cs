@@ -80,7 +80,7 @@ namespace OrderAndStorageManagementSystem.Views
         {
             ProductManagementForm productManagementForm;
             productManagementForm = new ProductManagementForm(_productManagementPresentationModel, _model);
-            productManagementForm.FormClosed += CloseProductMangementForm;
+            productManagementForm.FormClosed += CloseProductManagementForm;
             productManagementForm.Show();
             _mainPresentationModel.ClickProductManageSystemButton();
             RefreshControls();
@@ -89,7 +89,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// <summary>
         /// Close product management form.
         /// </summary>
-        private void CloseProductMangementForm(object sender, System.EventArgs eventArguments)
+        private void CloseProductManagementForm(object sender, System.EventArgs eventArguments)
         {
             _mainPresentationModel.CloseProductManagementForm();
             RefreshControls();
