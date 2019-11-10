@@ -23,8 +23,8 @@ namespace OrderAndStorageManagementSystem.Views
             this.Disposed += RemoveEvents;
             // Observers
             _model.ProductStorageQuantityChanged += UpdateProductStorageQuantityInStorageDataGridView;
-            _model.ProductInfoChanged += ResetStorageDataGridViewOnProductInfoChanged;
-            _model.ProductAdded += ResetStorageDataGridViewOnProductInfoChanged;
+            _model.ProductInfoChanged += ResetStorageDataGridViewOnProductInfoChangedOrOnProductAdded;
+            _model.ProductAdded += ResetStorageDataGridViewOnProductInfoChangedOrOnProductAdded;
             // UI
             _storageDataGridView.CellPainting += (sender, eventArguments) => DataGridViewHelper.InitializeButtonImageOfButtonColumn(eventArguments, STORAGE_SUPPLY_BUTTON_COLUMN_INDEX, Resources.img_delivery_truck);
             _storageDataGridView.CellContentClick += ClickStorageDataGridViewCellContent;
@@ -39,8 +39,8 @@ namespace OrderAndStorageManagementSystem.Views
         private void RemoveEvents(object sender, EventArgs eventArguments)
         {
             _model.ProductStorageQuantityChanged -= UpdateProductStorageQuantityInStorageDataGridView;
-            _model.ProductInfoChanged -= ResetStorageDataGridViewOnProductInfoChanged;
-            _model.ProductAdded -= ResetStorageDataGridViewOnProductInfoChanged;
+            _model.ProductInfoChanged -= ResetStorageDataGridViewOnProductInfoChangedOrOnProductAdded;
+            _model.ProductAdded -= ResetStorageDataGridViewOnProductInfoChangedOrOnProductAdded;
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// <summary>
         /// Reset storage data grid view on product info changed.
         /// </summary>
-        private void ResetStorageDataGridViewOnProductInfoChanged(Product product)
+        private void ResetStorageDataGridViewOnProductInfoChangedOrOnProductAdded(Product product)
         {
             _storageDataGridView.Rows.Clear();
             InitializeStorageDataGridView();
