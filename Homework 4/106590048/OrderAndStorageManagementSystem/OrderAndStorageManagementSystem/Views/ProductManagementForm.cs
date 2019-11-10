@@ -39,7 +39,7 @@ namespace OrderAndStorageManagementSystem.Views
             _productPriceField.KeyPress += InputHelper.InputNumbersOrBackSpace;
             _productImageBrowseButton.Click += (sender, eventArguments) => BrowseImageAndSetProductImagePath();
             _saveButton.Click += (sender, eventArguments) => _productManagementPresentationModel.ClickSaveButton(new Product(_productNameField.Text, _productTypeField.Text, _productPriceField.Text, _productDescriptionField.Text, _productImagePathField.Text));
-            _addProductButton.Click += (sender, eventArguments) => UpdateViewOnAddProductButtonClicked();
+            _addProductButton.Click += (sender, eventArguments) => SetStateAndUpdateViewOnAddProductButtonClicked();
             // Product info
             _productNameField.TextChanged += (sender, eventArguments) => _productManagementPresentationModel.SetIsEditedProductInfo(true);
             _productPriceField.TextChanged += (sender, eventArguments) => _productManagementPresentationModel.SetIsEditedProductInfo(true);
@@ -138,6 +138,15 @@ namespace OrderAndStorageManagementSystem.Views
             {
                 _productImagePathField.Text = dialog.FileName;
             }
+        }
+
+        /// <summary>
+        /// Set state and update view on add product button clicked.
+        /// </summary>
+        private void SetStateAndUpdateViewOnAddProductButtonClicked()
+        {
+            _productManagementPresentationModel.SetState(State.AddProduct);
+            UpdateViewOnAddProductButtonClicked();
         }
 
         /// <summary>

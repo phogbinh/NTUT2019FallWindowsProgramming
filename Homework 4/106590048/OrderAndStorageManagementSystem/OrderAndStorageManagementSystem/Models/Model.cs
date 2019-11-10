@@ -243,5 +243,13 @@ namespace OrderAndStorageManagementSystem.Models
         {
             return _order.GetOrderItemAt(orderItemIndex);
         }
+
+        /// <summary>
+        /// Add a new product.
+        /// </summary>
+        public void AddProduct(Product newProductData)
+        {
+            _productsManager.AddProduct(newProductData);
+        }
     }
 }

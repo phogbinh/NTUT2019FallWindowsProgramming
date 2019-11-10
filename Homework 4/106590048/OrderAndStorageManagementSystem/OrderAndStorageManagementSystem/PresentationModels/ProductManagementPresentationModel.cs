@@ -145,7 +145,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             }
             else
             {
-                /* Body intentionally empty */
+                _model.AddProduct(newProductData);
             }
         }
 

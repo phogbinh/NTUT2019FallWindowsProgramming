@@ -101,5 +101,15 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
                 ProductInfoChanged(product);
             }
         }
+
+        /// <summary>
+        /// Add a new product.
+        /// </summary>
+        public void AddProduct(Product newProductData)
+        {
+            var product = new Product(_products.Count + 1, newProductData.Name, newProductData.Type, newProductData.Price, 0, newProductData.Description, newProductData.ImagePath);
+            _products.Add(product);
+            NotifyObserverChangeProductInfo(product);
+        }
     }
 }
