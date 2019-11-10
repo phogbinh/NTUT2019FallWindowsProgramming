@@ -72,13 +72,13 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void UpdateViewOnProductInfoChanged(Product product)
         {
-            ResetProductsListBox();
+            ResetProductsListBoxView();
         }
 
         /// <summary>
         /// Reset products list box.
         /// </summary>
-        private void ResetProductsListBox()
+        private void ResetProductsListBoxView()
         {
             _productsListBox.Items.Clear();
             InitializeProductsListBox();
