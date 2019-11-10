@@ -154,6 +154,22 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         }
 
         /// <summary>
+        /// Click save button.
+        /// </summary>
+        public void ClickSaveButton(Product newProductData)
+        {
+            if ( _state == State.EditProduct )
+            {
+                UpdateCurrentSelectedProductInfo(newProductData);
+                SetIsEditedProductInfo(false);
+            }
+            else
+            {
+                /* Body intentionally empty */
+            }
+        }
+
+        /// <summary>
         /// Update current product info with the given parameters.
         /// </summary>
         public void UpdateCurrentSelectedProductInfo(Product newProductData)
