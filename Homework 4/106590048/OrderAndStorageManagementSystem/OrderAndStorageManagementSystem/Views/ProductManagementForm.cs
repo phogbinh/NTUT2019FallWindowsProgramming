@@ -122,16 +122,17 @@ namespace OrderAndStorageManagementSystem.Views
         {
             foreach ( InputInspectingTextBox textBox in _textBoxes )
             {
-                textBox.TextBoxInspectorsCollectionChanged += () => UpdateErrorProviderView(textBox, textBox.GetInputInspectorsError());
+                textBox.TextBoxInspectorsCollectionChanged += () => UpdateErrorProviderViewAndIsValidProductInfo(textBox, textBox.GetInputInspectorsError());
             }
         }
 
         /// <summary>
-        /// Update the view of the error provider.
+        /// Update the view of the error provider and the member variable _isValidProductInfo inside the presentation model.
         /// </summary>
-        private void UpdateErrorProviderView(Control control, string controlInputInspectorsError)
+        private void UpdateErrorProviderViewAndIsValidProductInfo(Control control, string controlInputInspectorsError)
         {
             _errorProvider.SetError(control, controlInputInspectorsError);
+            _productManagementPresentationModel.SetIsValidProductInfo(_inputInspectorsCollection.AreAllValidInputInspectors());
         }
 
         /// <summary>
@@ -158,7 +159,7 @@ namespace OrderAndStorageManagementSystem.Views
         {
             foreach ( InputInspectingDropDownList dropDownList in _dropDownLists )
             {
-                dropDownList.DropDownListInspectorsCollectionChanged += () => UpdateErrorProviderView(dropDownList, dropDownList.GetInputInspectorsError());
+                dropDownList.DropDownListInspectorsCollectionChanged += () => UpdateErrorProviderViewAndIsValidProductInfo(dropDownList, dropDownList.GetInputInspectorsError());
             }
         }
 

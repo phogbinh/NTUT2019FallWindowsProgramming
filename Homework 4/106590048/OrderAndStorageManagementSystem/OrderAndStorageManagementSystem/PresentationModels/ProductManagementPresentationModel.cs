@@ -7,11 +7,16 @@ namespace OrderAndStorageManagementSystem.PresentationModels
     {
         public delegate void CurrentSelectedProductChangedEventHandler();
         public delegate void SaveButtonEnabledChangedEventHandler();
+        private delegate void IsValidProductInfoChangedEventHandler();
         public CurrentSelectedProductChangedEventHandler CurrentSelectedProductChanged
         {
             get; set;
         }
         public SaveButtonEnabledChangedEventHandler SaveButtonEnabledChanged
+        {
+            get; set;
+        }
+        private IsValidProductInfoChangedEventHandler IsValidProductInfoChanged
         {
             get; set;
         }
@@ -31,14 +36,17 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         }
         private Product _currentSelectedProduct;
         private ControlStates _saveButton;
+        private bool _isValidProductInfo;
 
         public ProductManagementPresentationModel()
         {
             this.CurrentSelectedProductChanged += UpdateSaveButton;
+            this.IsValidProductInfoChanged += UpdateSaveButton;
             // UI
             _saveButton = new ControlStates();
             // Initial states
             SetCurrentSelectedProduct(null);
+            SetIsValidProductInfo(false);
         }
 
         /// <summary>
@@ -66,7 +74,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         private void UpdateSaveButton()
         {
-            _saveButton.Enabled = _currentSelectedProduct != null;
+            _saveButton.Enabled = _currentSelectedProduct != null && _isValidProductInfo;
             NotifyObserverChangeSaveButtonEnabled();
         }
 
@@ -78,6 +86,26 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             if ( SaveButtonEnabledChanged != null )
             {
                 SaveButtonEnabledChanged();
+            }
+        }
+
+        /// <summary>
+        /// Set _isValidProductInfo.
+        /// </summary>
+        public void SetIsValidProductInfo(bool value)
+        {
+            _isValidProductInfo = value;
+            NotifyObserverChangeIsValidProductInfo();
+        }
+
+        /// <summary>
+        /// Notify observer change _isValidProductInfo.
+        /// </summary>
+        private void NotifyObserverChangeIsValidProductInfo()
+        {
+            if ( IsValidProductInfoChanged != null )
+            {
+                IsValidProductInfoChanged();
             }
         }
     }
