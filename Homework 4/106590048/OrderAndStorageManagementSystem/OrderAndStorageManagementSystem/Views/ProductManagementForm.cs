@@ -1,4 +1,5 @@
-﻿using OrderAndStorageManagementSystem.Models;
+﻿using InputInspectingElements;
+using OrderAndStorageManagementSystem.Models;
 using OrderAndStorageManagementSystem.Models.Utilities;
 using OrderAndStorageManagementSystem.PresentationModels;
 using OrderAndStorageManagementSystem.Views.Utilities;
@@ -18,6 +19,8 @@ namespace OrderAndStorageManagementSystem.Views
             _model = modelData;
             // UI
             _productsListBox.SelectedIndexChanged += (sender, eventArguments) => UpdateProductInfoView();
+            _productNameField.AddTextBoxInspectors(InputInspectorTypeHelper.FLAG_TEXT_BOX_IS_NOT_EMPTY);
+            _productNameField.TextBoxInspectorsCollectionChanged += () => UpdateErrorProviderView(_productNameField, _productNameField.GetInputInspectorsError());
             // Initial UI States
             InitializeProductTypeField();
             InitializeProductsListBox();
@@ -36,6 +39,14 @@ namespace OrderAndStorageManagementSystem.Views
             _productImagePathField.Text = currentSelectedProduct.ImagePath;
             _productDescriptionField.Text = currentSelectedProduct.Description;
             RefreshControls();
+        }
+
+        /// <summary>
+        /// Update the view of the error provider.
+        /// </summary>
+        private void UpdateErrorProviderView(Control control, string controlInputInspectorsError)
+        {
+            _errorProvider.SetError(control, controlInputInspectorsError);
         }
 
         /// <summary>
