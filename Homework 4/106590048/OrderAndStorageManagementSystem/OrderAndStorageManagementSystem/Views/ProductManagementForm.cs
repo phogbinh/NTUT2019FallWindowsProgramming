@@ -31,8 +31,8 @@ namespace OrderAndStorageManagementSystem.Views
             _model = modelData;
             this.Disposed += RemoveEvents;
             // Observers
-            _model.ProductInfoChanged += ResetViewOnProductInfoChanged;
-            _model.ProductAdded += ResetViewOnProductInfoChanged;
+            _model.ProductInfoChanged += ResetViewOnProductInfoChangedOrOnProductAdded;
+            _model.ProductAdded += ResetViewOnProductInfoChangedOrOnProductAdded;
             _productManagementPresentationModel.CurrentSelectedProductChanged += UpdateProductInfoViewAndSetIsEditedProductInfo;
             _productManagementPresentationModel.SaveButtonEnabledChanged += UpdateSaveButtonView;
             // UI
@@ -68,8 +68,8 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void RemoveEvents(object sender, EventArgs eventArguments)
         {
-            _model.ProductInfoChanged -= ResetViewOnProductInfoChanged;
-            _model.ProductAdded -= ResetViewOnProductInfoChanged;
+            _model.ProductInfoChanged -= ResetViewOnProductInfoChangedOrOnProductAdded;
+            _model.ProductAdded -= ResetViewOnProductInfoChangedOrOnProductAdded;
             _productManagementPresentationModel.CurrentSelectedProductChanged -= UpdateProductInfoViewAndSetIsEditedProductInfo;
             _productManagementPresentationModel.SaveButtonEnabledChanged -= UpdateSaveButtonView;
         }
@@ -77,7 +77,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// <summary>
         /// Reset view on product info changed.
         /// </summary>
-        private void ResetViewOnProductInfoChanged(Product product)
+        private void ResetViewOnProductInfoChangedOrOnProductAdded(Product product)
         {
             ResetProductsListBoxView();
             ResetProductInfoAndErrorProviderView();
