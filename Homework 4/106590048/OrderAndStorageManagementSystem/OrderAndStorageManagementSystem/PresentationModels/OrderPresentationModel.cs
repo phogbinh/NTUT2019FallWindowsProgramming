@@ -281,16 +281,8 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         private void UpdateCurrentProductInfo()
         {
             UpdateProductStorageQuantityByCurrentSelectedProduct();
-            if ( _currentSelectedProduct == null )
-            {
-                _productNameAndDescription.Text = "";
-                _productPrice.Text = "";
-            }
-            else
-            {
-                _productNameAndDescription.Text = _currentSelectedProduct.GetProductNameAndDescription();
-                _productPrice.Text = AppDefinition.PRODUCT_PRICE_TEXT + _currentSelectedProduct.GetPrice(AppDefinition.TAIWAN_CURRENCY_UNIT);
-            }
+            _productNameAndDescription.Text = _currentSelectedProduct == null ? "" : _currentSelectedProduct.GetProductNameAndDescription();
+            _productPrice.Text = _currentSelectedProduct == null ? "" : AppDefinition.PRODUCT_PRICE_TEXT + _currentSelectedProduct.GetPrice(AppDefinition.TAIWAN_CURRENCY_UNIT);
         }
 
         /// <summary>
