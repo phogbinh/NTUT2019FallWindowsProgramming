@@ -43,6 +43,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model.OrderItemQuantityChanged += UpdateOrderItemTotalPriceAtInCartDataGridView;
             _model.OrderItemQuantityIsExceededStorageQuantity += ShowMessageBoxAndSetOrderItemQuantityToStorageQuantityOnOrderItemQuantityIsExceededStorageQuantity;
             _model.ProductInfoChanged += UpdateViewOnProductInfoChanged;
+            _model.ProductAdded += UpdateViewOnProductInfoChanged;
             _orderPresentationModel.AddButtonEnabledChanged += UpdateAddButtonView;
             _orderPresentationModel.CurrentProductInfoChanged += UpdateProductInfoView;
             // UI
@@ -75,6 +76,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model.OrderItemQuantityChanged -= UpdateOrderItemTotalPriceAtInCartDataGridView;
             _model.OrderItemQuantityIsExceededStorageQuantity -= ShowMessageBoxAndSetOrderItemQuantityToStorageQuantityOnOrderItemQuantityIsExceededStorageQuantity;
             _model.ProductInfoChanged -= UpdateViewOnProductInfoChanged;
+            _model.ProductAdded -= UpdateViewOnProductInfoChanged;
             _orderPresentationModel.AddButtonEnabledChanged -= UpdateAddButtonView;
             _orderPresentationModel.CurrentProductInfoChanged -= UpdateProductInfoView;
         }

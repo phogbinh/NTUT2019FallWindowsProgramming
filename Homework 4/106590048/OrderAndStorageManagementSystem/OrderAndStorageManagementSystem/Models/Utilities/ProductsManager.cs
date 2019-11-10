@@ -7,11 +7,16 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
     {
         public delegate void ProductStorageQuantityChangedEventHandler(Product product);
         public delegate void ProductInfoChangedEventHandler(Product product);
+        public delegate void ProductAddedEventHandler(Product product);
         public ProductStorageQuantityChangedEventHandler ProductStorageQuantityChanged
         {
             get; set;
         }
         public ProductInfoChangedEventHandler ProductInfoChanged
+        {
+            get; set;
+        }
+        public ProductAddedEventHandler ProductAdded
         {
             get; set;
         }
@@ -109,7 +114,18 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         {
             var product = new Product(_products.Count + 1, newProductData.Name, newProductData.Type, newProductData.Price, 0, newProductData.Description, newProductData.ImagePath);
             _products.Add(product);
-            NotifyObserverChangeProductInfo(product);
+            NotifyObserverAddProduct(product);
+        }
+
+        /// <summary>
+        /// Notify observer add product.
+        /// </summary>
+        private void NotifyObserverAddProduct(Product product)
+        {
+            if ( ProductAdded != null )
+            {
+                ProductAdded(product);
+            }
         }
     }
 }

@@ -32,6 +32,7 @@ namespace OrderAndStorageManagementSystem.Views
             this.Disposed += RemoveEvents;
             // Observers
             _model.ProductInfoChanged += ResetViewOnProductInfoChanged;
+            _model.ProductAdded += ResetViewOnProductInfoChanged;
             _productManagementPresentationModel.CurrentSelectedProductChanged += UpdateProductInfoViewAndSetIsEditedProductInfo;
             _productManagementPresentationModel.SaveButtonEnabledChanged += UpdateSaveButtonView;
             // UI
@@ -68,6 +69,7 @@ namespace OrderAndStorageManagementSystem.Views
         private void RemoveEvents(object sender, EventArgs eventArguments)
         {
             _model.ProductInfoChanged -= ResetViewOnProductInfoChanged;
+            _model.ProductAdded -= ResetViewOnProductInfoChanged;
             _productManagementPresentationModel.CurrentSelectedProductChanged -= UpdateProductInfoViewAndSetIsEditedProductInfo;
             _productManagementPresentationModel.SaveButtonEnabledChanged -= UpdateSaveButtonView;
         }

@@ -94,6 +94,17 @@ namespace OrderAndStorageManagementSystem.Models
                 _productsManager.ProductInfoChanged = value;
             }
         }
+        public ProductsManager.ProductAddedEventHandler ProductAdded
+        {
+            get
+            {
+                return _productsManager.ProductAdded;
+            }
+            set
+            {
+                _productsManager.ProductAdded = value;
+            }
+        }
         public List<Product> Products
         {
             get
