@@ -90,6 +90,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         public OrderPresentationModel(Model modelData)
         {
             _model = modelData;
+            _currentSelectedProduct = null;
             // Observers
             _model.OrderCleared += UpdateAddButtonByCurrentSelectedProduct;
             _model.OrderAdded += HandleModelOrderAdded;
