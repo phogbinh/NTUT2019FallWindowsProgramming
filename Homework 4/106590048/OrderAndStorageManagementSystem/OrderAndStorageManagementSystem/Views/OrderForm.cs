@@ -43,7 +43,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model.OrderItemQuantityChanged += UpdateOrderItemTotalPriceAtInCartDataGridView;
             _model.OrderItemQuantityIsExceededStorageQuantity += ShowMessageBoxAndSetOrderItemQuantityToStorageQuantityOnOrderItemQuantityIsExceededStorageQuantity;
             _model.ProductInfoChanged += UpdateViewOnProductInfoChanged;
-            _model.ProductAdded += UpdateViewOnProductInfoChanged;
+            _model.ProductAdded += UpdateViewOnProductAdded;
             _orderPresentationModel.AddButtonEnabledChanged += UpdateAddButtonView;
             _orderPresentationModel.CurrentProductInfoChanged += UpdateProductInfoView;
             // UI
@@ -76,7 +76,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model.OrderItemQuantityChanged -= UpdateOrderItemTotalPriceAtInCartDataGridView;
             _model.OrderItemQuantityIsExceededStorageQuantity -= ShowMessageBoxAndSetOrderItemQuantityToStorageQuantityOnOrderItemQuantityIsExceededStorageQuantity;
             _model.ProductInfoChanged -= UpdateViewOnProductInfoChanged;
-            _model.ProductAdded -= UpdateViewOnProductInfoChanged;
+            _model.ProductAdded -= UpdateViewOnProductAdded;
             _orderPresentationModel.AddButtonEnabledChanged -= UpdateAddButtonView;
             _orderPresentationModel.CurrentProductInfoChanged -= UpdateProductInfoView;
         }
@@ -145,6 +145,14 @@ namespace OrderAndStorageManagementSystem.Views
                 _cartDataGridView.Rows[ rowIndex ].Cells[ CART_PRODUCT_PRICE_COLUMN_INDEX ].Value = orderItem.Price.GetCurrencyFormat();
                 _cartDataGridView.Rows[ rowIndex ].Cells[ CART_PRODUCT_TOTAL_PRICE_COLUMN_INDEX ].Value = orderItem.GetTotalPrice().GetCurrencyFormat();
             }
+        }
+
+        /// <summary>
+        /// Update view on product added.
+        /// </summary>
+        private void UpdateViewOnProductAdded(Product product)
+        {
+            SelectProductTabPage(_productTabControl.SelectedIndex); // Reselect the current page to update product type and image in the product tab page view.
         }
 
         /// <summary>
