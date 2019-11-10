@@ -83,6 +83,17 @@ namespace OrderAndStorageManagementSystem.Models
                 _productsManager.ProductStorageQuantityChanged = value;
             }
         }
+        public ProductsManager.ProductInfoChangedEventHandler ProductInfoChanged
+        {
+            get
+            {
+                return _productsManager.ProductInfoChanged;
+            }
+            set
+            {
+                _productsManager.ProductInfoChanged = value;
+            }
+        }
         public List<Product> Products
         {
             get
