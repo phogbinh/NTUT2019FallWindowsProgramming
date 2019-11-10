@@ -4,12 +4,18 @@ using OrderAndStorageManagementSystem.PresentationModels.Utilities;
 
 namespace OrderAndStorageManagementSystem.PresentationModels
 {
+    public enum State
+    {
+        EditProduct = 0,
+        AddProduct
+    }
     public class ProductManagementPresentationModel
     {
         public delegate void CurrentSelectedProductChangedEventHandler();
         public delegate void SaveButtonEnabledChangedEventHandler();
         private delegate void IsValidProductInfoChangedEventHandler();
         private delegate void IsEditedProductInfoChangedEventHandler();
+        private delegate void StateChangedEventHandler();
         public CurrentSelectedProductChangedEventHandler CurrentSelectedProductChanged
         {
             get; set;
@@ -23,6 +29,10 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             get; set;
         }
         private IsEditedProductInfoChangedEventHandler IsEditedProductInfoChanged
+        {
+            get; set;
+        }
+        private StateChangedEventHandler StateChanged
         {
             get; set;
         }
@@ -45,6 +55,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         private ControlStates _saveButton;
         private bool _isValidProductInfo;
         private bool _isEditedProductInfo;
+        private State _state;
 
         public ProductManagementPresentationModel(Model modelData)
         {
@@ -52,12 +63,14 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             this.CurrentSelectedProductChanged += UpdateSaveButton;
             this.IsValidProductInfoChanged += UpdateSaveButton;
             this.IsEditedProductInfoChanged += UpdateSaveButton;
+            this.StateChanged += UpdateSaveButton;
             // UI
             _saveButton = new ControlStates();
             // Initial states
             SetCurrentSelectedProduct(null);
             SetIsValidProductInfo(false);
             SetIsEditedProductInfo(false);
+            SetState(State.EditProduct);
         }
 
         /// <summary>
@@ -85,7 +98,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         private void UpdateSaveButton()
         {
-            _saveButton.Enabled = _currentSelectedProduct != null && _isValidProductInfo && _isEditedProductInfo;
+            _saveButton.Enabled = ( _state == State.EditProduct && _currentSelectedProduct != null && _isValidProductInfo && _isEditedProductInfo ) || ( _state == State.AddProduct && _isValidProductInfo );
             NotifyObserverChangeSaveButtonEnabled();
         }
 
@@ -119,7 +132,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
                 IsValidProductInfoChanged();
             }
         }
-        
+
         /// <summary>
         /// Set _isEditedProductInfo.
         /// </summary>
@@ -146,6 +159,26 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         public void UpdateCurrentSelectedProductInfo(Product newProductData)
         {
             _model.UpdateProductInfo(_currentSelectedProduct, newProductData);
+        }
+
+        /// <summary>
+        /// Set _state.
+        /// </summary>
+        public void SetState(State value)
+        {
+            _state = value;
+            NotifyObserverChangeState();
+        }
+
+        /// <summary>
+        /// Notify observer change state.
+        /// </summary>
+        private void NotifyObserverChangeState()
+        {
+            if ( StateChanged != null )
+            {
+                StateChanged();
+            }
         }
     }
 }
