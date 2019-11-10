@@ -10,7 +10,7 @@
         public const string EMPTY_STRING = "";
         public const int TWO = 2;
         public const string RELATIVE_PATH_FROM_APPLICATION_BINARY_DIRECTORY_TO_RESOURCES_FOLDER = @"\..\..\Resources\";
-        public const string FILE_NAME_EXTENSION_PNG = ".png";
+        public const string FILE_NAME_EXTENSION_JPG = ".jpg";
         // Product
         public const string PRODUCT_STORAGE_QUANTITY_TEXT = "庫存數量： ";
         public const string PRODUCT_PRICE_TEXT = "單價： ";
