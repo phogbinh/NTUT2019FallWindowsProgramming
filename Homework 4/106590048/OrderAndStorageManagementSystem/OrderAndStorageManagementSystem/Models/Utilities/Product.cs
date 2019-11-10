@@ -43,6 +43,17 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
                 _storageQuantity = value;
             }
         }
+        public string Description
+        {
+            get
+            {
+                return _description;
+            }
+            set
+            {
+                _description = value;
+            }
+        }
         public string ImagePath
         {
             get
