@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace OrderAndStorageManagementSystem.Models.Utilities
 {
@@ -52,6 +53,10 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             }
             set
             {
+                if ( value < 0 )
+                {
+                    throw new ArgumentException(ERROR_PRODUCT_STORAGE_QUANTITY_IS_NEGATIVE);
+                }
                 _storageQuantity = value;
             }
         }
@@ -77,6 +82,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
                 _imagePath = value;
             }
         }
+        private const string ERROR_PRODUCT_STORAGE_QUANTITY_IS_NEGATIVE = "Product storage quantity cannot be set to negative.";
         private int _id;
         private string _name;
         private string _type;
