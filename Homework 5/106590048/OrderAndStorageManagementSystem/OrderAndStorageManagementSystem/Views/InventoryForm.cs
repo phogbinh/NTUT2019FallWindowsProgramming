@@ -1,6 +1,5 @@
 ﻿using OrderAndStorageManagementSystem.Models;
 using OrderAndStorageManagementSystem.Models.Utilities;
-using OrderAndStorageManagementSystem.PresentationModels;
 using OrderAndStorageManagementSystem.Properties;
 using OrderAndStorageManagementSystem.Views.Utilities;
 using System;
@@ -12,13 +11,11 @@ namespace OrderAndStorageManagementSystem.Views
     {
         private const int STORAGE_PRODUCT_QUANTITY_COLUMN_INDEX = 3;
         private const int STORAGE_SUPPLY_BUTTON_COLUMN_INDEX = 4;
-        private InventoryPresentationModel _inventoryPresentationModel;
         private Model _model;
 
-        public InventoryForm(InventoryPresentationModel inventoryPresentationModelData, Model modelData)
+        public InventoryForm(Model modelData)
         {
             InitializeComponent();
-            _inventoryPresentationModel = inventoryPresentationModelData;
             _model = modelData;
             this.Disposed += RemoveEvents;
             // Observers

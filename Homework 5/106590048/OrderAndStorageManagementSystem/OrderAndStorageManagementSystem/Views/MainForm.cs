@@ -7,17 +7,15 @@ namespace OrderAndStorageManagementSystem.Views
     public partial class MainForm : Form
     {
         private CreditCardPaymentForm _creditCardPaymentForm;
-        private InventoryPresentationModel _inventoryPresentationModel;
         private MainPresentationModel _mainPresentationModel;
         private OrderPresentationModel _orderPresentationModel;
         private ProductManagementPresentationModel _productManagementPresentationModel;
         private Model _model;
 
-        public MainForm(CreditCardPaymentForm creditCardPaymentFormData, InventoryPresentationModel inventoryPresentationModelData, MainPresentationModel mainPresentationModelData, OrderPresentationModel orderPresentationModelData, ProductManagementPresentationModel productManagementPresentationModelData, Model modelData)
+        public MainForm(CreditCardPaymentForm creditCardPaymentFormData, MainPresentationModel mainPresentationModelData, OrderPresentationModel orderPresentationModelData, ProductManagementPresentationModel productManagementPresentationModelData, Model modelData)
         {
             InitializeComponent();
             _creditCardPaymentForm = creditCardPaymentFormData;
-            _inventoryPresentationModel = inventoryPresentationModelData;
             _mainPresentationModel = mainPresentationModelData;
             _orderPresentationModel = orderPresentationModelData;
             _productManagementPresentationModel = productManagementPresentationModelData;
@@ -57,7 +55,7 @@ namespace OrderAndStorageManagementSystem.Views
         private void ClickInventorySystemButton(object sender, System.EventArgs eventArguments)
         {
             InventoryForm inventoryForm;
-            inventoryForm = new InventoryForm(_inventoryPresentationModel, _model);
+            inventoryForm = new InventoryForm(_model);
             inventoryForm.FormClosed += CloseInventoryForm;
             inventoryForm.Show();
             _mainPresentationModel.ClickInventorySystemButton();
