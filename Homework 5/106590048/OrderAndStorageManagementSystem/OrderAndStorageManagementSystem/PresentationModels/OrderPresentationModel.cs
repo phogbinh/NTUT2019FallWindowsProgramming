@@ -124,16 +124,8 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         public void SelectProductTabPage(int tabPageIndex)
         {
             _currentTabPageIndex = tabPageIndex;
-            ResetCurrentProductPageIndex();
-            SelectNoProduct();
-        }
-
-        /// <summary>
-        /// Reset current product page index to initial value.
-        /// </summary>
-        private void ResetCurrentProductPageIndex()
-        {
             _currentProductPageIndex = CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE;
+            SelectNoProduct();
         }
 
         /// <summary>
