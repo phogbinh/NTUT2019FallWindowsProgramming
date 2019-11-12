@@ -165,7 +165,7 @@ namespace OrderAndStorageManagementSystem.Views
         }
 
         /// <summary>
-        /// Update text of product storage quantity.
+        /// Update view of the product info, including the product storage quantity, the product name and description and the product price.
         /// </summary>
         private void UpdateProductInfoView()
         {
