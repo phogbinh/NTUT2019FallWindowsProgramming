@@ -171,14 +171,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             int humanIndex = AppDefinition.GetHumanIndex(_currentProductPageIndex);
             _leftArrowButton.Enabled = humanIndex != 1;
-            if ( humanIndex == _model.GetTabPageProductPagesCount(_currentTabPageIndex) )
-            {
-                _rightArrowButton.Enabled = false;
-            }
-            else
-            {
-                _rightArrowButton.Enabled = true;
-            }
+            _rightArrowButton.Enabled = humanIndex != _model.GetTabPageProductPagesCount(_currentTabPageIndex);
         }
 
         /// <summary>
