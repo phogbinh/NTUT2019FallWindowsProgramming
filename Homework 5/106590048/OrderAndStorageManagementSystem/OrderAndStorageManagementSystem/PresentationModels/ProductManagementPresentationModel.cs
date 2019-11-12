@@ -52,10 +52,10 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         public ProductManagementPresentationModel(Model modelData)
         {
             _model = modelData;
-            this.CurrentSelectedProductChanged += UpdateSaveButton;
-            this.IsValidProductInfoChanged += UpdateSaveButton;
-            this.IsEditedProductInfoChanged += UpdateSaveButton;
-            this.StateChanged += UpdateSaveButton;
+            this.CurrentSelectedProductChanged += NotifyObserverChangeSaveButtonEnabled;
+            this.IsValidProductInfoChanged += NotifyObserverChangeSaveButtonEnabled;
+            this.IsEditedProductInfoChanged += NotifyObserverChangeSaveButtonEnabled;
+            this.StateChanged += NotifyObserverChangeSaveButtonEnabled;
             // Initial states
             SetCurrentSelectedProduct(null);
             SetIsValidProductInfo(false);
@@ -81,14 +81,6 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             {
                 CurrentSelectedProductChanged();
             }
-        }
-
-        /// <summary>
-        /// Update enabled state of the save button.
-        /// </summary>
-        private void UpdateSaveButton()
-        {
-            NotifyObserverChangeSaveButtonEnabled();
         }
 
         /// <summary>
