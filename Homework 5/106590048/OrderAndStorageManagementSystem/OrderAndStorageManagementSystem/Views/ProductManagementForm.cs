@@ -13,7 +13,6 @@ namespace OrderAndStorageManagementSystem.Views
 {
     public partial class ProductManagementForm : Form
     {
-        private const string ERROR_NULL_CURRENT_SELECTED_PRODUCT = "The current selected product is null.";
         private const string PRODUCT_INFO_GROUP_BOX_TEXT_EDIT_PRODUCT = "編輯商品";
         private const string PRODUCT_INFO_GROUP_BOX_TEXT_ADD_PRODUCT = "新增商品";
         private const string SAVE_BUTTON_TEXT_SAVE_PRODUCT = "儲存";
@@ -110,15 +109,11 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void UpdateProductInfoViewAndSetIsEditedProductInfo()
         {
-            if ( _productManagementPresentationModel.CurrentSelectedProduct == null )
-            {
-                throw new ArgumentException(ERROR_NULL_CURRENT_SELECTED_PRODUCT);
-            }
-            _productNameField.Text = _productManagementPresentationModel.CurrentSelectedProduct.Name;
-            _productPriceField.Text = _productManagementPresentationModel.CurrentSelectedProduct.Price.GetString();
-            _productTypeField.Text = _productManagementPresentationModel.CurrentSelectedProduct.Type;
-            _productImagePathField.Text = _productManagementPresentationModel.CurrentSelectedProduct.ImagePath;
-            _productDescriptionField.Text = _productManagementPresentationModel.CurrentSelectedProduct.Description;
+            _productNameField.Text = _productManagementPresentationModel.CurrentSelectedProduct == null ? "" : _productManagementPresentationModel.CurrentSelectedProduct.Name;
+            _productPriceField.Text = _productManagementPresentationModel.CurrentSelectedProduct == null ? "" : _productManagementPresentationModel.CurrentSelectedProduct.Price.GetString();
+            _productTypeField.Text = _productManagementPresentationModel.CurrentSelectedProduct == null ? "" : _productManagementPresentationModel.CurrentSelectedProduct.Type;
+            _productImagePathField.Text = _productManagementPresentationModel.CurrentSelectedProduct == null ? "" : _productManagementPresentationModel.CurrentSelectedProduct.ImagePath;
+            _productDescriptionField.Text = _productManagementPresentationModel.CurrentSelectedProduct == null ? "" : _productManagementPresentationModel.CurrentSelectedProduct.Description;
             _productManagementPresentationModel.SetIsEditedProductInfo(false);
         }
 
