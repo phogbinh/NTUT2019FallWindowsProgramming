@@ -170,14 +170,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         private void UpdatePageNavigationButtons()
         {
             int humanIndex = AppDefinition.GetHumanIndex(_currentProductPageIndex);
-            if ( humanIndex == 1 )
-            {
-                _leftArrowButton.Enabled = false;
-            }
-            else
-            {
-                _leftArrowButton.Enabled = true;
-            }
+            _leftArrowButton.Enabled = humanIndex != 1;
             if ( humanIndex == _model.GetTabPageProductPagesCount(_currentTabPageIndex) )
             {
                 _rightArrowButton.Enabled = false;
