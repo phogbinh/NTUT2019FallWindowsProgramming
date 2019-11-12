@@ -137,30 +137,6 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         }
 
         /// <summary>
-        /// Get the page label text.
-        /// </summary>
-        public string GetPageLabelText()
-        {
-            return AppDefinition.PAGE_LABEL_TEXT + AppDefinition.GetHumanIndex(_currentProductPageIndex) + AppDefinition.PAGE_LABEL_DELIMITER + _model.GetTabPageProductPagesCount(_currentTabPageIndex);
-        }
-
-        /// <summary>
-        /// Get the enabled state of the left arrow button.
-        /// </summary>
-        public bool GetLeftArrowButtonEnabled()
-        {
-            return _currentProductPageIndex != 0;
-        }
-
-        /// <summary>
-        /// Get the enabled state of the right arrow button.
-        /// </summary>
-        public bool GetRightArrowButtonEnabled()
-        {
-            return _currentProductPageIndex != _model.GetTabPageProductPagesCount(_currentTabPageIndex) - 1;
-        }
-
-        /// <summary>
         /// Select no product.
         /// </summary>
         private void SelectNoProduct()
@@ -214,6 +190,30 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         public string GetCurrentProductPrice()
         {
             return _currentSelectedProduct == null ? "" : AppDefinition.PRODUCT_PRICE_TEXT + _currentSelectedProduct.GetPrice(AppDefinition.TAIWAN_CURRENCY_UNIT);
+        }
+
+        /// <summary>
+        /// Get the page label text.
+        /// </summary>
+        public string GetPageLabelText()
+        {
+            return AppDefinition.PAGE_LABEL_TEXT + AppDefinition.GetHumanIndex(_currentProductPageIndex) + AppDefinition.PAGE_LABEL_DELIMITER + _model.GetTabPageProductPagesCount(_currentTabPageIndex);
+        }
+
+        /// <summary>
+        /// Get the enabled state of the left arrow button.
+        /// </summary>
+        public bool GetLeftArrowButtonEnabled()
+        {
+            return _currentProductPageIndex != 0;
+        }
+
+        /// <summary>
+        /// Get the enabled state of the right arrow button.
+        /// </summary>
+        public bool GetRightArrowButtonEnabled()
+        {
+            return _currentProductPageIndex != _model.GetTabPageProductPagesCount(_currentTabPageIndex) - 1;
         }
 
         /// <summary>
