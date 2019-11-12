@@ -81,7 +81,7 @@ namespace OrderAndStorageManagementSystem.Views
             if ( eventArguments.ColumnIndex == STORAGE_SUPPLY_BUTTON_COLUMN_INDEX )
             {
                 ReplenishmentForm supplyForm;
-                supplyForm = new ReplenishmentForm(_model, _inventoryPresentationModel.GetProduct(_storageDataGridView.CurrentRow.Index));
+                supplyForm = new ReplenishmentForm(_model, GetCurrentSelectedProduct());
                 supplyForm.ShowDialog();
             }
         }
@@ -91,7 +91,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void UpdateProductInfoView()
         {
-            Product currentSelectedProduct = _inventoryPresentationModel.GetProduct(_storageDataGridView.CurrentRow.Index);
+            Product currentSelectedProduct = GetCurrentSelectedProduct();
             _productImage.Image = System.Drawing.Image.FromFile(currentSelectedProduct.ImagePath);
             _productNameAndDescription.Text = currentSelectedProduct.GetProductNameAndDescription();
         }
