@@ -176,5 +176,45 @@ namespace OrderAndStorageManagementSystem.PresentationModels
                 StateChanged();
             }
         }
+
+        /// <summary>
+        /// Get current selected product name.
+        /// </summary>
+        public string GetCurrentSelectedProductName()
+        {
+            return _currentSelectedProduct == null ? "" : _currentSelectedProduct.Name;
+        }
+
+        /// <summary>
+        /// Get current selected product price.
+        /// </summary>
+        public string GetCurrentSelectedProductPrice()
+        {
+            return _currentSelectedProduct == null ? "" : _currentSelectedProduct.Price.GetString();
+        }
+
+        /// <summary>
+        /// Get current selected product type.
+        /// </summary>
+        public string GetCurrentSelectedProductType()
+        {
+            return _currentSelectedProduct == null ? "" : _currentSelectedProduct.Type;
+        }
+
+        /// <summary>
+        /// Get current selected product image path.
+        /// </summary>
+        public string GetCurrentSelectedProductImagePath()
+        {
+            return _currentSelectedProduct == null ? "" : _currentSelectedProduct.ImagePath;
+        }
+
+        /// <summary>
+        /// Get current selected product description.
+        /// </summary>
+        public string GetCurrentSelectedProductDescription()
+        {
+            return _currentSelectedProduct == null ? "" : _currentSelectedProduct.Description;
+        }
     }
 }

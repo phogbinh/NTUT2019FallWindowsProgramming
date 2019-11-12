@@ -109,11 +109,11 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void UpdateProductInfoViewAndSetIsEditedProductInfo()
         {
-            _productNameField.Text = _productManagementPresentationModel.CurrentSelectedProduct == null ? "" : _productManagementPresentationModel.CurrentSelectedProduct.Name;
-            _productPriceField.Text = _productManagementPresentationModel.CurrentSelectedProduct == null ? "" : _productManagementPresentationModel.CurrentSelectedProduct.Price.GetString();
-            _productTypeField.Text = _productManagementPresentationModel.CurrentSelectedProduct == null ? "" : _productManagementPresentationModel.CurrentSelectedProduct.Type;
-            _productImagePathField.Text = _productManagementPresentationModel.CurrentSelectedProduct == null ? "" : _productManagementPresentationModel.CurrentSelectedProduct.ImagePath;
-            _productDescriptionField.Text = _productManagementPresentationModel.CurrentSelectedProduct == null ? "" : _productManagementPresentationModel.CurrentSelectedProduct.Description;
+            _productNameField.Text = _productManagementPresentationModel.GetCurrentSelectedProductName();
+            _productPriceField.Text = _productManagementPresentationModel.GetCurrentSelectedProductPrice();
+            _productTypeField.Text = _productManagementPresentationModel.GetCurrentSelectedProductType();
+            _productImagePathField.Text = _productManagementPresentationModel.GetCurrentSelectedProductImagePath();
+            _productDescriptionField.Text = _productManagementPresentationModel.GetCurrentSelectedProductDescription();
             _productManagementPresentationModel.SetIsEditedProductInfo(false);
         }
 
