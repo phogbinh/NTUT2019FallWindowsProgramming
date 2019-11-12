@@ -34,12 +34,15 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         public OrderPresentationModel(Model modelData)
         {
             _model = modelData;
-            _currentSelectedProduct = null;
             // Observers
             _model.OrderCleared += NotifyObserverChangeAddButtonEnabled;
             _model.OrderAdded += HandleModelOrderAdded;
             _model.OrderRemoved += HandleModelOrderRemoved;
             _model.ProductStorageQuantityChanged += UpdateCurrentProductInfoAndAddButtonIfChangedCurrentSelectedProductStorageQuantity;
+            // Initial States
+            _currentSelectedProduct = null;
+            _currentTabPageIndex = 0;
+            _currentProductPageIndex = CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE;
         }
 
         /// <summary>
