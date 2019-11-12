@@ -17,27 +17,6 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             get; set;
         }
-        public ControlStates ProductNameAndDescription
-        {
-            get
-            {
-                return _productNameAndDescription;
-            }
-        }
-        public ControlStates ProductStorageQuantity
-        {
-            get
-            {
-                return _productStorageQuantity;
-            }
-        }
-        public ControlStates ProductPrice
-        {
-            get
-            {
-                return _productPrice;
-            }
-        }
         public ControlStates AddButton
         {
             get
@@ -68,9 +47,6 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         }
         private const int CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE = 0;
         private Model _model;
-        private ControlStates _productNameAndDescription;
-        private ControlStates _productStorageQuantity;
-        private ControlStates _productPrice;
         private ControlStates _addButton;
         private ControlStates _pageLabel;
         private ControlStates _leftArrowButton;
@@ -97,9 +73,6 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             _model.OrderRemoved += HandleModelOrderRemoved;
             _model.ProductStorageQuantityChanged += UpdateCurrentProductInfoAndAddButtonIfChangedCurrentSelectedProductStorageQuantity;
             // UI
-            _productNameAndDescription = new ControlStates();
-            _productStorageQuantity = new ControlStates();
-            _productPrice = new ControlStates();
             _addButton = new ControlStates();
             _pageLabel = new ControlStates();
             _leftArrowButton = new ControlStates();
@@ -260,9 +233,6 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         private void UpdateCurrentProductInfo()
         {
-            _productStorageQuantity.Text = _currentSelectedProduct == null ? "" : AppDefinition.PRODUCT_STORAGE_QUANTITY_TEXT + _currentSelectedProduct.GetStorageQuantity();
-            _productNameAndDescription.Text = _currentSelectedProduct == null ? "" : _currentSelectedProduct.GetProductNameAndDescription();
-            _productPrice.Text = _currentSelectedProduct == null ? "" : AppDefinition.PRODUCT_PRICE_TEXT + _currentSelectedProduct.GetPrice(AppDefinition.TAIWAN_CURRENCY_UNIT);
             NotifyObserverChangeCurrentProductInfo();
         }
 
