@@ -35,13 +35,6 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             get; set;
         }
-        public Product CurrentSelectedProduct
-        {
-            get
-            {
-                return _currentSelectedProduct;
-            }
-        }
         private Model _model;
         private Product _currentSelectedProduct;
         private bool _isValidProductInfo;
