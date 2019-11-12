@@ -10,6 +10,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         private const string MEMBER_VARIABLE_NAME_ORDER_ITEMS = "_orderItems";
         private Order _order;
         private PrivateObject _target;
+        private List<OrderItem> _orderItems;
 
         [TestInitialize()]
         [DeploymentItem("OrderAndStorageManagementSystem.exe")]
@@ -17,6 +18,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             _order = new Order();
             _target = new PrivateObject(_order);
+            _orderItems = ( List<OrderItem> )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_ORDER_ITEMS);
         }
 
         [TestMethod()]
