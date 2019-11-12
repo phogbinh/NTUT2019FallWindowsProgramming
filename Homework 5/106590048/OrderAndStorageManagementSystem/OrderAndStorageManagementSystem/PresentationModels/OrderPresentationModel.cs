@@ -17,24 +17,8 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             get; set;
         }
-        public ControlStates LeftArrowButton
-        {
-            get
-            {
-                return _leftArrowButton;
-            }
-        }
-        public ControlStates RightArrowButton
-        {
-            get
-            {
-                return _rightArrowButton;
-            }
-        }
         private const int CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE = 0;
         private Model _model;
-        private ControlStates _leftArrowButton;
-        private ControlStates _rightArrowButton;
         private Product _currentSelectedProduct;
         private int _currentTabPageIndex;
         private int _currentProductPageIndex;
@@ -56,9 +40,6 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             _model.OrderAdded += HandleModelOrderAdded;
             _model.OrderRemoved += HandleModelOrderRemoved;
             _model.ProductStorageQuantityChanged += UpdateCurrentProductInfoAndAddButtonIfChangedCurrentSelectedProductStorageQuantity;
-            // UI
-            _leftArrowButton = new ControlStates();
-            _rightArrowButton = new ControlStates();
         }
 
         /// <summary>
@@ -169,8 +150,6 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         private void UpdatePageNavigationButtons()
         {
-            _leftArrowButton.Enabled = _currentProductPageIndex != 0;
-            _rightArrowButton.Enabled = _currentProductPageIndex != _model.GetTabPageProductPagesCount(_currentTabPageIndex) - 1;
         }
 
         /// <summary>
