@@ -1,4 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OrderAndStorageManagementSystem.Models.Utilities;
+using System.Collections.Generic;
 
 namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
 {
@@ -44,7 +46,12 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestAddOrderItem()
         {
-            Assert.Fail();
+            Product product = new Product(0, "product name", "product type", new Money(0), 0, "product description", "product image path");
+            OrderItem orderItem = new OrderItem(product);
+            _order.AddOrderItem(orderItem);
+            List<OrderItem> orderItems = ( List<OrderItem> ) _target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_ORDER_ITEMS);
+            Assert.AreEqual(orderItems.Count, 1);
+            Assert.AreSame(orderItems[0], orderItem);
         }
 
         [TestMethod()]
