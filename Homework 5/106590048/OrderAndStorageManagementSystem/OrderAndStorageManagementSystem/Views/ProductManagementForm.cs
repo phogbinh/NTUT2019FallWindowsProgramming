@@ -59,7 +59,10 @@ namespace OrderAndStorageManagementSystem.Views
             // Initial UI States
             InitializeProductTypeField();
             InitializeProductsListBox();
-            UpdateSaveButtonView();
+            _productManagementPresentationModel.SetCurrentSelectedProduct(null);
+            _productManagementPresentationModel.SetIsValidProductInfo(false);
+            _productManagementPresentationModel.SetIsEditedProductInfo(false);
+            _productManagementPresentationModel.SetState(State.EditProduct);
         }
 
         /// <summary>

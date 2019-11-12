@@ -48,11 +48,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             this.IsValidProductInfoChanged += NotifyObserverChangeSaveButtonEnabled;
             this.IsEditedProductInfoChanged += NotifyObserverChangeSaveButtonEnabled;
             this.StateChanged += NotifyObserverChangeSaveButtonEnabled;
-            // Initial states
-            SetCurrentSelectedProduct(null);
-            SetIsValidProductInfo(false);
-            SetIsEditedProductInfo(false);
-            SetState(State.EditProduct);
+            // Initial states of all member variables of the presentation model is set by its view.
         }
 
         /// <summary>
