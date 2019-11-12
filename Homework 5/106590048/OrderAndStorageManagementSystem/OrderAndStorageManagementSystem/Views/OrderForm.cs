@@ -46,6 +46,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model.ProductAdded += UpdateViewOnProductAdded;
             _orderPresentationModel.AddButtonEnabledChanged += UpdateAddButtonView;
             _orderPresentationModel.CurrentProductInfoChanged += UpdateProductInfoView;
+            _orderPresentationModel.CurrentProductPageIndexChanged += UpdatePageLabelAndLeftRightArrowButtonsView;
             // UI
             _cartDataGridView.CellPainting += (sender, eventArguments) => DataGridViewHelper.InitializeButtonImageOfButtonColumn(eventArguments, CART_DELETE_BUTTON_COLUMN_INDEX, Resources.img_trash_bin);
             _cartDataGridView.CellContentClick += ClickCartDataGridViewCellContent;
@@ -61,7 +62,6 @@ namespace OrderAndStorageManagementSystem.Views
             SelectProductTabPage(FIRST_PRODUCT_TAB_PAGE_INDEX);
             InitializeCartDataGridView();
             UpdateCartSectionViewOnOrderChanged();
-            RefreshControls();
         }
 
         /// <summary>
@@ -79,6 +79,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model.ProductAdded -= UpdateViewOnProductAdded;
             _orderPresentationModel.AddButtonEnabledChanged -= UpdateAddButtonView;
             _orderPresentationModel.CurrentProductInfoChanged -= UpdateProductInfoView;
+            _orderPresentationModel.CurrentProductPageIndexChanged -= UpdatePageLabelAndLeftRightArrowButtonsView;
         }
 
         /// <summary>
@@ -171,6 +172,16 @@ namespace OrderAndStorageManagementSystem.Views
             _productStorageQuantity.Text = _orderPresentationModel.GetCurrentProductStorageQuantity();
             _productNameAndDescription.Text = _orderPresentationModel.GetCurrentProductNameAndDescription();
             _productPrice.Text = _orderPresentationModel.GetCurrentProductPrice();
+        }
+
+        /// <summary>
+        /// Update views of the page label, left arrow button and right arrow button.
+        /// </summary>
+        private void UpdatePageLabelAndLeftRightArrowButtonsView()
+        {
+            _pageLabel.Text = _orderPresentationModel.GetPageLabelText();
+            _leftArrowButton.Enabled = _orderPresentationModel.GetLeftArrowButtonEnabled();
+            _rightArrowButton.Enabled = _orderPresentationModel.GetRightArrowButtonEnabled();
         }
 
         /// <summary>
@@ -270,7 +281,6 @@ namespace OrderAndStorageManagementSystem.Views
         private void UpdateProductTabPageView()
         {
             UpdateProductTabPageButtonsInCurrentProductTabPageAtCurrentProductPage();
-            RefreshControls();
         }
 
         /// <summary>
@@ -362,16 +372,6 @@ namespace OrderAndStorageManagementSystem.Views
             {
                 _cartDataGridView.Rows.Add(null, orderItem.Name, orderItem.Type, orderItem.Price.GetCurrencyFormat(), orderItem.OrderQuantity, orderItem.GetTotalPrice().GetCurrencyFormat());
             }
-        }
-
-        /// <summary>
-        /// Referesh controls.
-        /// </summary>
-        private void RefreshControls()
-        {
-            _pageLabel.Text = _orderPresentationModel.GetPageLabelText();
-            _leftArrowButton.Enabled = _orderPresentationModel.GetLeftArrowButtonEnabled();
-            _rightArrowButton.Enabled = _orderPresentationModel.GetRightArrowButtonEnabled();
         }
     }
 }
