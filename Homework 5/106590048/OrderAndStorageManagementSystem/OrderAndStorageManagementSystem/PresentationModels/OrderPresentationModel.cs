@@ -9,11 +9,16 @@ namespace OrderAndStorageManagementSystem.PresentationModels
     {
         public delegate void AddButtonEnabledChangedEventHandler();
         public delegate void CurrentProductInfoChangedEventHandler();
+        public delegate void CurrentProductPageIndexChangedEventHandler();
         public AddButtonEnabledChangedEventHandler AddButtonEnabledChanged
         {
             get; set;
         }
         public CurrentProductInfoChangedEventHandler CurrentProductInfoChanged
+        {
+            get; set;
+        }
+        public CurrentProductPageIndexChangedEventHandler CurrentProductPageIndexChanged
         {
             get; set;
         }
@@ -42,7 +47,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             // Initial States
             _currentSelectedProduct = null;
             _currentTabPageIndex = 0;
-            _currentProductPageIndex = CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE;
+            SetCurrentProductPageIndex(CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE);
         }
 
         /// <summary>
@@ -104,11 +109,31 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         }
 
         /// <summary>
+        /// Set current product page index.
+        /// </summary>
+        private void SetCurrentProductPageIndex(int value)
+        {
+            _currentProductPageIndex = value;
+            NotifyObserverChangeCurrentProductPageIndex();
+        }
+
+        /// <summary>
+        /// Notify observer change current product page index.
+        /// </summary>
+        private void NotifyObserverChangeCurrentProductPageIndex()
+        {
+            if ( CurrentProductPageIndexChanged != null )
+            {
+                CurrentProductPageIndexChanged();
+            }
+        }
+
+        /// <summary>
         /// Go to previous product page.
         /// </summary>
         public void GoToPreviousProductPage()
         {
-            _currentProductPageIndex--;
+            SetCurrentProductPageIndex(_currentProductPageIndex - 1);
             SelectNoProduct();
         }
 
@@ -117,7 +142,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         public void GoToNextProductPage()
         {
-            _currentProductPageIndex++;
+            SetCurrentProductPageIndex(_currentProductPageIndex + 1);
             SelectNoProduct();
         }
 
@@ -127,7 +152,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         public void SelectProductTabPage(int tabPageIndex)
         {
             _currentTabPageIndex = tabPageIndex;
-            _currentProductPageIndex = CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE;
+            SetCurrentProductPageIndex(CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE);
             SelectNoProduct();
         }
 
