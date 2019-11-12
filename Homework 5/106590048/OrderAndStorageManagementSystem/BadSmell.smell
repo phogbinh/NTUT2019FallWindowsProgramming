@@ -490,6 +490,16 @@
                 <ProjectName>InputInspectingElements</ProjectName>
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\OrderForm\OrderTest.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystemTest</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Properties\AssemblyInfo.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystemTest</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
+              </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
           <ProductionLoc>5892</ProductionLoc>
