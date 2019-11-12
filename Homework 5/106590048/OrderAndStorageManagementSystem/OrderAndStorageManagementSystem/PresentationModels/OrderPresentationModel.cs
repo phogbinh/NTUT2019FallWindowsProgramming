@@ -17,13 +17,6 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             get; set;
         }
-        public ControlStates AddButton
-        {
-            get
-            {
-                return _addButton;
-            }
-        }
         public ControlStates PageLabel
         {
             get
@@ -47,7 +40,6 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         }
         private const int CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE = 0;
         private Model _model;
-        private ControlStates _addButton;
         private ControlStates _pageLabel;
         private ControlStates _leftArrowButton;
         private ControlStates _rightArrowButton;
@@ -73,7 +65,6 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             _model.OrderRemoved += HandleModelOrderRemoved;
             _model.ProductStorageQuantityChanged += UpdateCurrentProductInfoAndAddButtonIfChangedCurrentSelectedProductStorageQuantity;
             // UI
-            _addButton = new ControlStates();
             _pageLabel = new ControlStates();
             _leftArrowButton = new ControlStates();
             _rightArrowButton = new ControlStates();
@@ -123,7 +114,6 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         private void UpdateAddButtonByCurrentSelectedProduct()
         {
-            _addButton.Enabled = _currentSelectedProduct != null && !_model.IsInOrder(_currentSelectedProduct.Id) && _currentSelectedProduct.StorageQuantity > 0;
             NotifyObserverChangeAddButtonEnabled();
         }
 
