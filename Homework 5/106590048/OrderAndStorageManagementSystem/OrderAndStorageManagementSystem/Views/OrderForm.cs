@@ -223,18 +223,10 @@ namespace OrderAndStorageManagementSystem.Views
             for ( int i = 0; i < AppDefinition.TAB_PAGE_MAX_PRODUCTS_COUNT; i++ )
             {
                 OrderProductTabPageButton button = new OrderProductTabPageButton();
-                button.Click += (sender, eventArguments) => SelectProduct(button.Product);
+                button.Click += (sender, eventArguments) => _orderPresentationModel.SelectProduct(button.Product);
                 productTabPageButtons.Add(button);
             }
             return productTabPageButtons;
-        }
-
-        /// <summary>
-        /// Select product.
-        /// </summary>
-        private void SelectProduct(Product product)
-        {
-            _orderPresentationModel.SelectProduct(product);
         }
 
         /// <summary>
