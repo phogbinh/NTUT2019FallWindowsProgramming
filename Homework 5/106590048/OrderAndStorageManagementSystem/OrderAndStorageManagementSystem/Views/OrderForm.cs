@@ -254,7 +254,7 @@ namespace OrderAndStorageManagementSystem.Views
         private void GoToPreviousProductPage()
         {
             _orderPresentationModel.GoToPreviousProductPage();
-            UpdateProductTabPageView();
+            UpdateProductTabPageButtonsInCurrentProductTabPageAtCurrentProductPage();
         }
 
         /// <summary>
@@ -263,7 +263,7 @@ namespace OrderAndStorageManagementSystem.Views
         private void GoToNextProductPage()
         {
             _orderPresentationModel.GoToNextProductPage();
-            UpdateProductTabPageView();
+            UpdateProductTabPageButtonsInCurrentProductTabPageAtCurrentProductPage();
         }
 
         /// <summary>
@@ -272,14 +272,6 @@ namespace OrderAndStorageManagementSystem.Views
         private void SelectProductTabPage(int tabPageIndex)
         {
             _orderPresentationModel.SelectProductTabPage(tabPageIndex);
-            UpdateProductTabPageView();
-        }
-
-        /// <summary>
-        /// Update product tab page view.
-        /// </summary>
-        private void UpdateProductTabPageView()
-        {
             UpdateProductTabPageButtonsInCurrentProductTabPageAtCurrentProductPage();
         }
 
