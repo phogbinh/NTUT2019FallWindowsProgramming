@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OrderAndStorageManagementSystem.Models.Utilities;
+using System;
 using System.Collections.Generic;
 
 namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
@@ -53,6 +54,15 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             _order.AddOrderItem(orderItem);
             Assert.AreEqual(_orderItems.Count, 1);
             Assert.AreSame(_orderItems[ 0 ], orderItem);
+            orderItem = null;
+            try
+            {
+                _order.AddOrderItem(orderItem);
+            }
+            catch ( ArgumentException )
+            {
+                Assert.AreEqual(_orderItems.Count, 1);
+            }
         }
 
         [TestMethod()]
