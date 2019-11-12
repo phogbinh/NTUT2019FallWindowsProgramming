@@ -97,6 +97,14 @@ namespace OrderAndStorageManagementSystem.Views
         }
 
         /// <summary>
+        /// Get the current selected product.
+        /// </summary>
+        private Product GetCurrentSelectedProduct()
+        {
+            return _model.GetProduct(AppDefinition.GetHumanIndex(_storageDataGridView.CurrentRow.Index));
+        }
+
+        /// <summary>
         /// Initialize storage data grid view.
         /// </summary>
         private void InitializeStorageDataGridView()
