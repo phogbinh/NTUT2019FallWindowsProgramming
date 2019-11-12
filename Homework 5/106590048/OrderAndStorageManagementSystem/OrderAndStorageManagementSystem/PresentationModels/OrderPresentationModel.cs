@@ -141,15 +141,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         private void UpdateCurrentProductPage()
         {
-            UpdatePageNavigationButtons();
             SelectNoProduct();
-        }
-
-        /// <summary>
-        /// Update enabled states of page navigation buttons.
-        /// </summary>
-        private void UpdatePageNavigationButtons()
-        {
         }
 
         /// <summary>
