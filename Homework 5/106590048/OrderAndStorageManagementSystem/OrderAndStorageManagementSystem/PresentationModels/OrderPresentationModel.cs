@@ -106,7 +106,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         public void GoToPreviousProductPage()
         {
             _currentProductPageIndex--;
-            UpdateCurrentProductPage();
+            SelectNoProduct();
         }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         public void GoToNextProductPage()
         {
             _currentProductPageIndex++;
-            UpdateCurrentProductPage();
+            SelectNoProduct();
         }
 
         /// <summary>
@@ -125,7 +125,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             _currentTabPageIndex = tabPageIndex;
             ResetCurrentProductPageIndex();
-            UpdateCurrentProductPage();
+            SelectNoProduct();
         }
 
         /// <summary>
@@ -134,14 +134,6 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         private void ResetCurrentProductPageIndex()
         {
             _currentProductPageIndex = CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE;
-        }
-
-        /// <summary>
-        /// Update current product page.
-        /// </summary>
-        private void UpdateCurrentProductPage()
-        {
-            SelectNoProduct();
         }
 
         /// <summary>
