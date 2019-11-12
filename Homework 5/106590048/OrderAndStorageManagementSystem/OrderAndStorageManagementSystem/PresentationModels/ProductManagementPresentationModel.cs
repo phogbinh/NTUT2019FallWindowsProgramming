@@ -85,7 +85,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// <summary>
         /// Get the enabled state of the save button.
         /// </summary>
-        public bool GetSaveButtonEnabled()
+        public bool IsSaveButtonEnabled()
         {
             return ( _state == State.EditProduct && _currentSelectedProduct != null && _isValidProductInfo && _isEditedProductInfo ) || ( _state == State.AddProduct && _isValidProductInfo );
         }

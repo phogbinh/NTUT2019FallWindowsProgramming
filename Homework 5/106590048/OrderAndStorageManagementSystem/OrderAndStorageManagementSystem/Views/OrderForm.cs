@@ -161,7 +161,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void UpdateAddButtonView()
         {
-            _addButton.Enabled = _orderPresentationModel.GetAddButtonEnabled();
+            _addButton.Enabled = _orderPresentationModel.IsAddButtonEnabled();
         }
 
         /// <summary>
@@ -180,8 +180,8 @@ namespace OrderAndStorageManagementSystem.Views
         private void UpdatePageLabelAndLeftRightArrowButtonsView()
         {
             _pageLabel.Text = _orderPresentationModel.GetPageLabelText();
-            _leftArrowButton.Enabled = _orderPresentationModel.GetLeftArrowButtonEnabled();
-            _rightArrowButton.Enabled = _orderPresentationModel.GetRightArrowButtonEnabled();
+            _leftArrowButton.Enabled = _orderPresentationModel.IsLeftArrowButtonEnabled();
+            _rightArrowButton.Enabled = _orderPresentationModel.IsRightArrowButtonEnabled();
         }
 
         /// <summary>

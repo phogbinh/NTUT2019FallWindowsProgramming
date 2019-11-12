@@ -125,7 +125,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void UpdateSaveButtonView()
         {
-            _saveButton.Enabled = _productManagementPresentationModel.GetSaveButtonEnabled();
+            _saveButton.Enabled = _productManagementPresentationModel.IsSaveButtonEnabled();
         }
 
         /// <summary>

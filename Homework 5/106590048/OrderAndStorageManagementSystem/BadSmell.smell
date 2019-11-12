@@ -276,27 +276,12 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>PresentationModels\InventoryPresentationModel.cs</RelativePath>
-                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>PresentationModels\MainPresentationModel.cs</RelativePath>
-                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
                 <RelativePath>PresentationModels\OrderPresentationModel.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>PresentationModels\ProductManagementPresentationModel.cs</RelativePath>
-                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>PresentationModels\Utilities\ControlStates.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -507,7 +492,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>6125</ProductionLoc>
+          <ProductionLoc>5892</ProductionLoc>
           <TestLoc>1499</TestLoc>
         </CodeReview>
       </Data>

@@ -99,7 +99,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// <summary>
         /// Get the enabled state of the add button.
         /// </summary>
-        public bool GetAddButtonEnabled()
+        public bool IsAddButtonEnabled()
         {
             return _currentSelectedProduct != null && !_model.IsInOrder(_currentSelectedProduct.Id) && _currentSelectedProduct.StorageQuantity > 0;
         }
@@ -219,7 +219,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// <summary>
         /// Get the enabled state of the left arrow button.
         /// </summary>
-        public bool GetLeftArrowButtonEnabled()
+        public bool IsLeftArrowButtonEnabled()
         {
             return _currentProductPageIndex != 0;
         }
@@ -227,7 +227,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// <summary>
         /// Get the enabled state of the right arrow button.
         /// </summary>
-        public bool GetRightArrowButtonEnabled()
+        public bool IsRightArrowButtonEnabled()
         {
             return _currentProductPageIndex != _model.GetTabPageProductPagesCount(_currentTabPageIndex) - 1;
         }
