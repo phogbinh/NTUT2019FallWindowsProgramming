@@ -24,7 +24,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestOrder()
         {
-            Assert.IsNotNull(_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_ORDER_ITEMS));
+            Assert.IsNotNull(_orderItems);
         }
 
         [TestMethod()]
@@ -51,9 +51,8 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Product product = new Product(0, "product name", "product type", new Money(0), 0, "product description", "product image path");
             OrderItem orderItem = new OrderItem(product);
             _order.AddOrderItem(orderItem);
-            List<OrderItem> orderItems = ( List<OrderItem> ) _target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_ORDER_ITEMS);
-            Assert.AreEqual(orderItems.Count, 1);
-            Assert.AreSame(orderItems[0], orderItem);
+            Assert.AreEqual(_orderItems.Count, 1);
+            Assert.AreSame(_orderItems[ 0 ], orderItem);
         }
 
         [TestMethod()]
