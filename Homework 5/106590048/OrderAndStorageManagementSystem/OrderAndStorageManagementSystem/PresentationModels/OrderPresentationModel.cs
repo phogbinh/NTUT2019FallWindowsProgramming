@@ -278,6 +278,31 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         }
 
         /// <summary>
+        /// Get the current product storage quantity.
+        /// </summary>
+        /// <returns></returns>
+        public string GetCurrentProductStorageQuantity()
+        {
+            return _currentSelectedProduct == null ? "" : AppDefinition.PRODUCT_STORAGE_QUANTITY_TEXT + _currentSelectedProduct.GetStorageQuantity();
+        }
+
+        /// <summary>
+        /// Get the current product name and description.
+        /// </summary>
+        public string GetCurrentProductNameAndDescription()
+        {
+            return _currentSelectedProduct == null ? "" : _currentSelectedProduct.GetProductNameAndDescription();
+        }
+
+        /// <summary>
+        /// Get the current product price.
+        /// </summary>
+        public string GetCurrentProductPrice()
+        {
+            return _currentSelectedProduct == null ? "" : AppDefinition.PRODUCT_PRICE_TEXT + _currentSelectedProduct.GetPrice(AppDefinition.TAIWAN_CURRENCY_UNIT);
+        }
+
+        /// <summary>
         /// Get the product at productIndex in the current product page, which is inside the tab page whose index is tabPageIndex.
         /// </summary>
         public Product GetProductAtCurrentProductPage(int tabPageIndex, int productIndex)

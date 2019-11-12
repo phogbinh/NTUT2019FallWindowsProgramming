@@ -168,9 +168,9 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void UpdateProductInfoView()
         {
-            _productStorageQuantity.Text = _orderPresentationModel.ProductStorageQuantity.Text;
-            _productNameAndDescription.Text = _orderPresentationModel.ProductNameAndDescription.Text;
-            _productPrice.Text = _orderPresentationModel.ProductPrice.Text;
+            _productStorageQuantity.Text = _orderPresentationModel.GetCurrentProductStorageQuantity();
+            _productNameAndDescription.Text = _orderPresentationModel.GetCurrentProductNameAndDescription();
+            _productPrice.Text = _orderPresentationModel.GetCurrentProductPrice();
         }
 
         /// <summary>
