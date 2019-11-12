@@ -113,7 +113,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             if ( product == _currentSelectedProduct )
             {
-                UpdateCurrentProductInfo();
+                NotifyObserverChangeCurrentProductInfo();
                 UpdateAddButtonByCurrentSelectedProduct();
             }
         }
@@ -214,7 +214,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         private void SelectNoProduct()
         {
             _currentSelectedProduct = null;
-            UpdateCurrentProductInfo();
+            NotifyObserverChangeCurrentProductInfo();
             UpdateAddButtonByCurrentSelectedProduct();
         }
 
@@ -224,16 +224,8 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         public void SelectProduct(Product product)
         {
             _currentSelectedProduct = product;
-            UpdateCurrentProductInfo();
-            UpdateAddButtonByCurrentSelectedProduct();
-        }
-
-        /// <summary>
-        /// Update current product info, including product name, description and price.
-        /// </summary>
-        private void UpdateCurrentProductInfo()
-        {
             NotifyObserverChangeCurrentProductInfo();
+            UpdateAddButtonByCurrentSelectedProduct();
         }
 
         /// <summary>
