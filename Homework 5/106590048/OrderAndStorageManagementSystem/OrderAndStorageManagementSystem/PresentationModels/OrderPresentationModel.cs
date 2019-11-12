@@ -199,6 +199,14 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         }
 
         /// <summary>
+        /// Get the page label text.
+        /// </summary>
+        public string GetPageLabelText()
+        {
+            return AppDefinition.PAGE_LABEL_TEXT + AppDefinition.GetHumanIndex(_currentProductPageIndex) + AppDefinition.PAGE_LABEL_DELIMITER + _model.GetTabPageProductPagesCount(_currentTabPageIndex);
+        }
+
+        /// <summary>
         /// Select no product.
         /// </summary>
         private void SelectNoProduct()
