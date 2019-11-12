@@ -169,9 +169,8 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         private void UpdatePageNavigationButtons()
         {
-            int humanIndex = AppDefinition.GetHumanIndex(_currentProductPageIndex);
-            _leftArrowButton.Enabled = humanIndex != 1;
-            _rightArrowButton.Enabled = humanIndex != _model.GetTabPageProductPagesCount(_currentTabPageIndex);
+            _leftArrowButton.Enabled = _currentProductPageIndex != 0;
+            _rightArrowButton.Enabled = _currentProductPageIndex != _model.GetTabPageProductPagesCount(_currentTabPageIndex) - 1;
         }
 
         /// <summary>
