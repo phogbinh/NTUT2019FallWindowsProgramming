@@ -182,6 +182,22 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         }
 
         /// <summary>
+        /// Get the enabled state of the left arrow button.
+        /// </summary>
+        public bool GetLeftArrowButtonEnabled()
+        {
+            return _currentProductPageIndex != 0;
+        }
+
+        /// <summary>
+        /// Get the enabled state of the right arrow button.
+        /// </summary>
+        public bool GetRightArrowButtonEnabled()
+        {
+            return _currentProductPageIndex != _model.GetTabPageProductPagesCount(_currentTabPageIndex) - 1;
+        }
+
+        /// <summary>
         /// Select no product.
         /// </summary>
         private void SelectNoProduct()

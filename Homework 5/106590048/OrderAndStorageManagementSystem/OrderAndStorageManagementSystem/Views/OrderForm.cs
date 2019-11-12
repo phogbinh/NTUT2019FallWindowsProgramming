@@ -379,8 +379,8 @@ namespace OrderAndStorageManagementSystem.Views
         private void RefreshControls()
         {
             _pageLabel.Text = _orderPresentationModel.GetPageLabelText();
-            _leftArrowButton.Enabled = _orderPresentationModel.LeftArrowButton.Enabled;
-            _rightArrowButton.Enabled = _orderPresentationModel.RightArrowButton.Enabled;
+            _leftArrowButton.Enabled = _orderPresentationModel.GetLeftArrowButtonEnabled();
+            _rightArrowButton.Enabled = _orderPresentationModel.GetRightArrowButtonEnabled();
         }
     }
 }
