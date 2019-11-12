@@ -43,10 +43,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             _model.OrderAdded += HandleModelOrderAdded;
             _model.OrderRemoved += HandleModelOrderRemoved;
             _model.ProductStorageQuantityChanged += UpdateCurrentProductInfoAndAddButtonIfChangedCurrentSelectedProductStorageQuantity;
-            // Initial States
-            _currentSelectedProduct = null;
-            _currentTabPageIndex = 0;
-            SetCurrentProductPageIndex(CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE);
+            // Initial states of all member variables of the presentation model is set by its view.
         }
 
         /// <summary>
