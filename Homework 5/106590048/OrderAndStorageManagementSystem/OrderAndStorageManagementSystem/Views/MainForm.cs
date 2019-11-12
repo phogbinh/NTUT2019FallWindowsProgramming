@@ -7,16 +7,14 @@ namespace OrderAndStorageManagementSystem.Views
     public partial class MainForm : Form
     {
         private CreditCardPaymentForm _creditCardPaymentForm;
-        private MainPresentationModel _mainPresentationModel;
         private OrderPresentationModel _orderPresentationModel;
         private ProductManagementPresentationModel _productManagementPresentationModel;
         private Model _model;
 
-        public MainForm(CreditCardPaymentForm creditCardPaymentFormData, MainPresentationModel mainPresentationModelData, OrderPresentationModel orderPresentationModelData, ProductManagementPresentationModel productManagementPresentationModelData, Model modelData)
+        public MainForm(CreditCardPaymentForm creditCardPaymentFormData, OrderPresentationModel orderPresentationModelData, ProductManagementPresentationModel productManagementPresentationModelData, Model modelData)
         {
             InitializeComponent();
             _creditCardPaymentForm = creditCardPaymentFormData;
-            _mainPresentationModel = mainPresentationModelData;
             _orderPresentationModel = orderPresentationModelData;
             _productManagementPresentationModel = productManagementPresentationModelData;
             _model = modelData;
@@ -24,7 +22,6 @@ namespace OrderAndStorageManagementSystem.Views
             _inventorySystemButton.Click += ClickInventorySystemButton;
             _productManageSystemButton.Click += ClickProductManageSystemButton;
             _exitButton.Click += ClickExitButton;
-            RefreshControls();
         }
 
         /// <summary>
@@ -34,19 +31,9 @@ namespace OrderAndStorageManagementSystem.Views
         {
             OrderForm orderForm;
             orderForm = new OrderForm(_creditCardPaymentForm, _orderPresentationModel, _model);
-            orderForm.FormClosed += CloseOrderForm;
+            orderForm.FormClosed += (formClosedSender, formClosedEventArguments) => _orderSystemButton.Enabled = true;
             orderForm.Show();
-            _mainPresentationModel.ClickOrderSystemButton();
-            RefreshControls();
-        }
-
-        /// <summary>
-        /// Close order form.
-        /// </summary>
-        private void CloseOrderForm(object sender, System.EventArgs eventArguments)
-        {
-            _mainPresentationModel.CloseOrderForm();
-            RefreshControls();
+            _orderSystemButton.Enabled = false;
         }
 
         /// <summary>
@@ -56,19 +43,9 @@ namespace OrderAndStorageManagementSystem.Views
         {
             InventoryForm inventoryForm;
             inventoryForm = new InventoryForm(_model);
-            inventoryForm.FormClosed += CloseInventoryForm;
+            inventoryForm.FormClosed += (formClosedSender, formClosedEventArguments) => _inventorySystemButton.Enabled = true;
             inventoryForm.Show();
-            _mainPresentationModel.ClickInventorySystemButton();
-            RefreshControls();
-        }
-
-        /// <summary>
-        /// Close inventory form.
-        /// </summary>
-        private void CloseInventoryForm(object sender, System.EventArgs eventArguments)
-        {
-            _mainPresentationModel.CloseInventoryForm();
-            RefreshControls();
+            _inventorySystemButton.Enabled = false;
         }
 
         /// <summary>
@@ -78,19 +55,9 @@ namespace OrderAndStorageManagementSystem.Views
         {
             ProductManagementForm productManagementForm;
             productManagementForm = new ProductManagementForm(_productManagementPresentationModel, _model);
-            productManagementForm.FormClosed += CloseProductManagementForm;
+            productManagementForm.FormClosed += (formClosedSender, formClosedEventArguments) => _productManageSystemButton.Enabled = true;
             productManagementForm.Show();
-            _mainPresentationModel.ClickProductManageSystemButton();
-            RefreshControls();
-        }
-
-        /// <summary>
-        /// Close product management form.
-        /// </summary>
-        private void CloseProductManagementForm(object sender, System.EventArgs eventArguments)
-        {
-            _mainPresentationModel.CloseProductManagementForm();
-            RefreshControls();
+            _productManageSystemButton.Enabled = false;
         }
 
         /// <summary>
@@ -99,16 +66,6 @@ namespace OrderAndStorageManagementSystem.Views
         private void ClickExitButton(object sender, System.EventArgs eventArguments)
         {
             Application.Exit();
-        }
-
-        /// <summary>
-        /// Refresh controls.
-        /// </summary>
-        private void RefreshControls()
-        {
-            _orderSystemButton.Enabled = _mainPresentationModel.OrderSystemButton.Enabled;
-            _inventorySystemButton.Enabled = _mainPresentationModel.InventorySystemButton.Enabled;
-            _productManageSystemButton.Enabled = _mainPresentationModel.ProductManageSystemButton.Enabled;
         }
     }
 }
