@@ -139,6 +139,14 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         }
 
         /// <summary>
+        /// Get the enabled state of the add button.
+        /// </summary>
+        public bool GetAddButtonEnabled()
+        {
+            return _currentSelectedProduct != null && !_model.IsInOrder(_currentSelectedProduct.Id) && _currentSelectedProduct.StorageQuantity > 0;
+        }
+
+        /// <summary>
         /// Go to previous product page.
         /// </summary>
         public void GoToPreviousProductPage()

@@ -160,7 +160,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void UpdateAddButtonView()
         {
-            _addButton.Enabled = _orderPresentationModel.AddButton.Enabled;
+            _addButton.Enabled = _orderPresentationModel.GetAddButtonEnabled();
         }
 
         /// <summary>
