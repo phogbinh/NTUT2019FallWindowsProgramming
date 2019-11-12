@@ -49,7 +49,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
 
         ~OrderPresentationModel()
         {
-            _model.OrderCleared -= UpdateAddButtonByCurrentSelectedProduct;
+            _model.OrderCleared -= NotifyObserverChangeAddButtonEnabled;
             _model.OrderAdded -= HandleModelOrderAdded;
             _model.OrderRemoved -= HandleModelOrderRemoved;
             _model.ProductStorageQuantityChanged -= UpdateCurrentProductInfoAndAddButtonIfChangedCurrentSelectedProductStorageQuantity;
@@ -60,7 +60,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             _model = modelData;
             _currentSelectedProduct = null;
             // Observers
-            _model.OrderCleared += UpdateAddButtonByCurrentSelectedProduct;
+            _model.OrderCleared += NotifyObserverChangeAddButtonEnabled;
             _model.OrderAdded += HandleModelOrderAdded;
             _model.OrderRemoved += HandleModelOrderRemoved;
             _model.ProductStorageQuantityChanged += UpdateCurrentProductInfoAndAddButtonIfChangedCurrentSelectedProductStorageQuantity;
@@ -93,7 +93,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             if ( product == _currentSelectedProduct )
             {
-                UpdateAddButtonByCurrentSelectedProduct();
+                NotifyObserverChangeAddButtonEnabled();
             }
         }
 
@@ -105,16 +105,8 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             if ( product == _currentSelectedProduct )
             {
                 NotifyObserverChangeCurrentProductInfo();
-                UpdateAddButtonByCurrentSelectedProduct();
+                NotifyObserverChangeAddButtonEnabled();
             }
-        }
-
-        /// <summary>
-        /// Update enabled state of add button by current selected product.
-        /// </summary>
-        private void UpdateAddButtonByCurrentSelectedProduct()
-        {
-            NotifyObserverChangeAddButtonEnabled();
         }
 
         /// <summary>
@@ -213,7 +205,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             _currentSelectedProduct = null;
             NotifyObserverChangeCurrentProductInfo();
-            UpdateAddButtonByCurrentSelectedProduct();
+            NotifyObserverChangeAddButtonEnabled();
         }
 
         /// <summary>
@@ -223,7 +215,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             _currentSelectedProduct = product;
             NotifyObserverChangeCurrentProductInfo();
-            UpdateAddButtonByCurrentSelectedProduct();
+            NotifyObserverChangeAddButtonEnabled();
         }
 
         /// <summary>
