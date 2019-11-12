@@ -235,7 +235,6 @@ namespace OrderAndStorageManagementSystem.Views
         private void SelectProduct(Product product)
         {
             _orderPresentationModel.SelectProduct(product);
-            RefreshControls();
         }
 
         /// <summary>
