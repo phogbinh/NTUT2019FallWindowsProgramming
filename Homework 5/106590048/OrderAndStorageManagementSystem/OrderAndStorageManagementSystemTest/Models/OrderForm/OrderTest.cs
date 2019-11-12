@@ -11,6 +11,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
     [TestClass()]
     public class OrderTest
     {
+        private const string MEMBER_VARIABLE_NAME_ORDER_ITEMS = "_orderItems";
         private Order _order;
         private PrivateObject _target;
 
@@ -25,7 +26,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestOrder()
         {
-            Assert.IsNotNull(_target.GetFieldOrProperty("_orderItems"));
+            Assert.IsNotNull(_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_ORDER_ITEMS));
         }
 
         [TestMethod()]
