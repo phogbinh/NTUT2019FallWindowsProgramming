@@ -14,6 +14,8 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         private const string MEMBER_FUNCTION_NAME_GET_STORAGE_QUANTITY = "GetStorageQuantity";
         private const string MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY = "IsExceededStorageQuantity";
         private const string MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY = "SetOrderItemQuantity";
+        private const int DUMP_INTEGER = 0;
+        private const string DUMP_STRING = "";
         private Order _order;
         private PrivateObject _target;
         private List<OrderItem> _orderItems;
@@ -39,7 +41,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(_order.GetTotalPrice("元"), "0 元");
             for ( int i = 0; i < 10; i++ )
             {
-                Product product = new Product(0, "", "", new Money(500), 0, "", "");
+                Product product = new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(500), DUMP_INTEGER, DUMP_STRING, DUMP_STRING);
                 OrderItem orderItem = new OrderItem(product);
                 _orderItems.Add(orderItem);
             }
@@ -52,7 +54,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             int index = 0;
             for ( int i = -5; i < 0; i++ )
             {
-                Product product = new Product(i, "", "", new Money(0), 0, "", "");
+                Product product = new Product(i, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING);
                 _order.AddProductToOrderIfProductIsNotInOrder(product);
                 Assert.AreSame(_orderItems[ index ].Product, product);
                 index++;
@@ -72,7 +74,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             for ( int i = 0; i < 10; i++ )
             {
-                Product product = new Product(i, "", "", new Money(0), 0, "", "");
+                Product product = new Product(i, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING);
                 OrderItem orderItem = new OrderItem(product);
                 _orderItems.Add(orderItem);
             }
@@ -87,7 +89,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             for ( int i = 0; i < 10; i++ )
             {
-                Product product = new Product(0, "", "", new Money(0), 0, "", "");
+                Product product = new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING);
                 OrderItem orderItem = new OrderItem(product);
                 _order.AddOrderItem(orderItem);
                 Assert.AreSame(_orderItems[ i ], orderItem);
@@ -120,7 +122,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             for ( int i = 0; i < 10; i++ )
             {
-                Product product = new Product(i, "product name", "product type", new Money(i), i, "product description", "product image path");
+                Product product = new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING);
                 OrderItem orderItem = new OrderItem(product);
                 _orderItems.Add(orderItem);
             }
@@ -153,7 +155,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             for ( int i = 0; i < 10; i++ )
             {
-                Product product = new Product(i, "product name", "product type", new Money(i), i, "product description", "product image path");
+                Product product = new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING);
                 OrderItem orderItem = new OrderItem(product);
                 _orderItems.Add(orderItem);
             }
@@ -165,7 +167,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             for ( int i = 0; i < 10; i++ )
             {
-                Product product = new Product(i, "product name", "product type", new Money(i), i, "product description", "product image path");
+                Product product = new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING);
                 OrderItem orderItem = new OrderItem(product);
                 _orderItems.Add(orderItem);
             }
