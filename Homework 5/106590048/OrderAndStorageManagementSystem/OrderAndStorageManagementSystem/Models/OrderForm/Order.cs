@@ -38,6 +38,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         }
         private const int TOTAL_PRICE_INITIAL_VALUE = 0;
         private const string ERROR_ORDER_ITEM_IS_NULL = "The given order item is null.";
+        private const string ERROR_ORDER_ITEM_INDEX_IS_OUT_OF_RANGE = "The given order item index is out of range.";
         private List<OrderItem> _orderItems;
 
         public Order()
@@ -133,6 +134,10 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         /// </summary>
         public void RemoveOrderItemAt(int orderItemIndex)
         {
+            if ( !AppDefinition.IsInIntervalRange(orderItemIndex, 0, _orderItems.Count - 1) )
+            {
+                throw new ArgumentException(ERROR_ORDER_ITEM_INDEX_IS_OUT_OF_RANGE);
+            }
             Product removeProduct = GetProduct(orderItemIndex);
             _orderItems.RemoveAt(orderItemIndex);
             NotifyObserverChangeOrderAndRemoveOrder(orderItemIndex, removeProduct);
