@@ -2,6 +2,7 @@
 using OrderAndStorageManagementSystem.Models.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
 {
@@ -10,6 +11,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
     {
         private const string MEMBER_VARIABLE_NAME_ORDER_ITEMS = "_orderItems";
         private const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_ORDER = "NotifyObserverChangeOrder";
+        private const string MEMBER_FUNCTION_NAME_GET_STORAGE_QUANTITY = "GetStorageQuantity";
         private Order _order;
         private PrivateObject _target;
         private List<OrderItem> _orderItems;
@@ -200,6 +202,41 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
                 count++;
             }
             catch ( ArgumentException )
+            {
+                Assert.AreEqual(count, 0);
+            }
+        }
+
+        [TestMethod()]
+        public void TestGetStorageQuantity()
+        {
+            for ( int i = 0; i < 10; i++ )
+            {
+                Product product = new Product(i, "product name", "product type", new Money(i), i, "product description", "product image path");
+                OrderItem orderItem = new OrderItem(product);
+                _orderItems.Add(orderItem);
+            }
+            object[] arguments = new object[] { 5 };
+            int storageQuantity = ( int )_target.Invoke(MEMBER_FUNCTION_NAME_GET_STORAGE_QUANTITY, arguments);
+            Assert.AreEqual(storageQuantity, 5);
+            int count = 0;
+            try
+            {
+                arguments = new object[] { -1 };
+                storageQuantity = ( int )_target.Invoke(MEMBER_FUNCTION_NAME_GET_STORAGE_QUANTITY, arguments);
+                count++;
+            }
+            catch ( TargetInvocationException )
+            {
+                Assert.AreEqual(count, 0);
+            }
+            try
+            {
+                arguments = new object[] { 10 };
+                storageQuantity = ( int )_target.Invoke(MEMBER_FUNCTION_NAME_GET_STORAGE_QUANTITY, arguments);
+                count++;
+            }
+            catch ( TargetInvocationException )
             {
                 Assert.AreEqual(count, 0);
             }
