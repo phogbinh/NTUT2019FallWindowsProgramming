@@ -20,6 +20,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         private PrivateObject _target;
         private List<OrderItem> _orderItems;
 
+        /// <summary>Initializes this instance.</summary>
         [TestInitialize()]
         [DeploymentItem("OrderAndStorageManagementSystem.exe")]
         public void Initialize()
@@ -29,12 +30,14 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             _orderItems = ( List<OrderItem> )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_ORDER_ITEMS);
         }
 
+        /// <summary>Tests the order.</summary>
         [TestMethod()]
         public void TestOrder()
         {
             Assert.IsNotNull(_orderItems);
         }
 
+        /// <summary>Tests the get total price.</summary>
         [TestMethod()]
         public void TestGetTotalPrice()
         {
@@ -46,6 +49,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(_order.GetTotalPrice("元"), "5,000 元");
         }
 
+        /// <summary>Tests the add product to order if product is not in order.</summary>
         [TestMethod()]
         public void TestAddProductToOrderIfProductIsNotInOrder()
         {
@@ -67,6 +71,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreSame(_orderItems[ 5 ].Product, newProduct);
         }
 
+        /// <summary>Tests the is in order.</summary>
         [TestMethod()]
         public void TestIsInOrder()
         {
@@ -80,6 +85,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.IsFalse(_order.IsInOrder(10));
         }
 
+        /// <summary>Tests the add order item.</summary>
         [TestMethod()]
         public void TestAddOrderItem()
         {
@@ -101,6 +107,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             }
         }
 
+        /// <summary>Tests the notify observer change order.</summary>
         [TestMethod()]
         public void TestNotifyObserverChangeOrder()
         {
@@ -112,6 +119,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(count, 2);
         }
 
+        /// <summary>Tests the remove order item at.</summary>
         [TestMethod()]
         public void TestRemoveOrderItemAt()
         {
@@ -143,6 +151,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.IsFalse(_orderItems.Contains(removeOrderItem));
         }
 
+        /// <summary>Tests the get order items count.</summary>
         [TestMethod()]
         public void TestGetOrderItemsCount()
         {
@@ -153,6 +162,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(_order.GetOrderItemsCount(), 10);
         }
 
+        /// <summary>Tests the clear order.</summary>
         [TestMethod()]
         public void TestClearOrder()
         {
@@ -164,6 +174,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(_orderItems.Count, 0);
         }
 
+        /// <summary>Tests the set order item quantity if not exceeded storage quantity and notify observer otherwise.</summary>
         [TestMethod()]
         public void TestSetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise()
         {
@@ -199,6 +210,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             }
         }
 
+        /// <summary>Tests the is exceeded storage quantity.</summary>
         [TestMethod()]
         public void TestIsExceededStorageQuantity()
         {
@@ -235,6 +247,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             }
         }
 
+        /// <summary>Tests the set order item quantity.</summary>
         [TestMethod()]
         public void TestSetOrderItemQuantity()
         {
@@ -273,6 +286,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             }
         }
 
+        /// <summary>Tests the get storage quantity.</summary>
         [TestMethod()]
         public void TestGetStorageQuantity()
         {
@@ -306,6 +320,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             }
         }
 
+        /// <summary>Tests the get product with order quantity containers.</summary>
         [TestMethod()]
         public void TestGetProductWithOrderQuantityContainers()
         {
@@ -323,12 +338,14 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             }
         }
 
+        /// <summary>Tests the get order items.</summary>
         [TestMethod()]
         public void TestGetOrderItems()
         {
             Assert.AreSame(_order.GetOrderItems(), _orderItems);
         }
 
+        /// <summary>Tests the get order item at.</summary>
         [TestMethod()]
         public void TestGetOrderItemAt()
         {
