@@ -134,7 +134,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         /// </summary>
         public void RemoveOrderItemAt(int orderItemIndex)
         {
-            if ( !AppDefinition.IsInIntervalRange(orderItemIndex, 0, _orderItems.Count - 1) )
+            if ( !IsInOrderItemsIndexRange(orderItemIndex) )
             {
                 throw new ArgumentException(ERROR_ORDER_ITEM_INDEX_IS_OUT_OF_RANGE);
             }
@@ -148,7 +148,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         /// </summary>
         private Product GetProduct(int orderItemIndex)
         {
-            if ( !AppDefinition.IsInIntervalRange(orderItemIndex, 0, _orderItems.Count - 1) )
+            if ( !IsInOrderItemsIndexRange(orderItemIndex) )
             {
                 throw new ArgumentException(ERROR_ORDER_ITEM_INDEX_IS_OUT_OF_RANGE);
             }
@@ -217,7 +217,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         /// </summary>
         public void SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(int orderItemIndex, int newCartProductQuantity)
         {
-            if ( !AppDefinition.IsInIntervalRange(orderItemIndex, 0, _orderItems.Count - 1) )
+            if ( !IsInOrderItemsIndexRange(orderItemIndex) )
             {
                 throw new ArgumentException(ERROR_ORDER_ITEM_INDEX_IS_OUT_OF_RANGE);
             }
@@ -236,7 +236,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         /// </summary>
         private bool IsExceededStorageQuantity(int orderItemIndex, int quantity)
         {
-            if ( !AppDefinition.IsInIntervalRange(orderItemIndex, 0, _orderItems.Count - 1) )
+            if ( !IsInOrderItemsIndexRange(orderItemIndex) )
             {
                 throw new ArgumentException(ERROR_ORDER_ITEM_INDEX_IS_OUT_OF_RANGE);
             }
@@ -248,7 +248,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         /// </summary>
         private void SetOrderItemQuantity(int orderItemIndex, int newOrderQuantity)
         {
-            if ( !AppDefinition.IsInIntervalRange(orderItemIndex, 0, _orderItems.Count - 1) )
+            if ( !IsInOrderItemsIndexRange(orderItemIndex) )
             {
                 throw new ArgumentException(ERROR_ORDER_ITEM_INDEX_IS_OUT_OF_RANGE);
             }
@@ -261,7 +261,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         /// </summary>
         private string GetOrderItemTotalPrice(int orderItemIndex)
         {
-            if ( !AppDefinition.IsInIntervalRange(orderItemIndex, 0, _orderItems.Count - 1) )
+            if ( !IsInOrderItemsIndexRange(orderItemIndex) )
             {
                 throw new ArgumentException(ERROR_ORDER_ITEM_INDEX_IS_OUT_OF_RANGE);
             }
@@ -293,7 +293,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         /// </summary>
         private int GetStorageQuantity(int orderItemIndex)
         {
-            if ( !AppDefinition.IsInIntervalRange(orderItemIndex, 0, _orderItems.Count - 1) )
+            if ( !IsInOrderItemsIndexRange(orderItemIndex) )
             {
                 throw new ArgumentException(ERROR_ORDER_ITEM_INDEX_IS_OUT_OF_RANGE);
             }
@@ -337,7 +337,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         /// </summary>
         public OrderItem GetOrderItemAt(int orderItemIndex)
         {
-            if ( !AppDefinition.IsInIntervalRange(orderItemIndex, 0, _orderItems.Count - 1) )
+            if ( !IsInOrderItemsIndexRange(orderItemIndex) )
             {
                 throw new ArgumentException(ERROR_ORDER_ITEM_INDEX_IS_OUT_OF_RANGE);
             }
