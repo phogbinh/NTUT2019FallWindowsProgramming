@@ -193,7 +193,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestGetOrderItems()
         {
-            Assert.Fail();
+            Assert.AreSame(_order.GetOrderItems(), _orderItems);
         }
 
         [TestMethod()]
