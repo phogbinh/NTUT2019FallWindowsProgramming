@@ -153,7 +153,35 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestSetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise()
         {
-            Assert.Fail();
+            for ( int i = 0; i < 10; i++ )
+            {
+                Product product = new Product(i, "product name", "product type", new Money(i), i, "product description", "product image path");
+                OrderItem orderItem = new OrderItem(product);
+                orderItem.OrderQuantity = i;
+                _orderItems.Add(orderItem);
+            }
+            _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(5, 4);
+            Assert.AreEqual(_orderItems[ 5 ].OrderQuantity, 4);
+            _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(0, 1);
+            Assert.AreEqual(_orderItems[ 0 ].OrderQuantity, 0);
+            _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(6, 0);
+            Assert.AreEqual(_orderItems[ 6 ].OrderQuantity, 0);
+            try
+            {
+                _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(9, -1);
+            }
+            catch ( ArgumentException )
+            {
+                Assert.AreEqual(_orderItems[ 9 ].OrderQuantity, 9);
+            }
+            try
+            {
+                _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(-1, 0);
+            }
+            catch ( ArgumentException )
+            {
+                /* Body intentionally empty */
+            }
         }
 
         [TestMethod()]
