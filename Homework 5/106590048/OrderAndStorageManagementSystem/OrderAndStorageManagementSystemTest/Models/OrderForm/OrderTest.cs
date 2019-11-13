@@ -31,7 +31,14 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestGetTotalPrice()
         {
-            Assert.Fail();
+            Assert.AreEqual(_order.GetTotalPrice("元"), "0 元");
+            for ( int i = 0; i < 10; i++ )
+            {
+                Product product = new Product(i, "product name", "product type", new Money(500), i, "product description", "product image path");
+                OrderItem orderItem = new OrderItem(product);
+                _orderItems.Add(orderItem);
+            }
+            Assert.AreEqual(_order.GetTotalPrice("元"), "5,000 元");
         }
 
         [TestMethod()]
