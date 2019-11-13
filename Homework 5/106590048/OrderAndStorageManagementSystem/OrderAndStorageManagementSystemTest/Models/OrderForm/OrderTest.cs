@@ -193,13 +193,15 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             {
                 Assert.AreEqual(_orderItems[ 9 ].OrderQuantity, 9);
             }
+            int count = 0;
             try
             {
                 _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(-1, 0);
+                count++;
             }
             catch ( ArgumentException )
             {
-                /* Body intentionally empty */
+                Assert.AreEqual(count, 0);
             }
         }
 
@@ -236,13 +238,15 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
                 _orderItems.Add(orderItem);
             }
             Assert.AreSame(_order.GetOrderItemAt(5), _orderItems[ 5 ]);
+            int count = 0;
             try
             {
                 _order.GetOrderItemAt(-1);
+                count++;
             }
             catch ( ArgumentException )
             {
-                /* Body intentionally empty */
+                Assert.AreEqual(count, 0);
             }
         }
     }
