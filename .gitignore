@@ -43,3 +43,6 @@
 *.pidb
 *.svclog
 *.scc
+
+# Files built by Visual Studio Test Analyze Code Coverage
+*.coverage
