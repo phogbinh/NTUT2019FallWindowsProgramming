@@ -278,9 +278,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             for ( int i = 0; i < 10; i++ )
             {
-                Product product = new Product(i, "product name", "product type", new Money(i), i, "product description", "product image path");
-                OrderItem orderItem = new OrderItem(product);
-                _orderItems.Add(orderItem);
+                _orderItems.Add(new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), i, DUMP_STRING, DUMP_STRING)));
             }
             object[] arguments = new object[] { 5 };
             int storageQuantity = ( int )_target.Invoke(MEMBER_FUNCTION_NAME_GET_STORAGE_QUANTITY, arguments);
