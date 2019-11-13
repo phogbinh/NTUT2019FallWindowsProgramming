@@ -16,6 +16,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         private const string MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY = "SetOrderItemQuantity";
         private const string MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE = "GetOrderItemTotalPrice";
         private const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_ORDER_ITEM_QUANTITY = "NotifyObserverChangeOrderItemQuantity";
+        private const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY = "NotifyObserverOrderItemQuantityIsExceededStorageQuantity";
         private const int DUMP_INTEGER = 0;
         private const string DUMP_STRING = "";
         private Order _order;
@@ -372,6 +373,19 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             {
                 Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
             }
+        }
+
+        /// <summary>Tests the notify observer order item quantity is exceeded storage quantity.</summary>
+        [TestMethod()]
+        public void TestNotifyObserverOrderItemQuantityIsExceededStorageQuantity()
+        {
+            int count = 0;
+            _order.OrderItemQuantityIsExceededStorageQuantity += (orderItemIndex, storageQuantity) => count++;
+            object[] arguments = new object[] { DUMP_INTEGER, DUMP_INTEGER };
+            _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY, arguments);
+            Assert.AreEqual(count, 1);
+            _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY, arguments);
+            Assert.AreEqual(count, 2);
         }
 
         /// <summary>Tests the get product with order quantity containers.</summary>
