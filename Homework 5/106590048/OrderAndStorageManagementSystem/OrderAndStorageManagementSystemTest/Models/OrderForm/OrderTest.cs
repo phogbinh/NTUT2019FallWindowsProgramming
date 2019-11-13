@@ -327,6 +327,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             }
         }
 
+        /// <summary>Tests the notify observer change order item quantity.</summary>
         [TestMethod()]
         public void TestNotifyObserverChangeOrderItemQuantity()
         {
