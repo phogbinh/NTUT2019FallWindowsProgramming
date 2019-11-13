@@ -39,6 +39,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         private const int TOTAL_PRICE_INITIAL_VALUE = 0;
         private const string ERROR_ORDER_ITEM_IS_NULL = "The given order item is null.";
         private const string ERROR_ORDER_ITEM_INDEX_IS_OUT_OF_RANGE = "The given order item index is out of range.";
+        private const string ERROR_NEW_CART_PRODUCT_QUANTITY_IS_NEGATIVE = "The given new cart product quantity is negative.";
         private List<OrderItem> _orderItems;
 
         public Order()
@@ -220,6 +221,10 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             if ( !IsInOrderItemsIndexRange(orderItemIndex) )
             {
                 throw new ArgumentException(ERROR_ORDER_ITEM_INDEX_IS_OUT_OF_RANGE);
+            }
+            if ( newCartProductQuantity < 0 )
+            {
+                throw new ArgumentException(ERROR_NEW_CART_PRODUCT_QUANTITY_IS_NEGATIVE);
             }
             if ( !IsExceededStorageQuantity(orderItemIndex, newCartProductQuantity) )
             {
