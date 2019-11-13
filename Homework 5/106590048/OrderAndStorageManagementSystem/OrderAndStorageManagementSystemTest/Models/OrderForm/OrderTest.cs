@@ -12,6 +12,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         private const string MEMBER_VARIABLE_NAME_ORDER_ITEMS = "_orderItems";
         private const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_ORDER = "NotifyObserverChangeOrder";
         private const string MEMBER_FUNCTION_NAME_GET_STORAGE_QUANTITY = "GetStorageQuantity";
+        private const string MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY = "IsExceededStorageQuantity";
         private Order _order;
         private PrivateObject _target;
         private List<OrderItem> _orderItems;
@@ -202,6 +203,44 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
                 count++;
             }
             catch ( ArgumentException )
+            {
+                Assert.AreEqual(count, 0);
+            }
+        }
+
+        [TestMethod()]
+        public void TestIsExceededStorageQuantity()
+        {
+            for ( int i = 0; i < 10; i++ )
+            {
+                Product product = new Product(i, "product name", "product type", new Money(i), 10, "product description", "product image path");
+                OrderItem orderItem = new OrderItem(product);
+                _orderItems.Add(orderItem);
+            }
+            object[] arguments = new object[] { 0, 10 };
+            bool isExceededStorageQuantity = ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments);
+            Assert.IsFalse(isExceededStorageQuantity);
+            arguments = new object[] { 9, 11 };
+            isExceededStorageQuantity = ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments);
+            Assert.IsTrue(isExceededStorageQuantity);
+            arguments = new object[] { -1, 6 };
+            int count = 0;
+            try
+            {
+                isExceededStorageQuantity = ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments);
+                count++;
+            }
+            catch (TargetInvocationException)
+            {
+                Assert.AreEqual(count, 0);
+            }
+            arguments = new object[] { 10, 2 };
+            try
+            {
+                isExceededStorageQuantity = ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments);
+                count++;
+            }
+            catch ( TargetInvocationException )
             {
                 Assert.AreEqual(count, 0);
             }
