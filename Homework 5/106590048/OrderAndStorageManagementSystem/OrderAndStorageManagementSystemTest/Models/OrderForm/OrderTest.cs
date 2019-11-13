@@ -13,6 +13,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         private const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_ORDER = "NotifyObserverChangeOrder";
         private const string MEMBER_FUNCTION_NAME_GET_STORAGE_QUANTITY = "GetStorageQuantity";
         private const string MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY = "IsExceededStorageQuantity";
+        private const string MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY = "SetOrderItemQuantity";
         private Order _order;
         private PrivateObject _target;
         private List<OrderItem> _orderItems;
@@ -230,7 +231,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
                 isExceededStorageQuantity = ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments);
                 count++;
             }
-            catch (TargetInvocationException)
+            catch ( TargetInvocationException )
             {
                 Assert.AreEqual(count, 0);
             }
@@ -238,6 +239,45 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             try
             {
                 isExceededStorageQuantity = ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments);
+                count++;
+            }
+            catch ( TargetInvocationException )
+            {
+                Assert.AreEqual(count, 0);
+            }
+        }
+
+        [TestMethod()]
+        public void TestSetOrderItemQuantity()
+        {
+            for ( int i = 0; i < 10; i++ )
+            {
+                Product product = new Product(i, "product name", "product type", new Money(i), i, "product description", "product image path");
+                OrderItem orderItem = new OrderItem(product);
+                orderItem.OrderQuantity = 3;
+                _orderItems.Add(orderItem);
+            }
+            object[] arguments = new object[] { 0, 10 };
+            _target.Invoke(MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY, arguments);
+            Assert.AreEqual(_orderItems[ 0 ].OrderQuantity, 10);
+            arguments = new object[] { 9, 3 };
+            _target.Invoke(MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY, arguments);
+            Assert.AreEqual(_orderItems[ 9 ].OrderQuantity, 3);
+            arguments = new object[] { -1, 5 };
+            int count = 0;
+            try
+            {
+                _target.Invoke(MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY, arguments);
+                count++;
+            }
+            catch ( TargetInvocationException )
+            {
+                Assert.AreEqual(count, 0);
+            }
+            arguments = new object[] { 10, 5 };
+            try
+            {
+                _target.Invoke(MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY, arguments);
                 count++;
             }
             catch ( TargetInvocationException )
