@@ -132,9 +132,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             {
                 Assert.AreEqual(_orderItems.Count, 10);
             }
+            OrderItem removeOrderItem = _orderItems[ 0 ];
             _order.RemoveOrderItemAt(0);
-            Assert.AreEqual(_orderItems.Count, 9);
-            Assert.IsFalse(_order.IsInOrder(0));
+            Assert.IsFalse(_orderItems.Contains(removeOrderItem));
             try
             {
                 _order.RemoveOrderItemAt(9);
@@ -143,9 +143,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             {
                 Assert.AreEqual(_orderItems.Count, 9);
             }
+            removeOrderItem = _orderItems[ 8 ];
             _order.RemoveOrderItemAt(8);
-            Assert.AreEqual(_orderItems.Count, 8);
-            Assert.IsFalse(_order.IsInOrder(9));
+            Assert.IsFalse(_orderItems.Contains(removeOrderItem));
         }
 
         [TestMethod()]
