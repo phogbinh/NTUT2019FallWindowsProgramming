@@ -14,6 +14,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         private const string MEMBER_FUNCTION_NAME_GET_STORAGE_QUANTITY = "GetStorageQuantity";
         private const string MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY = "IsExceededStorageQuantity";
         private const string MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY = "SetOrderItemQuantity";
+        private const string MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE = "GetOrderItemTotalPrice";
         private const int DUMP_INTEGER = 0;
         private const string DUMP_STRING = "";
         private Order _order;
@@ -278,6 +279,45 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             try
             {
                 _target.Invoke(MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY, arguments);
+                exceptionTestNumber++;
+            }
+            catch ( TargetInvocationException )
+            {
+                Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
+            }
+        }
+
+        /// <summary>Tests the get order item total price.</summary>
+        [TestMethod()]
+        public void TestGetOrderItemTotalPrice()
+        {
+            for ( int i = 0; i < 10; i++ )
+            {
+                OrderItem orderItem = new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(3000), DUMP_INTEGER, DUMP_STRING, DUMP_STRING));
+                orderItem.OrderQuantity = i;
+                _orderItems.Add(orderItem);
+            }
+            object[] arguments = new object[] { 0 };
+            string orderItemTotalPrice = ( string )_target.Invoke(MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE, arguments);
+            Assert.AreEqual(orderItemTotalPrice, "0");
+            arguments = new object[] { 9 };
+            orderItemTotalPrice = ( string )_target.Invoke(MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE, arguments);
+            Assert.AreEqual(orderItemTotalPrice, "27,000");
+            arguments = new object[] { -1 };
+            int exceptionTestNumber = DUMP_INTEGER;
+            try
+            {
+                _target.Invoke(MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE, arguments);
+                exceptionTestNumber++;
+            }
+            catch ( TargetInvocationException )
+            {
+                Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
+            }
+            arguments = new object[] { 10 };
+            try
+            {
+                _target.Invoke(MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE, arguments);
                 exceptionTestNumber++;
             }
             catch ( TargetInvocationException )
