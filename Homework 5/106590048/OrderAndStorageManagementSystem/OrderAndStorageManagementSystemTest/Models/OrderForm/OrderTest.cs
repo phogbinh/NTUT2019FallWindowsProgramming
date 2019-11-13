@@ -10,13 +10,6 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
     public class OrderTest
     {
         private const string MEMBER_VARIABLE_NAME_ORDER_ITEMS = "_orderItems";
-        private const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_ORDER = "NotifyObserverChangeOrder";
-        private const string MEMBER_FUNCTION_NAME_GET_STORAGE_QUANTITY = "GetStorageQuantity";
-        private const string MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY = "IsExceededStorageQuantity";
-        private const string MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY = "SetOrderItemQuantity";
-        private const string MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE = "GetOrderItemTotalPrice";
-        private const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_ORDER_ITEM_QUANTITY = "NotifyObserverChangeOrderItemQuantity";
-        private const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY = "NotifyObserverOrderItemQuantityIsExceededStorageQuantity";
         private const int DUMP_INTEGER = 0;
         private const string DUMP_STRING = "";
         private Order _order;
@@ -114,6 +107,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestNotifyObserverChangeOrder()
         {
+            const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_ORDER = "NotifyObserverChangeOrder";
             int count = 0;
             _order.OrderChanged += () => count++;
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_ORDER);
@@ -217,6 +211,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestIsExceededStorageQuantity()
         {
+            const string MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY = "IsExceededStorageQuantity";
             for ( int i = 0; i < 10; i++ )
             {
                 _orderItems.Add(new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), 10, DUMP_STRING, DUMP_STRING)));
@@ -254,6 +249,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestSetOrderItemQuantity()
         {
+            const string MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY = "SetOrderItemQuantity";
             for ( int i = 0; i < 10; i++ )
             {
                 OrderItem orderItem = new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING));
@@ -293,6 +289,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestGetOrderItemTotalPrice()
         {
+            const string MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE = "GetOrderItemTotalPrice";
             for ( int i = 0; i < 10; i++ )
             {
                 OrderItem orderItem = new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(3000), DUMP_INTEGER, DUMP_STRING, DUMP_STRING));
@@ -332,6 +329,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestNotifyObserverChangeOrderItemQuantity()
         {
+            const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_ORDER_ITEM_QUANTITY = "NotifyObserverChangeOrderItemQuantity";
             int count = 0;
             _order.OrderItemQuantityChanged += (orderItemIndex, orderItemTotalPrice) => count++;
             object[] arguments = new object[] { DUMP_INTEGER, DUMP_STRING };
@@ -345,6 +343,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestGetStorageQuantity()
         {
+            const string MEMBER_FUNCTION_NAME_GET_STORAGE_QUANTITY = "GetStorageQuantity";
             for ( int i = 0; i < 10; i++ )
             {
                 _orderItems.Add(new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), i, DUMP_STRING, DUMP_STRING)));
@@ -379,6 +378,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestNotifyObserverOrderItemQuantityIsExceededStorageQuantity()
         {
+            const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY = "NotifyObserverOrderItemQuantityIsExceededStorageQuantity";
             int count = 0;
             _order.OrderItemQuantityIsExceededStorageQuantity += (orderItemIndex, storageQuantity) => count++;
             object[] arguments = new object[] { DUMP_INTEGER, DUMP_INTEGER };
