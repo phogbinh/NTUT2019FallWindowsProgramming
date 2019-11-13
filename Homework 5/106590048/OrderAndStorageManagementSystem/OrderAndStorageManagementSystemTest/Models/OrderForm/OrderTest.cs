@@ -204,9 +204,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             for ( int i = 0; i < 10; i++ )
             {
-                Product product = new Product(i, "product name", "product type", new Money(i), 10, "product description", "product image path");
-                OrderItem orderItem = new OrderItem(product);
-                _orderItems.Add(orderItem);
+                _orderItems.Add(new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), 10, DUMP_STRING, DUMP_STRING)));
             }
             object[] arguments = new object[] { 0, 10 };
             bool isExceededStorageQuantity = ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments);
