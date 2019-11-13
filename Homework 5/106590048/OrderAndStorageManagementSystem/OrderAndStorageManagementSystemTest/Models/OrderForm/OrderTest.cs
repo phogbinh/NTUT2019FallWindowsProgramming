@@ -313,6 +313,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             {
                 Product product = new Product(i, "product name", "product type", new Money(i), i, "product description", "product image path");
                 OrderItem orderItem = new OrderItem(product);
+                orderItem.OrderQuantity = i + 10;
                 _orderItems.Add(orderItem);
             }
             IDictionary<Product, int> productWithOrderQuantityContainers = _order.GetProductWithOrderQuantityContainers();
