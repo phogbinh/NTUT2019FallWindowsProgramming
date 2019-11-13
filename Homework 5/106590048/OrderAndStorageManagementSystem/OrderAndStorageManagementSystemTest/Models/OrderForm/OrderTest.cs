@@ -199,7 +199,21 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestGetOrderItemAt()
         {
-            Assert.Fail();
+            for ( int i = 0; i < 10; i++ )
+            {
+                Product product = new Product(i, "product name", "product type", new Money(i), i, "product description", "product image path");
+                OrderItem orderItem = new OrderItem(product);
+                _orderItems.Add(orderItem);
+            }
+            Assert.AreSame(_order.GetOrderItemAt(5), _orderItems[5]);
+            try
+            {
+                _order.GetOrderItemAt(-1);
+            }
+            catch ( ArgumentException )
+            {
+                /* Body intentionally empty */
+            }
         }
     }
 }
