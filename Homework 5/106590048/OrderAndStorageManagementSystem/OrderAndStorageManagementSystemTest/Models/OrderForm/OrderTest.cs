@@ -169,8 +169,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             for ( int i = 0; i < 10; i++ )
             {
-                Product product = new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), i, DUMP_STRING, DUMP_STRING);
-                OrderItem orderItem = new OrderItem(product);
+                OrderItem orderItem = new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), i, DUMP_STRING, DUMP_STRING));
                 orderItem.OrderQuantity = i;
                 _orderItems.Add(orderItem);
             }
