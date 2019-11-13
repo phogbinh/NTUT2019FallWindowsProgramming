@@ -39,7 +39,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(_order.GetTotalPrice("元"), "0 元");
             for ( int i = 0; i < 10; i++ )
             {
-                Product product = new Product(i, "product name", "product type", new Money(500), i, "product description", "product image path");
+                Product product = new Product(0, "", "", new Money(500), 0, "", "");
                 OrderItem orderItem = new OrderItem(product);
                 _orderItems.Add(orderItem);
             }
@@ -52,16 +52,16 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             int index = 0;
             for ( int i = -5; i < 0; i++ )
             {
-                Product product = new Product(i, "product name", "product type", new Money(0), 0, "product description", "product image path");
+                Product product = new Product(i, "", "", new Money(0), 0, "", "");
                 _order.AddProductToOrderIfProductIsNotInOrder(product);
                 Assert.AreSame(_orderItems[ index ].Product, product);
                 index++;
             }
             Assert.AreEqual(_orderItems.Count, 5);
-            Product newProduct = new Product(-5, "new product name", "new product type", new Money(0), 0, "new product description", "product image path");
+            Product newProduct = new Product(-5, "", "", new Money(0), 0, "", "");
             _order.AddProductToOrderIfProductIsNotInOrder(newProduct);
             Assert.AreEqual(_orderItems.Count, 5);
-            newProduct = new Product(0, "new product name", "new product type", new Money(0), 0, "new product description", "product image path");
+            newProduct = new Product(0, "", "", new Money(0), 0, "", "");
             _order.AddProductToOrderIfProductIsNotInOrder(newProduct);
             Assert.AreEqual(_orderItems.Count, 6);
             Assert.AreSame(_orderItems[ 5 ].Product, newProduct);
@@ -72,7 +72,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             for ( int i = 0; i < 10; i++ )
             {
-                Product product = new Product(i, "product name", "product type", new Money(i), i, "product description", "product image path");
+                Product product = new Product(i, "", "", new Money(0), 0, "", "");
                 OrderItem orderItem = new OrderItem(product);
                 _orderItems.Add(orderItem);
             }
@@ -87,7 +87,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             for ( int i = 0; i < 10; i++ )
             {
-                Product product = new Product(i, "product name", "product type", new Money(i), i, "product description", "product image path");
+                Product product = new Product(0, "", "", new Money(0), 0, "", "");
                 OrderItem orderItem = new OrderItem(product);
                 _order.AddOrderItem(orderItem);
                 Assert.AreSame(_orderItems[ i ], orderItem);
