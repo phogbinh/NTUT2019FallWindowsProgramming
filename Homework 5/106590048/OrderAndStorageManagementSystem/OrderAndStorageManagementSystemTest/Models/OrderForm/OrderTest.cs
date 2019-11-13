@@ -49,19 +49,22 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestAddOrderItem()
         {
-            Product product = new Product(0, "product name", "product type", new Money(0), 0, "product description", "product image path");
-            OrderItem orderItem = new OrderItem(product);
-            _order.AddOrderItem(orderItem);
-            Assert.AreEqual(_orderItems.Count, 1);
-            Assert.AreSame(_orderItems[ 0 ], orderItem);
-            orderItem = null;
+            for ( int i = 0; i < 10; i++ )
+            {
+                Product product = new Product(i, "product name", "product type", new Money(i), i, "product description", "product image path");
+                OrderItem orderItem = new OrderItem(product);
+                _order.AddOrderItem(orderItem);
+                Assert.AreSame(_orderItems[ i ], orderItem);
+            }
+            Assert.AreEqual(_orderItems.Count, 10);
+            OrderItem nullOrderItem = null;
             try
             {
-                _order.AddOrderItem(orderItem);
+                _order.AddOrderItem(nullOrderItem);
             }
             catch ( ArgumentException )
             {
-                Assert.AreEqual(_orderItems.Count, 1);
+                Assert.AreEqual(_orderItems.Count, 10);
             }
         }
 
