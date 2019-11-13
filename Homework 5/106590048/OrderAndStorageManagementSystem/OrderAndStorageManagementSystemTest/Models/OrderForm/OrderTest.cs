@@ -187,15 +187,15 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             {
                 Assert.AreEqual(_orderItems[ 9 ].OrderQuantity, 9);
             }
-            int count = DUMP_INTEGER;
+            int exceptionTestNumber = DUMP_INTEGER;
             try
             {
                 _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(-1, 0);
-                count++;
+                exceptionTestNumber++;
             }
             catch ( ArgumentException )
             {
-                Assert.AreEqual(count, DUMP_INTEGER);
+                Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
             }
         }
 
@@ -213,25 +213,25 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             isExceededStorageQuantity = ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments);
             Assert.IsTrue(isExceededStorageQuantity);
             arguments = new object[] { -1, 6 };
-            int count = DUMP_INTEGER;
+            int exceptionTestNumber = DUMP_INTEGER;
             try
             {
                 isExceededStorageQuantity = ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments);
-                count++;
+                exceptionTestNumber++;
             }
             catch ( TargetInvocationException )
             {
-                Assert.AreEqual(count, DUMP_INTEGER);
+                Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
             }
             arguments = new object[] { 10, 2 };
             try
             {
                 isExceededStorageQuantity = ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments);
-                count++;
+                exceptionTestNumber++;
             }
             catch ( TargetInvocationException )
             {
-                Assert.AreEqual(count, DUMP_INTEGER);
+                Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
             }
         }
 
@@ -251,25 +251,25 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             _target.Invoke(MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY, arguments);
             Assert.AreEqual(_orderItems[ 9 ].OrderQuantity, 3);
             arguments = new object[] { -1, 5 };
-            int count = DUMP_INTEGER;
+            int exceptionTestNumber = DUMP_INTEGER;
             try
             {
                 _target.Invoke(MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY, arguments);
-                count++;
+                exceptionTestNumber++;
             }
             catch ( TargetInvocationException )
             {
-                Assert.AreEqual(count, DUMP_INTEGER);
+                Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
             }
             arguments = new object[] { 10, 5 };
             try
             {
                 _target.Invoke(MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY, arguments);
-                count++;
+                exceptionTestNumber++;
             }
             catch ( TargetInvocationException )
             {
-                Assert.AreEqual(count, DUMP_INTEGER);
+                Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
             }
         }
 
@@ -283,26 +283,26 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             object[] arguments = new object[] { 5 };
             int storageQuantity = ( int )_target.Invoke(MEMBER_FUNCTION_NAME_GET_STORAGE_QUANTITY, arguments);
             Assert.AreEqual(storageQuantity, 5);
-            int count = DUMP_INTEGER;
+            int exceptionTestNumber = DUMP_INTEGER;
             try
             {
                 arguments = new object[] { -1 };
                 storageQuantity = ( int )_target.Invoke(MEMBER_FUNCTION_NAME_GET_STORAGE_QUANTITY, arguments);
-                count++;
+                exceptionTestNumber++;
             }
             catch ( TargetInvocationException )
             {
-                Assert.AreEqual(count, DUMP_INTEGER);
+                Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
             }
             try
             {
                 arguments = new object[] { 10 };
                 storageQuantity = ( int )_target.Invoke(MEMBER_FUNCTION_NAME_GET_STORAGE_QUANTITY, arguments);
-                count++;
+                exceptionTestNumber++;
             }
             catch ( TargetInvocationException )
             {
-                Assert.AreEqual(count, DUMP_INTEGER);
+                Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
             }
         }
 
@@ -337,15 +337,15 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
                 _orderItems.Add(new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING)));
             }
             Assert.AreSame(_order.GetOrderItemAt(5), _orderItems[ 5 ]);
-            int count = DUMP_INTEGER;
+            int exceptionTestNumber = DUMP_INTEGER;
             try
             {
                 _order.GetOrderItemAt(-1);
-                count++;
+                exceptionTestNumber++;
             }
             catch ( ArgumentException )
             {
-                Assert.AreEqual(count, DUMP_INTEGER);
+                Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
             }
         }
     }
