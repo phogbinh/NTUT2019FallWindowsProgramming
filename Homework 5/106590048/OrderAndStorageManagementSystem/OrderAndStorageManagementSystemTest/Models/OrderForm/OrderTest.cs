@@ -148,6 +148,44 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.IsFalse(_orderItems.Contains(removeOrderItem));
         }
 
+        /// <summary>Tests the get product.</summary>
+        [TestMethod()]
+        public void TestGetProduct()
+        {
+            const string MEMBER_FUNCTION_NAME_GET_PRODUCT = "GetProduct";
+            for ( int i = 0; i < 10; i++ )
+            {
+                _orderItems.Add(new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING)));
+            }
+            object[] arguments = new object[] { 0 };
+            Product product = ( Product )_target.Invoke(MEMBER_FUNCTION_NAME_GET_PRODUCT, arguments);
+            Assert.AreSame(product, _orderItems[ 0 ].Product);
+            arguments = new object[] { 9 };
+            product = ( Product )_target.Invoke(MEMBER_FUNCTION_NAME_GET_PRODUCT, arguments);
+            Assert.AreSame(product, _orderItems[ 9 ].Product);
+            arguments = new object[] { -1 };
+            int exceptionTestNumber = DUMP_INTEGER;
+            try
+            {
+                _target.Invoke(MEMBER_FUNCTION_NAME_GET_PRODUCT, arguments);
+                exceptionTestNumber++;
+            }
+            catch
+            {
+                Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
+            }
+            arguments = new object[] { 10};
+            try
+            {
+                _target.Invoke(MEMBER_FUNCTION_NAME_GET_PRODUCT, arguments);
+                exceptionTestNumber++;
+            }
+            catch
+            {
+                Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
+            }
+        }
+
         /// <summary>Tests the get order items count.</summary>
         [TestMethod()]
         public void TestGetOrderItemsCount()
