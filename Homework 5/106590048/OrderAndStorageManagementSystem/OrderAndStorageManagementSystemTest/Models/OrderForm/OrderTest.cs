@@ -95,7 +95,34 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestRemoveOrderItemAt()
         {
-            Assert.Fail();
+            for ( int i = 0; i < 10; i++ )
+            {
+                Product product = new Product(i, "product name", "product type", new Money(i), i, "product description", "product image path");
+                OrderItem orderItem = new OrderItem(product);
+                _orderItems.Add(orderItem);
+            }
+            try
+            {
+                _order.RemoveOrderItemAt(-1);
+            }
+            catch ( ArgumentException )
+            {
+                Assert.AreEqual(_orderItems.Count, 10);
+            }
+            _order.RemoveOrderItemAt(0);
+            Assert.AreEqual(_orderItems.Count, 9);
+            Assert.IsFalse(_order.IsInOrder(0));
+            try
+            {
+                _order.RemoveOrderItemAt(9);
+            }
+            catch ( ArgumentException )
+            {
+                Assert.AreEqual(_orderItems.Count, 9);
+            }
+            _order.RemoveOrderItemAt(8);
+            Assert.AreEqual(_orderItems.Count, 8);
+            Assert.IsFalse(_order.IsInOrder(9));
         }
 
         [TestMethod()]
