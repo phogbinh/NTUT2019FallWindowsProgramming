@@ -9,6 +9,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
     public class OrderTest
     {
         private const string MEMBER_VARIABLE_NAME_ORDER_ITEMS = "_orderItems";
+        private const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_ORDER = "NotifyObserverChangeOrder";
         private Order _order;
         private PrivateObject _target;
         private List<OrderItem> _orderItems;
@@ -97,6 +98,17 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             {
                 Assert.AreEqual(_orderItems.Count, 10);
             }
+        }
+
+        [TestMethod()]
+        public void TestNotifyObserverChangeOrder()
+        {
+            int count = 0;
+            _order.OrderChanged += () => count++;
+            _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_ORDER);
+            Assert.AreEqual(count, 1);
+            _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_ORDER);
+            Assert.AreEqual(count, 2);
         }
 
         [TestMethod()]
