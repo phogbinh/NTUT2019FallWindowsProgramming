@@ -37,7 +37,22 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestAddProductToOrderIfProductIsNotInOrder()
         {
-            Assert.Fail();
+            int index = 0;
+            for ( int i = -5; i < 0; i++ )
+            {
+                Product product = new Product(i, "product name", "product type", new Money(0), 0, "product description", "product image path");
+                _order.AddProductToOrderIfProductIsNotInOrder(product);
+                Assert.AreSame(_orderItems[ index ].Product, product);
+                index++;
+            }
+            Assert.AreEqual(_orderItems.Count, 5);
+            Product newProduct = new Product(-5, "new product name", "new product type", new Money(0), 0, "new product description", "product image path");
+            _order.AddProductToOrderIfProductIsNotInOrder(newProduct);
+            Assert.AreEqual(_orderItems.Count, 5);
+            newProduct = new Product(0, "new product name", "new product type", new Money(0), 0, "new product description", "product image path");
+            _order.AddProductToOrderIfProductIsNotInOrder(newProduct);
+            Assert.AreEqual(_orderItems.Count, 6);
+            Assert.AreSame(_orderItems[ 5 ].Product, newProduct);
         }
 
         [TestMethod()]
