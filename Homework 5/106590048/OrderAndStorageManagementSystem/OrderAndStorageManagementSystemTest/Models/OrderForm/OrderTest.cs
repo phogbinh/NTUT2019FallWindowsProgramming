@@ -41,9 +41,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(_order.GetTotalPrice("元"), "0 元");
             for ( int i = 0; i < 10; i++ )
             {
-                Product product = new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(500), DUMP_INTEGER, DUMP_STRING, DUMP_STRING);
-                OrderItem orderItem = new OrderItem(product);
-                _orderItems.Add(orderItem);
+                _orderItems.Add(new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(500), DUMP_INTEGER, DUMP_STRING, DUMP_STRING)));
             }
             Assert.AreEqual(_order.GetTotalPrice("元"), "5,000 元");
         }
@@ -74,9 +72,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             for ( int i = 0; i < 10; i++ )
             {
-                Product product = new Product(i, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING);
-                OrderItem orderItem = new OrderItem(product);
-                _orderItems.Add(orderItem);
+                _orderItems.Add(new OrderItem(new Product(i, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING)));
             }
             Assert.IsTrue(_order.IsInOrder(0));
             Assert.IsTrue(_order.IsInOrder(9));
@@ -89,8 +85,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             for ( int i = 0; i < 10; i++ )
             {
-                Product product = new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING);
-                OrderItem orderItem = new OrderItem(product);
+                OrderItem orderItem = new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING));
                 _order.AddOrderItem(orderItem);
                 Assert.AreSame(_orderItems[ i ], orderItem);
             }
@@ -122,9 +117,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             for ( int i = 0; i < 10; i++ )
             {
-                Product product = new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING);
-                OrderItem orderItem = new OrderItem(product);
-                _orderItems.Add(orderItem);
+                _orderItems.Add(new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING)));
             }
             try
             {
@@ -155,9 +148,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             for ( int i = 0; i < 10; i++ )
             {
-                Product product = new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING);
-                OrderItem orderItem = new OrderItem(product);
-                _orderItems.Add(orderItem);
+                _orderItems.Add(new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING)));
             }
             Assert.AreEqual(_order.GetOrderItemsCount(), 10);
         }
@@ -167,9 +158,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             for ( int i = 0; i < 10; i++ )
             {
-                Product product = new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING);
-                OrderItem orderItem = new OrderItem(product);
-                _orderItems.Add(orderItem);
+                _orderItems.Add(new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING)));
             }
             _order.ClearOrder();
             Assert.AreEqual(_orderItems.Count, 0);
