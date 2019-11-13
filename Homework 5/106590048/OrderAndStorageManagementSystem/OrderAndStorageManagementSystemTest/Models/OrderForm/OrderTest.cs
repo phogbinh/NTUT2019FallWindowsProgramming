@@ -334,9 +334,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             for ( int i = 0; i < 10; i++ )
             {
-                Product product = new Product(i, "product name", "product type", new Money(i), i, "product description", "product image path");
-                OrderItem orderItem = new OrderItem(product);
-                _orderItems.Add(orderItem);
+                _orderItems.Add(new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING)));
             }
             Assert.AreSame(_order.GetOrderItemAt(5), _orderItems[ 5 ]);
             int count = 0;
