@@ -162,6 +162,20 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.IsFalse(_orderItems.Contains(removeOrderItem));
         }
 
+        /// <summary>Tests the notify observer remove order.</summary>
+        [TestMethod()]
+        public void TestNotifyObserverRemoveOrder()
+        {
+            const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_REMOVE_ORDER = "NotifyObserverRemoveOrder";
+            int count = 0;
+            _order.OrderRemoved += (orderItemIndex, removedProduct) => count++;
+            object[] arguments = new object[] { DUMP_INTEGER, new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING) };
+            _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_REMOVE_ORDER, arguments);
+            Assert.AreEqual(count, 1);
+            _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_REMOVE_ORDER, arguments);
+            Assert.AreEqual(count, 2);
+        }
+
         /// <summary>Tests the get order items count.</summary>
         [TestMethod()]
         public void TestGetOrderItemsCount()
