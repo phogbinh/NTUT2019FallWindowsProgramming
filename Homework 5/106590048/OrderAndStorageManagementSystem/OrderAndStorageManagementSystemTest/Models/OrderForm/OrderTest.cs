@@ -148,44 +148,6 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.IsFalse(_orderItems.Contains(removeOrderItem));
         }
 
-        /// <summary>Tests the get product.</summary>
-        [TestMethod()]
-        public void TestGetProduct()
-        {
-            const string MEMBER_FUNCTION_NAME_GET_PRODUCT = "GetProduct";
-            for ( int i = 0; i < 10; i++ )
-            {
-                _orderItems.Add(new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING)));
-            }
-            object[] arguments = new object[] { 0 };
-            Product product = ( Product )_target.Invoke(MEMBER_FUNCTION_NAME_GET_PRODUCT, arguments);
-            Assert.AreSame(product, _orderItems[ 0 ].Product);
-            arguments = new object[] { 9 };
-            product = ( Product )_target.Invoke(MEMBER_FUNCTION_NAME_GET_PRODUCT, arguments);
-            Assert.AreSame(product, _orderItems[ 9 ].Product);
-            arguments = new object[] { -1 };
-            int exceptionTestNumber = DUMP_INTEGER;
-            try
-            {
-                _target.Invoke(MEMBER_FUNCTION_NAME_GET_PRODUCT, arguments);
-                exceptionTestNumber++;
-            }
-            catch
-            {
-                Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
-            }
-            arguments = new object[] { 10};
-            try
-            {
-                _target.Invoke(MEMBER_FUNCTION_NAME_GET_PRODUCT, arguments);
-                exceptionTestNumber++;
-            }
-            catch
-            {
-                Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
-            }
-        }
-
         /// <summary>Tests the get order items count.</summary>
         [TestMethod()]
         public void TestGetOrderItemsCount()
@@ -375,41 +337,6 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(count, 1);
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_ORDER_ITEM_QUANTITY, arguments);
             Assert.AreEqual(count, 2);
-        }
-
-        /// <summary>Tests the get storage quantity.</summary>
-        [TestMethod()]
-        public void TestGetStorageQuantity()
-        {
-            const string MEMBER_FUNCTION_NAME_GET_STORAGE_QUANTITY = "GetStorageQuantity";
-            for ( int i = 0; i < 10; i++ )
-            {
-                _orderItems.Add(new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), i, DUMP_STRING, DUMP_STRING)));
-            }
-            object[] arguments = new object[] { 5 };
-            int storageQuantity = ( int )_target.Invoke(MEMBER_FUNCTION_NAME_GET_STORAGE_QUANTITY, arguments);
-            Assert.AreEqual(storageQuantity, 5);
-            int exceptionTestNumber = DUMP_INTEGER;
-            try
-            {
-                arguments = new object[] { -1 };
-                storageQuantity = ( int )_target.Invoke(MEMBER_FUNCTION_NAME_GET_STORAGE_QUANTITY, arguments);
-                exceptionTestNumber++;
-            }
-            catch ( TargetInvocationException )
-            {
-                Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
-            }
-            try
-            {
-                arguments = new object[] { 10 };
-                storageQuantity = ( int )_target.Invoke(MEMBER_FUNCTION_NAME_GET_STORAGE_QUANTITY, arguments);
-                exceptionTestNumber++;
-            }
-            catch ( TargetInvocationException )
-            {
-                Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
-            }
         }
 
         /// <summary>Tests the notify observer order item quantity is exceeded storage quantity.</summary>
