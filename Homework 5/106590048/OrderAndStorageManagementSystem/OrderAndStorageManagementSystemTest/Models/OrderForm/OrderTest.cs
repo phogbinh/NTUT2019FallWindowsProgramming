@@ -185,6 +185,19 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(_orderItems.Count, 0);
         }
 
+        /// <summary>Tests the notify observer clear order.</summary>
+        [TestMethod()]
+        public void TestNotifyObserverClearOrder()
+        {
+            const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CLEAR_ORDER = "NotifyObserverClearOrder";
+            int count = 0;
+            _order.OrderCleared += () => count++;
+            _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CLEAR_ORDER);
+            Assert.AreEqual(count, 1);
+            _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CLEAR_ORDER);
+            Assert.AreEqual(count, 2);
+        }
+
         /// <summary>Tests the set order item quantity if not exceeded storage quantity and notify observer otherwise.</summary>
         [TestMethod()]
         public void TestSetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise()
