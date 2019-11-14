@@ -439,5 +439,24 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
                 Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
             }
         }
+
+        /// <summary>Tests the is in order items index range.</summary>
+        [TestMethod()]
+        public void TestIsInOrderItemsIndexRange()
+        {
+            const string MEMBER_FUNCTION_NAME_IS_IN_ORDER_ITEMS_INDEX_RANGE = "IsInOrderItemsIndexRange";
+            for ( int i = 0; i < 10; i++ )
+            {
+                _orderItems.Add(new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING)));
+            }
+            object[] arguments = new object[] { 0 };
+            Assert.IsTrue(( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_IN_ORDER_ITEMS_INDEX_RANGE, arguments));
+            arguments = new object[] { 9 };
+            Assert.IsTrue(( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_IN_ORDER_ITEMS_INDEX_RANGE, arguments));
+            arguments = new object[] { -1 };
+            Assert.IsFalse(( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_IN_ORDER_ITEMS_INDEX_RANGE, arguments));
+            arguments = new object[] { 10 };
+            Assert.IsFalse(( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_IN_ORDER_ITEMS_INDEX_RANGE, arguments));
+        }
     }
 }
