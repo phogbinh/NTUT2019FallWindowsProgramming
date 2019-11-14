@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OrderAndStorageManagementSystem.Models.Utilities;
+using OrderAndStorageManagementSystemTest;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -10,8 +11,6 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
     public class OrderTest
     {
         private const string MEMBER_VARIABLE_NAME_ORDER_ITEMS = "_orderItems";
-        private const int DUMP_INTEGER = 0;
-        private const string DUMP_STRING = "";
         private Order _order;
         private PrivateObject _target;
         private List<OrderItem> _orderItems;
@@ -40,7 +39,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(_order.GetTotalPrice("元"), "0 元");
             for ( int i = 0; i < 10; i++ )
             {
-                _orderItems.Add(new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(500), DUMP_INTEGER, DUMP_STRING, DUMP_STRING)));
+                _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(500), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
             }
             Assert.AreEqual(_order.GetTotalPrice("元"), "5,000 元");
         }
@@ -52,7 +51,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             int index = 0;
             for ( int i = -5; i < 0; i++ )
             {
-                Product product = new Product(i, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING);
+                Product product = new Product(i, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING);
                 _order.AddProductToOrderIfProductIsNotInOrder(product);
                 Assert.AreSame(_orderItems[ index ].Product, product);
                 index++;
@@ -73,7 +72,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             for ( int i = 0; i < 10; i++ )
             {
-                _orderItems.Add(new OrderItem(new Product(i, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING)));
+                _orderItems.Add(new OrderItem(new Product(i, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
             }
             Assert.IsTrue(_order.IsInOrder(0));
             Assert.IsTrue(_order.IsInOrder(9));
@@ -87,7 +86,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             for ( int i = 0; i < 10; i++ )
             {
-                OrderItem orderItem = new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING));
+                OrderItem orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
                 _order.AddOrderItem(orderItem);
                 Assert.AreSame(_orderItems[ i ], orderItem);
             }
@@ -123,7 +122,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_ADD_ORDER = "NotifyObserverAddOrder";
             int count = 0;
             _order.OrderAdded += (orderItem) => count++;
-            object[] arguments = new object[] { new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING)) };
+            object[] arguments = new object[] { new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)) };
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_ADD_ORDER, arguments);
             Assert.AreEqual(count, 1);
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_ADD_ORDER, arguments);
@@ -136,7 +135,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             for ( int i = 0; i < 10; i++ )
             {
-                _orderItems.Add(new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING)));
+                _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
             }
             try
             {
@@ -169,7 +168,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_REMOVE_ORDER = "NotifyObserverRemoveOrder";
             int count = 0;
             _order.OrderRemoved += (orderItemIndex, removedProduct) => count++;
-            object[] arguments = new object[] { DUMP_INTEGER, new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING) };
+            object[] arguments = new object[] { TestDefinition.DUMP_INTEGER, new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING) };
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_REMOVE_ORDER, arguments);
             Assert.AreEqual(count, 1);
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_REMOVE_ORDER, arguments);
@@ -182,7 +181,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             for ( int i = 0; i < 10; i++ )
             {
-                _orderItems.Add(new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING)));
+                _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
             }
             Assert.AreEqual(_order.GetOrderItemsCount(), 10);
         }
@@ -193,7 +192,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             for ( int i = 0; i < 10; i++ )
             {
-                _orderItems.Add(new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING)));
+                _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
             }
             _order.ClearOrder();
             Assert.AreEqual(_orderItems.Count, 0);
@@ -218,7 +217,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             for ( int i = 0; i < 10; i++ )
             {
-                OrderItem orderItem = new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), i, DUMP_STRING, DUMP_STRING));
+                OrderItem orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), i, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
                 orderItem.OrderQuantity = i;
                 _orderItems.Add(orderItem);
             }
@@ -236,7 +235,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             {
                 Assert.AreEqual(_orderItems[ 9 ].OrderQuantity, 9);
             }
-            int exceptionTestNumber = DUMP_INTEGER;
+            int exceptionTestNumber = TestDefinition.DUMP_INTEGER;
             try
             {
                 _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(-1, 0);
@@ -244,7 +243,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             }
             catch ( ArgumentException )
             {
-                Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
+                Assert.AreEqual(exceptionTestNumber, TestDefinition.DUMP_INTEGER);
             }
         }
 
@@ -255,7 +254,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             const string MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY = "IsExceededStorageQuantity";
             for ( int i = 0; i < 10; i++ )
             {
-                _orderItems.Add(new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), 10, DUMP_STRING, DUMP_STRING)));
+                _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), 10, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
             }
             object[] arguments = new object[] { 0, 10 };
             bool isExceededStorageQuantity = ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments);
@@ -264,7 +263,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             isExceededStorageQuantity = ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments);
             Assert.IsTrue(isExceededStorageQuantity);
             arguments = new object[] { -1, 6 };
-            int exceptionTestNumber = DUMP_INTEGER;
+            int exceptionTestNumber = TestDefinition.DUMP_INTEGER;
             try
             {
                 isExceededStorageQuantity = ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments);
@@ -272,7 +271,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             }
             catch ( TargetInvocationException )
             {
-                Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
+                Assert.AreEqual(exceptionTestNumber, TestDefinition.DUMP_INTEGER);
             }
             arguments = new object[] { 10, 2 };
             try
@@ -282,7 +281,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             }
             catch ( TargetInvocationException )
             {
-                Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
+                Assert.AreEqual(exceptionTestNumber, TestDefinition.DUMP_INTEGER);
             }
         }
 
@@ -293,7 +292,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             const string MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY = "SetOrderItemQuantity";
             for ( int i = 0; i < 10; i++ )
             {
-                OrderItem orderItem = new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING));
+                OrderItem orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
                 orderItem.OrderQuantity = 3;
                 _orderItems.Add(orderItem);
             }
@@ -304,7 +303,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             _target.Invoke(MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY, arguments);
             Assert.AreEqual(_orderItems[ 9 ].OrderQuantity, 3);
             arguments = new object[] { -1, 5 };
-            int exceptionTestNumber = DUMP_INTEGER;
+            int exceptionTestNumber = TestDefinition.DUMP_INTEGER;
             try
             {
                 _target.Invoke(MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY, arguments);
@@ -312,7 +311,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             }
             catch ( TargetInvocationException )
             {
-                Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
+                Assert.AreEqual(exceptionTestNumber, TestDefinition.DUMP_INTEGER);
             }
             arguments = new object[] { 10, 5 };
             try
@@ -322,7 +321,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             }
             catch ( TargetInvocationException )
             {
-                Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
+                Assert.AreEqual(exceptionTestNumber, TestDefinition.DUMP_INTEGER);
             }
         }
 
@@ -333,7 +332,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             const string MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE = "GetOrderItemTotalPrice";
             for ( int i = 0; i < 10; i++ )
             {
-                OrderItem orderItem = new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(3000), DUMP_INTEGER, DUMP_STRING, DUMP_STRING));
+                OrderItem orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(3000), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
                 orderItem.OrderQuantity = i;
                 _orderItems.Add(orderItem);
             }
@@ -344,7 +343,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             orderItemTotalPrice = ( string )_target.Invoke(MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE, arguments);
             Assert.AreEqual(orderItemTotalPrice, "27,000");
             arguments = new object[] { -1 };
-            int exceptionTestNumber = DUMP_INTEGER;
+            int exceptionTestNumber = TestDefinition.DUMP_INTEGER;
             try
             {
                 _target.Invoke(MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE, arguments);
@@ -352,7 +351,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             }
             catch ( TargetInvocationException )
             {
-                Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
+                Assert.AreEqual(exceptionTestNumber, TestDefinition.DUMP_INTEGER);
             }
             arguments = new object[] { 10 };
             try
@@ -362,7 +361,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             }
             catch ( TargetInvocationException )
             {
-                Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
+                Assert.AreEqual(exceptionTestNumber, TestDefinition.DUMP_INTEGER);
             }
         }
 
@@ -373,7 +372,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_ORDER_ITEM_QUANTITY = "NotifyObserverChangeOrderItemQuantity";
             int count = 0;
             _order.OrderItemQuantityChanged += (orderItemIndex, orderItemTotalPrice) => count++;
-            object[] arguments = new object[] { DUMP_INTEGER, DUMP_STRING };
+            object[] arguments = new object[] { TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING };
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_ORDER_ITEM_QUANTITY, arguments);
             Assert.AreEqual(count, 1);
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_ORDER_ITEM_QUANTITY, arguments);
@@ -387,7 +386,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY = "NotifyObserverOrderItemQuantityIsExceededStorageQuantity";
             int count = 0;
             _order.OrderItemQuantityIsExceededStorageQuantity += (orderItemIndex, orderItemStorageQuantity) => count++;
-            object[] arguments = new object[] { DUMP_INTEGER, DUMP_INTEGER };
+            object[] arguments = new object[] { TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_INTEGER };
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY, arguments);
             Assert.AreEqual(count, 1);
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY, arguments);
@@ -400,7 +399,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             for ( int i = 0; i < 10; i++ )
             {
-                OrderItem orderItem = new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING));
+                OrderItem orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
                 orderItem.OrderQuantity = i + 10;
                 _orderItems.Add(orderItem);
             }
@@ -425,10 +424,10 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             for ( int i = 0; i < 10; i++ )
             {
-                _orderItems.Add(new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING)));
+                _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
             }
             Assert.AreSame(_order.GetOrderItemAt(5), _orderItems[ 5 ]);
-            int exceptionTestNumber = DUMP_INTEGER;
+            int exceptionTestNumber = TestDefinition.DUMP_INTEGER;
             try
             {
                 _order.GetOrderItemAt(-1);
@@ -436,7 +435,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             }
             catch ( ArgumentException )
             {
-                Assert.AreEqual(exceptionTestNumber, DUMP_INTEGER);
+                Assert.AreEqual(exceptionTestNumber, TestDefinition.DUMP_INTEGER);
             }
         }
 
@@ -447,7 +446,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             const string MEMBER_FUNCTION_NAME_IS_IN_ORDER_ITEMS_INDEX_RANGE = "IsInOrderItemsIndexRange";
             for ( int i = 0; i < 10; i++ )
             {
-                _orderItems.Add(new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING)));
+                _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
             }
             object[] arguments = new object[] { 0 };
             Assert.IsTrue(( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_IN_ORDER_ITEMS_INDEX_RANGE, arguments));
