@@ -96,14 +96,6 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
                 throw new ArgumentException(ERROR_ORDER_ITEM_IS_NULL);
             }
             _orderItems.Add(orderItem);
-            NotifyObserverChangeOrderAndAddOrder(orderItem);
-        }
-
-        /// <summary>
-        /// Notify observer change order and add order.
-        /// </summary>
-        private void NotifyObserverChangeOrderAndAddOrder(OrderItem orderItem)
-        {
             NotifyObserverChangeOrder();
             NotifyObserverAddOrder(orderItem);
         }
