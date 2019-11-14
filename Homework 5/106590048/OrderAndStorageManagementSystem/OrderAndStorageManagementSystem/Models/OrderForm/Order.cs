@@ -11,7 +11,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         public delegate void OrderAddedEventHandler(OrderItem orderItem);
         public delegate void OrderRemovedEventHandler(int orderItemIndex, Product removedProduct);
         public delegate void OrderItemQuantityChangedEventHandler(int orderItemIndex, string orderItemTotalPrice);
-        public delegate void OrderItemQuantityIsExceededStorageQuantityEventHandler(int orderItemIndex, int storageQuantity);
+        public delegate void OrderItemQuantityIsExceededStorageQuantityEventHandler(int orderItemIndex, int orderItemStorageQuantity);
         public OrderChangedEventHandler OrderChanged
         {
             get; set;
@@ -252,11 +252,11 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         /// <summary>
         /// Notify observer order quantity of order item is exceeded its storage quantity.
         /// </summary>
-        private void NotifyObserverOrderItemQuantityIsExceededStorageQuantity(int orderItemIndex, int storageQuantity)
+        private void NotifyObserverOrderItemQuantityIsExceededStorageQuantity(int orderItemIndex, int orderItemStorageQuantity)
         {
             if ( OrderItemQuantityIsExceededStorageQuantity != null )
             {
-                OrderItemQuantityIsExceededStorageQuantity(orderItemIndex, storageQuantity);
+                OrderItemQuantityIsExceededStorageQuantity(orderItemIndex, orderItemStorageQuantity);
             }
         }
 
