@@ -178,14 +178,6 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         public void ClearOrder()
         {
             _orderItems.Clear();
-            NotifyObserverChangeOrderAndClearOrder();
-        }
-
-        /// <summary>
-        /// Notify observer change order and clear order.
-        /// </summary>
-        private void NotifyObserverChangeOrderAndClearOrder()
-        {
             NotifyObserverChangeOrder();
             NotifyObserverClearOrder();
         }
