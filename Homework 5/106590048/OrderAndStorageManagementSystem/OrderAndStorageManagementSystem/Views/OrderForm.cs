@@ -126,10 +126,10 @@ namespace OrderAndStorageManagementSystem.Views
         /// <summary>
         /// Show MessageBox and set order item quantity to its storage quantity on order quantity of order item is exceeded its storage quantity.
         /// </summary>
-        private void ShowMessageBoxAndSetOrderItemQuantityToStorageQuantityOnOrderItemQuantityIsExceededStorageQuantity(int orderItemIndex, int storageQuantity)
+        private void ShowMessageBoxAndSetOrderItemQuantityToStorageQuantityOnOrderItemQuantityIsExceededStorageQuantity(int orderItemIndex, int orderItemStorageQuantity)
         {
             MessageBox.Show(this, ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY_MESSAGE, ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY_TITLE);
-            _cartDataGridView.Rows[ orderItemIndex ].Cells[ CART_PRODUCT_QUANTITY_COLUMN_INDEX ].Value = storageQuantity;
+            _cartDataGridView.Rows[ orderItemIndex ].Cells[ CART_PRODUCT_QUANTITY_COLUMN_INDEX ].Value = orderItemStorageQuantity;
         }
 
         /// <summary>
