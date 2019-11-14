@@ -141,16 +141,8 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             }
             Product removeProduct = _orderItems[ orderItemIndex ].Product;
             _orderItems.RemoveAt(orderItemIndex);
-            NotifyObserverChangeOrderAndRemoveOrder(orderItemIndex, removeProduct);
-        }
-
-        /// <summary>
-        /// Notify observer change order and remove order.
-        /// </summary>
-        private void NotifyObserverChangeOrderAndRemoveOrder(int orderItemIndex, Product removedProduct)
-        {
             NotifyObserverChangeOrder();
-            NotifyObserverRemoveOrder(orderItemIndex, removedProduct);
+            NotifyObserverRemoveOrder(orderItemIndex, removeProduct);
         }
 
         /// <summary>
