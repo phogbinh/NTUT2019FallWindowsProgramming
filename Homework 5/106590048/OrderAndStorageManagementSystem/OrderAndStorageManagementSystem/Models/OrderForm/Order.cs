@@ -220,7 +220,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             }
             else
             {
-                NotifyObserverOrderItemQuantityIsExceededStorageQuantity(orderItemIndex, GetStorageQuantity(orderItemIndex));
+                NotifyObserverOrderItemQuantityIsExceededStorageQuantity(orderItemIndex, _orderItems[ orderItemIndex ].StorageQuantity);
             }
         }
 
@@ -279,18 +279,6 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             {
                 OrderItemQuantityChanged(orderItemIndex, orderItemTotalPrice);
             }
-        }
-
-        /// <summary>
-        /// Get the storage quantity of the order item at orderItemIndex.
-        /// </summary>
-        private int GetStorageQuantity(int orderItemIndex)
-        {
-            if ( !IsInOrderItemsIndexRange(orderItemIndex) )
-            {
-                throw new ArgumentException(ERROR_ORDER_ITEM_INDEX_IS_OUT_OF_RANGE);
-            }
-            return _orderItems[ orderItemIndex ].StorageQuantity;
         }
 
         /// <summary>
