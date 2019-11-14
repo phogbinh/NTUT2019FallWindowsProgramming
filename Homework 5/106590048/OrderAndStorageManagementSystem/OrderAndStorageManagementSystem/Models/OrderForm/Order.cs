@@ -139,21 +139,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             {
                 throw new ArgumentException(ERROR_ORDER_ITEM_INDEX_IS_OUT_OF_RANGE);
             }
-            Product removeProduct = GetProduct(orderItemIndex);
+            Product removeProduct = _orderItems[ orderItemIndex ].Product;
             _orderItems.RemoveAt(orderItemIndex);
             NotifyObserverChangeOrderAndRemoveOrder(orderItemIndex, removeProduct);
-        }
-
-        /// <summary>
-        /// Get the corresponding product of the order item at orderItemIndex.
-        /// </summary>
-        private Product GetProduct(int orderItemIndex)
-        {
-            if ( !IsInOrderItemsIndexRange(orderItemIndex) )
-            {
-                throw new ArgumentException(ERROR_ORDER_ITEM_INDEX_IS_OUT_OF_RANGE);
-            }
-            return _orderItems[ orderItemIndex ].Product;
         }
 
         /// <summary>
