@@ -246,7 +246,8 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
                 throw new ArgumentException(ERROR_ORDER_ITEM_INDEX_IS_OUT_OF_RANGE);
             }
             _orderItems[ orderItemIndex ].OrderQuantity = newOrderQuantity;
-            NotifyObserverChangeOrderAndChangeOrderItemQuantity(orderItemIndex, GetOrderItemTotalPrice(orderItemIndex));
+            NotifyObserverChangeOrder();
+            NotifyObserverChangeOrderItemQuantity(orderItemIndex, GetOrderItemTotalPrice(orderItemIndex));
         }
 
         /// <summary>
@@ -259,15 +260,6 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
                 throw new ArgumentException(ERROR_ORDER_ITEM_INDEX_IS_OUT_OF_RANGE);
             }
             return _orderItems[ orderItemIndex ].GetTotalPrice().GetCurrencyFormat();
-        }
-
-        /// <summary>
-        /// Notify observer change order and change order item quantity.
-        /// </summary>
-        private void NotifyObserverChangeOrderAndChangeOrderItemQuantity(int orderItemIndex, string orderItemTotalPrice)
-        {
-            NotifyObserverChangeOrder();
-            NotifyObserverChangeOrderItemQuantity(orderItemIndex, orderItemTotalPrice);
         }
 
         /// <summary>
