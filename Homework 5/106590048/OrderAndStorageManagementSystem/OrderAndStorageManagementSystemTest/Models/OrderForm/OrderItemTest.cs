@@ -19,10 +19,12 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             _target = new PrivateObject(_orderItem);
         }
 
+        /// <summary>Tests the order item.</summary>
         [TestMethod()]
         public void TestOrderItem()
         {
-            Assert.Fail();
+            Assert.IsNotNull(_orderItem.Product);
+            Assert.AreEqual(_orderItem.OrderQuantity, 1);
         }
     }
 }
