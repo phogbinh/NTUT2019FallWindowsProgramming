@@ -1,16 +1,24 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OrderAndStorageManagementSystem.Models.OrderForm;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OrderAndStorageManagementSystem.Models.Utilities;
+using OrderAndStorageManagementSystemTest;
 
 namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
 {
     [TestClass()]
     public class OrderItemTest
     {
+        private OrderItem _orderItem;
+        private PrivateObject _target;
+
+        /// <summary>Initializes this instance.</summary>
+        [TestInitialize()]
+        [DeploymentItem("OrderAndStorageManagementSystem.exe")]
+        public void Initialize()
+        {
+            _orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
+            _target = new PrivateObject(_orderItem);
+        }
+
         [TestMethod()]
         public void TestOrderItem()
         {
