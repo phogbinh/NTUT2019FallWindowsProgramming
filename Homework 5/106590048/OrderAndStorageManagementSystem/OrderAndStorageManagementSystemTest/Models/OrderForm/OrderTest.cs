@@ -116,6 +116,20 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(count, 2);
         }
 
+        /// <summary>Tests the notify observer add order.</summary>
+        [TestMethod()]
+        public void TestNotifyObserverAddOrder()
+        {
+            const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_ADD_ORDER = "NotifyObserverAddOrder";
+            int count = 0;
+            _order.OrderAdded += (orderItem) => count++;
+            object[] arguments = new object[] { new OrderItem(new Product(DUMP_INTEGER, DUMP_STRING, DUMP_STRING, new Money(DUMP_INTEGER), DUMP_INTEGER, DUMP_STRING, DUMP_STRING)) };
+            _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_ADD_ORDER, arguments);
+            Assert.AreEqual(count, 1);
+            _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_ADD_ORDER, arguments);
+            Assert.AreEqual(count, 2);
+        }
+
         /// <summary>Tests the remove order item at.</summary>
         [TestMethod()]
         public void TestRemoveOrderItemAt()
