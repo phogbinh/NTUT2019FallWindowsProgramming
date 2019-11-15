@@ -90,12 +90,8 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         public Product(int idData, string nameData, string typeData, Money priceData, int storageQuantityData, string descriptionData, string imagePathData)
         {
             _id = idData;
-            this.Name = nameData;
-            this.Type = typeData;
-            this.Price = priceData;
             _storageQuantity = storageQuantityData;
-            this.Description = descriptionData;
-            this.ImagePath = imagePathData;
+            _productInfo = new ProductInfo(nameData, typeData, priceData, descriptionData, imagePathData);
         }
 
         public Product(int idData, string nameData, string typeData, Money priceData, int storageQuantityData, string descriptionData)
