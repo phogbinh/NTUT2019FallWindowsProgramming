@@ -295,11 +295,11 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         }
 
         /// <summary>
-        /// Return true if orderItemIndex is in the order items index range.
+        /// Return true if the index is in the order items index range.
         /// </summary>
-        private bool IsInOrderItemsIndexRange(int orderItemIndex)
+        private bool IsInOrderItemsIndexRange(int index)
         {
-            return AppDefinition.IsInIntervalRange(orderItemIndex, 0, _orderItems.Count - 1);
+            return AppDefinition.IsInIntervalRange(index, 0, _orderItems.Count - 1);
         }
     }
 }
