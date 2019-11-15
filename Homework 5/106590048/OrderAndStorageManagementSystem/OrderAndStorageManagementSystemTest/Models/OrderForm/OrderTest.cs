@@ -164,7 +164,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             {
                 _order.RemoveOrderItemAt(-1);
             }
-            catch ( ArgumentException )
+            catch ( ArgumentOutOfRangeException )
             {
                 Assert.AreEqual(_orderItems.Count, 10);
             }
@@ -175,7 +175,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             {
                 _order.RemoveOrderItemAt(9);
             }
-            catch ( ArgumentException )
+            catch ( ArgumentOutOfRangeException )
             {
                 Assert.AreEqual(_orderItems.Count, 9);
             }
