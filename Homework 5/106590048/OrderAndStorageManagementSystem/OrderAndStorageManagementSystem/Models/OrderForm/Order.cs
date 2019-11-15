@@ -186,10 +186,6 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             {
                 throw new ArgumentException(ERROR_ORDER_ITEM_INDEX_IS_OUT_OF_RANGE);
             }
-            if ( newCartProductQuantity < 0 )
-            {
-                throw new ArgumentException(ERROR_NEW_CART_PRODUCT_QUANTITY_IS_NEGATIVE);
-            }
             if ( !IsExceededStorageQuantity(orderItemIndex, newCartProductQuantity) )
             {
                 SetOrderItemQuantity(orderItemIndex, newCartProductQuantity);
