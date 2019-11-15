@@ -163,10 +163,11 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             try
             {
                 _order.RemoveOrderItemAt(-1);
+                _isExceptionThrown = false;
             }
             catch ( ArgumentOutOfRangeException )
             {
-                Assert.AreEqual(_orderItems.Count, 10);
+                Assert.IsTrue(_isExceptionThrown);
             }
             OrderItem removeOrderItem = _orderItems[ 0 ];
             _order.RemoveOrderItemAt(0);
@@ -174,10 +175,11 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             try
             {
                 _order.RemoveOrderItemAt(9);
+                _isExceptionThrown = false;
             }
             catch ( ArgumentOutOfRangeException )
             {
-                Assert.AreEqual(_orderItems.Count, 9);
+                Assert.IsTrue(_isExceptionThrown);
             }
             removeOrderItem = _orderItems[ 8 ];
             _order.RemoveOrderItemAt(8);
