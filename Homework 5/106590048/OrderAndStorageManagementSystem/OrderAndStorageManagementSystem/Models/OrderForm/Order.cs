@@ -134,7 +134,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         {
             if ( !IsInOrderItemsIndexRange(orderItemIndex) )
             {
-                throw new ArgumentException(ERROR_ORDER_ITEM_INDEX_IS_OUT_OF_RANGE);
+                throw new ArgumentOutOfRangeException(ERROR_ORDER_ITEM_INDEX_IS_OUT_OF_RANGE);
             }
             Product removeProduct = _orderItems[ orderItemIndex ].Product;
             _orderItems.RemoveAt(orderItemIndex);
