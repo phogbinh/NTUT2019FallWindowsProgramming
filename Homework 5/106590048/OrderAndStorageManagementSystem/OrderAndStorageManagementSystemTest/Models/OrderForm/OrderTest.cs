@@ -229,7 +229,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(_orderItems[ 6 ].OrderQuantity, 0);
             try
             {
-                _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(9, -1);
+                _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(9, 3);
             }
             catch ( ArgumentException )
             {
