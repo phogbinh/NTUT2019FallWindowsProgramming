@@ -171,7 +171,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             }
             try
             {
-                _order.RemoveOrderItemAt(9);
+                _order.RemoveOrderItemAt(10);
                 _isExceptionThrown = false;
             }
             catch ( ArgumentOutOfRangeException )
