@@ -204,11 +204,12 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestGetOrderItemsCount()
         {
-            for ( int i = 0; i < 10; i++ )
+            Assert.AreEqual(_order.GetOrderItemsCount(), 0);
+            for ( int i = 0; i < 5; i++ )
             {
                 _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
             }
-            Assert.AreEqual(_order.GetOrderItemsCount(), 10);
+            Assert.AreEqual(_order.GetOrderItemsCount(), 5);
         }
 
         /// <summary>Tests the clear order.</summary>
