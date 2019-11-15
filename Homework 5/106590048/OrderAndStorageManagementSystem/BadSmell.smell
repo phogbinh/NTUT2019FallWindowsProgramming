@@ -261,6 +261,11 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>Models\Utilities\ProductInfo.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>Models\Utilities\ProductsAndProductTypesManager.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
@@ -491,6 +496,11 @@
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>Models\OrderForm\OrderItemTest.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystemTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>Models\OrderForm\OrderTest.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystemTest</ProjectName>
                 <AnalysisFileType>Test</AnalysisFileType>
@@ -500,10 +510,15 @@
                 <ProjectName>OrderAndStorageManagementSystemTest</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>TestDefinition.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystemTest</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>5929</ProductionLoc>
-          <TestLoc>1974</TestLoc>
+          <ProductionLoc>6011</ProductionLoc>
+          <TestLoc>2008</TestLoc>
         </CodeReview>
       </Data>
     </div>
