@@ -16,33 +16,33 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         {
             get
             {
-                return _name;
+                return _productInfo.Name;
             }
             set
             {
-                _name = value;
+                _productInfo.Name = value;
             }
         }
         public string Type
         {
             get
             {
-                return _type;
+                return _productInfo.Type;
             }
             set
             {
-                _type = value;
+                _productInfo.Type = value;
             }
         }
         public Money Price
         {
             get
             {
-                return _price;
+                return _productInfo.Price;
             }
             set
             {
-                _price = value;
+                _productInfo.Price = value;
             }
         }
         public int StorageQuantity
@@ -64,33 +64,28 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         {
             get
             {
-                return _description;
+                return _productInfo.Description;
             }
             set
             {
-                _description = value;
+                _productInfo.Description = value;
             }
         }
         public string ImagePath
         {
             get
             {
-                return _imagePath;
+                return _productInfo.ImagePath;
             }
             set
             {
-                _imagePath = value;
+                _productInfo.ImagePath = value;
             }
         }
         private const string ERROR_PRODUCT_STORAGE_QUANTITY_IS_NEGATIVE = "Product storage quantity cannot be set to negative.";
         private int _id;
-        private string _name;
-        private string _type;
-        private Money _price;
         private int _storageQuantity;
-        private string _description;
-        private string _imagePath;
-        private ProductInfo _productInfo;
+        private ProductInfo _productInfo = new ProductInfo("", "", "0", "", "");
 
         public Product(int idData, string nameData, string typeData, Money priceData, int storageQuantityData, string descriptionData, string imagePathData)
         {
