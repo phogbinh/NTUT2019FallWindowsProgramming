@@ -87,7 +87,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void UpdateCartSectionViewOnOrderChanged()
         {
-            _cartTotalPrice.Text = AppDefinition.CART_TOTAL_PRICE_TEXT + _model.GetOrderTotalPrice();
+            UpdateCartTotalPriceView();
             _orderButton.Enabled = _model.GetOrderItemsCount() != 0;
         }
 
@@ -146,6 +146,13 @@ namespace OrderAndStorageManagementSystem.Views
                 _cartDataGridView.Rows[ rowIndex ].Cells[ CART_PRODUCT_PRICE_COLUMN_INDEX ].Value = orderItem.Price.GetCurrencyFormat();
                 _cartDataGridView.Rows[ rowIndex ].Cells[ CART_PRODUCT_TOTAL_PRICE_COLUMN_INDEX ].Value = orderItem.GetTotalPrice().GetCurrencyFormat();
             }
+            UpdateCartTotalPriceView();
+        }
+
+
+        /// <summary>Updates the cart total price view.</summary>
+        private void UpdateCartTotalPriceView()
+        {
             _cartTotalPrice.Text = AppDefinition.CART_TOTAL_PRICE_TEXT + _model.GetOrderTotalPrice();
         }
 
