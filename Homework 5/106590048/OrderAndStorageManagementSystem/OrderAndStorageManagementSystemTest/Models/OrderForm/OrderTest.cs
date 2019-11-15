@@ -88,14 +88,17 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestIsInOrder()
         {
-            for ( int i = 0; i < 10; i++ )
-            {
-                _orderItems.Add(new OrderItem(new Product(i, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
-            }
+            _orderItems.Add(new OrderItem(new Product(-2, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
+            _orderItems.Add(new OrderItem(new Product(0, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
+            _orderItems.Add(new OrderItem(new Product(1, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
+            _orderItems.Add(new OrderItem(new Product(20, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
+            Assert.IsTrue(_order.IsInOrder(-2));
             Assert.IsTrue(_order.IsInOrder(0));
-            Assert.IsTrue(_order.IsInOrder(9));
+            Assert.IsTrue(_order.IsInOrder(1));
+            Assert.IsTrue(_order.IsInOrder(20));
+            Assert.IsFalse(_order.IsInOrder(-3));
             Assert.IsFalse(_order.IsInOrder(-1));
-            Assert.IsFalse(_order.IsInOrder(10));
+            Assert.IsFalse(_order.IsInOrder(5));
         }
 
         /// <summary>Tests the add order item.</summary>
