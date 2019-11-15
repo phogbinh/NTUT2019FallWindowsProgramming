@@ -40,6 +40,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         private const string ERROR_ORDER_ITEM_IS_NULL = "The given order item is null.";
         private const string ERROR_ORDER_ITEM_INDEX_IS_OUT_OF_RANGE = "The given order item index is out of range.";
         private const string ERROR_NEW_CART_PRODUCT_QUANTITY_IS_NEGATIVE = "The given new cart product quantity is negative.";
+        private const string ERROR_PRODUCT_IS_NULL = "The given product is null.";
         private List<OrderItem> _orderItems;
 
         public Order()
@@ -65,6 +66,10 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         /// </summary>
         public void AddProductToOrderIfProductIsNotInOrder(Product product)
         {
+            if ( product == null )
+            {
+                throw new ArgumentNullException(ERROR_PRODUCT_IS_NULL);
+            }
             if ( !IsInOrder(product.Id) )
             {
                 AddOrderItem(new OrderItem(product));
