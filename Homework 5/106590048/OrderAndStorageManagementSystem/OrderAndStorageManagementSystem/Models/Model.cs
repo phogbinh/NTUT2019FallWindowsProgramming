@@ -240,11 +240,11 @@ namespace OrderAndStorageManagementSystem.Models
         }
 
         /// <summary>
-        /// Update product info according to the new product data.
+        /// Update the product info.
         /// </summary>
-        public void UpdateProductInfo(Product product, Product newProductData)
+        public void UpdateProductInfo(Product product, ProductInfo newProductInfo)
         {
-            _productsManager.UpdateProductInfo(product, newProductData);
+            _productsManager.UpdateProductInfo(product, newProductInfo);
         }
 
         /// <summary>
@@ -258,9 +258,9 @@ namespace OrderAndStorageManagementSystem.Models
         /// <summary>
         /// Add a new product.
         /// </summary>
-        public void AddProduct(Product newProductData)
+        public void AddProduct(ProductInfo newProductInfo)
         {
-            _productsManager.AddProduct(newProductData);
+            _productsManager.AddProduct(newProductInfo);
         }
     }
 }

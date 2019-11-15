@@ -113,16 +113,16 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// <summary>
         /// Click save button.
         /// </summary>
-        public void ClickSaveButton(Product newProductData)
+        public void ClickSaveButton(ProductInfo newProductInfo)
         {
             if ( _state == State.EditProduct )
             {
-                _model.UpdateProductInfo(_currentSelectedProduct, newProductData);
+                _model.UpdateProductInfo(_currentSelectedProduct, newProductInfo);
                 SetIsEditedProductInfo(false);
             }
             else
             {
-                _model.AddProduct(newProductData);
+                _model.AddProduct(newProductInfo);
             }
         }
 

@@ -84,15 +84,15 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         }
 
         /// <summary>
-        /// Update product info according to the new product data.
+        /// Update the product info.
         /// </summary>
-        public void UpdateProductInfo(Product product, Product newProductData)
+        public void UpdateProductInfo(Product product, ProductInfo newProductInfo)
         {
-            product.Name = newProductData.Name;
-            product.Type = newProductData.Type;
-            product.Price = newProductData.Price;
-            product.Description = newProductData.Description;
-            product.ImagePath = newProductData.ImagePath;
+            product.Name = newProductInfo.Name;
+            product.Type = newProductInfo.Type;
+            product.Price = newProductInfo.Price;
+            product.Description = newProductInfo.Description;
+            product.ImagePath = newProductInfo.ImagePath;
             NotifyObserverChangeProductInfo(product);
         }
 
@@ -110,9 +110,9 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// <summary>
         /// Add a new product.
         /// </summary>
-        public void AddProduct(Product newProductData)
+        public void AddProduct(ProductInfo newProductInfo)
         {
-            var product = new Product(_products.Count + 1, newProductData.Name, newProductData.Type, newProductData.Price, 0, newProductData.Description, newProductData.ImagePath);
+            var product = new Product(_products.Count + 1, newProductInfo.Name, newProductInfo.Type, newProductInfo.Price, 0, newProductInfo.Description, newProductInfo.ImagePath);
             _products.Add(product);
             NotifyObserverAddProduct(product);
         }

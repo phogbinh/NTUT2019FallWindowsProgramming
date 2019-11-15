@@ -109,15 +109,6 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             this.ImagePath = Directory.GetCurrentDirectory() + AppDefinition.RELATIVE_PATH_FROM_APPLICATION_BINARY_DIRECTORY_TO_RESOURCES_FOLDER + AppDefinition.APP_DATA_BASE_PRODUCTS_TABLE_IMAGE_NAME + _id.ToString() + AppDefinition.FILE_NAME_EXTENSION_JOINT_PHOTOGRAPHIC_GROUP;
         }
 
-        public Product(string nameData, string typeData, string priceData, string descriptionData, string imagePathData)
-        {
-            this.Name = nameData;
-            this.Type = typeData;
-            this.Price = new Money(int.Parse(priceData));
-            this.Description = descriptionData;
-            this.ImagePath = imagePathData;
-        }
-
         /// <summary>
         /// Get product name and description.
         /// </summary>
