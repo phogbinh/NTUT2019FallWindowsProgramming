@@ -97,12 +97,9 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         public Product(int idData, string nameData, string typeData, Money priceData, int storageQuantityData, string descriptionData)
         {
             _id = idData;
-            this.Name = nameData;
-            this.Type = typeData;
-            this.Price = priceData;
             _storageQuantity = storageQuantityData;
-            this.Description = descriptionData;
-            this.ImagePath = Directory.GetCurrentDirectory() + AppDefinition.RELATIVE_PATH_FROM_APPLICATION_BINARY_DIRECTORY_TO_RESOURCES_FOLDER + AppDefinition.APP_DATA_BASE_PRODUCTS_TABLE_IMAGE_NAME + _id.ToString() + AppDefinition.FILE_NAME_EXTENSION_JOINT_PHOTOGRAPHIC_GROUP;
+            string defaultImagePath = Directory.GetCurrentDirectory() + AppDefinition.RELATIVE_PATH_FROM_APPLICATION_BINARY_DIRECTORY_TO_RESOURCES_FOLDER + AppDefinition.APP_DATA_BASE_PRODUCTS_TABLE_IMAGE_NAME + _id.ToString() + AppDefinition.FILE_NAME_EXTENSION_JOINT_PHOTOGRAPHIC_GROUP;
+            _productInfo = new ProductInfo(nameData, typeData, priceData, descriptionData, defaultImagePath);
         }
 
         /// <summary>
