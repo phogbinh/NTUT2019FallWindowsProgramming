@@ -105,21 +105,23 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestAddOrderItem()
         {
-            for ( int i = 0; i < 10; i++ )
-            {
-                OrderItem orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
-                _order.AddOrderItem(orderItem);
-                Assert.AreSame(_orderItems[ i ], orderItem);
-            }
-            Assert.AreEqual(_orderItems.Count, 10);
-            OrderItem nullOrderItem = null;
+            OrderItem orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
+            _order.AddOrderItem(orderItem);
+            Assert.AreEqual(_orderItems.Count, 1);
+            Assert.AreSame(_orderItems[ 0 ], orderItem);
+            orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
+            _order.AddOrderItem(orderItem);
+            Assert.AreEqual(_orderItems.Count, 2);
+            Assert.AreSame(_orderItems[ 1 ], orderItem);
+            bool isExceptionThrown = true;
             try
             {
-                _order.AddOrderItem(nullOrderItem);
+                _order.AddOrderItem(null);
+                isExceptionThrown = false;
             }
-            catch ( ArgumentException )
+            catch ( ArgumentNullException )
             {
-                Assert.AreEqual(_orderItems.Count, 10);
+                Assert.IsTrue(isExceptionThrown);
             }
         }
 
