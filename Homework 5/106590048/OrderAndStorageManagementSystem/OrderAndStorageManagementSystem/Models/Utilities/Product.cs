@@ -12,6 +12,21 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
                 return _id;
             }
         }
+        public int StorageQuantity
+        {
+            get
+            {
+                return _storageQuantity;
+            }
+            set
+            {
+                if ( value < 0 )
+                {
+                    throw new ArgumentException(ERROR_PRODUCT_STORAGE_QUANTITY_IS_NEGATIVE);
+                }
+                _storageQuantity = value;
+            }
+        }
         public string Name
         {
             get
@@ -43,21 +58,6 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             set
             {
                 _productInfo.Price = value;
-            }
-        }
-        public int StorageQuantity
-        {
-            get
-            {
-                return _storageQuantity;
-            }
-            set
-            {
-                if ( value < 0 )
-                {
-                    throw new ArgumentException(ERROR_PRODUCT_STORAGE_QUANTITY_IS_NEGATIVE);
-                }
-                _storageQuantity = value;
             }
         }
         public string Description
