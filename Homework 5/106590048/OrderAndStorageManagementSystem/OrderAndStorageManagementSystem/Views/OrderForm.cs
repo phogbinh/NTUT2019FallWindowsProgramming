@@ -149,7 +149,6 @@ namespace OrderAndStorageManagementSystem.Views
             UpdateCartTotalPriceView();
         }
 
-
         /// <summary>Updates the cart total price view.</summary>
         private void UpdateCartTotalPriceView()
         {
