@@ -90,6 +90,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         private int _storageQuantity;
         private string _description;
         private string _imagePath;
+        private ProductInfo _productInfo;
 
         public Product(int idData, string nameData, string typeData, Money priceData, int storageQuantityData, string descriptionData, string imagePathData)
         {
