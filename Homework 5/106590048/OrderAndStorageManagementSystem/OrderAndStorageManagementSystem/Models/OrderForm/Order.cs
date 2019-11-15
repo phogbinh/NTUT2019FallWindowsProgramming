@@ -98,7 +98,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         {
             if ( orderItem == null )
             {
-                throw new ArgumentException(ERROR_ORDER_ITEM_IS_NULL);
+                throw new ArgumentNullException(ERROR_ORDER_ITEM_IS_NULL);
             }
             _orderItems.Add(orderItem);
             NotifyObserverChangeOrder();
