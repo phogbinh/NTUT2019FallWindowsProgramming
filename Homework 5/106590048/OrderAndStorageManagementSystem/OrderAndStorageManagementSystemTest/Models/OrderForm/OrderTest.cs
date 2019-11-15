@@ -53,22 +53,35 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestAddProductToOrderIfProductIsNotInOrder()
         {
-            int index = 0;
-            for ( int i = -5; i < 0; i++ )
+            Product product = new Product(0, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING);
+            _order.AddProductToOrderIfProductIsNotInOrder(product);
+            Assert.AreEqual(_orderItems.Count, 1);
+            Assert.AreSame(_orderItems[ 0 ].Product, product);
+            product = new Product(-1, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING);
+            _order.AddProductToOrderIfProductIsNotInOrder(product);
+            Assert.AreEqual(_orderItems.Count, 2);
+            Assert.AreSame(_orderItems[ 1 ].Product, product);
+            product = new Product(3, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING);
+            _order.AddProductToOrderIfProductIsNotInOrder(product);
+            Assert.AreEqual(_orderItems.Count, 3);
+            Assert.AreSame(_orderItems[ 2 ].Product, product);
+            product = new Product(3, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING);
+            _order.AddProductToOrderIfProductIsNotInOrder(product);
+            Assert.AreEqual(_orderItems.Count, 3);
+            foreach ( OrderItem orderItem in _orderItems )
             {
-                Product product = new Product(i, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING);
-                _order.AddProductToOrderIfProductIsNotInOrder(product);
-                Assert.AreSame(_orderItems[ index ].Product, product);
-                index++;
+                Assert.AreNotSame(orderItem.Product, product);
             }
-            Assert.AreEqual(_orderItems.Count, 5);
-            Product newProduct = new Product(-5, "", "", new Money(0), 0, "", "");
-            _order.AddProductToOrderIfProductIsNotInOrder(newProduct);
-            Assert.AreEqual(_orderItems.Count, 5);
-            newProduct = new Product(0, "", "", new Money(0), 0, "", "");
-            _order.AddProductToOrderIfProductIsNotInOrder(newProduct);
-            Assert.AreEqual(_orderItems.Count, 6);
-            Assert.AreSame(_orderItems[ 5 ].Product, newProduct);
+            bool isExceptionThrown = true;
+            try
+            {
+                _order.AddProductToOrderIfProductIsNotInOrder(null);
+                isExceptionThrown = false;
+            }
+            catch ( ArgumentNullException )
+            {
+                Assert.IsTrue(isExceptionThrown);
+            }
         }
 
         /// <summary>Tests the is in order.</summary>
