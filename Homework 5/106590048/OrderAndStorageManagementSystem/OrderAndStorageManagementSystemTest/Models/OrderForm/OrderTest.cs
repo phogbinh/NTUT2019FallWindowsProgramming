@@ -37,11 +37,14 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         public void TestGetTotalPrice()
         {
             Assert.AreEqual(_order.GetTotalPrice("元"), "0 元");
-            for ( int i = 0; i < 10; i++ )
-            {
-                _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(500), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
-            }
-            Assert.AreEqual(_order.GetTotalPrice("元"), "5,000 元");
+            _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(0), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
+            Assert.AreEqual(_order.GetTotalPrice("元"), "0 元");
+            _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(200), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
+            Assert.AreEqual(_order.GetTotalPrice("元"), "200 元");
+            _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(1234), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
+            Assert.AreEqual(_order.GetTotalPrice("元"), "1,434 元");
+            _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(2000000000), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
+            Assert.AreEqual(_order.GetTotalPrice("元"), "2,000,001,434 元");
         }
 
         /// <summary>Tests the add product to order if product is not in order.</summary>
