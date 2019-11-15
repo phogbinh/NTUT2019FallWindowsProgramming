@@ -94,7 +94,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         public Product(int idData, string nameData, string typeData, Money priceData, int storageQuantityData, string descriptionData, string imagePathData)
         {
             _id = idData;
-            _name = nameData;
+            this.Name = nameData;
             _type = typeData;
             _price = priceData;
             _storageQuantity = storageQuantityData;
@@ -105,7 +105,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         public Product(int idData, string nameData, string typeData, Money priceData, int storageQuantityData, string descriptionData)
         {
             _id = idData;
-            _name = nameData;
+            this.Name = nameData;
             _type = typeData;
             _price = priceData;
             _storageQuantity = storageQuantityData;
@@ -115,7 +115,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
 
         public Product(string nameData, string typeData, string priceData, string descriptionData, string imagePathData)
         {
-            _name = nameData;
+            this.Name = nameData;
             _type = typeData;
             _price = new Money(int.Parse(priceData));
             _description = descriptionData;
@@ -127,7 +127,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// </summary>
         public string GetProductNameAndDescription()
         {
-            return _name + AppDefinition.PRODUCT_NAME_DESCRIPTION_SEPARATOR + _description;
+            return this.Name + AppDefinition.PRODUCT_NAME_DESCRIPTION_SEPARATOR + _description;
         }
 
         /// <summary>
