@@ -11,6 +11,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
     public class OrderTest
     {
         private const string MEMBER_VARIABLE_NAME_ORDER_ITEMS = "_orderItems";
+        private bool _isExceptionThrown;
         private Order _order;
         private PrivateObject _target;
         private List<OrderItem> _orderItems;
@@ -20,6 +21,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [DeploymentItem("OrderAndStorageManagementSystem.exe")]
         public void Initialize()
         {
+            _isExceptionThrown = true;
             _order = new Order();
             _target = new PrivateObject(_order);
             _orderItems = ( List<OrderItem> )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_ORDER_ITEMS);
@@ -72,15 +74,14 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             {
                 Assert.AreNotSame(orderItem.Product, product);
             }
-            bool isExceptionThrown = true;
             try
             {
                 _order.AddProductToOrderIfProductIsNotInOrder(null);
-                isExceptionThrown = false;
+                _isExceptionThrown = false;
             }
             catch ( ArgumentNullException )
             {
-                Assert.IsTrue(isExceptionThrown);
+                Assert.IsTrue(_isExceptionThrown);
             }
         }
 
@@ -113,15 +114,14 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             _order.AddOrderItem(orderItem);
             Assert.AreEqual(_orderItems.Count, 2);
             Assert.AreSame(_orderItems[ 1 ], orderItem);
-            bool isExceptionThrown = true;
             try
             {
                 _order.AddOrderItem(null);
-                isExceptionThrown = false;
+                _isExceptionThrown = false;
             }
             catch ( ArgumentNullException )
             {
-                Assert.IsTrue(isExceptionThrown);
+                Assert.IsTrue(_isExceptionThrown);
             }
         }
 
