@@ -45,6 +45,8 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(_order.GetTotalPrice("元"), "1,434 元");
             _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(2000000000), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
             Assert.AreEqual(_order.GetTotalPrice("元"), "2,000,001,434 元");
+            Assert.AreEqual(_order.GetTotalPrice(""), "2,000,001,434 ");
+            Assert.AreEqual(_order.GetTotalPrice("-USD"), "2,000,001,434 -USD");
         }
 
         /// <summary>Tests the add product to order if product is not in order.</summary>
