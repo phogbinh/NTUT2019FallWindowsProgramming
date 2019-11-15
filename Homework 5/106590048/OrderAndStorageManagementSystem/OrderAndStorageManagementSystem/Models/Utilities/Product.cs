@@ -96,7 +96,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             _id = idData;
             this.Name = nameData;
             this.Type = typeData;
-            _price = priceData;
+            this.Price = priceData;
             _storageQuantity = storageQuantityData;
             _description = descriptionData;
             _imagePath = imagePathData;
@@ -107,7 +107,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             _id = idData;
             this.Name = nameData;
             this.Type = typeData;
-            _price = priceData;
+            this.Price = priceData;
             _storageQuantity = storageQuantityData;
             _description = descriptionData;
             _imagePath = Directory.GetCurrentDirectory() + AppDefinition.RELATIVE_PATH_FROM_APPLICATION_BINARY_DIRECTORY_TO_RESOURCES_FOLDER + AppDefinition.APP_DATA_BASE_PRODUCTS_TABLE_IMAGE_NAME + _id.ToString() + AppDefinition.FILE_NAME_EXTENSION_JOINT_PHOTOGRAPHIC_GROUP;
@@ -117,7 +117,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         {
             this.Name = nameData;
             this.Type = typeData;
-            _price = new Money(int.Parse(priceData));
+            this.Price = new Money(int.Parse(priceData));
             _description = descriptionData;
             _imagePath = imagePathData;
         }
@@ -143,7 +143,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// </summary>
         public string GetPrice(string currencyUnit)
         {
-            return _price.GetCurrencyFormatWithCurrencyUnit(currencyUnit);
+            return this.Price.GetCurrencyFormatWithCurrencyUnit(currencyUnit);
         }
     }
 }
