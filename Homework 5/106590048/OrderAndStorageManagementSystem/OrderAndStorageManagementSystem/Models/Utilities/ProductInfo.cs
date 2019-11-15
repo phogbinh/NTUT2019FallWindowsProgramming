@@ -63,11 +63,11 @@
         private string _description;
         private string _imagePath;
 
-        public ProductInfo(string nameData, string typeData, string priceData, string descriptionData, string imagePathData)
+        public ProductInfo(string nameData, string typeData, Money priceData, string descriptionData, string imagePathData)
         {
             this.Name = nameData;
             this.Type = typeData;
-            this.Price = new Money(int.Parse(priceData));
+            this.Price = priceData;
             this.Description = descriptionData;
             this.ImagePath = imagePathData;
         }
