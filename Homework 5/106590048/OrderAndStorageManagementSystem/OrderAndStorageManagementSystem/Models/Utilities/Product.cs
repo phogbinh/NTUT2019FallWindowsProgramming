@@ -85,7 +85,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         private const string ERROR_PRODUCT_STORAGE_QUANTITY_IS_NEGATIVE = "Product storage quantity cannot be set to negative.";
         private int _id;
         private int _storageQuantity;
-        private ProductInfo _productInfo = new ProductInfo("", "", new Money(0), "", "");
+        private ProductInfo _productInfo;
 
         public Product(int idData, string nameData, string typeData, Money priceData, int storageQuantityData, string descriptionData, string imagePathData)
         {
