@@ -146,6 +146,7 @@ namespace OrderAndStorageManagementSystem.Views
                 _cartDataGridView.Rows[ rowIndex ].Cells[ CART_PRODUCT_PRICE_COLUMN_INDEX ].Value = orderItem.Price.GetCurrencyFormat();
                 _cartDataGridView.Rows[ rowIndex ].Cells[ CART_PRODUCT_TOTAL_PRICE_COLUMN_INDEX ].Value = orderItem.GetTotalPrice().GetCurrencyFormat();
             }
+            _cartTotalPrice.Text = AppDefinition.CART_TOTAL_PRICE_TEXT + _model.GetOrderTotalPrice();
         }
 
         /// <summary>
