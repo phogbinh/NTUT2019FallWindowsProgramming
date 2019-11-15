@@ -27,6 +27,13 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
                 _storageQuantity = value;
             }
         }
+        public ProductInfo ProductInfo
+        {
+            set
+            {
+                _productInfo = value;
+            }
+        }
         public string Name
         {
             get

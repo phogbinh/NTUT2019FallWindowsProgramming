@@ -88,11 +88,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// </summary>
         public void UpdateProductInfo(Product product, ProductInfo newProductInfo)
         {
-            product.Name = newProductInfo.Name;
-            product.Type = newProductInfo.Type;
-            product.Price = newProductInfo.Price;
-            product.Description = newProductInfo.Description;
-            product.ImagePath = newProductInfo.ImagePath;
+            product.ProductInfo = newProductInfo;
             NotifyObserverChangeProductInfo(product);
         }
 
