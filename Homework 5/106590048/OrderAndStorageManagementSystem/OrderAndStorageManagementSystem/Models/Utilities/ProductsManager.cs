@@ -108,7 +108,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// </summary>
         public void AddProduct(ProductInfo newProductInfo)
         {
-            var product = new Product(_products.Count + 1, newProductInfo.Name, newProductInfo.Type, newProductInfo.Price, 0, newProductInfo.Description, newProductInfo.ImagePath);
+            var product = new Product(_products.Count + 1, newProductInfo);
             _products.Add(product);
             NotifyObserverAddProduct(product);
         }

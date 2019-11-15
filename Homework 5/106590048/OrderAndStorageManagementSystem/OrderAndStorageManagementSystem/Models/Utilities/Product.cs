@@ -90,6 +90,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             }
         }
         private const string ERROR_PRODUCT_STORAGE_QUANTITY_IS_NEGATIVE = "Product storage quantity cannot be set to negative.";
+        private const int STORAGE_QUANTITY_INITIAL_VALUE = 0;
         private int _id;
         private int _storageQuantity;
         private ProductInfo _productInfo;
@@ -107,6 +108,13 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             _storageQuantity = storageQuantityData;
             string defaultImagePath = Directory.GetCurrentDirectory() + AppDefinition.RELATIVE_PATH_FROM_APPLICATION_BINARY_DIRECTORY_TO_RESOURCES_FOLDER + AppDefinition.APP_DATA_BASE_PRODUCTS_TABLE_IMAGE_NAME + _id.ToString() + AppDefinition.FILE_NAME_EXTENSION_JOINT_PHOTOGRAPHIC_GROUP;
             _productInfo = new ProductInfo(nameData, typeData, priceData, descriptionData, defaultImagePath);
+        }
+
+        public Product(int idData, ProductInfo productInfoData)
+        {
+            _id = idData;
+            _storageQuantity = STORAGE_QUANTITY_INITIAL_VALUE;
+            _productInfo = productInfoData;
         }
 
         /// <summary>
