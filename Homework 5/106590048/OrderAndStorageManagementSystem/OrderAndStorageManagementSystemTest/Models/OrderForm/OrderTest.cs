@@ -241,35 +241,37 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestSetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise()
         {
-            for ( int i = 0; i < 10; i++ )
-            {
-                OrderItem orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), i, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
-                orderItem.OrderQuantity = i;
-                _orderItems.Add(orderItem);
-            }
-            _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(5, 4);
-            Assert.AreEqual(_orderItems[ 5 ].OrderQuantity, 4);
+            _order.OrderItemQuantityIsExceededStorageQuantity += (orderItemIndex, orderItemStorageQuantity) => _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(orderItemIndex, orderItemStorageQuantity); // In the production code, this event is subscribed by the OrderForm, which will change the order quantity of the corresponding order item in the cart data grid view, which in turns direct a call back to this function.
+            _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), 0, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
+            _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), 5, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
+            _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), 100, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
             _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(0, 1);
             Assert.AreEqual(_orderItems[ 0 ].OrderQuantity, 0);
-            _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(6, 0);
-            Assert.AreEqual(_orderItems[ 6 ].OrderQuantity, 0);
+            _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(1, 6);
+            Assert.AreEqual(_orderItems[ 1 ].OrderQuantity, 5);
+            _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(1, 4);
+            Assert.AreEqual(_orderItems[ 1 ].OrderQuantity, 4);
+            _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(2, 0);
+            Assert.AreEqual(_orderItems[ 2 ].OrderQuantity, 0);
+            _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(2, 100);
+            Assert.AreEqual(_orderItems[ 2 ].OrderQuantity, 100);
             try
             {
-                _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(9, 3);
+                _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(-1, 10);
+                _isExceptionThrown = false;
             }
-            catch ( ArgumentException )
+            catch ( ArgumentOutOfRangeException )
             {
-                Assert.AreEqual(_orderItems[ 9 ].OrderQuantity, 9);
+                Assert.IsTrue(_isExceptionThrown);
             }
-            int exceptionTestNumber = TestDefinition.DUMP_INTEGER;
             try
             {
-                _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(-1, 0);
-                exceptionTestNumber++;
+                _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(3, 8888);
+                _isExceptionThrown = false;
             }
-            catch ( ArgumentException )
+            catch ( ArgumentOutOfRangeException )
             {
-                Assert.AreEqual(exceptionTestNumber, TestDefinition.DUMP_INTEGER);
+                Assert.IsTrue(_isExceptionThrown);
             }
         }
 
