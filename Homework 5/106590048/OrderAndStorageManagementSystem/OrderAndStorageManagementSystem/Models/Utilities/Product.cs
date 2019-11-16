@@ -31,6 +31,10 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         {
             set
             {
+                if ( value == null )
+                {
+                    throw new ArgumentNullException(ERROR_PRODUCT_INFO_CANNOT_BE_SET_TO_NULL);
+                }
                 _productInfo = value;
             }
         }
@@ -90,6 +94,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             }
         }
         private const string ERROR_STORAGE_QUANTITY_CANNOT_BE_SET_TO_NEGATIVE = "Storage quantity cannot be set to negative.";
+        private const string ERROR_PRODUCT_INFO_CANNOT_BE_SET_TO_NULL = "Product info cannot be set to null.";
         private const int STORAGE_QUANTITY_INITIAL_VALUE = 0;
         private int _id;
         private int _storageQuantity;

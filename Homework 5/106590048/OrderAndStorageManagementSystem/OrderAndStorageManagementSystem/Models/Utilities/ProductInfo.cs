@@ -1,4 +1,6 @@
-﻿namespace OrderAndStorageManagementSystem.Models.Utilities
+﻿using System;
+
+namespace OrderAndStorageManagementSystem.Models.Utilities
 {
     public class ProductInfo
     {
@@ -32,6 +34,14 @@
             }
             set
             {
+                if ( value == null )
+                {
+                    throw new ArgumentNullException(ERROR_PRICE_CANNOT_BE_SET_TO_NULL);
+                }
+                if ( value.IsNegative() )
+                {
+                    throw new ArgumentException(ERROR_PRICE_CANNOT_BE_SET_TO_NEGATIVE);
+                }
                 _price = value;
             }
         }
@@ -57,6 +67,8 @@
                 _imagePath = value;
             }
         }
+        private const string ERROR_PRICE_CANNOT_BE_SET_TO_NULL = "Price cannot be set to null.";
+        private const string ERROR_PRICE_CANNOT_BE_SET_TO_NEGATIVE = "Price cannot be set to negative.";
         private string _name;
         private string _type;
         private Money _price;

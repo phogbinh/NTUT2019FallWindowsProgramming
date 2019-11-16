@@ -1,14 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace OrderAndStorageManagementSystem.Models.Utilities
 {
     public class ProductsAndProductTypesManager
     {
+        private const string ERROR_PRODUCTS_MANAGER_IS_NULL = "The given products manager is null.";
+        private const string ERROR_PRODUCT_TYPES_MANAGER_IS_NULL = "The given product types manager is null.";
         private ProductsManager _productsManager;
         private ProductTypesManager _productTypesManager;
 
         public ProductsAndProductTypesManager(ProductsManager productsManagerData, ProductTypesManager productTypesManagerData)
         {
+            if ( productsManagerData == null )
+            {
+                throw new ArgumentNullException(ERROR_PRODUCTS_MANAGER_IS_NULL);
+            }
+            if ( productTypesManagerData == null )
+            {
+                throw new ArgumentNullException(ERROR_PRODUCT_TYPES_MANAGER_IS_NULL);
+            }
             _productsManager = productsManagerData;
             _productTypesManager = productTypesManagerData;
         }

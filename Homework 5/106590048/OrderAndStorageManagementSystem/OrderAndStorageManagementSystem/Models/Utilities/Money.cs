@@ -79,5 +79,12 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         {
             return _value.ToString();
         }
+
+
+        /// <summary>Determines whether this instance is negative.</summary>
+        public bool IsNegative()
+        {
+            return _value < 0;
+        }
     }
 }
