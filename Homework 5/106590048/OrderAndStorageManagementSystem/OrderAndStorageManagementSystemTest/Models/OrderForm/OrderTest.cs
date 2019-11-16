@@ -283,39 +283,32 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         public void TestGetOrderItemTotalPrice()
         {
             const string MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE = "GetOrderItemTotalPrice";
-            for ( int i = 0; i < 10; i++ )
-            {
-                OrderItem orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(3000), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
-                orderItem.OrderQuantity = i;
-                _orderItems.Add(orderItem);
-            }
-            object[] arguments = new object[] { 0 };
-            string orderItemTotalPrice = ( string )_target.Invoke(MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE, arguments);
-            Assert.AreEqual(orderItemTotalPrice, "0");
-            arguments = new object[] { 9 };
-            orderItemTotalPrice = ( string )_target.Invoke(MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE, arguments);
-            Assert.AreEqual(orderItemTotalPrice, "27,000");
+            var orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(0), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
+            orderItem.OrderQuantity = 0;
+            _orderItems.Add(orderItem);
+            orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(25), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
+            orderItem.OrderQuantity = 0;
+            _orderItems.Add(orderItem);
+            orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(0), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
+            orderItem.OrderQuantity = 11;
+            _orderItems.Add(orderItem);
+            orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(20), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
+            orderItem.OrderQuantity = 50;
+            _orderItems.Add(orderItem);
+            var arguments = new object[] { 0 };
+            Assert.AreEqual(( string )_target.Invoke(MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE, arguments), "0");
+            arguments = new object[] { 1 };
+            Assert.AreEqual(( string )_target.Invoke(MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE, arguments), "0");
+            arguments = new object[] { 2 };
+            Assert.AreEqual(( string )_target.Invoke(MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE, arguments), "0");
+            arguments = new object[] { 3 };
+            Assert.AreEqual(( string )_target.Invoke(MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE, arguments), "1,000");
             arguments = new object[] { -1 };
-            int exceptionTestNumber = TestDefinition.DUMP_INTEGER;
-            try
-            {
-                _target.Invoke(MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE, arguments);
-                exceptionTestNumber++;
-            }
-            catch ( TargetInvocationException )
-            {
-                Assert.AreEqual(exceptionTestNumber, TestDefinition.DUMP_INTEGER);
-            }
-            arguments = new object[] { 10 };
-            try
-            {
-                _target.Invoke(MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE, arguments);
-                exceptionTestNumber++;
-            }
-            catch ( TargetInvocationException )
-            {
-                Assert.AreEqual(exceptionTestNumber, TestDefinition.DUMP_INTEGER);
-            }
+            var expectedException = Assert.ThrowsException<TargetInvocationException>(() => ( string )_target.Invoke(MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE, arguments));
+            Assert.IsInstanceOfType(expectedException.InnerException, typeof(ArgumentOutOfRangeException));
+            arguments = new object[] { 4 };
+            expectedException = Assert.ThrowsException<TargetInvocationException>(() => ( string )_target.Invoke(MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE, arguments));
+            Assert.IsInstanceOfType(expectedException.InnerException, typeof(ArgumentOutOfRangeException));
         }
 
         /// <summary>Tests the notify observer change order item quantity.</summary>
