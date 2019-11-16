@@ -263,7 +263,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             _orderItems.Add(orderItem);
             var arguments = new object[] { 0, 0 };
             _target.Invoke(MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY, arguments);
-            Assert.AreEqual(_orderItems[0].OrderQuantity, 0);
+            Assert.AreEqual(_orderItems[ 0 ].OrderQuantity, 0);
             arguments = new object[] { 1, 2019 };
             _target.Invoke(MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY, arguments);
             Assert.AreEqual(_orderItems[ 1 ].OrderQuantity, 2019);
