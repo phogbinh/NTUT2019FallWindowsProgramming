@@ -27,7 +27,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
                 return _products;
             }
         }
-        private const string ERROR_INVALID_PRODUCT_ID = "Product Id is invalid.";
+        private const string ERROR_PRODUCT_ID_IS_INVALID = "Product Id is invalid.";
         private List<Product> _products;
 
         public ProductsManager(List<Product> initialDataBaseProducts)
@@ -47,7 +47,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
                     return product;
                 }
             }
-            throw new ArgumentException(ERROR_INVALID_PRODUCT_ID);
+            throw new ArgumentException(ERROR_PRODUCT_ID_IS_INVALID);
         }
 
         /// <summary>
