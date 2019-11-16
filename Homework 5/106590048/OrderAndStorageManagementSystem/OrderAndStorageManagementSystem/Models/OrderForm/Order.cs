@@ -197,6 +197,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             }
             else
             {
+                // This will notify the OrderForm to change the order quantity of the corresponding order item in the cart data grid view, which in turns direct a call back to this function.
                 NotifyObserverOrderItemQuantityIsExceededStorageQuantity(orderItemIndex, _orderItems[ orderItemIndex ].StorageQuantity);
             }
         }
