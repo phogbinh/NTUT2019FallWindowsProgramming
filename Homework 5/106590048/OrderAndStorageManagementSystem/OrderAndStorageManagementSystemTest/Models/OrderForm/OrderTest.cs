@@ -240,10 +240,10 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             arguments = new object[] { 1, 69 };
             Assert.IsFalse(( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments));
             arguments = new object[] { -1, TestDefinition.DUMP_INTEGER };
-            TargetInvocationException expectedException = Assert.ThrowsException<TargetInvocationException>(() => ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments));
+            TargetInvocationException expectedException = Assert.ThrowsException<TargetInvocationException>(() => _target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments));
             Assert.IsInstanceOfType(expectedException.InnerException, typeof(ArgumentOutOfRangeException));
             arguments = new object[] { 2, TestDefinition.DUMP_INTEGER };
-            expectedException = Assert.ThrowsException<TargetInvocationException>(() => ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments));
+            expectedException = Assert.ThrowsException<TargetInvocationException>(() => _target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments));
             Assert.IsInstanceOfType(expectedException.InnerException, typeof(ArgumentOutOfRangeException));
         }
 
@@ -271,10 +271,10 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             _target.Invoke(MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY, arguments);
             Assert.AreEqual(_orderItems[ 2 ].OrderQuantity, 33);
             arguments = new object[] { -1, TestDefinition.DUMP_INTEGER };
-            var expectedException = Assert.ThrowsException<TargetInvocationException>(() => ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY, arguments));
+            var expectedException = Assert.ThrowsException<TargetInvocationException>(() => _target.Invoke(MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY, arguments));
             Assert.IsInstanceOfType(expectedException.InnerException, typeof(ArgumentOutOfRangeException));
             arguments = new object[] { 3, TestDefinition.DUMP_INTEGER };
-            expectedException = Assert.ThrowsException<TargetInvocationException>(() => ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY, arguments));
+            expectedException = Assert.ThrowsException<TargetInvocationException>(() => _target.Invoke(MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY, arguments));
             Assert.IsInstanceOfType(expectedException.InnerException, typeof(ArgumentOutOfRangeException));
         }
 
@@ -304,10 +304,10 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             arguments = new object[] { 3 };
             Assert.AreEqual(( string )_target.Invoke(MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE, arguments), "1,000");
             arguments = new object[] { -1 };
-            var expectedException = Assert.ThrowsException<TargetInvocationException>(() => ( string )_target.Invoke(MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE, arguments));
+            var expectedException = Assert.ThrowsException<TargetInvocationException>(() => _target.Invoke(MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE, arguments));
             Assert.IsInstanceOfType(expectedException.InnerException, typeof(ArgumentOutOfRangeException));
             arguments = new object[] { 4 };
-            expectedException = Assert.ThrowsException<TargetInvocationException>(() => ( string )_target.Invoke(MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE, arguments));
+            expectedException = Assert.ThrowsException<TargetInvocationException>(() => _target.Invoke(MEMBER_FUNCTION_NAME_GET_ORDER_ITEM_TOTAL_PRICE, arguments));
             Assert.IsInstanceOfType(expectedException.InnerException, typeof(ArgumentOutOfRangeException));
         }
 
