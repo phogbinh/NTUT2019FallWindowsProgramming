@@ -4,7 +4,7 @@ namespace InputInspectingElements
 {
     public static class BinaryNumberHelper
     {
-        private const string ERROR_INVALID_ONE_BINARY_NUMBER_ON_FLAG = "The given flag is not an one-bit-on-flag.";
+        private const string ERROR_FLAG_IS_NOT_ONE_BINARY_NUMBER_ON_FLAG = "The given flag is not an one-bit-on-flag.";
 
         /// <summary>
         /// Return true if the given flag has the-one-and-only-on-bit of oneBitOnFlag on.
@@ -13,17 +13,9 @@ namespace InputInspectingElements
         {
             if ( !IsOneBinaryNumberOnFlag(oneBinaryNumberOnFlag) )
             {
-                throw new ArgumentException(ERROR_INVALID_ONE_BINARY_NUMBER_ON_FLAG);
+                throw new ArgumentException(ERROR_FLAG_IS_NOT_ONE_BINARY_NUMBER_ON_FLAG);
             }
             return IsContainingFlag(flag, oneBinaryNumberOnFlag);
-        }
-
-        /// <summary>
-        /// Return true if the given flag has all the on-bit of partialFlag on.
-        /// </summary>
-        private static bool IsContainingFlag(int flag, int partialFlag)
-        {
-            return ( flag & partialFlag ) == partialFlag;
         }
 
         /// <summary>
@@ -32,6 +24,14 @@ namespace InputInspectingElements
         private static bool IsOneBinaryNumberOnFlag(int flag)
         {
             return ( flag & ( flag - 1 ) ) == 0;
+        }
+
+        /// <summary>
+        /// Return true if the given flag has all the on-bit of partialFlag on.
+        /// </summary>
+        private static bool IsContainingFlag(int flag, int partialFlag)
+        {
+            return ( flag & partialFlag ) == partialFlag;
         }
     }
 }
