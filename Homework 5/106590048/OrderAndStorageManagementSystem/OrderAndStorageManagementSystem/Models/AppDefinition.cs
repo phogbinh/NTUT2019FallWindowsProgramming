@@ -1,4 +1,6 @@
-﻿namespace OrderAndStorageManagementSystem.Models
+﻿using System;
+
+namespace OrderAndStorageManagementSystem.Models
 {
     public static class AppDefinition
     {
@@ -23,11 +25,17 @@
         public const int TAB_PAGE_LAYOUT_ROW_COUNT = 2;
         public const int TAB_PAGE_LAYOUT_COLUMN_COUNT = 3;
         public const int TAB_PAGE_MAX_PRODUCTS_COUNT = TAB_PAGE_LAYOUT_ROW_COUNT * TAB_PAGE_LAYOUT_COLUMN_COUNT;
+        // Private
+        private const string ERROR_MACHINE_INDEX_IS_NEGATIVE = "The given machine index is negative.";
         /// <summary>
         /// Get human index of machine index.
         /// </summary>
         public static int GetHumanIndex(int machineIndex)
         {
+            if ( machineIndex < 0 )
+            {
+                throw new ArgumentException(ERROR_MACHINE_INDEX_IS_NEGATIVE);
+            }
             return machineIndex + 1;
         }
 
