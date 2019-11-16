@@ -67,12 +67,17 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             }
         }
         private const string ERROR_ORDER_QUANTITY_CANNOT_BE_SET_TO_NEGATIVE = "Order quantity cannot be set to negative.";
+        private const string ERROR_PRODUCT_IS_NULL = "The given product is null.";
         private const int ORDER_QUANTITY_INITIAL_VALUE = 1;
         private Product _product;
         private int _orderQuantity;
 
         public OrderItem(Product productData)
         {
+            if ( productData == null )
+            {
+                throw new ArgumentNullException(ERROR_PRODUCT_IS_NULL);
+            }
             _product = productData;
             _orderQuantity = ORDER_QUANTITY_INITIAL_VALUE;
         }
