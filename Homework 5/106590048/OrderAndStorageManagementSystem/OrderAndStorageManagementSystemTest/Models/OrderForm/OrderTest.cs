@@ -231,37 +231,20 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         public void TestIsExceededStorageQuantity()
         {
             const string MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY = "IsExceededStorageQuantity";
-            for ( int i = 0; i < 10; i++ )
-            {
-                _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), 10, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
-            }
-            object[] arguments = new object[] { 0, 10 };
-            bool isExceededStorageQuantity = ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments);
-            Assert.IsFalse(isExceededStorageQuantity);
-            arguments = new object[] { 9, 11 };
-            isExceededStorageQuantity = ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments);
-            Assert.IsTrue(isExceededStorageQuantity);
-            arguments = new object[] { -1, 6 };
-            int exceptionTestNumber = TestDefinition.DUMP_INTEGER;
-            try
-            {
-                isExceededStorageQuantity = ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments);
-                exceptionTestNumber++;
-            }
-            catch ( TargetInvocationException )
-            {
-                Assert.AreEqual(exceptionTestNumber, TestDefinition.DUMP_INTEGER);
-            }
-            arguments = new object[] { 10, 2 };
-            try
-            {
-                isExceededStorageQuantity = ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments);
-                exceptionTestNumber++;
-            }
-            catch ( TargetInvocationException )
-            {
-                Assert.AreEqual(exceptionTestNumber, TestDefinition.DUMP_INTEGER);
-            }
+            _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), 5, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
+            _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), 70, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
+            var arguments = new object[] { 0, 6 };
+            Assert.IsTrue(( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments));
+            arguments = new object[] { 0, 5 };
+            Assert.IsFalse(( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments));
+            arguments = new object[] { 1, 69 };
+            Assert.IsFalse(( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments));
+            arguments = new object[] { -1, 3 };
+            TargetInvocationException expectedException = Assert.ThrowsException<TargetInvocationException>(() => ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments));
+            Assert.IsInstanceOfType(expectedException.InnerException, typeof(ArgumentOutOfRangeException));
+            arguments = new object[] { 2, 0 };
+            expectedException = Assert.ThrowsException<TargetInvocationException>(() => ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments));
+            Assert.IsInstanceOfType(expectedException.InnerException, typeof(ArgumentOutOfRangeException));
         }
 
         /// <summary>Tests the set order item quantity.</summary>
