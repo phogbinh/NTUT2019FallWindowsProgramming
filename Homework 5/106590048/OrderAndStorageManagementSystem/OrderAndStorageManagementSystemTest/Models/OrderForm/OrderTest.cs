@@ -11,7 +11,6 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
     public class OrderTest
     {
         private const string MEMBER_VARIABLE_NAME_ORDER_ITEMS = "_orderItems";
-        private bool _isExceptionThrown;
         private Order _order;
         private PrivateObject _target;
         private List<OrderItem> _orderItems;
@@ -21,7 +20,6 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [DeploymentItem("OrderAndStorageManagementSystem.exe")]
         public void Initialize()
         {
-            _isExceptionThrown = true;
             _order = new Order();
             _target = new PrivateObject(_order);
             _orderItems = ( List<OrderItem> )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_ORDER_ITEMS);
