@@ -18,14 +18,15 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [DeploymentItem(TestDefinition.DEPLOYMENT_ITEM_FILE_PATH)]
         public void Initialize()
         {
-            _orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
-            _target = new PrivateObject(_orderItem);
+            /* Body intentionally empty */
         }
 
         /// <summary>Tests the set property order quantity.</summary>
         [TestMethod()]
         public void TestSetPropertyOrderQuantity()
         {
+            _orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
+            _target = new PrivateObject(_orderItem);
             Assert.ThrowsException<ArgumentException>(() => _orderItem.OrderQuantity = -1);
             _orderItem.OrderQuantity = 0;
             Assert.AreEqual(_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_ORDER_QUANTITY), 0);
@@ -37,13 +38,12 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestOrderItem()
         {
-            OrderItem orderItem;
-            Assert.ThrowsException<ArgumentNullException>(() => orderItem = new OrderItem(null));
+            Assert.ThrowsException<ArgumentNullException>(() => _orderItem = new OrderItem(null));
             Product product = new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING);
-            orderItem = new OrderItem(product);
-            PrivateObject target = new PrivateObject(orderItem);
-            Assert.AreSame(target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_PRODUCT), product);
-            Assert.AreEqual(target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_ORDER_QUANTITY), 1);
+            _orderItem = new OrderItem(product);
+            _target = new PrivateObject(_orderItem);
+            Assert.AreSame(_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_PRODUCT), product);
+            Assert.AreEqual(_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_ORDER_QUANTITY), 1);
         }
     }
 }
