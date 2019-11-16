@@ -332,7 +332,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY = "NotifyObserverOrderItemQuantityIsExceededStorageQuantity";
             int count = 0;
             _order.OrderItemQuantityIsExceededStorageQuantity += (orderItemIndex, orderItemStorageQuantity) => count++;
-            object[] arguments = new object[] { TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_INTEGER };
+            var arguments = new object[] { TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_INTEGER };
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY, arguments);
             Assert.AreEqual(count, 1);
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_ORDER_ITEM_QUANTITY_IS_EXCEEDED_STORAGE_QUANTITY, arguments);
