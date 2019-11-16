@@ -5,7 +5,7 @@ namespace InputInspectingElements.InputInspectorsCollections
 {
     public class TextBoxInspectorsCollection : InputInspectorsCollection
     {
-        private const string ERROR_INVALID_TEXT_BOX_INSPECTOR_TYPE_FLAG = "The given textbox inspector type flag is invalid.";
+        private const string ERROR_TEXT_BOX_INSPECTOR_TYPE_FLAG_IS_OUT_OF_RANGE = "The given textbox inspector type flag is out of range.";
 
         /// <summary>
         /// Add textbox inspectors by textBoxInspectorTypeFlag.
@@ -14,7 +14,7 @@ namespace InputInspectingElements.InputInspectorsCollections
         {
             if ( !InputInspectorTypeHelper.IsInRangeOfTextBoxInspectorTypes(textBoxInspectorTypeFlag) )
             {
-                throw new ArgumentException(ERROR_INVALID_TEXT_BOX_INSPECTOR_TYPE_FLAG);
+                throw new ArgumentOutOfRangeException(ERROR_TEXT_BOX_INSPECTOR_TYPE_FLAG_IS_OUT_OF_RANGE);
             }
             if ( InputInspectorTypeHelper.IsContainingTextBoxIsMailFlag(textBoxInspectorTypeFlag) )
             {
