@@ -5,7 +5,7 @@ namespace InputInspectingElements.InputInspectorsCollections
 {
     public class DropDownListInspectorsCollection : InputInspectorsCollection
     {
-        private const string ERROR_INVALID_DROP_DOWN_LIST_INSPECTOR_TYPE_FLAG = "The given drop-down list type flag is invalid.";
+        private const string ERROR_DROP_DOWN_LIST_INSPECTOR_TYPE_FLAG_IS_OUT_OF_RANGE = "The given drop-down list inspector type flag is out of range.";
 
         /// <summary>
         /// Add drop-down list inspectors by dropDownListInspectorTypeFlag.
@@ -14,7 +14,7 @@ namespace InputInspectingElements.InputInspectorsCollections
         {
             if ( !InputInspectorTypeHelper.IsInRangeOfDropDownListInspectorTypes(dropDownListInspectorTypeFlag) )
             {
-                throw new ArgumentException(ERROR_INVALID_DROP_DOWN_LIST_INSPECTOR_TYPE_FLAG);
+                throw new ArgumentException(ERROR_DROP_DOWN_LIST_INSPECTOR_TYPE_FLAG_IS_OUT_OF_RANGE);
             }
             if ( InputInspectorTypeHelper.IsContainingDropDownListIsSelectedFlag(dropDownListInspectorTypeFlag) )
             {
