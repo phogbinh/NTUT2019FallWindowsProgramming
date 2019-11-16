@@ -7,6 +7,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
     {
         private const string ERROR_PRODUCTS_MANAGER_IS_NULL = "The given products manager is null.";
         private const string ERROR_PRODUCT_TYPES_MANAGER_IS_NULL = "The given product types manager is null.";
+        private const string ERROR_PRODUCT_TYPE_PRODUCTS_INDEX_IS_OUT_OF_RANGE = "The product type products index calculated by the given product page index and the product index is out of range.";
         private const int EMPTY_PAGE_PAGES_COUNT = 1;
         private ProductsManager _productsManager;
         private ProductTypesManager _productTypesManager;
@@ -60,7 +61,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             int productTypeProductsIndex = productPageIndex * AppDefinition.TAB_PAGE_MAX_PRODUCTS_COUNT + productIndex;
             if ( !AppDefinition.IsInIntervalRange(productTypeProductsIndex, 0, productTypeProducts.Count - 1) )
             {
-                return null;
+                throw new ArgumentOutOfRangeException(ERROR_PRODUCT_TYPE_PRODUCTS_INDEX_IS_OUT_OF_RANGE);
             }
             return productTypeProducts[ productTypeProductsIndex ];
         }
