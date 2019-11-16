@@ -2,7 +2,8 @@
 {
     public class DropDownListIsSelectedInspector : IInputInspector
     {
-        private const string ERROR_DROP_DOWN_LIST_IS_IGNORED = "This field has not been selected.";
+        private const string ERROR_DROP_DOWN_LIST_IS_NOT_SELECTED = "Drop-down list is not selected.";
+        private const int EMPTY_SELECTION_INDEX = -1;
         private int _selectedIndex;
 
         public DropDownListIsSelectedInspector(int selectedIndexData)
@@ -15,7 +16,7 @@
         /// </summary>
         public bool IsValid()
         {
-            return _selectedIndex > -1;
+            return _selectedIndex > EMPTY_SELECTION_INDEX;
         }
 
         /// <summary>
@@ -31,7 +32,7 @@
         /// </summary>
         public string GetError()
         {
-            return ERROR_DROP_DOWN_LIST_IS_IGNORED;
+            return ERROR_DROP_DOWN_LIST_IS_NOT_SELECTED;
         }
     }
 }
