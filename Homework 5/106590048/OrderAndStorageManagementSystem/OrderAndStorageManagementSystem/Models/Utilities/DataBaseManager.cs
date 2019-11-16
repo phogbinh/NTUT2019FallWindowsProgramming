@@ -5,9 +5,9 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
 {
     public static class DataBaseManager
     {
-        private const char FILE_COLUMN_LINE_DELIMITER = ',';
-        private const string TABLE_FORMAT_ERROR_CORRUPTED_LINE_LENGTH = "Table format error. Insufficient line length.";
-        private const int PRODUCTS_TABLE_COLUMN_COUNT = 5;
+        private const char COMMA_SEPARATED_VALUES_FILE_DELIMITER = ',';
+        private const string ERROR_LINE_VALUES_IS_OF_CORRUPTED_LENGTH = "Line values is of corrupted length.";
+        private const int PRODUCT_ATTRIBUTES_COUNT = 5;
         private const int PRODUCT_ID_COLUMN_INDEX = 0;
         private const int PRODUCT_NAME_COLUMN_INDEX = 1;
         private const int PRODUCT_TYPE_COLUMN_INDEX = 2;
@@ -32,7 +32,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
                 {
                     break;
                 }
-                products.Add(CreateProduct(GetTableRowValues(line)));
+                products.Add(CreateProduct(GetLineValues(line)));
             }
             reader.Close();
             return products;
@@ -41,27 +41,27 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// <summary>
         /// Create table row values.
         /// </summary>
-        private static string[] GetTableRowValues(string line)
+        private static string[] GetLineValues(string line)
         {
-            string[] tableRowValues = line.Split(FILE_COLUMN_LINE_DELIMITER);
-            if ( tableRowValues.Length < PRODUCTS_TABLE_COLUMN_COUNT )
+            string[] lineValues = line.Split(COMMA_SEPARATED_VALUES_FILE_DELIMITER);
+            if ( lineValues.Length < PRODUCT_ATTRIBUTES_COUNT )
             {
-                throw new IOException(TABLE_FORMAT_ERROR_CORRUPTED_LINE_LENGTH);
+                throw new IOException(ERROR_LINE_VALUES_IS_OF_CORRUPTED_LENGTH);
             }
-            return tableRowValues;
+            return lineValues;
         }
 
         /// <summary>
         /// Create product from raw row data.
         /// </summary>
-        private static Product CreateProduct(string[] tableRowValues)
+        private static Product CreateProduct(string[] lineValues)
         {
-            int productId = int.Parse(tableRowValues[ PRODUCT_ID_COLUMN_INDEX ]);
-            string productName = tableRowValues[ PRODUCT_NAME_COLUMN_INDEX ];
-            string productType = tableRowValues[ PRODUCT_TYPE_COLUMN_INDEX ];
-            Money productPrice = new Money(int.Parse(tableRowValues[ PRODUCT_PRICE_COLUMN_INDEX ]));
-            int productStorageQuantity = int.Parse(tableRowValues[ PRODUCT_STORAGE_QUANTITY_COLUMN_INDEX ]);
-            string productDescription = tableRowValues[ PRODUCT_DESCRIPTION_COLUMN_INDEX ].Replace(FILE_PRODUCT_DESCRIPTION_LINE_DELIMITER, APP_PRODUCT_DESCRIPTION_LINE_DELIMITER);
+            int productId = int.Parse(lineValues[ PRODUCT_ID_COLUMN_INDEX ]);
+            string productName = lineValues[ PRODUCT_NAME_COLUMN_INDEX ];
+            string productType = lineValues[ PRODUCT_TYPE_COLUMN_INDEX ];
+            Money productPrice = new Money(int.Parse(lineValues[ PRODUCT_PRICE_COLUMN_INDEX ]));
+            int productStorageQuantity = int.Parse(lineValues[ PRODUCT_STORAGE_QUANTITY_COLUMN_INDEX ]);
+            string productDescription = lineValues[ PRODUCT_DESCRIPTION_COLUMN_INDEX ].Replace(FILE_PRODUCT_DESCRIPTION_LINE_DELIMITER, APP_PRODUCT_DESCRIPTION_LINE_DELIMITER);
             return new Product(productId, productName, productType, productPrice, productStorageQuantity, productDescription);
         }
     }
