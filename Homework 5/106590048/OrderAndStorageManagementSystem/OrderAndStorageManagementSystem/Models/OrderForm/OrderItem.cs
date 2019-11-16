@@ -1,4 +1,5 @@
 ﻿using OrderAndStorageManagementSystem.Models.Utilities;
+using System;
 
 namespace OrderAndStorageManagementSystem.Models.OrderForm
 {
@@ -59,9 +60,14 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             }
             set
             {
+                if ( value < 0 )
+                {
+                    throw new ArgumentException(ERROR_ORDER_QUANTITY_CANNOT_BE_SET_TO_NEGATIVE);
+                }
                 _orderQuantity = value;
             }
         }
+        private const string ERROR_ORDER_QUANTITY_CANNOT_BE_SET_TO_NEGATIVE = "Order quantity cannot be set to negative.";
         private Product _product;
         private int _orderQuantity;
 
