@@ -79,7 +79,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
                 throw new ArgumentNullException(ERROR_PRODUCT_IS_NULL);
             }
             _product = productData;
-            _orderQuantity = ORDER_QUANTITY_INITIAL_VALUE;
+            this.OrderQuantity = ORDER_QUANTITY_INITIAL_VALUE;
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         /// </summary>
         public Money GetTotalPrice()
         {
-            return Price.MultiplyConstant(_orderQuantity);
+            return Price.MultiplyConstant(this.OrderQuantity);
         }
     }
 }
