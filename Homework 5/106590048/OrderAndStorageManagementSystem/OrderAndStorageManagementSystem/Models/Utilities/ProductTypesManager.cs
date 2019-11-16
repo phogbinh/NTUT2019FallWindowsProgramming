@@ -12,7 +12,8 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
                 return _productTypes;
             }
         }
-        private const string ERROR_PRODUCT_TYPE_INDEX_OUT_OF_RANGE = "The given product type index is out of range.";
+        private const string ERROR_INITIAL_DATA_BASE_PRODUCTS_IS_NULL = "The given initial database products is null.";
+        private const string ERROR_PRODUCT_TYPE_INDEX_IS_OUT_OF_RANGE = "The given product type index is out of range.";
         private const string ERROR_PRODUCT_TYPES_IS_EMPTY = "Product types is empty.";
         private List<string> _productTypes;
 
@@ -26,6 +27,10 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// </summary>
         private void InitializeProductTypes(List<Product> initialDataBaseProducts)
         {
+            if ( initialDataBaseProducts == null )
+            {
+                throw new ArgumentNullException(ERROR_INITIAL_DATA_BASE_PRODUCTS_IS_NULL);
+            }
             _productTypes = new List<string>();
             foreach ( Product product in initialDataBaseProducts )
             {
@@ -43,7 +48,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         {
             if ( !IsInProductTypesIndexRange(productTypeIndex) )
             {
-                throw new ArgumentException(ERROR_PRODUCT_TYPE_INDEX_OUT_OF_RANGE);
+                throw new ArgumentOutOfRangeException(ERROR_PRODUCT_TYPE_INDEX_IS_OUT_OF_RANGE);
             }
             return _productTypes[ productTypeIndex ];
         }
