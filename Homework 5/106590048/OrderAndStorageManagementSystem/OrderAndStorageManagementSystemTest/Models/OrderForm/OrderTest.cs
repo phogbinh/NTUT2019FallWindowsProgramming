@@ -53,7 +53,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestAddProductToOrderIfProductIsNotInOrder()
         {
-            Product product = new Product(0, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING);
+            var product = new Product(0, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING);
             _order.AddProductToOrderIfProductIsNotInOrder(product);
             Assert.AreEqual(_orderItems.Count, 1);
             Assert.AreSame(_orderItems[ 0 ].Product, product);
@@ -96,7 +96,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestAddOrderItem()
         {
-            OrderItem orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
+            var orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
             _order.AddOrderItem(orderItem);
             Assert.AreEqual(_orderItems.Count, 1);
             Assert.AreSame(_orderItems[ 0 ], orderItem);
@@ -127,7 +127,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_ADD_ORDER = "NotifyObserverAddOrder";
             int count = 0;
             _order.OrderAdded += (orderItem) => count++;
-            object[] arguments = new object[] { new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)) };
+            var arguments = new object[] { new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)) };
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_ADD_ORDER, arguments);
             Assert.AreEqual(count, 1);
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_ADD_ORDER, arguments);
@@ -159,7 +159,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_REMOVE_ORDER = "NotifyObserverRemoveOrder";
             int count = 0;
             _order.OrderRemoved += (orderItemIndex, removedProduct) => count++;
-            object[] arguments = new object[] { TestDefinition.DUMP_INTEGER, new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING) };
+            var arguments = new object[] { TestDefinition.DUMP_INTEGER, new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING) };
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_REMOVE_ORDER, arguments);
             Assert.AreEqual(count, 1);
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_REMOVE_ORDER, arguments);
