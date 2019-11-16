@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
-using System.Text;
 
 namespace OrderAndStorageManagementSystem.Models.Utilities
 {
     public class Money
     {
         private const string NEGATIVE_SIGN = "-";
+        private const string ERROR_NON_NEGATIVE_VALUE_IS_NEGATIVE = "The given non-negative value is negative";
         private const int THOUSANDS_COUNT = 3;
         private int _value;
 
@@ -34,21 +34,21 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// </summary>
         private string GetNonNegativeCurrencyFormat(int nonNegativeValue)
         {
-            var reversedValueInCurrencyFormat = new StringBuilder();
-            string valueString = nonNegativeValue.ToString();
-            int count = 0;
-            for ( int i = valueString.Length - 1; i >= 0; i-- )
+            if ( nonNegativeValue < 0 )
             {
-                int index = ( valueString.Length - 1 ) - i;
+                throw new ArgumentException(ERROR_NON_NEGATIVE_VALUE_IS_NEGATIVE);
+            }
+            string valueInReversedOrder = new string (nonNegativeValue.ToString().Reverse().ToArray());
+            string valueInCurrencyFormatInReversedOrder = "";
+            for ( int index = 0; index < valueInReversedOrder.Length; index++ )
+            {
                 if ( index != 0 && index % THOUSANDS_COUNT == 0 )
                 {
-                    reversedValueInCurrencyFormat.Insert(count, AppDefinition.COMMA);
-                    count++;
+                    valueInCurrencyFormatInReversedOrder += AppDefinition.COMMA;
                 }
-                reversedValueInCurrencyFormat.Insert(count, valueString[ i ]);
-                count++;
+                valueInCurrencyFormatInReversedOrder += valueInReversedOrder[ index ];
             }
-            return new string(reversedValueInCurrencyFormat.ToString().Reverse().ToArray());
+            return new string (valueInCurrencyFormatInReversedOrder.Reverse().ToArray());
         }
 
         /// <summary>
