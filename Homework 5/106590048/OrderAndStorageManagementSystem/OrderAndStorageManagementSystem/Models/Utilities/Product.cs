@@ -22,7 +22,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             {
                 if ( value < 0 )
                 {
-                    throw new ArgumentException(ERROR_PRODUCT_STORAGE_QUANTITY_IS_NEGATIVE);
+                    throw new ArgumentException(ERROR_STORAGE_QUANTITY_CANNOT_BE_SET_TO_NEGATIVE);
                 }
                 _storageQuantity = value;
             }
@@ -89,7 +89,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
                 _productInfo.ImagePath = value;
             }
         }
-        private const string ERROR_PRODUCT_STORAGE_QUANTITY_IS_NEGATIVE = "Product storage quantity cannot be set to negative.";
+        private const string ERROR_STORAGE_QUANTITY_CANNOT_BE_SET_TO_NEGATIVE = "Storage quantity cannot be set to negative.";
         private const int STORAGE_QUANTITY_INITIAL_VALUE = 0;
         private int _id;
         private int _storageQuantity;
