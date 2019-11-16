@@ -373,16 +373,8 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
                 _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
             }
             Assert.AreSame(_order.GetOrderItemAt(5), _orderItems[ 5 ]);
-            int exceptionTestNumber = TestDefinition.DUMP_INTEGER;
-            try
-            {
-                _order.GetOrderItemAt(-1);
-                exceptionTestNumber++;
-            }
-            catch ( ArgumentException )
-            {
-                Assert.AreEqual(exceptionTestNumber, TestDefinition.DUMP_INTEGER);
-            }
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => _order.GetOrderItemAt(-1));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => _order.GetOrderItemAt(10));
         }
 
         /// <summary>Tests the is in order items index range.</summary>
