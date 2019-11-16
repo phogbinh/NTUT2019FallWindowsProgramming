@@ -1,0 +1,4 @@
+ProductId,ProductName,ProductType,ProductPrice,ProductStorageQuantity,ProductDescription
+-1,First product name.,主機板,1490,10,First product description.
+0,Second product name.,記憶體,1389,70,Second product description.
+3,Third product name.,CPU,7999,100,Third product description.

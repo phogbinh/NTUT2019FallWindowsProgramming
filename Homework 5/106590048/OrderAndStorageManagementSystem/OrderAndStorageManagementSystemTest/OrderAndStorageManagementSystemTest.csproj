@@ -58,17 +58,31 @@
   <ItemGroup>
     <Compile Include="Models\OrderForm\OrderItemTest.cs" />
     <Compile Include="Models\OrderForm\OrderTest.cs" />
+    <Compile Include="Models\Utilities\DataBaseManagerTest.cs" />
+    <Compile Include="Models\Utilities\Products.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="TestDefinition.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Resources\ProductsTableTest.csv" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OrderAndStorageManagementSystem\OrderAndStorageManagementSystem.csproj">
       <Project>{F28F6EC2-AD1A-4EDA-967A-563098F9242E}</Project>
       <Name>OrderAndStorageManagementSystem</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
