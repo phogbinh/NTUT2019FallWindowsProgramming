@@ -5,7 +5,6 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
 {
     public static class DataBaseManager
     {
-        private const char COMMA_SEPARATED_VALUES_FILE_DELIMITER = ',';
         private const string ERROR_LINE_VALUES_IS_OF_CORRUPTED_LENGTH = "Line values is of corrupted length.";
         private const int PRODUCT_ATTRIBUTES_COUNT = 5;
         private const int PRODUCT_ID_COLUMN_INDEX = 0;
@@ -43,7 +42,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// </summary>
         private static string[] GetLineValues(string line)
         {
-            string[] lineValues = line.Split(COMMA_SEPARATED_VALUES_FILE_DELIMITER);
+            string[] lineValues = line.Split(AppDefinition.COMMA);
             if ( lineValues.Length < PRODUCT_ATTRIBUTES_COUNT )
             {
                 throw new IOException(ERROR_LINE_VALUES_IS_OF_CORRUPTED_LENGTH);
