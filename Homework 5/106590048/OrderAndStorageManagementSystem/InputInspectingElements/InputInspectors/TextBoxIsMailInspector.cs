@@ -4,7 +4,7 @@ namespace InputInspectingElements.InputInspectors
 {
     public class TextBoxIsMailInspector : TextBoxInspector
     {
-        private const string ERROR_TEXT_BOX_IS_NOT_MAIL = "This field is not an email.";
+        private const string ERROR_TEXT_BOX_IS_NOT_MAIL = "Textbox is not an email.";
 
         public TextBoxIsMailInspector(string textData, int maxTextLengthData) : base(textData, maxTextLengthData)
         {

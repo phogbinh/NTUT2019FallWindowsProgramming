@@ -2,7 +2,7 @@
 {
     public class TextBoxIsOfFullLengthInspector : TextBoxInspector
     {
-        private const string ERROR_TEXT_BOX_IS_OF_LOSS_LENGTH = "This field is of insufficient length.";
+        private const string ERROR_TEXT_BOX_IS_NOT_OF_FULL_LENGTH = "Textbox is of insufficient length.";
         private string Text
         {
             get
@@ -36,7 +36,7 @@
         /// </summary>
         public override string GetError()
         {
-            return ERROR_TEXT_BOX_IS_OF_LOSS_LENGTH;
+            return ERROR_TEXT_BOX_IS_NOT_OF_FULL_LENGTH;
         }
     }
 }
