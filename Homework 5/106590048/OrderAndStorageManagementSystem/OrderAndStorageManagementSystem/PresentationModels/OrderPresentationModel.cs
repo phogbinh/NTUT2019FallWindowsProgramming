@@ -178,9 +178,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         private void SelectNoProduct()
         {
-            _currentSelectedProduct = null;
-            NotifyObserverChangeCurrentProductInfo();
-            NotifyObserverChangeAddButtonEnabled();
+            SelectProduct(null);
         }
 
         /// <summary>
