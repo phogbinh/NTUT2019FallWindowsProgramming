@@ -14,7 +14,7 @@ namespace InputInspectingElements.InputInspectorsCollections
         {
             if ( !InputInspectorTypeHelper.IsInRangeOfDropDownListInspectorTypes(dropDownListInspectorTypeFlag) )
             {
-                throw new ArgumentException(ERROR_DROP_DOWN_LIST_INSPECTOR_TYPE_FLAG_IS_OUT_OF_RANGE);
+                throw new ArgumentOutOfRangeException(ERROR_DROP_DOWN_LIST_INSPECTOR_TYPE_FLAG_IS_OUT_OF_RANGE);
             }
             if ( InputInspectorTypeHelper.IsContainingDropDownListIsSelectedFlag(dropDownListInspectorTypeFlag) )
             {
