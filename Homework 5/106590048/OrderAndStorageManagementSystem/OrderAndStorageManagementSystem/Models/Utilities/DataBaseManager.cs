@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace OrderAndStorageManagementSystem.Models.Utilities
@@ -6,6 +7,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
     public static class DataBaseManager
     {
         private const string ERROR_LINE_VALUES_IS_OF_CORRUPTED_LENGTH = "Line values is of corrupted length.";
+        private const string ERROR_LINE_VALUES_IS_NULL = "The given line values is null.";
         private const int PRODUCT_ATTRIBUTES_COUNT = 5;
         private const int PRODUCT_ID_COLUMN_INDEX = 0;
         private const int PRODUCT_NAME_COLUMN_INDEX = 1;
@@ -55,6 +57,14 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// </summary>
         private static Product CreateProduct(string[] lineValues)
         {
+            if ( lineValues == null )
+            {
+                throw new ArgumentNullException(ERROR_LINE_VALUES_IS_NULL);
+            }
+            if ( lineValues.Length < PRODUCT_ATTRIBUTES_COUNT )
+            {
+                throw new ArgumentException(ERROR_LINE_VALUES_IS_OF_CORRUPTED_LENGTH);
+            }
             int productId = int.Parse(lineValues[ PRODUCT_ID_COLUMN_INDEX ]);
             string productName = lineValues[ PRODUCT_NAME_COLUMN_INDEX ];
             string productType = lineValues[ PRODUCT_TYPE_COLUMN_INDEX ];
