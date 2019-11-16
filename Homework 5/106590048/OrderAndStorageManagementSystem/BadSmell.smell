@@ -373,22 +373,22 @@
               <AnalysisFile>
                 <RelativePath>Views\Utilities\DataGridViewHelper.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
+                <AnalysisFileType>ViewOrController</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Views\Utilities\InputHelper.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
+                <AnalysisFileType>ViewOrController</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Views\Utilities\OrderProductTabPageButton.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
+                <AnalysisFileType>ViewOrController</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Views\Utilities\ProductsListBoxItem.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
+                <AnalysisFileType>ViewOrController</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>DataGridViewNumericUpDownCell.cs</RelativePath>
@@ -418,17 +418,17 @@
               <AnalysisFile>
                 <RelativePath>InputInspectingControls\IInputInspectingControl.cs</RelativePath>
                 <ProjectName>InputInspectingElements</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
+                <AnalysisFileType>ViewOrController</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>InputInspectingControls\InputInspectingDropDownList.cs</RelativePath>
                 <ProjectName>InputInspectingElements</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
+                <AnalysisFileType>ViewOrController</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>InputInspectingControls\InputInspectingTextBox.cs</RelativePath>
                 <ProjectName>InputInspectingElements</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
+                <AnalysisFileType>ViewOrController</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>InputInspectors\DropDownListIsSelectedInspector.cs</RelativePath>
