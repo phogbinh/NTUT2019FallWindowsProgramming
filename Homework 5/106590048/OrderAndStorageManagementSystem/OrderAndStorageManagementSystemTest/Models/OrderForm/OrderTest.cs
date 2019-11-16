@@ -207,7 +207,8 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestSetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise()
         {
-            _order.OrderItemQuantityIsExceededStorageQuantity += (orderItemIndex, orderItemStorageQuantity) => _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(orderItemIndex, orderItemStorageQuantity); // In the production code, this event is subscribed by the OrderForm, which will change the order quantity of the corresponding order item in the cart data grid view, which in turns direct a call back to this function.
+            // In the production code, the event below is subscribed by the OrderForm, which will change the order quantity of the corresponding order item in the cart data grid view, which in turns direct a call back to this function.
+            _order.OrderItemQuantityIsExceededStorageQuantity += (orderItemIndex, orderItemStorageQuantity) => _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(orderItemIndex, orderItemStorageQuantity);
             _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), 0, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
             _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), 5, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
             _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), 100, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
