@@ -252,39 +252,30 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         public void TestSetOrderItemQuantity()
         {
             const string MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY = "SetOrderItemQuantity";
-            for ( int i = 0; i < 10; i++ )
-            {
-                OrderItem orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
-                orderItem.OrderQuantity = 3;
-                _orderItems.Add(orderItem);
-            }
-            object[] arguments = new object[] { 0, 10 };
+            var orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
+            orderItem.OrderQuantity = 5;
+            _orderItems.Add(orderItem);
+            orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
+            orderItem.OrderQuantity = 0;
+            _orderItems.Add(orderItem);
+            orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
+            orderItem.OrderQuantity = 33;
+            _orderItems.Add(orderItem);
+            var arguments = new object[] { 0, 0 };
             _target.Invoke(MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY, arguments);
-            Assert.AreEqual(_orderItems[ 0 ].OrderQuantity, 10);
-            arguments = new object[] { 9, 3 };
+            Assert.AreEqual(_orderItems[0].OrderQuantity, 0);
+            arguments = new object[] { 1, 2019 };
             _target.Invoke(MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY, arguments);
-            Assert.AreEqual(_orderItems[ 9 ].OrderQuantity, 3);
-            arguments = new object[] { -1, 5 };
-            int exceptionTestNumber = TestDefinition.DUMP_INTEGER;
-            try
-            {
-                _target.Invoke(MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY, arguments);
-                exceptionTestNumber++;
-            }
-            catch ( TargetInvocationException )
-            {
-                Assert.AreEqual(exceptionTestNumber, TestDefinition.DUMP_INTEGER);
-            }
-            arguments = new object[] { 10, 5 };
-            try
-            {
-                _target.Invoke(MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY, arguments);
-                exceptionTestNumber++;
-            }
-            catch ( TargetInvocationException )
-            {
-                Assert.AreEqual(exceptionTestNumber, TestDefinition.DUMP_INTEGER);
-            }
+            Assert.AreEqual(_orderItems[ 1 ].OrderQuantity, 2019);
+            arguments = new object[] { 2, 33 };
+            _target.Invoke(MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY, arguments);
+            Assert.AreEqual(_orderItems[ 2 ].OrderQuantity, 33);
+            arguments = new object[] { -1, TestDefinition.DUMP_INTEGER };
+            var expectedException = Assert.ThrowsException<TargetInvocationException>(() => ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY, arguments));
+            Assert.IsInstanceOfType(expectedException.InnerException, typeof(ArgumentOutOfRangeException));
+            arguments = new object[] { 3, TestDefinition.DUMP_INTEGER };
+            expectedException = Assert.ThrowsException<TargetInvocationException>(() => ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY, arguments));
+            Assert.IsInstanceOfType(expectedException.InnerException, typeof(ArgumentOutOfRangeException));
         }
 
         /// <summary>Tests the get order item total price.</summary>
