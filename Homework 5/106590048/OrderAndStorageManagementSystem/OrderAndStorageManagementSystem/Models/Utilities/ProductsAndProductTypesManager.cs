@@ -7,6 +7,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
     {
         private const string ERROR_PRODUCTS_MANAGER_IS_NULL = "The given products manager is null.";
         private const string ERROR_PRODUCT_TYPES_MANAGER_IS_NULL = "The given product types manager is null.";
+        private const int EMPTY_PAGE_PAGES_COUNT = 1;
         private ProductsManager _productsManager;
         private ProductTypesManager _productTypesManager;
 
@@ -32,7 +33,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             int productTypeProductsCount = GetProductTypeProductsCount(productType);
             if ( productTypeProductsCount == 0 )
             {
-                return 1;
+                return EMPTY_PAGE_PAGES_COUNT;
             }
             int fullPopulatedProductPagesCount = productTypeProductsCount / AppDefinition.TAB_PAGE_MAX_PRODUCTS_COUNT;
             return productTypeProductsCount % AppDefinition.TAB_PAGE_MAX_PRODUCTS_COUNT == 0 ? fullPopulatedProductPagesCount : fullPopulatedProductPagesCount + 1;
