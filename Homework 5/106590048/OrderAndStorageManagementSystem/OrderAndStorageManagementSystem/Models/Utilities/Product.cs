@@ -29,6 +29,10 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         }
         public ProductInfo ProductInfo
         {
+            get
+            {
+                return _productInfo;
+            }
             set
             {
                 if ( value == null )
@@ -42,55 +46,55 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         {
             get
             {
-                return _productInfo.Name;
+                return this.ProductInfo.Name;
             }
             set
             {
-                _productInfo.Name = value;
+                this.ProductInfo.Name = value;
             }
         }
         public string Type
         {
             get
             {
-                return _productInfo.Type;
+                return this.ProductInfo.Type;
             }
             set
             {
-                _productInfo.Type = value;
+                this.ProductInfo.Type = value;
             }
         }
         public Money Price
         {
             get
             {
-                return _productInfo.Price;
+                return this.ProductInfo.Price;
             }
             set
             {
-                _productInfo.Price = value;
+                this.ProductInfo.Price = value;
             }
         }
         public string Description
         {
             get
             {
-                return _productInfo.Description;
+                return this.ProductInfo.Description;
             }
             set
             {
-                _productInfo.Description = value;
+                this.ProductInfo.Description = value;
             }
         }
         public string ImagePath
         {
             get
             {
-                return _productInfo.ImagePath;
+                return this.ProductInfo.ImagePath;
             }
             set
             {
-                _productInfo.ImagePath = value;
+                this.ProductInfo.ImagePath = value;
             }
         }
         private const string ERROR_STORAGE_QUANTITY_CANNOT_BE_SET_TO_NEGATIVE = "Storage quantity cannot be set to negative.";
@@ -104,7 +108,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         {
             _id = idData;
             this.StorageQuantity = storageQuantityData;
-            _productInfo = new ProductInfo(nameData, typeData, priceData, descriptionData, imagePathData);
+            this.ProductInfo = new ProductInfo(nameData, typeData, priceData, descriptionData, imagePathData);
         }
 
         public Product(int idData, string nameData, string typeData, Money priceData, int storageQuantityData, string descriptionData)
@@ -112,14 +116,14 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             _id = idData;
             this.StorageQuantity = storageQuantityData;
             string defaultImagePath = Directory.GetCurrentDirectory() + AppDefinition.RELATIVE_PATH_FROM_APPLICATION_BINARY_DIRECTORY_TO_RESOURCES_FOLDER + AppDefinition.APP_DATA_BASE_PRODUCTS_TABLE_IMAGE_NAME + _id.ToString() + AppDefinition.FILE_NAME_EXTENSION_JOINT_PHOTOGRAPHIC_GROUP;
-            _productInfo = new ProductInfo(nameData, typeData, priceData, descriptionData, defaultImagePath);
+            this.ProductInfo = new ProductInfo(nameData, typeData, priceData, descriptionData, defaultImagePath);
         }
 
         public Product(int idData, ProductInfo productInfoData)
         {
             _id = idData;
             this.StorageQuantity = STORAGE_QUANTITY_INITIAL_VALUE;
-            _productInfo = productInfoData;
+            this.ProductInfo = productInfoData;
         }
 
         /// <summary>
