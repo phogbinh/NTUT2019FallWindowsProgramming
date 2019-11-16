@@ -45,5 +45,14 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreSame(_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_PRODUCT), product);
             Assert.AreEqual(_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_ORDER_QUANTITY), 1);
         }
+
+        /// <summary>Tests the get total price.</summary>
+        [TestMethod()]
+        public void TestGetTotalPrice()
+        {
+            _orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(20), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
+            _orderItem.OrderQuantity = 4;
+            Assert.AreEqual(_orderItem.GetTotalPrice().GetString(), "80");
+        }
     }
 }
