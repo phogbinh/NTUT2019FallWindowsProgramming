@@ -1,5 +1,6 @@
 ﻿using OrderAndStorageManagementSystem.Models;
 using OrderAndStorageManagementSystem.Models.Utilities;
+using System;
 
 namespace OrderAndStorageManagementSystem.PresentationModels
 {
@@ -35,6 +36,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             get; set;
         }
+        private const string ERROR_MODEL_IS_NULL = "The given model is null.";
         private Model _model;
         private Product _currentSelectedProduct;
         private bool _isValidProductInfo;
@@ -43,6 +45,10 @@ namespace OrderAndStorageManagementSystem.PresentationModels
 
         public ProductManagementPresentationModel(Model modelData)
         {
+            if ( modelData == null )
+            {
+                throw new ArgumentNullException(ERROR_MODEL_IS_NULL);
+            }
             _model = modelData;
             this.CurrentSelectedProductChanged += NotifyObserverChangeSaveButtonEnabled;
             this.IsValidProductInfoChanged += NotifyObserverChangeSaveButtonEnabled;
