@@ -12,7 +12,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
 
         /// <summary>Initializes this instance.</summary>
         [TestInitialize()]
-        [DeploymentItem("OrderAndStorageManagementSystem.exe")]
+        [DeploymentItem(TestDefinition.DEPLOYMENT_ITEM_FILE_PATH)]
         public void Initialize()
         {
             _orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));

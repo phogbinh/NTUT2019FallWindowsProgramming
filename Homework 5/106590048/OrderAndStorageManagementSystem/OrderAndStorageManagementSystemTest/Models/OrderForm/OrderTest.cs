@@ -17,7 +17,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
 
         /// <summary>Initializes this instance.</summary>
         [TestInitialize()]
-        [DeploymentItem("OrderAndStorageManagementSystem.exe")]
+        [DeploymentItem(TestDefinition.DEPLOYMENT_ITEM_FILE_PATH)]
         public void Initialize()
         {
             _order = new Order();
