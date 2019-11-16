@@ -386,7 +386,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             {
                 _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
             }
-            object[] arguments = new object[] { 0 };
+            var arguments = new object[] { 0 };
             Assert.IsTrue(( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_IN_ORDER_ITEMS_INDEX_RANGE, arguments));
             arguments = new object[] { 9 };
             Assert.IsTrue(( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_IN_ORDER_ITEMS_INDEX_RANGE, arguments));
