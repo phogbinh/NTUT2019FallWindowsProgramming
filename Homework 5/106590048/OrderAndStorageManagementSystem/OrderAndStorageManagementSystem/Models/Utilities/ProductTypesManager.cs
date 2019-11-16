@@ -14,7 +14,6 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         }
         private const string ERROR_INITIAL_DATA_BASE_PRODUCTS_IS_NULL = "The given initial database products is null.";
         private const string ERROR_PRODUCT_TYPE_INDEX_IS_OUT_OF_RANGE = "The given product type index is out of range.";
-        private const string ERROR_PRODUCT_TYPES_IS_EMPTY = "Product types is empty.";
         private List<string> _productTypes;
 
         public ProductTypesManager(List<Product> initialDataBaseProducts)
@@ -46,25 +45,12 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// </summary>
         public string GetProductType(int productTypeIndex)
         {
-            if ( !IsInProductTypesIndexRange(productTypeIndex) )
+            if ( !AppDefinition.IsInIntervalRange(productTypeIndex, 0, _productTypes.Count - 1) )
             {
                 throw new ArgumentOutOfRangeException(ERROR_PRODUCT_TYPE_INDEX_IS_OUT_OF_RANGE);
             }
             return _productTypes[ productTypeIndex ];
         }
-
-        /// <summary>
-        /// Return true if the given product type index is in range of _productTypes.
-        /// </summary>
-        private bool IsInProductTypesIndexRange(int productTypeIndex)
-        {
-            if ( _productTypes.Count <= 0 )
-            {
-                throw new ArgumentException(ERROR_PRODUCT_TYPES_IS_EMPTY);
-            }
-            return AppDefinition.IsInIntervalRange(productTypeIndex, 0, _productTypes.Count - 1);
-        }
-
 
         /// <summary>Determines whether the specified product type is existing.</summary>
         public bool IsExisting(string productType)
