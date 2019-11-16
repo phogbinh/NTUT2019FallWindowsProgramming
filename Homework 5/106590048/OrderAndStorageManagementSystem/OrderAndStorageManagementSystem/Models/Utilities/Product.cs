@@ -103,14 +103,14 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         public Product(int idData, string nameData, string typeData, Money priceData, int storageQuantityData, string descriptionData, string imagePathData)
         {
             _id = idData;
-            _storageQuantity = storageQuantityData;
+            this.StorageQuantity = storageQuantityData;
             _productInfo = new ProductInfo(nameData, typeData, priceData, descriptionData, imagePathData);
         }
 
         public Product(int idData, string nameData, string typeData, Money priceData, int storageQuantityData, string descriptionData)
         {
             _id = idData;
-            _storageQuantity = storageQuantityData;
+            this.StorageQuantity = storageQuantityData;
             string defaultImagePath = Directory.GetCurrentDirectory() + AppDefinition.RELATIVE_PATH_FROM_APPLICATION_BINARY_DIRECTORY_TO_RESOURCES_FOLDER + AppDefinition.APP_DATA_BASE_PRODUCTS_TABLE_IMAGE_NAME + _id.ToString() + AppDefinition.FILE_NAME_EXTENSION_JOINT_PHOTOGRAPHIC_GROUP;
             _productInfo = new ProductInfo(nameData, typeData, priceData, descriptionData, defaultImagePath);
         }
@@ -118,7 +118,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         public Product(int idData, ProductInfo productInfoData)
         {
             _id = idData;
-            _storageQuantity = STORAGE_QUANTITY_INITIAL_VALUE;
+            this.StorageQuantity = STORAGE_QUANTITY_INITIAL_VALUE;
             _productInfo = productInfoData;
         }
 
@@ -135,7 +135,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// </summary>
         public string GetStorageQuantity()
         {
-            return _storageQuantity.ToString();
+            return this.StorageQuantity.ToString();
         }
 
         /// <summary>
