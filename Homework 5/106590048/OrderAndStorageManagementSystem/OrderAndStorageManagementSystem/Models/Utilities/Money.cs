@@ -7,6 +7,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
     {
         private const string NEGATIVE_SIGN = "-";
         private const string ERROR_NON_NEGATIVE_VALUE_IS_NEGATIVE = "The given non-negative value is negative";
+        private const string ERROR_ADDITIONAL_MONEY_IS_NULL = "The given additional money is null.";
         private const int THOUSANDS_COUNT = 3;
         private int _value;
 
@@ -54,9 +55,13 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// <summary>
         /// Add value to the money.
         /// </summary>
-        public void Add(Money additionalValue)
+        public void Add(Money additionalMoney)
         {
-            _value = _value + additionalValue._value;
+            if ( additionalMoney == null )
+            {
+                throw new ArgumentNullException(ERROR_ADDITIONAL_MONEY_IS_NULL);
+            }
+            _value = _value + additionalMoney._value;
         }
 
         /// <summary>
