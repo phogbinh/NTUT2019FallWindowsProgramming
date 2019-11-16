@@ -6,7 +6,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
     public class Money
     {
         private const string NEGATIVE_SIGN = "-";
-        private const string ERROR_NON_NEGATIVE_VALUE_IS_NEGATIVE = "The given non-negative value is negative";
+        private const string ERROR_NOT_NEGATIVE_VALUE_IS_NEGATIVE = "The given non-negative value is negative";
         private const string ERROR_ADDITIONAL_MONEY_IS_NULL = "The given additional money is null.";
         private const int THOUSANDS_COUNT = 3;
         private int _value;
@@ -27,19 +27,19 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// <summary>Gets the currency format.</summary>
         public string GetCurrencyFormat()
         {
-            return _value < 0 ? NEGATIVE_SIGN + GetNonNegativeCurrencyFormat(-_value) : GetNonNegativeCurrencyFormat(_value);
+            return _value < 0 ? NEGATIVE_SIGN + GetNotNegativeCurrencyFormat(-_value) : GetNotNegativeCurrencyFormat(_value);
         }
 
         /// <summary>
         /// Get non-negative currency format.
         /// </summary>
-        private string GetNonNegativeCurrencyFormat(int nonNegativeValue)
+        private string GetNotNegativeCurrencyFormat(int notNegativeValue)
         {
-            if ( nonNegativeValue < 0 )
+            if ( notNegativeValue < 0 )
             {
-                throw new ArgumentException(ERROR_NON_NEGATIVE_VALUE_IS_NEGATIVE);
+                throw new ArgumentException(ERROR_NOT_NEGATIVE_VALUE_IS_NEGATIVE);
             }
-            string valueInReversedOrder = new string (nonNegativeValue.ToString().Reverse().ToArray());
+            string valueInReversedOrder = new string (notNegativeValue.ToString().Reverse().ToArray());
             string valueInCurrencyFormatInReversedOrder = "";
             for ( int index = 0; index < valueInReversedOrder.Length; index++ )
             {
@@ -79,7 +79,6 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         {
             return _value.ToString();
         }
-
 
         /// <summary>Determines whether this instance is negative.</summary>
         public bool IsNegative()

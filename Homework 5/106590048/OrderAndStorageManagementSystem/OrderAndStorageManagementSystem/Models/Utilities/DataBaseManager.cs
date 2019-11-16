@@ -8,7 +8,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
     {
         private const string ERROR_LINE_VALUES_IS_OF_CORRUPTED_LENGTH = "Line values is of corrupted length.";
         private const string ERROR_LINE_VALUES_IS_NULL = "The given line values is null.";
-        private const int PRODUCT_ATTRIBUTES_COUNT = 5;
+        private const int PRODUCT_PROPERTIES_COUNT = 5;
         private const int PRODUCT_ID_COLUMN_INDEX = 0;
         private const int PRODUCT_NAME_COLUMN_INDEX = 1;
         private const int PRODUCT_TYPE_COLUMN_INDEX = 2;
@@ -45,7 +45,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         private static string[] GetLineValues(string line)
         {
             string[] lineValues = line.Split(AppDefinition.COMMA);
-            if ( lineValues.Length < PRODUCT_ATTRIBUTES_COUNT )
+            if ( lineValues.Length < PRODUCT_PROPERTIES_COUNT )
             {
                 throw new IOException(ERROR_LINE_VALUES_IS_OF_CORRUPTED_LENGTH);
             }
@@ -61,7 +61,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             {
                 throw new ArgumentNullException(ERROR_LINE_VALUES_IS_NULL);
             }
-            if ( lineValues.Length < PRODUCT_ATTRIBUTES_COUNT )
+            if ( lineValues.Length < PRODUCT_PROPERTIES_COUNT )
             {
                 throw new ArgumentException(ERROR_LINE_VALUES_IS_OF_CORRUPTED_LENGTH);
             }
