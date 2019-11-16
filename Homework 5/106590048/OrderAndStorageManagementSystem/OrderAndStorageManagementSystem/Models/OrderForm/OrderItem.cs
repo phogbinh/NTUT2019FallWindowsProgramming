@@ -5,7 +5,6 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
 {
     public class OrderItem
     {
-        private const int ORDER_QUANTITY_INITIAL_VALUE = 1;
         public int Id
         {
             get
@@ -68,6 +67,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             }
         }
         private const string ERROR_ORDER_QUANTITY_CANNOT_BE_SET_TO_NEGATIVE = "Order quantity cannot be set to negative.";
+        private const int ORDER_QUANTITY_INITIAL_VALUE = 1;
         private Product _product;
         private int _orderQuantity;
 
