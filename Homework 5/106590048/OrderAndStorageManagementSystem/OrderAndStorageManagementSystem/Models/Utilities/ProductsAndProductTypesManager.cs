@@ -8,6 +8,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         private const string ERROR_PRODUCTS_MANAGER_IS_NULL = "The given products manager is null.";
         private const string ERROR_PRODUCT_TYPES_MANAGER_IS_NULL = "The given product types manager is null.";
         private const string ERROR_PRODUCT_TYPE_PRODUCTS_INDEX_IS_OUT_OF_RANGE = "The product type products index calculated by the given product page index and the product index is out of range.";
+        private const string ERROR_PRODUCT_TYPE_IS_NOT_EXISTING = "The given product type is not existing.";
         private const int EMPTY_PAGE_PAGES_COUNT = 1;
         private ProductsManager _productsManager;
         private ProductTypesManager _productTypesManager;
@@ -71,6 +72,10 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// </summary>
         private List<Product> GetProductTypeProducts(string productType)
         {
+            if ( !_productTypesManager.IsExisting(productType) )
+            {
+                throw new ArgumentException(ERROR_PRODUCT_TYPE_IS_NOT_EXISTING);
+            }
             var productTypeProducts = new List<Product>();
             foreach ( Product product in _productsManager.Products )
             {

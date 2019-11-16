@@ -59,5 +59,12 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             }
             return AppDefinition.IsInIntervalRange(productTypeIndex, 0, _productTypes.Count - 1);
         }
+
+
+        /// <summary>Determines whether the specified product type is existing.</summary>
+        public bool IsExisting(string productType)
+        {
+            return _productTypes.Contains(productType);
+        }
     }
 }
