@@ -7,6 +7,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
     public class Money
     {
         private const string ERROR_VALUE_IS_NEGATIVE = "The given value is negative.";
+        private const string NEGATIVE_SIGN = "-";
         private const int THOUSANDS_COUNT = 3;
         private int _value;
 
@@ -27,13 +28,19 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             return GetCurrencyFormat() + AppDefinition.SPACE + currencyUnit;
         }
 
-        /// <summary>
-        /// Get the currency format of the money.
-        /// </summary>
+        /// <summary>Gets the currency format.</summary>
         public string GetCurrencyFormat()
         {
+            return _value < 0 ? NEGATIVE_SIGN + GetNonNegativeCurrencyFormat(-_value) : GetNonNegativeCurrencyFormat(_value);
+        }
+
+        /// <summary>
+        /// Get non-negative currency format.
+        /// </summary>
+        private string GetNonNegativeCurrencyFormat(int nonNegativeValue)
+        {
             var reversedValueInCurrencyFormat = new StringBuilder();
-            string valueString = GetString();
+            string valueString = nonNegativeValue.ToString();
             int count = 0;
             for ( int i = valueString.Length - 1; i >= 0; i-- )
             {
