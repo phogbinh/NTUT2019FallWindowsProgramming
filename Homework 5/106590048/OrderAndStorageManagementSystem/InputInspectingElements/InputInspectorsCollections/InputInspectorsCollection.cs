@@ -1,10 +1,13 @@
 ﻿using InputInspectingElements.InputInspectors;
+using System;
 using System.Collections.Generic;
 
 namespace InputInspectingElements.InputInspectorsCollections
 {
     public class InputInspectorsCollection
     {
+        private const string ERROR_INSPECTOR_IS_NULL = "The given inspector is null.";
+        private const string ERROR_INPUT_INSPECTORS_IS_NULL = "The given input inspectors is null.";
         private const string ERROR_FREE = "";
         public List<IInputInspector> Inspectors
         {
@@ -55,6 +58,10 @@ namespace InputInspectingElements.InputInspectorsCollections
         /// </summary>
         private string GetInspectorError(IInputInspector inspector)
         {
+            if ( inspector == null )
+            {
+                throw new ArgumentNullException(ERROR_INSPECTOR_IS_NULL);
+            }
             return inspector.GetError();
         }
 
@@ -63,6 +70,10 @@ namespace InputInspectingElements.InputInspectorsCollections
         /// </summary>
         public void AddInputInspectorsList(List<IInputInspector> inputInspectors)
         {
+            if ( inputInspectors == null )
+            {
+                throw new ArgumentNullException(ERROR_INPUT_INSPECTORS_IS_NULL);
+            }
             _inspectors.AddRange(inputInspectors);
         }
     }
