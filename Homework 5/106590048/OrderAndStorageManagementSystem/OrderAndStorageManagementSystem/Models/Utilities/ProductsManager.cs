@@ -27,11 +27,18 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
                 return _products;
             }
         }
-        private const string ERROR_PRODUCT_ID_IS_INVALID = "Product Id is invalid.";
+        private const string ERROR_INITIAL_DATA_BASE_PRODUCTS_IS_NULL = "The given initial database products is null.";
+        private const string ERROR_PRODUCT_ID_IS_NOT_EXISTING = "The given product id is not existing.";
+        private const string ERROR_PRODUCT_WITH_ORDER_QUANTITY_CONTAINERS_IS_NULL = "The given product-with-order-quantity-containers is null.";
+        private const string ERROR_PRODUCT_IS_NULL = "The given product is null.";
         private List<Product> _products;
 
         public ProductsManager(List<Product> initialDataBaseProducts)
         {
+            if ( initialDataBaseProducts == null )
+            {
+                throw new ArgumentNullException(ERROR_INITIAL_DATA_BASE_PRODUCTS_IS_NULL);
+            }
             _products = initialDataBaseProducts;
         }
 
@@ -47,7 +54,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
                     return product;
                 }
             }
-            throw new ArgumentException(ERROR_PRODUCT_ID_IS_INVALID);
+            throw new ArgumentException(ERROR_PRODUCT_ID_IS_NOT_EXISTING);
         }
 
         /// <summary>
@@ -55,6 +62,10 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// </summary>
         public void DecreaseProductStorageQuantitiesByOrderQuantities(IDictionary<Product, int> productWithOrderQuantityContainers)
         {
+            if ( productWithOrderQuantityContainers == null )
+            {
+                throw new ArgumentNullException(ERROR_PRODUCT_WITH_ORDER_QUANTITY_CONTAINERS_IS_NULL);
+            }
             foreach ( KeyValuePair<Product, int> container in productWithOrderQuantityContainers )
             {
                 Product product = container.Key;
@@ -68,6 +79,10 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// </summary>
         public void AddProductStorageQuantity(Product product, int additionalQuantity)
         {
+            if ( product == null )
+            {
+                throw new ArgumentNullException(ERROR_PRODUCT_IS_NULL);
+            }
             product.StorageQuantity = product.StorageQuantity + additionalQuantity;
             NotifyObserverChangeProductStorageQuantity(product);
         }
@@ -88,6 +103,10 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// </summary>
         public void UpdateProductInfo(Product product, ProductInfo newProductInfo)
         {
+            if ( product == null )
+            {
+                throw new ArgumentNullException(ERROR_PRODUCT_IS_NULL);
+            }
             product.ProductInfo = newProductInfo;
             NotifyObserverChangeProductInfo(product);
         }
