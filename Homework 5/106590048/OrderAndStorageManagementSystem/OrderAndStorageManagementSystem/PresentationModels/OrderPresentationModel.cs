@@ -1,6 +1,7 @@
 ﻿using OrderAndStorageManagementSystem.Models;
 using OrderAndStorageManagementSystem.Models.OrderForm;
 using OrderAndStorageManagementSystem.Models.Utilities;
+using System;
 
 namespace OrderAndStorageManagementSystem.PresentationModels
 {
@@ -21,6 +22,10 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             get; set;
         }
+        private const string ERROR_MODEL_IS_NULL = "The given model is null.";
+        private const string ERROR_ORDER_ITEM_IS_NULL = "The given order item is null.";
+        private const string ERROR_CURRENT_PRODUCT_PAGE_INDEX_CANNOT_BE_SET_TO_NEGATIVE = "Current product page index cannot be set to negative.";
+        private const string ERROR_CURRENT_TAB_PAGE_INDEX_CANNOT_BE_SET_TO_NEGATIVE = "Current tab page index cannot be set to negative.";
         private const int CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE = 0;
         private Model _model;
         private Product _currentSelectedProduct;
@@ -37,6 +42,10 @@ namespace OrderAndStorageManagementSystem.PresentationModels
 
         public OrderPresentationModel(Model modelData)
         {
+            if ( modelData == null )
+            {
+                throw new ArgumentNullException(ERROR_MODEL_IS_NULL);
+            }
             _model = modelData;
             // Observers
             _model.OrderCleared += NotifyObserverChangeAddButtonEnabled;
@@ -51,6 +60,10 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         private void HandleModelOrderAdded(OrderItem orderItem)
         {
+            if ( orderItem == null )
+            {
+                throw new ArgumentNullException(ERROR_ORDER_ITEM_IS_NULL);
+            }
             UpdateAddButtonIfCurrentSelectedProductIsAddedToOrRemovedFromOrder(orderItem.Product);
         }
 
@@ -109,6 +122,10 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         private void SetCurrentProductPageIndex(int value)
         {
+            if ( value < 0 )
+            {
+                throw new ArgumentException(ERROR_CURRENT_PRODUCT_PAGE_INDEX_CANNOT_BE_SET_TO_NEGATIVE);
+            }
             _currentProductPageIndex = value;
             NotifyObserverChangeCurrentProductPageIndex();
         }
@@ -147,6 +164,10 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         public void SelectProductTabPage(int tabPageIndex)
         {
+            if ( tabPageIndex < 0 )
+            {
+                throw new ArgumentException(ERROR_CURRENT_TAB_PAGE_INDEX_CANNOT_BE_SET_TO_NEGATIVE);
+            }
             _currentTabPageIndex = tabPageIndex;
             SetCurrentProductPageIndex(CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE);
             SelectNoProduct();
