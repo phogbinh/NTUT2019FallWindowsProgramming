@@ -74,15 +74,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             {
                 Assert.AreNotSame(orderItem.Product, product);
             }
-            try
-            {
-                _order.AddProductToOrderIfProductIsNotInOrder(null);
-                _isExceptionThrown = false;
-            }
-            catch ( ArgumentNullException )
-            {
-                Assert.IsTrue(_isExceptionThrown);
-            }
+            Assert.ThrowsException<ArgumentNullException>(() => _order.AddProductToOrderIfProductIsNotInOrder(null));
         }
 
         /// <summary>Tests the is in order.</summary>
@@ -114,15 +106,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             _order.AddOrderItem(orderItem);
             Assert.AreEqual(_orderItems.Count, 2);
             Assert.AreSame(_orderItems[ 1 ], orderItem);
-            try
-            {
-                _order.AddOrderItem(null);
-                _isExceptionThrown = false;
-            }
-            catch ( ArgumentNullException )
-            {
-                Assert.IsTrue(_isExceptionThrown);
-            }
+            Assert.ThrowsException<ArgumentNullException>(() => _order.AddOrderItem(null));
         }
 
         /// <summary>Tests the notify observer change order.</summary>
@@ -160,24 +144,8 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             {
                 _orderItems.Add(new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING)));
             }
-            try
-            {
-                _order.RemoveOrderItemAt(-1);
-                _isExceptionThrown = false;
-            }
-            catch ( ArgumentOutOfRangeException )
-            {
-                Assert.IsTrue(_isExceptionThrown);
-            }
-            try
-            {
-                _order.RemoveOrderItemAt(10);
-                _isExceptionThrown = false;
-            }
-            catch ( ArgumentOutOfRangeException )
-            {
-                Assert.IsTrue(_isExceptionThrown);
-            }
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => _order.RemoveOrderItemAt(-1));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => _order.RemoveOrderItemAt(10));
             OrderItem removeOrderItem = _orderItems[ 0 ];
             _order.RemoveOrderItemAt(0);
             Assert.IsFalse(_orderItems.Contains(removeOrderItem));
@@ -255,24 +223,8 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(_orderItems[ 2 ].OrderQuantity, 0);
             _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(2, 100);
             Assert.AreEqual(_orderItems[ 2 ].OrderQuantity, 100);
-            try
-            {
-                _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(-1, 10);
-                _isExceptionThrown = false;
-            }
-            catch ( ArgumentOutOfRangeException )
-            {
-                Assert.IsTrue(_isExceptionThrown);
-            }
-            try
-            {
-                _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(3, 8888);
-                _isExceptionThrown = false;
-            }
-            catch ( ArgumentOutOfRangeException )
-            {
-                Assert.IsTrue(_isExceptionThrown);
-            }
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(-1, 10));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(3, 8888));
         }
 
         /// <summary>Tests the is exceeded storage quantity.</summary>
