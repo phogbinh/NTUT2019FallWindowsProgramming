@@ -1,5 +1,4 @@
-﻿using OrderAndStorageManagementSystem.Properties;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 
 namespace OrderAndStorageManagementSystem.Models.Utilities
@@ -21,9 +20,9 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// <summary>
         /// Get products from text database.
         /// </summary>
-        public static List<Product> GetProductsFromProductTable()
+        public static List<Product> GetProductsFromFile(string input)
         {
-            StringReader reader = new StringReader(Resources.ProductsTable);
+            StringReader reader = new StringReader(input);
             reader.ReadLine(); // Skip header row
             List<Product> products = new List<Product>();
             while ( true )
