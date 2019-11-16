@@ -318,7 +318,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_ORDER_ITEM_QUANTITY = "NotifyObserverChangeOrderItemQuantity";
             int count = 0;
             _order.OrderItemQuantityChanged += (orderItemIndex, orderItemTotalPrice) => count++;
-            object[] arguments = new object[] { TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING };
+            var arguments = new object[] { TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING };
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_ORDER_ITEM_QUANTITY, arguments);
             Assert.AreEqual(count, 1);
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_ORDER_ITEM_QUANTITY, arguments);
