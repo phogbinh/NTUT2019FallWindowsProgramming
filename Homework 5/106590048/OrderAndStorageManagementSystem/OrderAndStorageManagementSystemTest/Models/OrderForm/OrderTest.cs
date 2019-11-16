@@ -222,8 +222,8 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(_orderItems[ 2 ].OrderQuantity, 0);
             _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(2, 100);
             Assert.AreEqual(_orderItems[ 2 ].OrderQuantity, 100);
-            Assert.ThrowsException<ArgumentOutOfRangeException>(() => _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(-1, 10));
-            Assert.ThrowsException<ArgumentOutOfRangeException>(() => _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(3, 8888));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(-1, TestDefinition.DUMP_INTEGER));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(3, TestDefinition.DUMP_INTEGER));
         }
 
         /// <summary>Tests the is exceeded storage quantity.</summary>
@@ -239,10 +239,10 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.IsFalse(( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments));
             arguments = new object[] { 1, 69 };
             Assert.IsFalse(( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments));
-            arguments = new object[] { -1, 3 };
+            arguments = new object[] { -1, TestDefinition.DUMP_INTEGER };
             TargetInvocationException expectedException = Assert.ThrowsException<TargetInvocationException>(() => ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments));
             Assert.IsInstanceOfType(expectedException.InnerException, typeof(ArgumentOutOfRangeException));
-            arguments = new object[] { 2, 0 };
+            arguments = new object[] { 2, TestDefinition.DUMP_INTEGER };
             expectedException = Assert.ThrowsException<TargetInvocationException>(() => ( bool )_target.Invoke(MEMBER_FUNCTION_NAME_IS_EXCEEDED_STORAGE_QUANTITY, arguments));
             Assert.IsInstanceOfType(expectedException.InnerException, typeof(ArgumentOutOfRangeException));
         }
