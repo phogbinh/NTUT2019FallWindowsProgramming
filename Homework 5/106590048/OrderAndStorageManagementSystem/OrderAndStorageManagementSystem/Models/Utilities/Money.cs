@@ -6,17 +6,12 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
 {
     public class Money
     {
-        private const string ERROR_VALUE_IS_NEGATIVE = "The given value is negative.";
         private const string NEGATIVE_SIGN = "-";
         private const int THOUSANDS_COUNT = 3;
         private int _value;
 
         public Money(int valueData)
         {
-            if ( valueData < 0 )
-            {
-                throw new ArgumentException(ERROR_VALUE_IS_NEGATIVE);
-            }
             _value = valueData;
         }
 
