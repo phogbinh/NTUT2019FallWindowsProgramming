@@ -249,9 +249,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
 
         /// <summary>Tests the set order item quantity.</summary>
         [TestMethod()]
-        public void TestSetOrderItemQuantity()
+        public void TestSetOrderItemQuantityAndNotifyObserver()
         {
-            const string MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY = "SetOrderItemQuantity";
+            const string MEMBER_FUNCTION_NAME_SET_ORDER_ITEM_QUANTITY = "SetOrderItemQuantityAndNotifyObserver";
             var orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
             orderItem.OrderQuantity = 5;
             _orderItems.Add(orderItem);

@@ -193,7 +193,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
             }
             if ( !IsExceededStorageQuantity(orderItemIndex, newCartProductQuantity) )
             {
-                SetOrderItemQuantity(orderItemIndex, newCartProductQuantity);
+                SetOrderItemQuantityAndNotifyObserver(orderItemIndex, newCartProductQuantity);
             }
             else
             {
@@ -217,7 +217,7 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm
         /// <summary>
         /// Set the order quantity of the order item at orderItemIndex to newOrderQuantity.
         /// </summary>
-        private void SetOrderItemQuantity(int orderItemIndex, int newOrderQuantity)
+        private void SetOrderItemQuantityAndNotifyObserver(int orderItemIndex, int newOrderQuantity)
         {
             if ( !IsInOrderItemsIndexRange(orderItemIndex) )
             {

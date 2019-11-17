@@ -60,7 +60,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// <summary>
         /// Set current selected product to the given product.
         /// </summary>
-        public void SetCurrentSelectedProduct(Product product)
+        public void SetCurrentSelectedProductAndNotifyObserver(Product product)
         {
             _currentSelectedProduct = product;
             NotifyObserverChangeCurrentSelectedProduct();
@@ -99,7 +99,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// <summary>
         /// Set _isValidProductInfo.
         /// </summary>
-        public void SetIsValidProductInfo(bool value)
+        public void SetIsValidProductInfoAndNotifyObserver(bool value)
         {
             _isValidProductInfo = value;
             NotifyObserverChangeIsValidProductInfo();
@@ -124,7 +124,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             if ( _state == State.EditProduct )
             {
                 _model.UpdateProductInfo(_currentSelectedProduct, newProductInfo);
-                SetIsEditedProductInfo(false);
+                SetIsEditedProductInfoAndNotifyObserver(false);
             }
             else
             {
@@ -135,7 +135,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// <summary>
         /// Set _isEditedProductInfo.
         /// </summary>
-        public void SetIsEditedProductInfo(bool value)
+        public void SetIsEditedProductInfoAndNotifyObserver(bool value)
         {
             _isEditedProductInfo = value;
             NotifyObserverChangeIsEditedProductInfo();
@@ -155,7 +155,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// <summary>
         /// Set _state.
         /// </summary>
-        public void SetState(State value)
+        public void SetStateAndNotifyObserver(State value)
         {
             _state = value;
             NotifyObserverChangeState();

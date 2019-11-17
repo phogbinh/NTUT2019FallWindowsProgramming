@@ -120,7 +120,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// <summary>
         /// Set current product page index.
         /// </summary>
-        private void SetCurrentProductPageIndex(int value)
+        private void SetCurrentProductPageIndexAndNotifyObserver(int value)
         {
             if ( value < 0 )
             {
@@ -146,7 +146,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         public void GoToPreviousProductPage()
         {
-            SetCurrentProductPageIndex(_currentProductPageIndex - 1);
+            SetCurrentProductPageIndexAndNotifyObserver(_currentProductPageIndex - 1);
             SelectNoProduct();
         }
 
@@ -155,7 +155,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         public void GoToNextProductPage()
         {
-            SetCurrentProductPageIndex(_currentProductPageIndex + 1);
+            SetCurrentProductPageIndexAndNotifyObserver(_currentProductPageIndex + 1);
             SelectNoProduct();
         }
 
@@ -169,7 +169,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
                 throw new ArgumentException(ERROR_CURRENT_TAB_PAGE_INDEX_CANNOT_BE_SET_TO_NEGATIVE);
             }
             _currentTabPageIndex = tabPageIndex;
-            SetCurrentProductPageIndex(CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE);
+            SetCurrentProductPageIndexAndNotifyObserver(CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE);
             SelectNoProduct();
         }
 
