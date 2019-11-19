@@ -28,6 +28,8 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             }
         }
         private const string ERROR_INITIAL_DATA_BASE_PRODUCTS_IS_NULL = "The given initial database products is null.";
+        private const string ERROR_INITIAL_DATA_BASE_PRODUCTS_IS_NOT_UNIQUE_PRODUCT_ID_QUALIFIED = "The given initial database products is not qualified to possess product id uniqueness property.";
+        private const string ERROR_PRODUCTS_IS_NULL = "The given products is null.";
         private const string ERROR_PRODUCT_ID_IS_NOT_EXISTING = "The given product id is not existing.";
         private const string ERROR_PRODUCT_WITH_ORDER_QUANTITY_CONTAINERS_IS_NULL = "The given product-with-order-quantity-containers is null.";
         private const string ERROR_PRODUCT_IS_NULL = "The given product is null.";
@@ -42,7 +44,33 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             {
                 throw new ArgumentNullException(ERROR_INITIAL_DATA_BASE_PRODUCTS_IS_NULL);
             }
+            if ( !IsUniqueProductIdQualified(initialDataBaseProducts) )
+            {
+                throw new ArgumentException(ERROR_INITIAL_DATA_BASE_PRODUCTS_IS_NOT_UNIQUE_PRODUCT_ID_QUALIFIED);
+            }
             _products = initialDataBaseProducts;
+        }
+
+        /// <summary>
+        /// Determines whether [is unique product identifier qualified] [the specified products].
+        /// </summary>
+        private bool IsUniqueProductIdQualified(List<Product> products)
+        {
+            if ( products == null )
+            {
+                throw new ArgumentNullException(ERROR_PRODUCTS_IS_NULL);
+            }
+            foreach ( Product product in products )
+            {
+                foreach ( Product uniqueProductIdCheckProduct in products )
+                {
+                    if ( product != uniqueProductIdCheckProduct && product.Id == uniqueProductIdCheckProduct.Id )
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
 
         /// <summary>
