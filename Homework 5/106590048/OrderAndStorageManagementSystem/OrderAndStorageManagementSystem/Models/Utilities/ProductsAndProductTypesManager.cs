@@ -31,8 +31,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// </summary>
         public int GetProductTypeProductPagesCount(string productType)
         {
-            int productTypeProductsCount = GetProductTypeProductsCount(productType);
-            return GetProductPagesCount(productTypeProductsCount);
+            return GetProductPagesCount(GetProductTypeProductsCount(productType));
         }
 
         /// <summary>
