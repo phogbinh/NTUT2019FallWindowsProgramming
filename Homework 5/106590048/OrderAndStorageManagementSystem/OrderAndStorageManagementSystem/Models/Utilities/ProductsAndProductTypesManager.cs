@@ -32,12 +32,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         public int GetProductTypeProductPagesCount(string productType)
         {
             int productTypeProductsCount = GetProductTypeProductsCount(productType);
-            if ( productTypeProductsCount == 0 )
-            {
-                return EMPTY_PAGE_PAGES_COUNT;
-            }
-            int fullPopulatedProductPagesCount = productTypeProductsCount / AppDefinition.TAB_PAGE_MAX_PRODUCTS_COUNT;
-            return productTypeProductsCount % AppDefinition.TAB_PAGE_MAX_PRODUCTS_COUNT == 0 ? fullPopulatedProductPagesCount : fullPopulatedProductPagesCount + 1;
+            return GetProductPagesCount(productTypeProductsCount);
         }
 
         /// <summary>
@@ -46,6 +41,19 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         private int GetProductTypeProductsCount(string productType)
         {
             return GetProductTypeProducts(productType).Count;
+        }
+
+        /// <summary>
+        /// Gets the product pages count.
+        /// </summary>
+        private int GetProductPagesCount(int productTypeProductsCount)
+        {
+            if ( productTypeProductsCount == 0 )
+            {
+                return EMPTY_PAGE_PAGES_COUNT;
+            }
+            int fullPopulatedProductPagesCount = productTypeProductsCount / AppDefinition.TAB_PAGE_MAX_PRODUCTS_COUNT;
+            return productTypeProductsCount % AppDefinition.TAB_PAGE_MAX_PRODUCTS_COUNT == 0 ? fullPopulatedProductPagesCount : fullPopulatedProductPagesCount + 1;
         }
 
         /// <summary>
