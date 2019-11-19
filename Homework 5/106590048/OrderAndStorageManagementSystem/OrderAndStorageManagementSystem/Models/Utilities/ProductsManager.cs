@@ -31,6 +31,9 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         private const string ERROR_PRODUCT_ID_IS_NOT_EXISTING = "The given product id is not existing.";
         private const string ERROR_PRODUCT_WITH_ORDER_QUANTITY_CONTAINERS_IS_NULL = "The given product-with-order-quantity-containers is null.";
         private const string ERROR_PRODUCT_IS_NULL = "The given product is null.";
+        private const string ERROR_PRODUCT_ID_CANNOT_BE_CREATED = "A new unique product id cannot be created.";
+        private const int PRODUCT_ID_START_VALUE = 0;
+        private const int PRODUCT_ID_MAX_VALUE = 1000;
         private List<Product> _products;
 
         public ProductsManager(List<Product> initialDataBaseProducts)
@@ -127,9 +130,39 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// </summary>
         public void AddProduct(ProductInfo newProductInfo)
         {
-            var product = new Product(_products.Count + 1, newProductInfo);
+            var product = new Product(CreateNewUniqueProductId(), newProductInfo);
             _products.Add(product);
             NotifyObserverAddProduct(product);
+        }
+
+        /// <summary>
+        /// Creates the new unique product identifier.
+        /// </summary>
+        private int CreateNewUniqueProductId()
+        {
+            for ( int productId = PRODUCT_ID_START_VALUE; productId <= PRODUCT_ID_MAX_VALUE; productId++ )
+            {
+                if ( !IsExistedProductId(productId) )
+                {
+                    return productId;
+                }
+            }
+            throw new ApplicationException(ERROR_PRODUCT_ID_CANNOT_BE_CREATED);
+        }
+
+        /// <summary>
+        /// Determines whether [is existed product identifier] [the specified product identifier].
+        /// </summary>
+        private bool IsExistedProductId(int productId)
+        {
+            foreach ( Product product in _products )
+            {
+                if ( product.Id == productId )
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         /// <summary>
