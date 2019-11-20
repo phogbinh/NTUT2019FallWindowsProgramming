@@ -18,7 +18,36 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [DeploymentItem(TestDefinition.OUTPUT_ITEM_FILE_PATH)]
         public void Initialize()
         {
-            /* Body intentionally empty */
+            _orderItem = new OrderItem(new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
+            _target = new PrivateObject(_orderItem);
+        }
+
+        /// <summary>
+        /// Tests the name of the get property.
+        /// </summary>
+        [TestMethod()]
+        public void TestGetPropertyName()
+        {
+            Assert.AreSame(_orderItem.Name, _orderItem.Product.Name);
+        }
+
+        /// <summary>
+        /// Tests the type of the get property.
+        /// </summary>
+        [TestMethod()]
+        public void TestGetPropertyType()
+        {
+            Assert.AreSame(_orderItem.Type, _orderItem.Product.Type);
+        }
+
+        /// <summary>
+        /// Tests the get property storage quantity.
+        /// </summary>
+        [TestMethod()]
+        public void TestSetPropertyStorageQuantity()
+        {
+            _orderItem.StorageQuantity = 5;
+            Assert.AreEqual(_orderItem.StorageQuantity, 5);
         }
 
         /// <summary>Tests the set property order quantity.</summary>
