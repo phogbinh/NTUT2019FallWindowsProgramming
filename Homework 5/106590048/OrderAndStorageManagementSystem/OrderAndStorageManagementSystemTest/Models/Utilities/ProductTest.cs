@@ -48,6 +48,26 @@ namespace OrderAndStorageManagementSystem.Models.Utilities.Test
         }
 
         /// <summary>
+        /// Tests the type of the set property.
+        /// </summary>
+        [TestMethod()]
+        public void TestSetPropertyType()
+        {
+            _product.Type = "Type X";
+            Assert.AreEqual(_product.Type, "Type X");
+        }
+
+        /// <summary>
+        /// Tests the set property image path.
+        /// </summary>
+        [TestMethod()]
+        public void TestSetPropertyImagePath()
+        {
+            _product.ImagePath = "看不到未來.jpg";
+            Assert.AreEqual(_product.ImagePath, "看不到未來.jpg");
+        }
+
+        /// <summary>
         /// Tests the product seven parameters constructor.
         /// </summary>
         [TestMethod()]
