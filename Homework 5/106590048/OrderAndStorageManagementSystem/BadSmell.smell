@@ -218,11 +218,29 @@
               <Comment />
               <Auto>false</Auto>
             </Smell>
+            <Smell>
+              <Id>3</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>81 目前物件 OrderAndStorageManagementSystem.Models.Utilities.ProductsManager，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.Models.Utilities.Product，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.Models.Utilities.Product.Id 以及 OrderAndStorageManagementSystem.Models.Utilities.Product.Id</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>1</Weight>
+              <Project>OrderAndStorageManagementSystem</Project>
+              <File>D:\Git\phogbinh\NTUT2019FallWindowsProgramming\Homework 5\106590048\OrderAndStorageManagementSystem\OrderAndStorageManagementSystem\Models\Utilities\ProductsManager.cs</File>
+              <Line>81</Line>
+              <StartLine>80</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>81</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 OrderAndStorageManagementSystem.Models.Utilities.ProductsManager，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.Models.Utilities.Product，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.Models.Utilities.Product.Id 以及 OrderAndStorageManagementSystem.Models.Utilities.Product.Id</Comment>
+              <Auto>false</Auto>
+            </Smell>
           </Reviews>
           <HashCodeIgnoreList>
             <string>UnsuitableNaming.OrderAndStorageManagementSystem.Views.ReplenishmentForm.ReplenishmentForm</string>
           </HashCodeIgnoreList>
-          <HashCodeRequestIgnoreList />
+          <HashCodeRequestIgnoreList>
+            <string>81 目前物件 OrderAndStorageManagementSystem.Models.Utilities.ProductsManager，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.Models.Utilities.Product，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.Models.Utilities.Product.Id 以及 OrderAndStorageManagementSystem.Models.Utilities.Product.Id</string>
+          </HashCodeRequestIgnoreList>
           <AnalysisFileManager>
             <AnalysisFiles>
               <AnalysisFile>
@@ -496,6 +514,16 @@
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>Models\AppDefinitionTest.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystemTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\ModelTest.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystemTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>Models\OrderForm\OrderItemTest.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystemTest</ProjectName>
                 <AnalysisFileType>Test</AnalysisFileType>
@@ -506,9 +534,59 @@
                 <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>Models\Utilities\DataBaseManagerTest.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystemTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\Utilities\MoneyTest.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystemTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\Utilities\ProductInfoTest.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystemTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\Utilities\ProductsAndProductTypesManagerTest.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystemTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\Utilities\ProductsManagerTest.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystemTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\Utilities\ProductTest.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystemTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\Utilities\ProductTypesManagerTest.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystemTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>PresentationModels\OrderPresentationModelTest.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystemTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>PresentationModels\ProductManagementPresentationModelTest.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystemTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>Properties\AssemblyInfo.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystemTest</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Properties\Resources.Designer.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystemTest</ProjectName>
+                <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>TestDefinition.cs</RelativePath>
@@ -517,8 +595,8 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>6128</ProductionLoc>
-          <TestLoc>1928</TestLoc>
+          <ProductionLoc>6232</ProductionLoc>
+          <TestLoc>3826</TestLoc>
         </CodeReview>
       </Data>
     </div>

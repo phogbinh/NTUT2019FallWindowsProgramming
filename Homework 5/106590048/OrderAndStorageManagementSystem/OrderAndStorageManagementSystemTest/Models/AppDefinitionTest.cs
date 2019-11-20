@@ -11,7 +11,7 @@ namespace OrderAndStorageManagementSystem.Models.Test
         /// Initializes this instance.
         /// </summary>
         [TestInitialize()]
-        [DeploymentItem(TestDefinition.DEPLOYMENT_ITEM_FILE_PATH)]
+        [DeploymentItem(TestDefinition.OUTPUT_ITEM_FILE_PATH)]
         public void Initialize()
         {
             /* Body intentionally empty */

@@ -15,7 +15,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities.Test
 
         /// <summary>Initializes this instance.</summary>
         [TestInitialize()]
-        [DeploymentItem(TestDefinition.DEPLOYMENT_ITEM_FILE_PATH)]
+        [DeploymentItem(TestDefinition.OUTPUT_ITEM_FILE_PATH)]
         public void Initialize()
         {
             _product = new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING);

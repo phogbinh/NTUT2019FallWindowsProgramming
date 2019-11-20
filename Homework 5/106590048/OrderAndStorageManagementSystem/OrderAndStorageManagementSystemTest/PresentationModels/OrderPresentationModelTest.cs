@@ -22,7 +22,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
 
         /// <summary>Initializes this instance.</summary>
         [TestInitialize()]
-        [DeploymentItem(TestDefinition.DEPLOYMENT_ITEM_FILE_PATH)]
+        [DeploymentItem(TestDefinition.OUTPUT_ITEM_FILE_PATH)]
         public void Initialize()
         {
             _orderPresentationModel = new OrderPresentationModel(new Model(Resources.ProductsTableTest));
