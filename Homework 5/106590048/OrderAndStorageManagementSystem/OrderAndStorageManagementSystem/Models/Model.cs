@@ -1,6 +1,5 @@
 ﻿using OrderAndStorageManagementSystem.Models.OrderForm;
 using OrderAndStorageManagementSystem.Models.Utilities;
-using OrderAndStorageManagementSystem.Properties;
 using System.Collections.Generic;
 
 namespace OrderAndStorageManagementSystem.Models
@@ -118,9 +117,9 @@ namespace OrderAndStorageManagementSystem.Models
         private ProductsAndProductTypesManager _productsAndProductTypesManager;
         private Order _order;
 
-        public Model()
+        public Model(string input)
         {
-            List<Product> initialDataBaseProducts = DataBaseManager.GetProductsFromFile(Resources.ProductsTable);
+            List<Product> initialDataBaseProducts = DataBaseManager.GetProductsFromFile(input);
             _productsManager = new ProductsManager(initialDataBaseProducts);
             _productTypesManager = new ProductTypesManager(initialDataBaseProducts);
             _productsAndProductTypesManager = new ProductsAndProductTypesManager(_productsManager, _productTypesManager);
