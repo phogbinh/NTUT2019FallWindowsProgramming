@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OrderAndStorageManagementSystemTest;
 using OrderAndStorageManagementSystemTest.Properties;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
@@ -65,6 +66,30 @@ namespace OrderAndStorageManagementSystem.Models.Utilities.Test
             arguments = new object[] { "corrupted, length" };
             TargetInvocationException expectedException = Assert.ThrowsException<TargetInvocationException>(() => _target.InvokeStatic(MEMBER_FUNCTION_NAME_GET_LINE_VALUES, arguments));
             Assert.IsInstanceOfType(expectedException.InnerException, typeof(IOException));
+        }
+
+        /// <summary>
+        /// Tests the create product.
+        /// </summary>
+        [TestMethod()]
+        public void TestCreateProduct()
+        {
+            const string MEMBER_FUNCTION_NAME_CREATE_PRODUCT = "CreateProduct";
+            var arguments = new object[] { null };
+            TargetInvocationException expectedException = Assert.ThrowsException<TargetInvocationException>(() => _target.InvokeStatic(MEMBER_FUNCTION_NAME_CREATE_PRODUCT, arguments));
+            Assert.IsInstanceOfType(expectedException.InnerException, typeof(ArgumentNullException));
+            arguments = new object[] { new string[] { "1", "2", "3", "4" } };
+            expectedException = Assert.ThrowsException<TargetInvocationException>(() => _target.InvokeStatic(MEMBER_FUNCTION_NAME_CREATE_PRODUCT, arguments));
+            Assert.IsInstanceOfType(expectedException.InnerException, typeof(ArgumentException));
+            arguments = new object[] { new string[] { "0", "product name", "product type", "1000", "1", "product description" } };
+            Product expectedProduct = ( Product )_target.InvokeStatic(MEMBER_FUNCTION_NAME_CREATE_PRODUCT, arguments);
+            Assert.AreEqual(expectedProduct.Id, 0);
+            Assert.AreEqual(expectedProduct.Name, "product name");
+            Assert.AreEqual(expectedProduct.Type, "product type");
+            Assert.AreEqual(expectedProduct.Price.GetString(), "1000");
+            Assert.AreEqual(expectedProduct.StorageQuantity, 1);
+            Assert.AreEqual(expectedProduct.Description, "product description");
+            Assert.AreEqual(expectedProduct.ImagePath, Directory.GetCurrentDirectory() + @"\..\..\Resources\img_AppDatabase_ProductsTable_0.jpg");
         }
     }
 }

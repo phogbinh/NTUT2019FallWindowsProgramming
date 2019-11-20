@@ -56,10 +56,19 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Models\AppDefinitionTest.cs" />
+    <Compile Include="Models\ModelTest.cs" />
     <Compile Include="Models\OrderForm\OrderItemTest.cs" />
     <Compile Include="Models\OrderForm\OrderTest.cs" />
     <Compile Include="Models\Utilities\DataBaseManagerTest.cs" />
-    <Compile Include="Models\Utilities\Products.cs" />
+    <Compile Include="Models\Utilities\MoneyTest.cs" />
+    <Compile Include="Models\Utilities\ProductInfoTest.cs" />
+    <Compile Include="Models\Utilities\ProductsAndProductTypesManagerTest.cs" />
+    <Compile Include="Models\Utilities\ProductsManagerTest.cs" />
+    <Compile Include="Models\Utilities\ProductTest.cs" />
+    <Compile Include="Models\Utilities\ProductTypesManagerTest.cs" />
+    <Compile Include="PresentationModels\OrderPresentationModelTest.cs" />
+    <Compile Include="PresentationModels\ProductManagementPresentationModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
