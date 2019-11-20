@@ -13,9 +13,9 @@ namespace OrderAndStorageManagementSystem.PresentationModels
     {
         public delegate void CurrentSelectedProductChangedEventHandler();
         public delegate void SaveButtonEnabledChangedEventHandler();
-        private delegate void IsValidProductInfoChangedEventHandler();
-        private delegate void IsEditedProductInfoChangedEventHandler();
-        private delegate void StateChangedEventHandler();
+        public delegate void IsValidProductInfoChangedEventHandler();
+        public delegate void IsEditedProductInfoChangedEventHandler();
+        public delegate void StateChangedEventHandler();
         public CurrentSelectedProductChangedEventHandler CurrentSelectedProductChanged
         {
             get; set;
@@ -24,15 +24,15 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             get; set;
         }
-        private IsValidProductInfoChangedEventHandler IsValidProductInfoChanged
+        public IsValidProductInfoChangedEventHandler IsValidProductInfoChanged
         {
             get; set;
         }
-        private IsEditedProductInfoChangedEventHandler IsEditedProductInfoChanged
+        public IsEditedProductInfoChangedEventHandler IsEditedProductInfoChanged
         {
             get; set;
         }
-        private StateChangedEventHandler StateChanged
+        public StateChangedEventHandler StateChanged
         {
             get; set;
         }
