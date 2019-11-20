@@ -41,6 +41,110 @@ namespace OrderAndStorageManagementSystem.Models.Test
         }
 
         /// <summary>
+        /// Tests the get property order changed.
+        /// </summary>
+        [TestMethod()]
+        public void TestGetPropertyOrderChanged()
+        {
+            Assert.AreSame(_model.OrderChanged, _order.OrderChanged);
+        }
+
+        /// <summary>
+        /// Tests the set property order changed.
+        /// </summary>
+        [TestMethod()]
+        public void TestSetPropertyOrderChanged()
+        {
+            _model.OrderChanged += () => { };
+            Assert.IsNotNull(_model.OrderChanged);
+        }
+
+        /// <summary>
+        /// Tests the get property order item quantity changed.
+        /// </summary>
+        [TestMethod()]
+        public void TestGetPropertyOrderItemQuantityChanged()
+        {
+            Assert.AreSame(_model.OrderItemQuantityChanged, _order.OrderItemQuantityChanged);
+        }
+
+        /// <summary>
+        /// Tests the set property order item quantity changed.
+        /// </summary>
+        [TestMethod()]
+        public void TestSetPropertyOrderItemQuantityChanged()
+        {
+            _model.OrderItemQuantityChanged += (orderItemIndex, orderItemTotalPrice) => { };
+            Assert.IsNotNull(_model.OrderItemQuantityChanged);
+        }
+
+        /// <summary>
+        /// Tests the get property order item quantity is exceeded storage quantity.
+        /// </summary>
+        [TestMethod()]
+        public void TestGetPropertyOrderItemQuantityIsExceededStorageQuantity()
+        {
+            Assert.AreSame(_model.OrderItemQuantityIsExceededStorageQuantity, _order.OrderItemQuantityIsExceededStorageQuantity);
+        }
+
+        /// <summary>
+        /// Tests the set property order item quantity is exceeded storage quantity.
+        /// </summary>
+        [TestMethod()]
+        public void TestSetPropertyOrderItemQuantityIsExceededStorageQuantity()
+        {
+            _model.OrderItemQuantityIsExceededStorageQuantity += (orderItemIndex, orderItemStorageQuantity) => { };
+            Assert.IsNotNull(_model.OrderItemQuantityIsExceededStorageQuantity);
+        }
+
+        /// <summary>
+        /// Tests the get property product information changed.
+        /// </summary>
+        [TestMethod()]
+        public void TestGetPropertyProductInfoChanged()
+        {
+            Assert.AreSame(_model.ProductInfoChanged, _productsManager.ProductInfoChanged);
+        }
+
+        /// <summary>
+        /// Tests the set property product information changed.
+        /// </summary>
+        [TestMethod()]
+        public void TestSetPropertyProductInfoChanged()
+        {
+            _model.ProductInfoChanged += (product) => { };
+            Assert.IsNotNull(_model.ProductInfoChanged);
+        }
+
+        /// <summary>
+        /// Tests the get property product added.
+        /// </summary>
+        [TestMethod()]
+        public void TestGetPropertyProductAdded()
+        {
+            Assert.AreSame(_model.ProductAdded, _productsManager.ProductAdded);
+        }
+
+        /// <summary>
+        /// Tests the set property product added.
+        /// </summary>
+        [TestMethod()]
+        public void TestSetPropertyProductAdded()
+        {
+            _model.ProductAdded += (product) => { };
+            Assert.IsNotNull(_model.ProductAdded);
+        }
+
+        /// <summary>
+        /// Tests the get products.
+        /// </summary>
+        [TestMethod()]
+        public void TestGetProducts()
+        {
+            Assert.AreSame(_model.Products, _productsManager.Products);
+        }
+
+        /// <summary>
         /// Tests the model.
         /// </summary>
         [TestMethod()]
