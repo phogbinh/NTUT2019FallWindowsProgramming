@@ -240,7 +240,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         public bool IsLeftArrowButtonEnabled()
         {
-            return _currentProductPageIndex != 0;
+            return _currentProductPageIndex > 0;
         }
 
         /// <summary>
@@ -248,7 +248,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         public bool IsRightArrowButtonEnabled()
         {
-            return _currentProductPageIndex != _model.GetTabPageProductPagesCount(_currentTabPageIndex) - 1;
+            return _currentProductPageIndex < _model.GetTabPageProductPagesCount(_currentTabPageIndex) - 1;
         }
 
         /// <summary>
