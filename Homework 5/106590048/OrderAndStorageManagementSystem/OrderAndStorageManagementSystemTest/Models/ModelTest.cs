@@ -3,6 +3,7 @@ using OrderAndStorageManagementSystem.Models.OrderForm;
 using OrderAndStorageManagementSystem.Models.Utilities;
 using OrderAndStorageManagementSystemTest;
 using OrderAndStorageManagementSystemTest.Properties;
+using System.Collections.Generic;
 
 namespace OrderAndStorageManagementSystem.Models.Test
 {
@@ -331,6 +332,17 @@ namespace OrderAndStorageManagementSystem.Models.Test
             var productInfo = new ProductInfo(TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING);
             _model.AddProduct(productInfo);
             Assert.AreSame(_productsManager.GetProduct(1).ProductInfo, productInfo);
+        }
+
+        /// <summary>
+        /// Tests the get product type products.
+        /// </summary>
+        [TestMethod()]
+        public void TestGetProductTypeProducts()
+        {
+            List<Product> expectedProducts = _model.GetProductTypeProducts("主機板");
+            Assert.AreEqual(expectedProducts.Count, 1);
+            Assert.AreSame(expectedProducts[ 0 ], _productsManager.GetProduct(-1));
         }
     }
 }
