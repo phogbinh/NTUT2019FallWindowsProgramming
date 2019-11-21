@@ -149,5 +149,13 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         {
             return this.Price.GetCurrencyFormatWithCurrencyUnit(currencyUnit);
         }
+
+        /// <summary>
+        /// Converts to string.
+        /// </summary>
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 }

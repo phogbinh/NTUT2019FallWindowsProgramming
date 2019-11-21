@@ -144,5 +144,15 @@ namespace OrderAndStorageManagementSystem.Models.Utilities.Test
             _product.Price = new Money(5000);
             Assert.AreEqual(_product.GetPrice("Yen"), "5,000 Yen");
         }
+
+        /// <summary>
+        /// Tests to string.
+        /// </summary>
+        [TestMethod()]
+        public void TestToString()
+        {
+            _product.Name = "William";
+            Assert.AreEqual(_product.ToString(), "William");
+        }
     }
 }
