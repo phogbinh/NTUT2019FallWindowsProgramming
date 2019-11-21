@@ -68,13 +68,13 @@
             this._productTypeNameField = new InputInspectingElements.InputInspectingControls.InputInspectingTextBox();
             this._productTypeProductsListLayout = new System.Windows.Forms.TableLayoutPanel();
             this._productTypeProductsListLabel = new System.Windows.Forms.Label();
+            this._productTypeProductsListBox = new System.Windows.Forms.ListBox();
             this._productTypeInfoGroupBoxLastRowLayout = new System.Windows.Forms.TableLayoutPanel();
             this._submitProductTypeInfoButton = new System.Windows.Forms.Button();
             this._productTypesManagementTabPageLeftSectionLayout = new System.Windows.Forms.TableLayoutPanel();
             this._addProductTypeButton = new System.Windows.Forms.Button();
             this._productTypesListBox = new System.Windows.Forms.ListBox();
             this._errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this._productTypeProductsListBox = new System.Windows.Forms.ListBox();
             this._productManagementFormLayout.SuspendLayout();
             this._tabControl.SuspendLayout();
             this._productsManagementTabPage.SuspendLayout();
@@ -554,8 +554,9 @@
             // 
             this._productTypeNameField.Dock = System.Windows.Forms.DockStyle.Fill;
             this._productTypeNameField.Location = new System.Drawing.Point(81, 3);
+            this._productTypeNameField.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this._productTypeNameField.Name = "_productTypeNameField";
-            this._productTypeNameField.Size = new System.Drawing.Size(430, 20);
+            this._productTypeNameField.Size = new System.Drawing.Size(413, 20);
             this._productTypeNameField.TabIndex = 1;
             this._productTypeNameField.TextBoxInspectorsCollectionChanged = null;
             // 
@@ -584,6 +585,15 @@
             this._productTypeProductsListLabel.Size = new System.Drawing.Size(508, 43);
             this._productTypeProductsListLabel.TabIndex = 0;
             this._productTypeProductsListLabel.Text = "類別內產品";
+            // 
+            // _productTypeProductsListBox
+            // 
+            this._productTypeProductsListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productTypeProductsListBox.FormattingEnabled = true;
+            this._productTypeProductsListBox.Location = new System.Drawing.Point(3, 46);
+            this._productTypeProductsListBox.Name = "_productTypeProductsListBox";
+            this._productTypeProductsListBox.Size = new System.Drawing.Size(508, 240);
+            this._productTypeProductsListBox.TabIndex = 1;
             // 
             // _productTypeInfoGroupBoxLastRowLayout
             // 
@@ -648,15 +658,6 @@
             // _errorProvider
             // 
             this._errorProvider.ContainerControl = this;
-            // 
-            // _productTypeProductsListBox
-            // 
-            this._productTypeProductsListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._productTypeProductsListBox.FormattingEnabled = true;
-            this._productTypeProductsListBox.Location = new System.Drawing.Point(3, 46);
-            this._productTypeProductsListBox.Name = "_productTypeProductsListBox";
-            this._productTypeProductsListBox.Size = new System.Drawing.Size(508, 240);
-            this._productTypeProductsListBox.TabIndex = 1;
             // 
             // ProductManagementForm
             // 
