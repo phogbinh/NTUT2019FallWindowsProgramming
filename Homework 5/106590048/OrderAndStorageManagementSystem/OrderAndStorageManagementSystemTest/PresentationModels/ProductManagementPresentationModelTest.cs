@@ -14,7 +14,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         private const string MEMBER_VARIABLE_NAME_CURRENT_SELECTED_PRODUCT = "_currentSelectedProduct";
         private const string MEMBER_VARIABLE_NAME_IS_VALID_PRODUCT_INFO = "_isValidProductInfo";
         private const string MEMBER_VARIABLE_NAME_IS_EDITED_PRODUCT_INFO = "_isEditedProductInfo";
-        private const string MEMBER_VARIABLE_NAME_STATE = "_state";
+        private const string MEMBER_VARIABLE_NAME_PRODUCTS_MANAGEMENT_TAB_PAGE_STATE = "_productsManagementTabPageState";
         private ProductManagementPresentationModel _productManagementPresentationModel;
         private PrivateObject _target;
 
@@ -91,7 +91,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         [TestMethod()]
         public void TestIsSubmitProductInfoButtonEnabled()
         {
-            _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_STATE, State.EditProduct);
+            _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_PRODUCTS_MANAGEMENT_TAB_PAGE_STATE, ProductsManagementTabPageState.EditProduct);
             Assert.IsFalse(_productManagementPresentationModel.IsSubmitProductInfoButtonEnabled());
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_SELECTED_PRODUCT, new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
             Assert.IsFalse(_productManagementPresentationModel.IsSubmitProductInfoButtonEnabled());
@@ -99,7 +99,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
             Assert.IsFalse(_productManagementPresentationModel.IsSubmitProductInfoButtonEnabled());
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_IS_EDITED_PRODUCT_INFO, true);
             Assert.IsTrue(_productManagementPresentationModel.IsSubmitProductInfoButtonEnabled());
-            _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_STATE, State.AddProduct);
+            _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_PRODUCTS_MANAGEMENT_TAB_PAGE_STATE, ProductsManagementTabPageState.AddProduct);
             Assert.IsTrue(_productManagementPresentationModel.IsSubmitProductInfoButtonEnabled());
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_IS_VALID_PRODUCT_INFO, false);
             Assert.IsFalse(_productManagementPresentationModel.IsSubmitProductInfoButtonEnabled());
@@ -139,7 +139,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         [TestMethod()]
         public void TestClickSubmitProductInfoButton()
         {
-            _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_STATE, State.EditProduct);
+            _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_PRODUCTS_MANAGEMENT_TAB_PAGE_STATE, ProductsManagementTabPageState.EditProduct);
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_SELECTED_PRODUCT, new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
             int count = 0;
             _productManagementPresentationModel.IsEditedProductInfoChanged += () => count++;
@@ -148,7 +148,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
             Assert.AreSame(( ( Product )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_SELECTED_PRODUCT) ).ProductInfo, productInfo);
             Assert.IsFalse(( bool )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_IS_EDITED_PRODUCT_INFO));
             Assert.AreEqual(count, 1);
-            _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_STATE, State.AddProduct);
+            _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_PRODUCTS_MANAGEMENT_TAB_PAGE_STATE, ProductsManagementTabPageState.AddProduct);
             _productManagementPresentationModel.ClickSubmitProductInfoButton(productInfo);
             Model model = ( Model )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_MODEL);
             Assert.AreSame(model.GetProduct(1).ProductInfo, productInfo);
@@ -183,30 +183,30 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         }
 
         /// <summary>
-        /// Tests the set state and notify observer.
+        /// Tests the set products management tab page state and notify observer.
         /// </summary>
         [TestMethod()]
-        public void TestSetStateAndNotifyObserver()
+        public void TestSetProductsManagementTabPageStateAndNotifyObserver()
         {
             int count = 0;
-            _productManagementPresentationModel.StateChanged += () => count++;
-            _productManagementPresentationModel.SetStateAndNotifyObserver(State.EditProduct);
-            Assert.AreEqual(_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_STATE), State.EditProduct);
+            _productManagementPresentationModel.ProductsManagementTabPageStateChanged += () => count++;
+            _productManagementPresentationModel.SetProductsManagementTabPageStateAndNotifyObserver(ProductsManagementTabPageState.EditProduct);
+            Assert.AreEqual(_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_PRODUCTS_MANAGEMENT_TAB_PAGE_STATE), ProductsManagementTabPageState.EditProduct);
             Assert.AreEqual(count, 1);
         }
 
         /// <summary>
-        /// Tests the state of the notify observer change.
+        /// Tests the state of the notify observer change products management tab page.
         /// </summary>
         [TestMethod()]
-        public void TestNotifyObserverChangeState()
+        public void TestNotifyObserverChangeProductsManagementTabPageState()
         {
-            const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_STATE = "NotifyObserverChangeState";
+            const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_PRODUCTS_MANAGEMENT_TAB_PAGE_STATE = "NotifyObserverChangeProductsManagementTabPageState";
             int count = 0;
-            _productManagementPresentationModel.StateChanged += () => count++;
-            _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_STATE);
+            _productManagementPresentationModel.ProductsManagementTabPageStateChanged += () => count++;
+            _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_PRODUCTS_MANAGEMENT_TAB_PAGE_STATE);
             Assert.AreEqual(count, 1);
-            _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_STATE);
+            _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_PRODUCTS_MANAGEMENT_TAB_PAGE_STATE);
             Assert.AreEqual(count, 2);
         }
 

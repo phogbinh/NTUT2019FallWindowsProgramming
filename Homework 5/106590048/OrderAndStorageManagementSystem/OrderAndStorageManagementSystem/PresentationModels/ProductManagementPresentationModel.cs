@@ -4,7 +4,7 @@ using System;
 
 namespace OrderAndStorageManagementSystem.PresentationModels
 {
-    public enum State
+    public enum ProductsManagementTabPageState
     {
         EditProduct = 0,
         AddProduct
@@ -15,7 +15,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         public delegate void SubmitProductInfoButtonEnabledChangedEventHandler();
         public delegate void IsValidProductInfoChangedEventHandler();
         public delegate void IsEditedProductInfoChangedEventHandler();
-        public delegate void StateChangedEventHandler();
+        public delegate void ProductsManagementTabPageStateChangedEventHandler();
         public CurrentSelectedProductChangedEventHandler CurrentSelectedProductChanged
         {
             get; set;
@@ -32,7 +32,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             get; set;
         }
-        public StateChangedEventHandler StateChanged
+        public ProductsManagementTabPageStateChangedEventHandler ProductsManagementTabPageStateChanged
         {
             get; set;
         }
@@ -41,7 +41,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         private Product _currentSelectedProduct;
         private bool _isValidProductInfo;
         private bool _isEditedProductInfo;
-        private State _state;
+        private ProductsManagementTabPageState _productsManagementTabPageState;
 
         public ProductManagementPresentationModel(Model modelData)
         {
@@ -53,7 +53,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             this.CurrentSelectedProductChanged += NotifyObserverChangeSubmitProductInfoButtonEnabled;
             this.IsValidProductInfoChanged += NotifyObserverChangeSubmitProductInfoButtonEnabled;
             this.IsEditedProductInfoChanged += NotifyObserverChangeSubmitProductInfoButtonEnabled;
-            this.StateChanged += NotifyObserverChangeSubmitProductInfoButtonEnabled;
+            this.ProductsManagementTabPageStateChanged += NotifyObserverChangeSubmitProductInfoButtonEnabled;
             // Initial states of all member variables of the presentation model is set by its view.
         }
 
@@ -93,7 +93,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         public bool IsSubmitProductInfoButtonEnabled()
         {
-            return ( _state == State.EditProduct && _currentSelectedProduct != null && _isValidProductInfo && _isEditedProductInfo ) || ( _state == State.AddProduct && _isValidProductInfo );
+            return ( _productsManagementTabPageState == ProductsManagementTabPageState.EditProduct && _currentSelectedProduct != null && _isValidProductInfo && _isEditedProductInfo ) || ( _productsManagementTabPageState == ProductsManagementTabPageState.AddProduct && _isValidProductInfo );
         }
 
         /// <summary>
@@ -121,7 +121,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         public void ClickSubmitProductInfoButton(ProductInfo newProductInfo)
         {
-            if ( _state == State.EditProduct )
+            if ( _productsManagementTabPageState == ProductsManagementTabPageState.EditProduct )
             {
                 _model.UpdateProductInfo(_currentSelectedProduct, newProductInfo);
                 SetIsEditedProductInfoAndNotifyObserver(false);
@@ -153,22 +153,22 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         }
 
         /// <summary>
-        /// Set _state.
+        /// Sets the products management tab page state and notify observer.
         /// </summary>
-        public void SetStateAndNotifyObserver(State value)
+        public void SetProductsManagementTabPageStateAndNotifyObserver(ProductsManagementTabPageState value)
         {
-            _state = value;
-            NotifyObserverChangeState();
+            _productsManagementTabPageState = value;
+            NotifyObserverChangeProductsManagementTabPageState();
         }
 
         /// <summary>
-        /// Notify observer change state.
+        /// Notifies the state of the observer change products management tab page.
         /// </summary>
-        private void NotifyObserverChangeState()
+        private void NotifyObserverChangeProductsManagementTabPageState()
         {
-            if ( StateChanged != null )
+            if ( ProductsManagementTabPageStateChanged != null )
             {
-                StateChanged();
+                ProductsManagementTabPageStateChanged();
             }
         }
 

@@ -63,7 +63,7 @@ namespace OrderAndStorageManagementSystem.Views
             _productManagementPresentationModel.SetCurrentSelectedProductAndNotifyObserver(null);
             _productManagementPresentationModel.SetIsValidProductInfoAndNotifyObserver(false);
             _productManagementPresentationModel.SetIsEditedProductInfoAndNotifyObserver(false);
-            _productManagementPresentationModel.SetStateAndNotifyObserver(State.EditProduct);
+            _productManagementPresentationModel.SetProductsManagementTabPageStateAndNotifyObserver(ProductsManagementTabPageState.EditProduct);
         }
 
         /// <summary>
@@ -134,7 +134,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void ChangeProductsListBoxSelectedIndex(object sender, EventArgs eventArguments)
         {
-            _productManagementPresentationModel.SetStateAndNotifyObserver(State.EditProduct);
+            _productManagementPresentationModel.SetProductsManagementTabPageStateAndNotifyObserver(ProductsManagementTabPageState.EditProduct);
             _productManagementPresentationModel.SetCurrentSelectedProductAndNotifyObserver(( ( ProductsListBoxItem )_productsListBox.SelectedItem ).Product);
             UpdateViewOnProductsListBoxSelectedIndexChanged();
         }
@@ -166,7 +166,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void SetStateAndUpdateViewOnAddProductButtonClicked()
         {
-            _productManagementPresentationModel.SetStateAndNotifyObserver(State.AddProduct);
+            _productManagementPresentationModel.SetProductsManagementTabPageStateAndNotifyObserver(ProductsManagementTabPageState.AddProduct);
             UpdateViewOnAddProductButtonClicked();
         }
 
