@@ -593,6 +593,66 @@
                 <ProjectName>OrderAndStorageManagementSystemTest</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>BinaryNumberHelperTest.cs</RelativePath>
+                <ProjectName>InputInspectingElementsTest</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>InputInspectors\DropDownListIsSelectedInspectorTest.cs</RelativePath>
+                <ProjectName>InputInspectingElementsTest</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>InputInspectors\TextBoxInspectorTest.cs</RelativePath>
+                <ProjectName>InputInspectingElementsTest</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>InputInspectors\TextBoxIsMailInspectorTest.cs</RelativePath>
+                <ProjectName>InputInspectingElementsTest</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>InputInspectors\TextBoxIsNotEmptyInspectorTest.cs</RelativePath>
+                <ProjectName>InputInspectingElementsTest</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>InputInspectors\TextBoxIsOfFullLengthInspectorTest.cs</RelativePath>
+                <ProjectName>InputInspectingElementsTest</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>InputInspectorsCollections\DropDownListInspectorsCollectionTest.cs</RelativePath>
+                <ProjectName>InputInspectingElementsTest</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>InputInspectorsCollections\InputInspectorsCollectionTest.cs</RelativePath>
+                <ProjectName>InputInspectingElementsTest</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>InputInspectorsCollections\TextBoxInspectorsCollectionTest.cs</RelativePath>
+                <ProjectName>InputInspectingElementsTest</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>InputInspectorTypeHelperTest.cs</RelativePath>
+                <ProjectName>InputInspectingElementsTest</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Properties\AssemblyInfo.cs</RelativePath>
+                <ProjectName>InputInspectingElementsTest</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>TestDefinition.cs</RelativePath>
+                <ProjectName>InputInspectingElementsTest</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
+              </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
           <ProductionLoc>6224</ProductionLoc>

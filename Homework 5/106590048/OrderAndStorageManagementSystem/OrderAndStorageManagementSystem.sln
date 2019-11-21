@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InputInspectingElements", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderAndStorageManagementSystemTest", "OrderAndStorageManagementSystemTest\OrderAndStorageManagementSystemTest.csproj", "{EF6FB4DB-260D-456E-B65A-DE020437D148}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InputInspectingElementsTest", "InputInspectingElementsTest\InputInspectingElementsTest.csproj", "{B1754A0B-F440-4914-B0C9-B8E58F6FA3B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{EF6FB4DB-260D-456E-B65A-DE020437D148}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF6FB4DB-260D-456E-B65A-DE020437D148}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF6FB4DB-260D-456E-B65A-DE020437D148}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1754A0B-F440-4914-B0C9-B8E58F6FA3B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1754A0B-F440-4914-B0C9-B8E58F6FA3B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1754A0B-F440-4914-B0C9-B8E58F6FA3B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1754A0B-F440-4914-B0C9-B8E58F6FA3B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
