@@ -38,7 +38,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model.ProductAdded += ResetViewOnProductInfoChangedOrOnProductAdded;
             _model.ProductTypeAdded += ResetViewOnProductTypeAdded;
             _productsManagementTabPagePresentationModel.CurrentSelectedProductChanged += UpdateProductInfoViewAndSetIsEditedProductInfo;
-            _productsManagementTabPagePresentationModel.SubmitProductInfoButtonEnabledChanged += UpdateSaveButtonView;
+            _productsManagementTabPagePresentationModel.SubmitProductInfoButtonEnabledChanged += UpdateSubmitProductInfoButtonView;
             _productTypesManagementTabPagePresentationModel.CurrentSelectedProductTypeChanged += UpdateProductTypeInfoView;
             _productTypesManagementTabPagePresentationModel.SubmitProductTypeInfoButtonEnabledChanged += UpdateProductTypeInfoButtonView;
             // UI
@@ -87,7 +87,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model.ProductAdded -= ResetViewOnProductInfoChangedOrOnProductAdded;
             _model.ProductTypeAdded -= ResetViewOnProductTypeAdded;
             _productsManagementTabPagePresentationModel.CurrentSelectedProductChanged -= UpdateProductInfoViewAndSetIsEditedProductInfo;
-            _productsManagementTabPagePresentationModel.SubmitProductInfoButtonEnabledChanged -= UpdateSaveButtonView;
+            _productsManagementTabPagePresentationModel.SubmitProductInfoButtonEnabledChanged -= UpdateSubmitProductInfoButtonView;
             _productTypesManagementTabPagePresentationModel.CurrentSelectedProductTypeChanged -= UpdateProductTypeInfoView;
             _productTypesManagementTabPagePresentationModel.SubmitProductTypeInfoButtonEnabledChanged -= UpdateProductTypeInfoButtonView;
         }
@@ -182,7 +182,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// <summary>
         /// Update save button view.
         /// </summary>
-        private void UpdateSaveButtonView()
+        private void UpdateSubmitProductInfoButtonView()
         {
             _submitProductInfoButton.Enabled = _productsManagementTabPagePresentationModel.IsSubmitProductInfoButtonEnabled();
         }
