@@ -123,13 +123,6 @@ namespace OrderAndStorageManagementSystem.Models
                 return _productsManager.Products;
             }
         }
-        public List<string> ProductTypes
-        {
-            get
-            {
-                return _productTypesManager.ProductTypes;
-            }
-        }
         private ProductsManager _productsManager;
         private ProductTypesManager _productTypesManager;
         private ProductsAndProductTypesManager _productsAndProductTypesManager;

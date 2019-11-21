@@ -424,7 +424,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void InitializeProductTypesListBox()
         {
-            foreach ( string productType in _model.ProductTypes )
+            foreach ( string productType in _model.GetProductTypes() )
             {
                 _productTypesListBox.Items.Add(productType);
             }
