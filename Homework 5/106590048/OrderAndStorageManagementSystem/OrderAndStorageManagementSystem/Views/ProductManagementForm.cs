@@ -48,7 +48,7 @@ namespace OrderAndStorageManagementSystem.Views
             _productImageBrowseButton.Click += (sender, eventArguments) => BrowseImageAndSetProductImagePath();
             _submitProductInfoButton.Click += (sender, eventArguments) => _productsManagementTabPagePresentationModel.ClickSubmitProductInfoButton(new ProductInfo(_productNameField.Text, _productTypeField.Text, new Money(int.Parse(_productPriceField.Text)), _productDescriptionField.Text, _productImagePathField.Text));
             _submitProductTypeInfoButton.Click += (sender, eventArguments) => _productTypesManagementTabPagePresentationModel.ClickSubmitProductTypeInfoButton(_productTypeNameField.Text);
-            _addProductButton.Click += (sender, eventArguments) => SetStateAndUpdateViewOnAddProductButtonClicked();
+            _addProductButton.Click += (sender, eventArguments) => SetProductsManagementTabPageStateAndUpdateViewOnAddProductButtonClicked();
             _addProductTypeButton.Click += (sender, eventArguments) => SetProductTypesManagementTabPageStateAndUpdateViewOnAddProductTypeButtonClicked();
             // Product info
             _productNameField.TextChanged += (sender, eventArguments) => _productsManagementTabPagePresentationModel.SetIsEditedProductInfoAndNotifyObserver(true);
@@ -257,9 +257,9 @@ namespace OrderAndStorageManagementSystem.Views
         }
 
         /// <summary>
-        /// Set state and update view on add product button clicked.
+        /// Sets the products management tab page state and update view on add product button clicked.
         /// </summary>
-        private void SetStateAndUpdateViewOnAddProductButtonClicked()
+        private void SetProductsManagementTabPageStateAndUpdateViewOnAddProductButtonClicked()
         {
             _productsManagementTabPagePresentationModel.SetProductsManagementTabPageStateAndNotifyObserver(ProductsManagementTabPageState.AddProduct);
             UpdateViewOnAddProductButtonClicked();
