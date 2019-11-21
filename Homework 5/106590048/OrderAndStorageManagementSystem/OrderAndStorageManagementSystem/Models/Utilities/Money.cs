@@ -41,7 +41,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             {
                 throw new ArgumentException(ERROR_NOT_NEGATIVE_VALUE_IS_NEGATIVE);
             }
-            string valueInReversedOrder = new string (notNegativeValue.ToString().Reverse().ToArray());
+            string valueInReversedOrder = new string(notNegativeValue.ToString().Reverse().ToArray());
             string valueInCurrencyFormatInReversedOrder = "";
             for ( int index = 0; index < valueInReversedOrder.Length; index++ )
             {
@@ -51,7 +51,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
                 }
                 valueInCurrencyFormatInReversedOrder += valueInReversedOrder[ index ];
             }
-            return new string (valueInCurrencyFormatInReversedOrder.Reverse().ToArray());
+            return new string(valueInCurrencyFormatInReversedOrder.Reverse().ToArray());
         }
 
         /// <summary>

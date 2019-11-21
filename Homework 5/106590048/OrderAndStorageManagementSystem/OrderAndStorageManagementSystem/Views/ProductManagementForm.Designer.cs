@@ -97,7 +97,7 @@
             this._productTypeProductsListLayout.SuspendLayout();
             this._productTypeInfoGroupBoxLastRowLayout.SuspendLayout();
             this._productTypesManagementTabPageLeftSectionLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._errorProvider)).BeginInit();
+            ( ( System.ComponentModel.ISupportInitialize )( this._errorProvider ) ).BeginInit();
             this.SuspendLayout();
             // 
             // _productManagementFormLayout
@@ -697,7 +697,7 @@
             this._productTypeProductsListLayout.PerformLayout();
             this._productTypeInfoGroupBoxLastRowLayout.ResumeLayout(false);
             this._productTypesManagementTabPageLeftSectionLayout.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this._errorProvider)).EndInit();
+            ( ( System.ComponentModel.ISupportInitialize )( this._errorProvider ) ).EndInit();
             this.ResumeLayout(false);
 
         }
