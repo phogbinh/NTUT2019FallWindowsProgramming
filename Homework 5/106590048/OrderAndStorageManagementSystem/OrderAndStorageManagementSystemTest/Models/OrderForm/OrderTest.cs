@@ -33,7 +33,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         [TestMethod()]
         public void TestOrder()
         {
-            Assert.IsNotNull(_orderItems);
+            var order = new Order();
+            var target = new PrivateObject(order);
+            Assert.IsNotNull(target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_ORDER_ITEMS));
         }
 
         /// <summary>
