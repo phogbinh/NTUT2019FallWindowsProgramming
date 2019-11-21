@@ -8,6 +8,7 @@
 # Build results
 [Bb]in/
 [Oo]bj/
+TestResults/
 
 # Visual Studio cache files
 # files ending in .cache can be ignored
