@@ -12,7 +12,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         private const string MEMBER_VARIABLE_NAME_MODEL = "_model";
         private const string MEMBER_VARIABLE_NAME_CURRENT_SELECTED_PRODUCT_TYPE = "_currentSelectedProductType";
         private const string MEMBER_VARIABLE_NAME_IS_VALID_PRODUCT_TYPE_INFO = "_isValidProductTypeInfo";
-        private const string MEMBER_VARIABLE_NAME_PRODUCT_TYPES_MANAGEMENT_TAB_PAGE_STATE = "_productTypesMangementTabPageState";
+        private const string MEMBER_VARIABLE_NAME_PRODUCT_TYPES_MANAGEMENT_TAB_PAGE_STATE = "_productTypesManagementTabPageState";
         private ProductTypesManagementTabPagePresentationModel _productTypesManagementTabPagePresentationModel;
         private PrivateObject _target;
 
