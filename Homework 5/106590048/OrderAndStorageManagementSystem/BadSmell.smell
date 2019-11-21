@@ -221,6 +221,22 @@
             <Smell>
               <Id>3</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>17 目前物件 InputInspectingElements.InputInspectors.TextBoxIsOfFullLengthInspector，使用物件的方法或屬性次數：0次，Envy到對象物件 InputInspectingElements.InputInspectors.TextBoxInspector，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：InputInspectingElements.InputInspectors.TextBoxInspector._maxTextLength 以及 InputInspectingElements.InputInspectors.TextBoxInspector._text</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>1</Weight>
+              <Project>InputInspectingElements</Project>
+              <File>D:\Git\phogbinh\NTUT2019FallWindowsProgramming\Homework 5\106590048\OrderAndStorageManagementSystem\InputInspectingElements\InputInspectors\TextBoxIsOfFullLengthInspector.cs</File>
+              <Line>17</Line>
+              <StartLine>16</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>17</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 InputInspectingElements.InputInspectors.TextBoxIsOfFullLengthInspector，使用物件的方法或屬性次數：0次，Envy到對象物件 InputInspectingElements.InputInspectors.TextBoxInspector，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：InputInspectingElements.InputInspectors.TextBoxInspector._maxTextLength 以及 InputInspectingElements.InputInspectors.TextBoxInspector._text</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>4</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
               <HashCode>66 目前物件 OrderAndStorageManagementSystem.Models.Utilities.ProductsManager，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.Models.Utilities.Product，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.Models.Utilities.Product.Id 以及 OrderAndStorageManagementSystem.Models.Utilities.Product.Id</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
@@ -240,6 +256,7 @@
           </HashCodeIgnoreList>
           <HashCodeRequestIgnoreList>
             <string>66 目前物件 OrderAndStorageManagementSystem.Models.Utilities.ProductsManager，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.Models.Utilities.Product，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.Models.Utilities.Product.Id 以及 OrderAndStorageManagementSystem.Models.Utilities.Product.Id</string>
+            <string>17 目前物件 InputInspectingElements.InputInspectors.TextBoxIsOfFullLengthInspector，使用物件的方法或屬性次數：0次，Envy到對象物件 InputInspectingElements.InputInspectors.TextBoxInspector，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：InputInspectingElements.InputInspectors.TextBoxInspector._maxTextLength 以及 InputInspectingElements.InputInspectors.TextBoxInspector._text</string>
           </HashCodeRequestIgnoreList>
           <AnalysisFileManager>
             <AnalysisFiles>
@@ -596,67 +613,67 @@
               <AnalysisFile>
                 <RelativePath>BinaryNumberHelperTest.cs</RelativePath>
                 <ProjectName>InputInspectingElementsTest</ProjectName>
-                <AnalysisFileType>Unknown</AnalysisFileType>
+                <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>InputInspectors\DropDownListIsSelectedInspectorTest.cs</RelativePath>
                 <ProjectName>InputInspectingElementsTest</ProjectName>
-                <AnalysisFileType>Unknown</AnalysisFileType>
+                <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>InputInspectors\TextBoxInspectorTest.cs</RelativePath>
                 <ProjectName>InputInspectingElementsTest</ProjectName>
-                <AnalysisFileType>Unknown</AnalysisFileType>
+                <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>InputInspectors\TextBoxIsMailInspectorTest.cs</RelativePath>
                 <ProjectName>InputInspectingElementsTest</ProjectName>
-                <AnalysisFileType>Unknown</AnalysisFileType>
+                <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>InputInspectors\TextBoxIsNotEmptyInspectorTest.cs</RelativePath>
                 <ProjectName>InputInspectingElementsTest</ProjectName>
-                <AnalysisFileType>Unknown</AnalysisFileType>
+                <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>InputInspectors\TextBoxIsOfFullLengthInspectorTest.cs</RelativePath>
                 <ProjectName>InputInspectingElementsTest</ProjectName>
-                <AnalysisFileType>Unknown</AnalysisFileType>
+                <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>InputInspectorsCollections\DropDownListInspectorsCollectionTest.cs</RelativePath>
                 <ProjectName>InputInspectingElementsTest</ProjectName>
-                <AnalysisFileType>Unknown</AnalysisFileType>
+                <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>InputInspectorsCollections\InputInspectorsCollectionTest.cs</RelativePath>
                 <ProjectName>InputInspectingElementsTest</ProjectName>
-                <AnalysisFileType>Unknown</AnalysisFileType>
+                <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>InputInspectorsCollections\TextBoxInspectorsCollectionTest.cs</RelativePath>
                 <ProjectName>InputInspectingElementsTest</ProjectName>
-                <AnalysisFileType>Unknown</AnalysisFileType>
+                <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>InputInspectorTypeHelperTest.cs</RelativePath>
                 <ProjectName>InputInspectingElementsTest</ProjectName>
-                <AnalysisFileType>Unknown</AnalysisFileType>
+                <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Properties\AssemblyInfo.cs</RelativePath>
                 <ProjectName>InputInspectingElementsTest</ProjectName>
-                <AnalysisFileType>Unknown</AnalysisFileType>
+                <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>TestDefinition.cs</RelativePath>
                 <ProjectName>InputInspectingElementsTest</ProjectName>
-                <AnalysisFileType>Unknown</AnalysisFileType>
+                <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>6224</ProductionLoc>
-          <TestLoc>3826</TestLoc>
+          <ProductionLoc>6288</ProductionLoc>
+          <TestLoc>4679</TestLoc>
         </CodeReview>
       </Data>
     </div>
