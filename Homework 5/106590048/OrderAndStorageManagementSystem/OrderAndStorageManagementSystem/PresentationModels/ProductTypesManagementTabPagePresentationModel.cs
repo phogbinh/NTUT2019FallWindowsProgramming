@@ -35,7 +35,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         private Model _model;
         private string _currentSelectedProductType;
         private bool _isValidProductTypeInfo;
-        private ProductTypesManagementTabPageState _productTypesMangementTabPageState;
+        private ProductTypesManagementTabPageState _productTypesManagementTabPageState;
 
         public ProductTypesManagementTabPagePresentationModel(Model modelData)
         {
@@ -86,7 +86,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         public bool IsSubmitProductTypeInfoButtonEnabled()
         {
-            return _productTypesMangementTabPageState == ProductTypesManagementTabPageState.AddProductType && _isValidProductTypeInfo;
+            return _productTypesManagementTabPageState == ProductTypesManagementTabPageState.AddProductType && _isValidProductTypeInfo;
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         public void ClickSubmitProductTypeInfoButton(string newProductType)
         {
-            if ( _productTypesMangementTabPageState == ProductTypesManagementTabPageState.AddProductType )
+            if ( _productTypesManagementTabPageState == ProductTypesManagementTabPageState.AddProductType )
             {
                 _model.AddProductType(newProductType);
             }
@@ -125,7 +125,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         public void SetProductTypesManagementTabPageStateAndNotifyObserver(ProductTypesManagementTabPageState value)
         {
-            _productTypesMangementTabPageState = value;
+            _productTypesManagementTabPageState = value;
             NotifyObserverChangeProductTypesManagementTabPageState();
         }
 

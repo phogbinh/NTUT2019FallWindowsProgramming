@@ -237,15 +237,15 @@
             <Smell>
               <Id>4</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>66 目前物件 OrderAndStorageManagementSystem.Models.Utilities.ProductsManager，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.Models.Utilities.Product，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.Models.Utilities.Product.Id 以及 OrderAndStorageManagementSystem.Models.Utilities.Product.Id</HashCode>
+              <HashCode>67 目前物件 OrderAndStorageManagementSystem.Models.Utilities.ProductsManager，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.Models.Utilities.Product，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.Models.Utilities.Product.Id 以及 OrderAndStorageManagementSystem.Models.Utilities.Product.Id</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>OrderAndStorageManagementSystem</Project>
               <File>D:\Git\phogbinh\NTUT2019FallWindowsProgramming\Homework 5\106590048\OrderAndStorageManagementSystem\OrderAndStorageManagementSystem\Models\Utilities\ProductsManager.cs</File>
-              <Line>66</Line>
-              <StartLine>66</StartLine>
+              <Line>67</Line>
+              <StartLine>67</StartLine>
               <StartCol>25</StartCol>
-              <EndLine>66</EndLine>
+              <EndLine>67</EndLine>
               <EndCol>112</EndCol>
               <Comment>目前物件 OrderAndStorageManagementSystem.Models.Utilities.ProductsManager，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.Models.Utilities.Product，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.Models.Utilities.Product.Id 以及 OrderAndStorageManagementSystem.Models.Utilities.Product.Id</Comment>
               <Auto>false</Auto>
@@ -255,8 +255,8 @@
             <string>UnsuitableNaming.OrderAndStorageManagementSystem.Views.ReplenishmentForm.ReplenishmentForm</string>
           </HashCodeIgnoreList>
           <HashCodeRequestIgnoreList>
-            <string>66 目前物件 OrderAndStorageManagementSystem.Models.Utilities.ProductsManager，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.Models.Utilities.Product，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.Models.Utilities.Product.Id 以及 OrderAndStorageManagementSystem.Models.Utilities.Product.Id</string>
             <string>17 目前物件 InputInspectingElements.InputInspectors.TextBoxIsOfFullLengthInspector，使用物件的方法或屬性次數：0次，Envy到對象物件 InputInspectingElements.InputInspectors.TextBoxInspector，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：InputInspectingElements.InputInspectors.TextBoxInspector._maxTextLength 以及 InputInspectingElements.InputInspectors.TextBoxInspector._text</string>
+            <string>67 目前物件 OrderAndStorageManagementSystem.Models.Utilities.ProductsManager，使用物件的方法或屬性次數：0次，Envy到對象物件 OrderAndStorageManagementSystem.Models.Utilities.Product，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：OrderAndStorageManagementSystem.Models.Utilities.Product.Id 以及 OrderAndStorageManagementSystem.Models.Utilities.Product.Id</string>
           </HashCodeRequestIgnoreList>
           <AnalysisFileManager>
             <AnalysisFiles>
@@ -321,7 +321,12 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>PresentationModels\ProductManagementPresentationModel.cs</RelativePath>
+                <RelativePath>PresentationModels\ProductsManagementTabPagePresentationModel.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystem</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>PresentationModels\ProductTypesManagementTabPagePresentationModel.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -591,7 +596,12 @@
                 <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>PresentationModels\ProductManagementPresentationModelTest.cs</RelativePath>
+                <RelativePath>PresentationModels\ProductsManagementTabPagePresentationModelTest.cs</RelativePath>
+                <ProjectName>OrderAndStorageManagementSystemTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>PresentationModels\ProductTypesManagementTabPagePresentationModelTest.cs</RelativePath>
                 <ProjectName>OrderAndStorageManagementSystemTest</ProjectName>
                 <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
@@ -672,8 +682,8 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>6288</ProductionLoc>
-          <TestLoc>4679</TestLoc>
+          <ProductionLoc>6924</ProductionLoc>
+          <TestLoc>4966</TestLoc>
         </CodeReview>
       </Data>
     </div>
