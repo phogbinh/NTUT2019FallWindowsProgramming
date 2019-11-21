@@ -17,6 +17,7 @@ namespace OrderAndStorageManagementSystem.Models.Test
         private Model _model;
         private PrivateObject _target;
         private ProductsManager _productsManager;
+        private ProductTypesManager _productTypesManager;
         private Order _order;
 
         /// <summary>
@@ -29,6 +30,7 @@ namespace OrderAndStorageManagementSystem.Models.Test
             _model = new Model(Resources.ProductsTableTest);
             _target = new PrivateObject(_model);
             _productsManager = ( ProductsManager )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_PRODUCTS_MANAGER);
+            _productTypesManager = ( ProductTypesManager )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_PRODUCT_TYPES_MANAGER);
             _order = ( Order )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_ORDER);
             InitializeOrder();
         }
