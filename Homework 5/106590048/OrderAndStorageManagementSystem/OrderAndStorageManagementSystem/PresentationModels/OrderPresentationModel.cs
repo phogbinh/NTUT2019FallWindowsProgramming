@@ -22,7 +22,6 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             get; set;
         }
-        private const string ERROR_MODEL_IS_NULL = "The given model is null.";
         private const string ERROR_ORDER_ITEM_IS_NULL = "The given order item is null.";
         private const string ERROR_PRODUCT_PAGE_INDEX_IS_OUT_OF_RANGE = "The given product page index is out of range.";
         private const string ERROR_TAB_PAGE_INDEX_IS_OUT_OF_RANGE = "The given tab page index is out of range.";
@@ -44,7 +43,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             if ( modelData == null )
             {
-                throw new ArgumentNullException(ERROR_MODEL_IS_NULL);
+                throw new ArgumentNullException(AppDefinition.ERROR_MODEL_IS_NULL);
             }
             _model = modelData;
             // Observers
