@@ -59,6 +59,7 @@ namespace OrderAndStorageManagementSystem.Views
             // Initial UI States
             InitializeProductTypeField();
             InitializeProductsListBox();
+            InitializeProductTypesListBox();
             _productManagementPresentationModel.SetCurrentSelectedProductAndNotifyObserver(null);
             _productManagementPresentationModel.SetIsValidProductInfoAndNotifyObserver(false);
             _productManagementPresentationModel.SetIsEditedProductInfoAndNotifyObserver(false);
@@ -284,6 +285,17 @@ namespace OrderAndStorageManagementSystem.Views
             foreach ( Product product in _model.Products )
             {
                 _productsListBox.Items.Add(new ProductsListBoxItem(product));
+            }
+        }
+
+        /// <summary>
+        /// Initializes the product types ListBox.
+        /// </summary>
+        private void InitializeProductTypesListBox()
+        {
+            foreach ( string productType in _model.ProductTypes )
+            {
+                _productTypesListBox.Items.Add(productType);
             }
         }
     }
