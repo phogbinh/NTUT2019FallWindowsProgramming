@@ -282,7 +282,7 @@ namespace OrderAndStorageManagementSystem.Models.Test
         [TestMethod()]
         public void TestGetProductTypes()
         {
-            Assert.AreSame(_model.GetProductTypes(), ( ( ProductTypesManager )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_PRODUCT_TYPES_MANAGER) ).ProductTypes);
+            Assert.AreSame(_model.GetProductTypes(), _productTypesManager.ProductTypes);
         }
 
         /// <summary>
