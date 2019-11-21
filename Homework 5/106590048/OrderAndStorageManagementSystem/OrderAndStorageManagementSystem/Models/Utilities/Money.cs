@@ -24,7 +24,9 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             return GetCurrencyFormat() + AppDefinition.SPACE + currencyUnit;
         }
 
-        /// <summary>Gets the currency format.</summary>
+        /// <summary>
+        /// Gets the currency format.
+        /// </summary>
         public string GetCurrencyFormat()
         {
             return _value < 0 ? NEGATIVE_SIGN + GetNotNegativeCurrencyFormat(-_value) : GetNotNegativeCurrencyFormat(_value);
@@ -80,7 +82,9 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             return _value.ToString();
         }
 
-        /// <summary>Determines whether this instance is negative.</summary>
+        /// <summary>
+        /// Determines whether this instance is negative.
+        /// </summary>
         public bool IsNegative()
         {
             return _value < 0;

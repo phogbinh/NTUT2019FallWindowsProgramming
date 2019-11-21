@@ -18,7 +18,9 @@ namespace OrderAndStorageManagementSystem.Models.Test
         private ProductsManager _productsManager;
         private Order _order;
 
-        /// <summary>Initializes this instance.</summary>
+        /// <summary>
+        /// Initializes this instance.
+        /// </summary>
         [TestInitialize()]
         [DeploymentItem(TestDefinition.OUTPUT_ITEM_FILE_PATH)]
         public void Initialize()

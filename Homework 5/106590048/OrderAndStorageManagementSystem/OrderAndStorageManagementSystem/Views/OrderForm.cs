@@ -149,7 +149,9 @@ namespace OrderAndStorageManagementSystem.Views
             UpdateCartTotalPriceView();
         }
 
-        /// <summary>Updates the cart total price view.</summary>
+        /// <summary>
+        /// Updates the cart total price view.
+        /// </summary>
         private void UpdateCartTotalPriceView()
         {
             _cartTotalPrice.Text = AppDefinition.CART_TOTAL_PRICE_TEXT + _model.GetOrderTotalPrice();

@@ -10,7 +10,9 @@ namespace InputInspectingElements.InputInspectors.Test
         private DropDownListIsSelectedInspector _dropDownListIsSelectedInspector;
         private PrivateObject _target;
 
-        /// <summary>Initializes this instance.</summary>
+        /// <summary>
+        /// Initializes this instance.
+        /// </summary>
         [TestInitialize()]
         [DeploymentItem(TestDefinition.OUTPUT_ITEM_FILE_PATH)]
         public void Initialize()

@@ -18,7 +18,9 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         private ProductManagementPresentationModel _productManagementPresentationModel;
         private PrivateObject _target;
 
-        /// <summary>Initializes this instance.</summary>
+        /// <summary>
+        /// Initializes this instance.
+        /// </summary>
         [TestInitialize()]
         [DeploymentItem(TestDefinition.OUTPUT_ITEM_FILE_PATH)]
         public void Initialize()

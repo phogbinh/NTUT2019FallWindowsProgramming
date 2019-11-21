@@ -12,7 +12,9 @@ namespace OrderAndStorageManagementSystem.Models.Utilities.Test
         private Money _money;
         private PrivateObject _target;
 
-        /// <summary>Initializes this instance.</summary>
+        /// <summary>
+        /// Initializes this instance.
+        /// </summary>
         [TestInitialize()]
         [DeploymentItem(TestDefinition.OUTPUT_ITEM_FILE_PATH)]
         public void Initialize()

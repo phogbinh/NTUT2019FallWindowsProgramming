@@ -15,7 +15,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         private PrivateObject _target;
         private List<OrderItem> _orderItems;
 
-        /// <summary>Initializes this instance.</summary>
+        /// <summary>
+        /// Initializes this instance.
+        /// </summary>
         [TestInitialize()]
         [DeploymentItem(TestDefinition.OUTPUT_ITEM_FILE_PATH)]
         public void Initialize()
@@ -25,14 +27,18 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             _orderItems = ( List<OrderItem> )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_ORDER_ITEMS);
         }
 
-        /// <summary>Tests the order.</summary>
+        /// <summary>
+        /// Tests the order.
+        /// </summary>
         [TestMethod()]
         public void TestOrder()
         {
             Assert.IsNotNull(_orderItems);
         }
 
-        /// <summary>Tests the get total price.</summary>
+        /// <summary>
+        /// Tests the get total price.
+        /// </summary>
         [TestMethod()]
         public void TestGetTotalPrice()
         {
@@ -49,7 +55,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(_order.GetTotalPrice("-USD"), "2,000,001,434 -USD");
         }
 
-        /// <summary>Tests the add product to order if product is not in order.</summary>
+        /// <summary>
+        /// Tests the add product to order if product is not in order.
+        /// </summary>
         [TestMethod()]
         public void TestAddProductToOrderIfProductIsNotInOrder()
         {
@@ -75,7 +83,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.ThrowsException<ArgumentNullException>(() => _order.AddProductToOrderIfProductIsNotInOrder(null));
         }
 
-        /// <summary>Tests the is in order.</summary>
+        /// <summary>
+        /// Tests the is in order.
+        /// </summary>
         [TestMethod()]
         public void TestIsInOrder()
         {
@@ -92,7 +102,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.IsFalse(_order.IsInOrder(5));
         }
 
-        /// <summary>Tests the add order item.</summary>
+        /// <summary>
+        /// Tests the add order item.
+        /// </summary>
         [TestMethod()]
         public void TestAddOrderItem()
         {
@@ -107,7 +119,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.ThrowsException<ArgumentNullException>(() => _order.AddOrderItem(null));
         }
 
-        /// <summary>Tests the notify observer change order.</summary>
+        /// <summary>
+        /// Tests the notify observer change order.
+        /// </summary>
         [TestMethod()]
         public void TestNotifyObserverChangeOrder()
         {
@@ -120,7 +134,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(count, 2);
         }
 
-        /// <summary>Tests the notify observer add order.</summary>
+        /// <summary>
+        /// Tests the notify observer add order.
+        /// </summary>
         [TestMethod()]
         public void TestNotifyObserverAddOrder()
         {
@@ -134,7 +150,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(count, 2);
         }
 
-        /// <summary>Tests the remove order item at.</summary>
+        /// <summary>
+        /// Tests the remove order item at.
+        /// </summary>
         [TestMethod()]
         public void TestRemoveOrderItemAt()
         {
@@ -152,7 +170,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.IsFalse(_orderItems.Contains(removeOrderItem));
         }
 
-        /// <summary>Tests the notify observer remove order.</summary>
+        /// <summary>
+        /// Tests the notify observer remove order.
+        /// </summary>
         [TestMethod()]
         public void TestNotifyObserverRemoveOrder()
         {
@@ -166,7 +186,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(count, 2);
         }
 
-        /// <summary>Tests the get order items count.</summary>
+        /// <summary>
+        /// Tests the get order items count.
+        /// </summary>
         [TestMethod()]
         public void TestGetOrderItemsCount()
         {
@@ -178,7 +200,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(_order.GetOrderItemsCount(), 5);
         }
 
-        /// <summary>Tests the clear order.</summary>
+        /// <summary>
+        /// Tests the clear order.
+        /// </summary>
         [TestMethod()]
         public void TestClearOrder()
         {
@@ -190,7 +214,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(_orderItems.Count, 0);
         }
 
-        /// <summary>Tests the notify observer clear order.</summary>
+        /// <summary>
+        /// Tests the notify observer clear order.
+        /// </summary>
         [TestMethod()]
         public void TestNotifyObserverClearOrder()
         {
@@ -203,7 +229,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(count, 2);
         }
 
-        /// <summary>Tests the set order item quantity if not exceeded storage quantity and notify observer otherwise.</summary>
+        /// <summary>
+        /// Tests the set order item quantity if not exceeded storage quantity and notify observer otherwise.
+        /// </summary>
         [TestMethod()]
         public void TestSetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise()
         {
@@ -226,7 +254,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.ThrowsException<ArgumentOutOfRangeException>(() => _order.SetOrderItemQuantityIfNotExceededStorageQuantityAndNotifyObserverOtherwise(3, TestDefinition.DUMP_INTEGER));
         }
 
-        /// <summary>Tests the is exceeded storage quantity.</summary>
+        /// <summary>
+        /// Tests the is exceeded storage quantity.
+        /// </summary>
         [TestMethod()]
         public void TestIsExceededStorageQuantity()
         {
@@ -247,7 +277,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.IsInstanceOfType(expectedException.InnerException, typeof(ArgumentOutOfRangeException));
         }
 
-        /// <summary>Tests the set order item quantity.</summary>
+        /// <summary>
+        /// Tests the set order item quantity.
+        /// </summary>
         [TestMethod()]
         public void TestSetOrderItemQuantityAndNotifyObserver()
         {
@@ -278,7 +310,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.IsInstanceOfType(expectedException.InnerException, typeof(ArgumentOutOfRangeException));
         }
 
-        /// <summary>Tests the get order item total price.</summary>
+        /// <summary>
+        /// Tests the get order item total price.
+        /// </summary>
         [TestMethod()]
         public void TestGetOrderItemTotalPrice()
         {
@@ -311,7 +345,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.IsInstanceOfType(expectedException.InnerException, typeof(ArgumentOutOfRangeException));
         }
 
-        /// <summary>Tests the notify observer change order item quantity.</summary>
+        /// <summary>
+        /// Tests the notify observer change order item quantity.
+        /// </summary>
         [TestMethod()]
         public void TestNotifyObserverChangeOrderItemQuantity()
         {
@@ -325,7 +361,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(count, 2);
         }
 
-        /// <summary>Tests the notify observer order item quantity is exceeded storage quantity.</summary>
+        /// <summary>
+        /// Tests the notify observer order item quantity is exceeded storage quantity.
+        /// </summary>
         [TestMethod()]
         public void TestNotifyObserverOrderItemQuantityIsExceededStorageQuantity()
         {
@@ -339,7 +377,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(count, 2);
         }
 
-        /// <summary>Tests the get product with order quantity containers.</summary>
+        /// <summary>
+        /// Tests the get product with order quantity containers.
+        /// </summary>
         [TestMethod()]
         public void TestGetProductWithOrderQuantityContainers()
         {
@@ -357,14 +397,18 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             }
         }
 
-        /// <summary>Tests the get order items.</summary>
+        /// <summary>
+        /// Tests the get order items.
+        /// </summary>
         [TestMethod()]
         public void TestGetOrderItems()
         {
             Assert.AreSame(_order.GetOrderItems(), _orderItems);
         }
 
-        /// <summary>Tests the get order item at.</summary>
+        /// <summary>
+        /// Tests the get order item at.
+        /// </summary>
         [TestMethod()]
         public void TestGetOrderItemAt()
         {
@@ -377,7 +421,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.ThrowsException<ArgumentOutOfRangeException>(() => _order.GetOrderItemAt(10));
         }
 
-        /// <summary>Tests the is in order items index range.</summary>
+        /// <summary>
+        /// Tests the is in order items index range.
+        /// </summary>
         [TestMethod()]
         public void TestIsInOrderItemsIndexRange()
         {

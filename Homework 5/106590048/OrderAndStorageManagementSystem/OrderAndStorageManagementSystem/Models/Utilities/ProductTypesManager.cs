@@ -52,7 +52,9 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             return _productTypes[ productTypeIndex ];
         }
 
-        /// <summary>Determines whether the specified product type is existing.</summary>
+        /// <summary>
+        /// Determines whether the specified product type is existing.
+        /// </summary>
         public bool IsExisting(string productType)
         {
             return _productTypes.Contains(productType);

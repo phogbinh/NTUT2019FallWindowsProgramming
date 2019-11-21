@@ -13,7 +13,9 @@ namespace OrderAndStorageManagementSystem.Models.Utilities.Test
     {
         private PrivateType _target;
 
-        /// <summary>Initializes this instance.</summary>
+        /// <summary>
+        /// Initializes this instance.
+        /// </summary>
         [TestInitialize()]
         [DeploymentItem(TestDefinition.OUTPUT_ITEM_FILE_PATH)]
         public void Initialize()
@@ -21,7 +23,9 @@ namespace OrderAndStorageManagementSystem.Models.Utilities.Test
             _target = new PrivateType(typeof(DataBaseManager));
         }
 
-        /// <summary>Tests the get products from file.</summary>
+        /// <summary>
+        /// Tests the get products from file.
+        /// </summary>
         [TestMethod()]
         public void TestGetProductsFromFile()
         {
@@ -46,7 +50,9 @@ namespace OrderAndStorageManagementSystem.Models.Utilities.Test
             Assert.AreEqual(expectedProducts[ 2 ].Description, "Third product description.");
         }
 
-        /// <summary>Tests the get line values.</summary>
+        /// <summary>
+        /// Tests the get line values.
+        /// </summary>
         [TestMethod()]
         public void TestGetLineValues()
         {

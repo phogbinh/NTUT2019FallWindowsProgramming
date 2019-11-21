@@ -13,7 +13,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         private OrderItem _orderItem;
         private PrivateObject _target;
 
-        /// <summary>Initializes this instance.</summary>
+        /// <summary>
+        /// Initializes this instance.
+        /// </summary>
         [TestInitialize()]
         [DeploymentItem(TestDefinition.OUTPUT_ITEM_FILE_PATH)]
         public void Initialize()
@@ -50,7 +52,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(_orderItem.StorageQuantity, 5);
         }
 
-        /// <summary>Tests the set property order quantity.</summary>
+        /// <summary>
+        /// Tests the set property order quantity.
+        /// </summary>
         [TestMethod()]
         public void TestSetPropertyOrderQuantity()
         {
@@ -63,7 +67,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_ORDER_QUANTITY), 1998);
         }
 
-        /// <summary>Tests the order item.</summary>
+        /// <summary>
+        /// Tests the order item.
+        /// </summary>
         [TestMethod()]
         public void TestOrderItem()
         {
@@ -75,7 +81,9 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
             Assert.AreEqual(_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_ORDER_QUANTITY), 1);
         }
 
-        /// <summary>Tests the get total price.</summary>
+        /// <summary>
+        /// Tests the get total price.
+        /// </summary>
         [TestMethod()]
         public void TestGetTotalPrice()
         {
