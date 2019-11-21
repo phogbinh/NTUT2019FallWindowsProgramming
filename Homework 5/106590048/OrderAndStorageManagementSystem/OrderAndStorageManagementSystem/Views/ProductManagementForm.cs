@@ -15,6 +15,8 @@ namespace OrderAndStorageManagementSystem.Views
     {
         private const string PRODUCT_INFO_GROUP_BOX_TEXT_EDIT_PRODUCT = "編輯商品";
         private const string PRODUCT_INFO_GROUP_BOX_TEXT_ADD_PRODUCT = "新增商品";
+        private const string PRODUCT_TYPE_INFO_GROUP_BOX_TEXT_VIEW_PRODUCT_TYPE = "類別";
+        private const string PRODUCT_TYPE_INFO_GROUP_BOX_TEXT_ADD_PRODUCT_TYPE = "新增類別";
         private const string SAVE_BUTTON_TEXT_SAVE_PRODUCT = "儲存";
         private const string SAVE_BUTTON_TEXT_ADD_PRODUCT = "新增";
         private ProductsManagementTabPagePresentationModel _productsManagementTabPagePresentationModel;
@@ -34,14 +36,20 @@ namespace OrderAndStorageManagementSystem.Views
             // Observers
             _model.ProductInfoChanged += ResetViewOnProductInfoChangedOrOnProductAdded;
             _model.ProductAdded += ResetViewOnProductInfoChangedOrOnProductAdded;
+            _model.ProductTypeAdded += ResetViewOnProductTypeAdded;
             _productsManagementTabPagePresentationModel.CurrentSelectedProductChanged += UpdateProductInfoViewAndSetIsEditedProductInfo;
             _productsManagementTabPagePresentationModel.SubmitProductInfoButtonEnabledChanged += UpdateSaveButtonView;
+            _productTypesManagementTabPagePresentationModel.CurrentSelectedProductTypeChanged += UpdateProductTypeInfoView;
+            _productTypesManagementTabPagePresentationModel.SubmitProductTypeInfoButtonEnabledChanged += UpdateProductTypeInfoButtonView;
             // UI
             _productsListBox.SelectedIndexChanged += ChangeProductsListBoxSelectedIndex;
+            _productTypesListBox.SelectedIndexChanged += ChangeProductTypesListBoxSelectedIndex;
             _productPriceField.KeyPress += InputHelper.InputNumbersOrBackSpace;
             _productImageBrowseButton.Click += (sender, eventArguments) => BrowseImageAndSetProductImagePath();
             _submitProductInfoButton.Click += (sender, eventArguments) => _productsManagementTabPagePresentationModel.ClickSubmitProductInfoButton(new ProductInfo(_productNameField.Text, _productTypeField.Text, new Money(int.Parse(_productPriceField.Text)), _productDescriptionField.Text, _productImagePathField.Text));
+            _submitProductTypeInfoButton.Click += (sender, eventArguments) => _productTypesManagementTabPagePresentationModel.ClickSubmitProductTypeInfoButton(_productTypeNameField.Text);
             _addProductButton.Click += (sender, eventArguments) => SetStateAndUpdateViewOnAddProductButtonClicked();
+            _addProductTypeButton.Click += (sender, eventArguments) => SetProductTypesManagementTabPageStateAndUpdateViewOnAddProductTypeButtonClicked();
             // Product info
             _productNameField.TextChanged += (sender, eventArguments) => _productsManagementTabPagePresentationModel.SetIsEditedProductInfoAndNotifyObserver(true);
             _productPriceField.TextChanged += (sender, eventArguments) => _productsManagementTabPagePresentationModel.SetIsEditedProductInfoAndNotifyObserver(true);
@@ -66,6 +74,8 @@ namespace OrderAndStorageManagementSystem.Views
             _productsManagementTabPagePresentationModel.SetIsValidProductInfoAndNotifyObserver(false);
             _productsManagementTabPagePresentationModel.SetIsEditedProductInfoAndNotifyObserver(false);
             _productsManagementTabPagePresentationModel.SetProductsManagementTabPageStateAndNotifyObserver(ProductsManagementTabPageState.EditProduct);
+            _productTypesManagementTabPagePresentationModel.SetCurrentSelectedProductTypeAndNotifyObserver(null);
+            _productTypesManagementTabPagePresentationModel.SetProductTypesManagementTabPageStateAndNotifyObserver(ProductTypesManagementTabPageState.ViewProductType);
         }
 
         /// <summary>
@@ -75,8 +85,11 @@ namespace OrderAndStorageManagementSystem.Views
         {
             _model.ProductInfoChanged -= ResetViewOnProductInfoChangedOrOnProductAdded;
             _model.ProductAdded -= ResetViewOnProductInfoChangedOrOnProductAdded;
+            _model.ProductTypeAdded -= ResetViewOnProductTypeAdded;
             _productsManagementTabPagePresentationModel.CurrentSelectedProductChanged -= UpdateProductInfoViewAndSetIsEditedProductInfo;
             _productsManagementTabPagePresentationModel.SubmitProductInfoButtonEnabledChanged -= UpdateSaveButtonView;
+            _productTypesManagementTabPagePresentationModel.CurrentSelectedProductTypeChanged -= UpdateProductTypeInfoView;
+            _productTypesManagementTabPagePresentationModel.SubmitProductTypeInfoButtonEnabledChanged -= UpdateProductTypeInfoButtonView;
         }
 
         /// <summary>
@@ -84,8 +97,20 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void ResetViewOnProductInfoChangedOrOnProductAdded(Product product)
         {
+            ResetProductTypeFieldView();
             ResetProductsListBoxView();
+            ResetProductTypesListBoxView();
             ResetProductInfoAndErrorProviderView();
+            ResetProductTypeInfoAndErrorProviderView();
+        }
+
+        /// <summary>
+        /// Resets the product type field view.
+        /// </summary>
+        private void ResetProductTypeFieldView()
+        {
+            _productTypeField.Items.Clear();
+            InitializeProductTypeField();
         }
 
         /// <summary>
@@ -95,6 +120,15 @@ namespace OrderAndStorageManagementSystem.Views
         {
             _productsListBox.Items.Clear();
             InitializeProductsListBox();
+        }
+
+        /// <summary>
+        /// Resets the product types ListBox view.
+        /// </summary>
+        private void ResetProductTypesListBoxView()
+        {
+            _productTypesListBox.Items.Clear();
+            InitializeProductTypesListBox();
         }
 
         /// <summary>
@@ -108,6 +142,28 @@ namespace OrderAndStorageManagementSystem.Views
             _productImagePathField.Text = "";
             _productDescriptionField.Text = "";
             _errorProvider.Clear();
+        }
+
+        /// <summary>
+        /// Resets the product type information and error provider view.
+        /// </summary>
+        private void ResetProductTypeInfoAndErrorProviderView()
+        {
+            _productTypeNameField.Text = "";
+            _productTypeProductsListBox.Items.Clear();
+            _errorProvider.Clear();
+        }
+
+        /// <summary>
+        /// Resets the view on product type added.
+        /// </summary>
+        private void ResetViewOnProductTypeAdded(string productType)
+        {
+            ResetProductTypeFieldView();
+            ResetProductsListBoxView();
+            ResetProductTypesListBoxView();
+            ResetProductInfoAndErrorProviderView();
+            ResetProductTypeInfoAndErrorProviderView();
         }
 
         /// <summary>
@@ -132,6 +188,24 @@ namespace OrderAndStorageManagementSystem.Views
         }
 
         /// <summary>
+        /// Updates the product type information view.
+        /// </summary>
+        private void UpdateProductTypeInfoView()
+        {
+            _productTypeNameField.Text = _productTypesManagementTabPagePresentationModel.GetCurrentSelectedProductTypeName();
+            _productTypeProductsListBox.Items.Clear();
+            _productTypeProductsListBox.Items.AddRange(_productTypesManagementTabPagePresentationModel.GetCurrentSelectedProductTypeProducts().ToArray());
+        }
+
+        /// <summary>
+        /// Updates the product type information button view.
+        /// </summary>
+        private void UpdateProductTypeInfoButtonView()
+        {
+            _submitProductTypeInfoButton.Enabled = _productTypesManagementTabPagePresentationModel.IsSubmitProductTypeInfoButtonEnabled();
+        }
+
+        /// <summary>
         /// Change _productsListBox.SelectedIndex.
         /// </summary>
         private void ChangeProductsListBoxSelectedIndex(object sender, EventArgs eventArguments)
@@ -149,6 +223,25 @@ namespace OrderAndStorageManagementSystem.Views
             _addProductButton.Enabled = true;
             _productInfoGroupBox.Text = PRODUCT_INFO_GROUP_BOX_TEXT_EDIT_PRODUCT;
             _submitProductInfoButton.Text = SAVE_BUTTON_TEXT_SAVE_PRODUCT;
+        }
+
+        /// <summary>
+        /// Changes the index of the product types ListBox selected.
+        /// </summary>
+        private void ChangeProductTypesListBoxSelectedIndex(object sender, EventArgs eventArguments)
+        {
+            _productTypesManagementTabPagePresentationModel.SetProductTypesManagementTabPageStateAndNotifyObserver(ProductTypesManagementTabPageState.ViewProductType);
+            _productTypesManagementTabPagePresentationModel.SetCurrentSelectedProductTypeAndNotifyObserver(( string )_productTypesListBox.SelectedItem);
+            UpdateViewOnProductTypesListBoxSelectedIndexChanged();
+        }
+
+        /// <summary>
+        /// Updates the view on product types ListBox selected index changed.
+        /// </summary>
+        private void UpdateViewOnProductTypesListBoxSelectedIndexChanged()
+        {
+            _addProductTypeButton.Enabled = true;
+            _productTypeInfoGroupBox.Text = PRODUCT_TYPE_INFO_GROUP_BOX_TEXT_VIEW_PRODUCT_TYPE;
         }
 
         /// <summary>
@@ -181,6 +274,25 @@ namespace OrderAndStorageManagementSystem.Views
             _productInfoGroupBox.Text = PRODUCT_INFO_GROUP_BOX_TEXT_ADD_PRODUCT;
             _submitProductInfoButton.Text = SAVE_BUTTON_TEXT_ADD_PRODUCT;
             ResetProductInfoAndErrorProviderView();
+        }
+
+        /// <summary>
+        /// Sets the product types management tab page state and update view on add product type button clicked.
+        /// </summary>
+        private void SetProductTypesManagementTabPageStateAndUpdateViewOnAddProductTypeButtonClicked()
+        {
+            _productTypesManagementTabPagePresentationModel.SetProductTypesManagementTabPageStateAndNotifyObserver(ProductTypesManagementTabPageState.AddProductType);
+            UpdateViewOnAddProductTypeButtonClicked();
+        }
+
+        /// <summary>
+        /// Updates the view on add product type button clicked.
+        /// </summary>
+        private void UpdateViewOnAddProductTypeButtonClicked()
+        {
+            _addProductTypeButton.Enabled = false;
+            _productTypeInfoGroupBox.Text = PRODUCT_TYPE_INFO_GROUP_BOX_TEXT_ADD_PRODUCT_TYPE;
+            ResetProductTypeInfoAndErrorProviderView();
         }
 
         /// <summary>
