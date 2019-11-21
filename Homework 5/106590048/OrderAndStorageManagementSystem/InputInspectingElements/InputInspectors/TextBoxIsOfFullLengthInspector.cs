@@ -3,20 +3,6 @@
     public class TextBoxIsOfFullLengthInspector : TextBoxInspector
     {
         private const string ERROR_TEXT_BOX_IS_NOT_OF_FULL_LENGTH = "Textbox is of insufficient length.";
-        private string Text
-        {
-            get
-            {
-                return _text;
-            }
-        }
-        private int MaxTextLength
-        {
-            get
-            {
-                return _maxTextLength;
-            }
-        }
 
         public TextBoxIsOfFullLengthInspector(string textData, int maxTextLengthData) : base(textData, maxTextLengthData)
         {
@@ -28,7 +14,7 @@
         /// </summary>
         public override bool IsValid()
         {
-            return Text.Length == MaxTextLength;
+            return _text.Length == _maxTextLength;
         }
 
         /// <summary>

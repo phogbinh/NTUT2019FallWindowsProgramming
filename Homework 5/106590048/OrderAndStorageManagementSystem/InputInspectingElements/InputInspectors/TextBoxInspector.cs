@@ -4,6 +4,20 @@ namespace InputInspectingElements.InputInspectors
 {
     public abstract class TextBoxInspector : IInputInspector
     {
+        public string Text
+        {
+            get
+            {
+                return _text;
+            }
+        }
+        public int MaxTextLength
+        {
+            get
+            {
+                return _maxTextLength;
+            }
+        }
         private const string ERROR_MAX_TEXT_LENGTH_CANNOT_BE_SET_TO_NEGATIVE = "Max text length cannot be set to negative.";
         protected string _text;
         protected int _maxTextLength;

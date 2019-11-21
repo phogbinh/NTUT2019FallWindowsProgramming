@@ -2,6 +2,13 @@
 {
     public class DropDownListIsSelectedInspector : IInputInspector
     {
+        public int SelectedIndex
+        {
+            get
+            {
+                return _selectedIndex;
+            }
+        }
         private const string ERROR_DROP_DOWN_LIST_IS_NOT_SELECTED = "Drop-down list is not selected.";
         private const int EMPTY_SELECTION_INDEX = -1;
         private int _selectedIndex;
