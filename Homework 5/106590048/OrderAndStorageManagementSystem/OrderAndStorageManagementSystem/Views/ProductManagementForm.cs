@@ -180,7 +180,7 @@ namespace OrderAndStorageManagementSystem.Views
         }
 
         /// <summary>
-        /// Update save button view.
+        /// Updates the submit product information button view.
         /// </summary>
         private void UpdateSubmitProductInfoButtonView()
         {
