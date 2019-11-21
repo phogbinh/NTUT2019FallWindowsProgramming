@@ -9,14 +9,16 @@ namespace OrderAndStorageManagementSystem.Views
         private CreditCardPaymentForm _creditCardPaymentForm;
         private OrderPresentationModel _orderPresentationModel;
         private ProductManagementPresentationModel _productManagementPresentationModel;
+        private ProductTypesManagementTabPagePresentationModel _productTypesManagementTabPagePresentationModel;
         private Model _model;
 
-        public MainForm(CreditCardPaymentForm creditCardPaymentFormData, OrderPresentationModel orderPresentationModelData, ProductManagementPresentationModel productManagementPresentationModelData, Model modelData)
+        public MainForm(CreditCardPaymentForm creditCardPaymentFormData, OrderPresentationModel orderPresentationModelData, ProductManagementPresentationModel productManagementPresentationModelData, ProductTypesManagementTabPagePresentationModel productTypesManagementTabPagePresentationModelData, Model modelData)
         {
             InitializeComponent();
             _creditCardPaymentForm = creditCardPaymentFormData;
             _orderPresentationModel = orderPresentationModelData;
             _productManagementPresentationModel = productManagementPresentationModelData;
+            _productTypesManagementTabPagePresentationModel = productTypesManagementTabPagePresentationModelData;
             _model = modelData;
             _orderSystemButton.Click += ClickOrderSystemButton;
             _inventorySystemButton.Click += ClickInventorySystemButton;
@@ -54,7 +56,7 @@ namespace OrderAndStorageManagementSystem.Views
         private void ClickProductManageSystemButton(object sender, System.EventArgs eventArguments)
         {
             ProductManagementForm productManagementForm;
-            productManagementForm = new ProductManagementForm(_productManagementPresentationModel, _model);
+            productManagementForm = new ProductManagementForm(_productManagementPresentationModel, _productTypesManagementTabPagePresentationModel, _model);
             productManagementForm.FormClosed += (formClosedSender, formClosedEventArguments) => _productManageSystemButton.Enabled = true;
             productManagementForm.Show();
             _productManageSystemButton.Enabled = false;

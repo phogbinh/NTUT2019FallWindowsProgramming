@@ -73,6 +73,7 @@
     <Compile Include="Models\Utilities\ProductTypesManager.cs" />
     <Compile Include="PresentationModels\ProductManagementPresentationModel.cs" />
     <Compile Include="PresentationModels\OrderPresentationModel.cs" />
+    <Compile Include="PresentationModels\ProductTypesManagementTabPagePresentationModel.cs" />
     <Compile Include="Views\CreditCardPaymentForm.cs">
       <SubType>Form</SubType>
     </Compile>

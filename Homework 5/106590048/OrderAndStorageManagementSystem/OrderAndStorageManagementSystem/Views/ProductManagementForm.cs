@@ -18,15 +18,17 @@ namespace OrderAndStorageManagementSystem.Views
         private const string SAVE_BUTTON_TEXT_SAVE_PRODUCT = "儲存";
         private const string SAVE_BUTTON_TEXT_ADD_PRODUCT = "新增";
         private ProductManagementPresentationModel _productManagementPresentationModel;
+        private ProductTypesManagementTabPagePresentationModel _productTypesManagementTabPagePresentationModel;
         private Model _model;
         private List<InputInspectingTextBox> _textBoxes;
         private List<InputInspectingDropDownList> _dropDownLists;
         private InputInspectorsCollection _inputInspectorsCollection;
 
-        public ProductManagementForm(ProductManagementPresentationModel productManagementPresentationModelData, Model modelData)
+        public ProductManagementForm(ProductManagementPresentationModel productManagementPresentationModelData, ProductTypesManagementTabPagePresentationModel productTypesManagementTabPagePresentationModelData, Model modelData)
         {
             InitializeComponent();
             _productManagementPresentationModel = productManagementPresentationModelData;
+            _productTypesManagementTabPagePresentationModel = productTypesManagementTabPagePresentationModelData;
             _model = modelData;
             this.Disposed += RemoveEvents;
             // Observers
