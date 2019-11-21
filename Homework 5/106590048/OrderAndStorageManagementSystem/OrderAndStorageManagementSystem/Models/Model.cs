@@ -269,5 +269,13 @@ namespace OrderAndStorageManagementSystem.Models
         {
             _productsManager.AddProduct(newProductInfo);
         }
+
+        /// <summary>
+        /// Gets the product type products.
+        /// </summary>
+        public List<Product> GetProductTypeProducts(string productType)
+        {
+            return _productsAndProductTypesManager.GetProductTypeProducts(productType);
+        }
     }
 }

@@ -76,7 +76,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         /// <summary>
         /// Get all products of the given product type.
         /// </summary>
-        private List<Product> GetProductTypeProducts(string productType)
+        public List<Product> GetProductTypeProducts(string productType)
         {
             if ( !_productTypesManager.IsExisting(productType) )
             {

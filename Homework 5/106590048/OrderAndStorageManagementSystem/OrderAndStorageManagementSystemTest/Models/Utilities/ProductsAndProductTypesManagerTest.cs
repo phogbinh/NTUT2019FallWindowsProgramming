@@ -2,7 +2,6 @@
 using OrderAndStorageManagementSystemTest;
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 
 namespace OrderAndStorageManagementSystem.Models.Utilities.Test
 {
@@ -135,12 +134,8 @@ namespace OrderAndStorageManagementSystem.Models.Utilities.Test
         [TestMethod()]
         public void TestGetProductTypeProducts()
         {
-            const string MEMBER_FUNCTION_NAME_GET_PRODUCT_TYPE_PRODUCTS = "GetProductTypeProducts";
-            var arguments = new object[] { "Type E" };
-            TargetInvocationException expectedException = Assert.ThrowsException<TargetInvocationException>(() => _target.Invoke(MEMBER_FUNCTION_NAME_GET_PRODUCT_TYPE_PRODUCTS, arguments));
-            Assert.IsInstanceOfType(expectedException.InnerException, typeof(ArgumentException));
-            arguments = new object[] { "Type A" };
-            List<Product> expectedProducts = ( List<Product> )_target.Invoke(MEMBER_FUNCTION_NAME_GET_PRODUCT_TYPE_PRODUCTS, arguments);
+            Assert.ThrowsException<ArgumentException>(() => _productsAndProductTypesManager.GetProductTypeProducts("Type E"));
+            List<Product> expectedProducts = _productsAndProductTypesManager.GetProductTypeProducts("Type A");
             Assert.AreEqual(expectedProducts.Count, 6);
             int productIdCount = 0;
             foreach ( Product product in expectedProducts )
