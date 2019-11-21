@@ -141,6 +141,25 @@ namespace OrderAndStorageManagementSystem.Models.Test
         }
 
         /// <summary>
+        /// Tests the get property product type added.
+        /// </summary>
+        [TestMethod()]
+        public void TestGetPropertyProductTypeAdded()
+        {
+            Assert.AreSame(_model.ProductTypeAdded, _productTypesManager.ProductTypeAdded);
+        }
+
+        /// <summary>
+        /// Tests the set property product type added.
+        /// </summary>
+        [TestMethod()]
+        public void TestSetPropertyProductTypeAdded()
+        {
+            _model.ProductTypeAdded += (productType) => { };
+            Assert.IsNotNull(_model.ProductTypeAdded);
+        }
+
+        /// <summary>
         /// Tests the get products.
         /// </summary>
         [TestMethod()]
