@@ -105,6 +105,17 @@ namespace OrderAndStorageManagementSystem.Models
                 _productsManager.ProductAdded = value;
             }
         }
+        public ProductTypesManager.ProductTypeAddedEventHandler ProductTypeAdded
+        {
+            get
+            {
+                return _productTypesManager.ProductTypeAdded;
+            }
+            set
+            {
+                _productTypesManager.ProductTypeAdded = value;
+            }
+        }
         public List<Product> Products
         {
             get
@@ -276,6 +287,14 @@ namespace OrderAndStorageManagementSystem.Models
         public List<Product> GetProductTypeProducts(string productType)
         {
             return _productsAndProductTypesManager.GetProductTypeProducts(productType);
+        }
+
+        /// <summary>
+        /// Adds the type of the product.
+        /// </summary>
+        public void AddProductType(string productType)
+        {
+            _productTypesManager.AddProductType(productType);
         }
     }
 }

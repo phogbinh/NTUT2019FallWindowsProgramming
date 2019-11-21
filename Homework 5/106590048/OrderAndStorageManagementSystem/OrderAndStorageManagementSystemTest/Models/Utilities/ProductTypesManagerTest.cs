@@ -89,5 +89,34 @@ namespace OrderAndStorageManagementSystem.Models.Utilities.Test
             Assert.IsTrue(_productTypesManager.IsExisting("Type 1"));
             Assert.IsFalse(_productTypesManager.IsExisting("Type 4"));
         }
+
+        /// <summary>
+        /// Adds the type of the product.
+        /// </summary>
+        [TestMethod()]
+        public void TestAddProductType()
+        {
+            _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_PRODUCT_TYPES, new List<string> { "Type 1", "Type 2", "Type 3" });
+            _productTypesManager.AddProductType("Type 4");
+            List<string> expectedProductTypes = ( List<string> )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_PRODUCT_TYPES);
+            Assert.AreEqual(expectedProductTypes.Count, 4);
+            Assert.AreEqual(expectedProductTypes[ 3 ], "Type 4");
+        }
+
+        /// <summary>
+        /// Tests the type of the notify observer add product.
+        /// </summary>
+        [TestMethod()]
+        public void TestNotifyObserverAddProductType()
+        {
+            const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_ADD_PRODUCT_TYPE = "NotifyObserverAddProductType";
+            int count = 0;
+            _productTypesManager.ProductTypeAdded += (productType) => count++;
+            var arguments = new object[] { TestDefinition.DUMP_STRING };
+            _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_ADD_PRODUCT_TYPE, arguments);
+            Assert.AreEqual(count, 1);
+            _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_ADD_PRODUCT_TYPE, arguments);
+            Assert.AreEqual(count, 2);
+        }
     }
 }

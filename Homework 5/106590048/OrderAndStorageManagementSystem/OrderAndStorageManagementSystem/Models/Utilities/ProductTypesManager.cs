@@ -5,6 +5,11 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
 {
     public class ProductTypesManager
     {
+        public delegate void ProductTypeAddedEventHandler(string productType);
+        public ProductTypeAddedEventHandler ProductTypeAdded
+        {
+            get; set;
+        }
         public List<string> ProductTypes
         {
             get
@@ -58,6 +63,26 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         public bool IsExisting(string productType)
         {
             return _productTypes.Contains(productType);
+        }
+
+        /// <summary>
+        /// Adds the type of the product.
+        /// </summary>
+        public void AddProductType(string productType)
+        {
+            _productTypes.Add(productType);
+            NotifyObserverAddProductType(productType);
+        }
+
+        /// <summary>
+        /// Notifies the type of the observer add product.
+        /// </summary>
+        private void NotifyObserverAddProductType(string productType)
+        {
+            if ( ProductTypeAdded != null )
+            {
+                ProductTypeAdded(productType);
+            }
         }
     }
 }
