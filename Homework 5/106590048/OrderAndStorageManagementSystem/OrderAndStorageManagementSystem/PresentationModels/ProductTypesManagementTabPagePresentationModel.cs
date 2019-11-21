@@ -14,6 +14,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
     {
         public delegate void CurrentSelectedProductTypeChangedEventHandler();
         public delegate void SubmitProductTypeInfoButtonEnabledChangedEventHandler();
+        public delegate void IsValidProductTypeInfoChangedEventHandler();
         public delegate void ProductTypesManagementTabPageStateChangedEventHandler();
         public CurrentSelectedProductTypeChangedEventHandler CurrentSelectedProductTypeChanged
         {
@@ -23,12 +24,17 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             get; set;
         }
+        public IsValidProductTypeInfoChangedEventHandler IsValidProductTypeInfoChanged
+        {
+            get; set;
+        }
         public ProductTypesManagementTabPageStateChangedEventHandler ProductTypesManagementTabPageStateChanged
         {
             get; set;
         }
         private Model _model;
         private string _currentSelectedProductType;
+        private bool _isValidProductTypeInfo;
         private ProductTypesManagementTabPageState _productTypesMangementTabPageState;
 
         public ProductTypesManagementTabPagePresentationModel(Model modelData)
@@ -39,6 +45,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
             }
             _model = modelData;
             this.CurrentSelectedProductTypeChanged += NotifyObserverChangeSubmitProductTypeInfoButtonEnabled;
+            this.IsValidProductTypeInfoChanged += NotifyObserverChangeSubmitProductTypeInfoButtonEnabled;
             this.ProductTypesManagementTabPageStateChanged += NotifyObserverChangeSubmitProductTypeInfoButtonEnabled;
             // Initial states of all member variables of the presentation model is set by its view.
         }
@@ -79,7 +86,27 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         public bool IsSubmitProductTypeInfoButtonEnabled()
         {
-            return _productTypesMangementTabPageState == ProductTypesManagementTabPageState.AddProductType;
+            return _productTypesMangementTabPageState == ProductTypesManagementTabPageState.AddProductType && _isValidProductTypeInfo;
+        }
+
+        /// <summary>
+        /// Sets the is valid product type information and notify observer.
+        /// </summary>
+        public void SetIsValidProductTypeInfoAndNotifyObserver(bool value)
+        {
+            _isValidProductTypeInfo = value;
+            NotifyObserverChangeIsValidProductInfo();
+        }
+
+        /// <summary>
+        /// Notify observer change _isValidProductInfo.
+        /// </summary>
+        private void NotifyObserverChangeIsValidProductInfo()
+        {
+            if ( IsValidProductTypeInfoChanged != null )
+            {
+                IsValidProductTypeInfoChanged();
+            }
         }
 
         /// <summary>

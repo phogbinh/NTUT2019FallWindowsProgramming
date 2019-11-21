@@ -66,6 +66,9 @@ namespace OrderAndStorageManagementSystem.Views
             InitializeInputInspectingDropDownListsDropDownListInspectorsCollectionChangedEventHandlers();
             // Input inspectors collection
             InitializeInputInspectorsCollection();
+            // Input inspecting textbox of product types management tab page
+            _productTypeNameField.AddTextBoxInspectors(InputInspectorTypeHelper.FLAG_TEXT_BOX_IS_NOT_EMPTY);
+            _productTypeNameField.TextBoxInspectorsCollectionChanged += () => UpdateErrorProviderViewAndIsValidProductTypeInfo(_productTypeNameField, _productTypeNameField.GetInputInspectorsError());
             // Initial UI States
             InitializeProductTypeField();
             InitializeProductsListBox();
@@ -75,6 +78,7 @@ namespace OrderAndStorageManagementSystem.Views
             _productsManagementTabPagePresentationModel.SetIsEditedProductInfoAndNotifyObserver(false);
             _productsManagementTabPagePresentationModel.SetProductsManagementTabPageStateAndNotifyObserver(ProductsManagementTabPageState.EditProduct);
             _productTypesManagementTabPagePresentationModel.SetCurrentSelectedProductTypeAndNotifyObserver(null);
+            _productTypesManagementTabPagePresentationModel.SetIsValidProductTypeInfoAndNotifyObserver(false);
             _productTypesManagementTabPagePresentationModel.SetProductTypesManagementTabPageStateAndNotifyObserver(ProductTypesManagementTabPageState.ViewProductType);
         }
 
@@ -382,6 +386,15 @@ namespace OrderAndStorageManagementSystem.Views
             {
                 _inputInspectorsCollection.AddInputInspectorsList(dropDownList.GetInputInspectors());
             }
+        }
+
+        /// <summary>
+        /// Updates the error provider view and is valid product type information.
+        /// </summary>
+        private void UpdateErrorProviderViewAndIsValidProductTypeInfo(Control control, string controlInputInspectorsError)
+        {
+            _errorProvider.SetError(control, controlInputInspectorsError);
+            _productTypesManagementTabPagePresentationModel.SetIsValidProductTypeInfoAndNotifyObserver(_productTypeNameField.IsValid());
         }
 
         /// <summary>
