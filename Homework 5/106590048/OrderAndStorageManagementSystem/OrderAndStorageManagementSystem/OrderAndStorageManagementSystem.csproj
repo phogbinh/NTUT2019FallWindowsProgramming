@@ -71,7 +71,7 @@
     <Compile Include="Models\Utilities\ProductsAndProductTypesManager.cs" />
     <Compile Include="Models\Utilities\ProductsManager.cs" />
     <Compile Include="Models\Utilities\ProductTypesManager.cs" />
-    <Compile Include="PresentationModels\ProductManagementPresentationModel.cs" />
+    <Compile Include="PresentationModels\ProductsManagementTabPagePresentationModel.cs" />
     <Compile Include="PresentationModels\OrderPresentationModel.cs" />
     <Compile Include="PresentationModels\ProductTypesManagementTabPagePresentationModel.cs" />
     <Compile Include="Views\CreditCardPaymentForm.cs">

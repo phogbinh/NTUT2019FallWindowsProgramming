@@ -9,7 +9,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         EditProduct = 0,
         AddProduct
     }
-    public class ProductManagementPresentationModel
+    public class ProductsManagementTabPagePresentationModel
     {
         public delegate void CurrentSelectedProductChangedEventHandler();
         public delegate void SubmitProductInfoButtonEnabledChangedEventHandler();
@@ -43,7 +43,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         private bool _isEditedProductInfo;
         private ProductsManagementTabPageState _productsManagementTabPageState;
 
-        public ProductManagementPresentationModel(Model modelData)
+        public ProductsManagementTabPagePresentationModel(Model modelData)
         {
             if ( modelData == null )
             {

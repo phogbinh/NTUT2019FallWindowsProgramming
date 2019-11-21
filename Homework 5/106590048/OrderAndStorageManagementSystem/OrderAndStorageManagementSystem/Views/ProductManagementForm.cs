@@ -17,37 +17,37 @@ namespace OrderAndStorageManagementSystem.Views
         private const string PRODUCT_INFO_GROUP_BOX_TEXT_ADD_PRODUCT = "新增商品";
         private const string SAVE_BUTTON_TEXT_SAVE_PRODUCT = "儲存";
         private const string SAVE_BUTTON_TEXT_ADD_PRODUCT = "新增";
-        private ProductManagementPresentationModel _productManagementPresentationModel;
+        private ProductsManagementTabPagePresentationModel _productsManagementTabPagePresentationModel;
         private ProductTypesManagementTabPagePresentationModel _productTypesManagementTabPagePresentationModel;
         private Model _model;
         private List<InputInspectingTextBox> _textBoxes;
         private List<InputInspectingDropDownList> _dropDownLists;
         private InputInspectorsCollection _inputInspectorsCollection;
 
-        public ProductManagementForm(ProductManagementPresentationModel productManagementPresentationModelData, ProductTypesManagementTabPagePresentationModel productTypesManagementTabPagePresentationModelData, Model modelData)
+        public ProductManagementForm(ProductsManagementTabPagePresentationModel productsManagementTabPagePresentationModelData, ProductTypesManagementTabPagePresentationModel productTypesManagementTabPagePresentationModelData, Model modelData)
         {
             InitializeComponent();
-            _productManagementPresentationModel = productManagementPresentationModelData;
+            _productsManagementTabPagePresentationModel = productsManagementTabPagePresentationModelData;
             _productTypesManagementTabPagePresentationModel = productTypesManagementTabPagePresentationModelData;
             _model = modelData;
             this.Disposed += RemoveEvents;
             // Observers
             _model.ProductInfoChanged += ResetViewOnProductInfoChangedOrOnProductAdded;
             _model.ProductAdded += ResetViewOnProductInfoChangedOrOnProductAdded;
-            _productManagementPresentationModel.CurrentSelectedProductChanged += UpdateProductInfoViewAndSetIsEditedProductInfo;
-            _productManagementPresentationModel.SubmitProductInfoButtonEnabledChanged += UpdateSaveButtonView;
+            _productsManagementTabPagePresentationModel.CurrentSelectedProductChanged += UpdateProductInfoViewAndSetIsEditedProductInfo;
+            _productsManagementTabPagePresentationModel.SubmitProductInfoButtonEnabledChanged += UpdateSaveButtonView;
             // UI
             _productsListBox.SelectedIndexChanged += ChangeProductsListBoxSelectedIndex;
             _productPriceField.KeyPress += InputHelper.InputNumbersOrBackSpace;
             _productImageBrowseButton.Click += (sender, eventArguments) => BrowseImageAndSetProductImagePath();
-            _submitProductInfoButton.Click += (sender, eventArguments) => _productManagementPresentationModel.ClickSubmitProductInfoButton(new ProductInfo(_productNameField.Text, _productTypeField.Text, new Money(int.Parse(_productPriceField.Text)), _productDescriptionField.Text, _productImagePathField.Text));
+            _submitProductInfoButton.Click += (sender, eventArguments) => _productsManagementTabPagePresentationModel.ClickSubmitProductInfoButton(new ProductInfo(_productNameField.Text, _productTypeField.Text, new Money(int.Parse(_productPriceField.Text)), _productDescriptionField.Text, _productImagePathField.Text));
             _addProductButton.Click += (sender, eventArguments) => SetStateAndUpdateViewOnAddProductButtonClicked();
             // Product info
-            _productNameField.TextChanged += (sender, eventArguments) => _productManagementPresentationModel.SetIsEditedProductInfoAndNotifyObserver(true);
-            _productPriceField.TextChanged += (sender, eventArguments) => _productManagementPresentationModel.SetIsEditedProductInfoAndNotifyObserver(true);
-            _productTypeField.TextChanged += (sender, eventArguments) => _productManagementPresentationModel.SetIsEditedProductInfoAndNotifyObserver(true);
-            _productImagePathField.TextChanged += (sender, eventArguments) => _productManagementPresentationModel.SetIsEditedProductInfoAndNotifyObserver(true);
-            _productDescriptionField.TextChanged += (sender, eventArguments) => _productManagementPresentationModel.SetIsEditedProductInfoAndNotifyObserver(true);
+            _productNameField.TextChanged += (sender, eventArguments) => _productsManagementTabPagePresentationModel.SetIsEditedProductInfoAndNotifyObserver(true);
+            _productPriceField.TextChanged += (sender, eventArguments) => _productsManagementTabPagePresentationModel.SetIsEditedProductInfoAndNotifyObserver(true);
+            _productTypeField.TextChanged += (sender, eventArguments) => _productsManagementTabPagePresentationModel.SetIsEditedProductInfoAndNotifyObserver(true);
+            _productImagePathField.TextChanged += (sender, eventArguments) => _productsManagementTabPagePresentationModel.SetIsEditedProductInfoAndNotifyObserver(true);
+            _productDescriptionField.TextChanged += (sender, eventArguments) => _productsManagementTabPagePresentationModel.SetIsEditedProductInfoAndNotifyObserver(true);
             // Input inspecting textboxes
             InitializeInputInspectingTextBoxesTextBoxInspectors();
             InitializeInputInspectingTextBoxes();
@@ -62,10 +62,10 @@ namespace OrderAndStorageManagementSystem.Views
             InitializeProductTypeField();
             InitializeProductsListBox();
             InitializeProductTypesListBox();
-            _productManagementPresentationModel.SetCurrentSelectedProductAndNotifyObserver(null);
-            _productManagementPresentationModel.SetIsValidProductInfoAndNotifyObserver(false);
-            _productManagementPresentationModel.SetIsEditedProductInfoAndNotifyObserver(false);
-            _productManagementPresentationModel.SetProductsManagementTabPageStateAndNotifyObserver(ProductsManagementTabPageState.EditProduct);
+            _productsManagementTabPagePresentationModel.SetCurrentSelectedProductAndNotifyObserver(null);
+            _productsManagementTabPagePresentationModel.SetIsValidProductInfoAndNotifyObserver(false);
+            _productsManagementTabPagePresentationModel.SetIsEditedProductInfoAndNotifyObserver(false);
+            _productsManagementTabPagePresentationModel.SetProductsManagementTabPageStateAndNotifyObserver(ProductsManagementTabPageState.EditProduct);
         }
 
         /// <summary>
@@ -75,8 +75,8 @@ namespace OrderAndStorageManagementSystem.Views
         {
             _model.ProductInfoChanged -= ResetViewOnProductInfoChangedOrOnProductAdded;
             _model.ProductAdded -= ResetViewOnProductInfoChangedOrOnProductAdded;
-            _productManagementPresentationModel.CurrentSelectedProductChanged -= UpdateProductInfoViewAndSetIsEditedProductInfo;
-            _productManagementPresentationModel.SubmitProductInfoButtonEnabledChanged -= UpdateSaveButtonView;
+            _productsManagementTabPagePresentationModel.CurrentSelectedProductChanged -= UpdateProductInfoViewAndSetIsEditedProductInfo;
+            _productsManagementTabPagePresentationModel.SubmitProductInfoButtonEnabledChanged -= UpdateSaveButtonView;
         }
 
         /// <summary>
@@ -115,12 +115,12 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void UpdateProductInfoViewAndSetIsEditedProductInfo()
         {
-            _productNameField.Text = _productManagementPresentationModel.GetCurrentSelectedProductName();
-            _productPriceField.Text = _productManagementPresentationModel.GetCurrentSelectedProductPrice();
-            _productTypeField.Text = _productManagementPresentationModel.GetCurrentSelectedProductType();
-            _productImagePathField.Text = _productManagementPresentationModel.GetCurrentSelectedProductImagePath();
-            _productDescriptionField.Text = _productManagementPresentationModel.GetCurrentSelectedProductDescription();
-            _productManagementPresentationModel.SetIsEditedProductInfoAndNotifyObserver(false);
+            _productNameField.Text = _productsManagementTabPagePresentationModel.GetCurrentSelectedProductName();
+            _productPriceField.Text = _productsManagementTabPagePresentationModel.GetCurrentSelectedProductPrice();
+            _productTypeField.Text = _productsManagementTabPagePresentationModel.GetCurrentSelectedProductType();
+            _productImagePathField.Text = _productsManagementTabPagePresentationModel.GetCurrentSelectedProductImagePath();
+            _productDescriptionField.Text = _productsManagementTabPagePresentationModel.GetCurrentSelectedProductDescription();
+            _productsManagementTabPagePresentationModel.SetIsEditedProductInfoAndNotifyObserver(false);
         }
 
         /// <summary>
@@ -128,7 +128,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void UpdateSaveButtonView()
         {
-            _submitProductInfoButton.Enabled = _productManagementPresentationModel.IsSubmitProductInfoButtonEnabled();
+            _submitProductInfoButton.Enabled = _productsManagementTabPagePresentationModel.IsSubmitProductInfoButtonEnabled();
         }
 
         /// <summary>
@@ -136,8 +136,8 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void ChangeProductsListBoxSelectedIndex(object sender, EventArgs eventArguments)
         {
-            _productManagementPresentationModel.SetProductsManagementTabPageStateAndNotifyObserver(ProductsManagementTabPageState.EditProduct);
-            _productManagementPresentationModel.SetCurrentSelectedProductAndNotifyObserver(( ( ProductsListBoxItem )_productsListBox.SelectedItem ).Product);
+            _productsManagementTabPagePresentationModel.SetProductsManagementTabPageStateAndNotifyObserver(ProductsManagementTabPageState.EditProduct);
+            _productsManagementTabPagePresentationModel.SetCurrentSelectedProductAndNotifyObserver(( ( ProductsListBoxItem )_productsListBox.SelectedItem ).Product);
             UpdateViewOnProductsListBoxSelectedIndexChanged();
         }
 
@@ -168,7 +168,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void SetStateAndUpdateViewOnAddProductButtonClicked()
         {
-            _productManagementPresentationModel.SetProductsManagementTabPageStateAndNotifyObserver(ProductsManagementTabPageState.AddProduct);
+            _productsManagementTabPagePresentationModel.SetProductsManagementTabPageStateAndNotifyObserver(ProductsManagementTabPageState.AddProduct);
             UpdateViewOnAddProductButtonClicked();
         }
 
@@ -221,7 +221,7 @@ namespace OrderAndStorageManagementSystem.Views
         private void UpdateErrorProviderViewAndIsValidProductInfo(Control control, string controlInputInspectorsError)
         {
             _errorProvider.SetError(control, controlInputInspectorsError);
-            _productManagementPresentationModel.SetIsValidProductInfoAndNotifyObserver(_inputInspectorsCollection.AreAllValidInputInspectors());
+            _productsManagementTabPagePresentationModel.SetIsValidProductInfoAndNotifyObserver(_inputInspectorsCollection.AreAllValidInputInspectors());
         }
 
         /// <summary>

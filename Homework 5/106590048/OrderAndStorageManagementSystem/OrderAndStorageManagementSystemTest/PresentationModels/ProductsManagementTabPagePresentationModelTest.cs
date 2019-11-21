@@ -8,14 +8,14 @@ using System;
 namespace OrderAndStorageManagementSystem.PresentationModels.Test
 {
     [TestClass()]
-    public class ProductManagementPresentationModelTest
+    public class ProductsManagementTabPagePresentationModelTest
     {
         private const string MEMBER_VARIABLE_NAME_MODEL = "_model";
         private const string MEMBER_VARIABLE_NAME_CURRENT_SELECTED_PRODUCT = "_currentSelectedProduct";
         private const string MEMBER_VARIABLE_NAME_IS_VALID_PRODUCT_INFO = "_isValidProductInfo";
         private const string MEMBER_VARIABLE_NAME_IS_EDITED_PRODUCT_INFO = "_isEditedProductInfo";
         private const string MEMBER_VARIABLE_NAME_PRODUCTS_MANAGEMENT_TAB_PAGE_STATE = "_productsManagementTabPageState";
-        private ProductManagementPresentationModel _productManagementPresentationModel;
+        private ProductsManagementTabPagePresentationModel _productsManagementTabPagePresentationModel;
         private PrivateObject _target;
 
         /// <summary>
@@ -25,19 +25,19 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         [DeploymentItem(TestDefinition.OUTPUT_ITEM_FILE_PATH)]
         public void Initialize()
         {
-            _productManagementPresentationModel = new ProductManagementPresentationModel(new Model(Resources.ProductsTableTest));
-            _target = new PrivateObject(_productManagementPresentationModel);
+            _productsManagementTabPagePresentationModel = new ProductsManagementTabPagePresentationModel(new Model(Resources.ProductsTableTest));
+            _target = new PrivateObject(_productsManagementTabPagePresentationModel);
         }
 
         /// <summary>
-        /// Tests the product management presentation model.
+        /// Tests the products management tab page presentation model.
         /// </summary>
         [TestMethod()]
-        public void TestProductManagementPresentationModel()
+        public void TestProductsManagementTabPagePresentationModel()
         {
-            Assert.ThrowsException<ArgumentNullException>(() => new ProductManagementPresentationModel(null));
-            var productManagementPresentationModel = new ProductManagementPresentationModel(new Model(TestDefinition.DUMP_STRING));
-            var target = new PrivateObject(productManagementPresentationModel);
+            Assert.ThrowsException<ArgumentNullException>(() => new ProductsManagementTabPagePresentationModel(null));
+            var productsManagementTabPagePresentationModel = new ProductsManagementTabPagePresentationModel(new Model(TestDefinition.DUMP_STRING));
+            var target = new PrivateObject(productsManagementTabPagePresentationModel);
             Assert.IsNotNull(target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_MODEL));
         }
 
@@ -49,8 +49,8 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         {
             var product = new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING);
             int count = 0;
-            _productManagementPresentationModel.CurrentSelectedProductChanged += () => count++;
-            _productManagementPresentationModel.SetCurrentSelectedProductAndNotifyObserver(product);
+            _productsManagementTabPagePresentationModel.CurrentSelectedProductChanged += () => count++;
+            _productsManagementTabPagePresentationModel.SetCurrentSelectedProductAndNotifyObserver(product);
             Assert.AreSame(_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_SELECTED_PRODUCT), product);
             Assert.AreEqual(count, 1);
         }
@@ -63,7 +63,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         {
             const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_CURRENT_SELECTED_PRODUCT = "NotifyObserverChangeCurrentSelectedProduct";
             int count = 0;
-            _productManagementPresentationModel.CurrentSelectedProductChanged += () => count++;
+            _productsManagementTabPagePresentationModel.CurrentSelectedProductChanged += () => count++;
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_CURRENT_SELECTED_PRODUCT);
             Assert.AreEqual(count, 1);
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_CURRENT_SELECTED_PRODUCT);
@@ -78,7 +78,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         {
             const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_SUBMIT_PRODUCT_INFO_BUTTON_ENABLED = "NotifyObserverChangeSubmitProductInfoButtonEnabled";
             int count = 0;
-            _productManagementPresentationModel.SubmitProductInfoButtonEnabledChanged += () => count++;
+            _productsManagementTabPagePresentationModel.SubmitProductInfoButtonEnabledChanged += () => count++;
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_SUBMIT_PRODUCT_INFO_BUTTON_ENABLED);
             Assert.AreEqual(count, 1);
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_SUBMIT_PRODUCT_INFO_BUTTON_ENABLED);
@@ -92,17 +92,17 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         public void TestIsSubmitProductInfoButtonEnabled()
         {
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_PRODUCTS_MANAGEMENT_TAB_PAGE_STATE, ProductsManagementTabPageState.EditProduct);
-            Assert.IsFalse(_productManagementPresentationModel.IsSubmitProductInfoButtonEnabled());
+            Assert.IsFalse(_productsManagementTabPagePresentationModel.IsSubmitProductInfoButtonEnabled());
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_SELECTED_PRODUCT, new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
-            Assert.IsFalse(_productManagementPresentationModel.IsSubmitProductInfoButtonEnabled());
+            Assert.IsFalse(_productsManagementTabPagePresentationModel.IsSubmitProductInfoButtonEnabled());
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_IS_VALID_PRODUCT_INFO, true);
-            Assert.IsFalse(_productManagementPresentationModel.IsSubmitProductInfoButtonEnabled());
+            Assert.IsFalse(_productsManagementTabPagePresentationModel.IsSubmitProductInfoButtonEnabled());
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_IS_EDITED_PRODUCT_INFO, true);
-            Assert.IsTrue(_productManagementPresentationModel.IsSubmitProductInfoButtonEnabled());
+            Assert.IsTrue(_productsManagementTabPagePresentationModel.IsSubmitProductInfoButtonEnabled());
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_PRODUCTS_MANAGEMENT_TAB_PAGE_STATE, ProductsManagementTabPageState.AddProduct);
-            Assert.IsTrue(_productManagementPresentationModel.IsSubmitProductInfoButtonEnabled());
+            Assert.IsTrue(_productsManagementTabPagePresentationModel.IsSubmitProductInfoButtonEnabled());
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_IS_VALID_PRODUCT_INFO, false);
-            Assert.IsFalse(_productManagementPresentationModel.IsSubmitProductInfoButtonEnabled());
+            Assert.IsFalse(_productsManagementTabPagePresentationModel.IsSubmitProductInfoButtonEnabled());
         }
 
         /// <summary>
@@ -112,8 +112,8 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         public void TestSetIsValidProductInfoAndNotifyObserver()
         {
             int count = 0;
-            _productManagementPresentationModel.IsValidProductInfoChanged += () => count++;
-            _productManagementPresentationModel.SetIsValidProductInfoAndNotifyObserver(true);
+            _productsManagementTabPagePresentationModel.IsValidProductInfoChanged += () => count++;
+            _productsManagementTabPagePresentationModel.SetIsValidProductInfoAndNotifyObserver(true);
             Assert.IsTrue(( bool )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_IS_VALID_PRODUCT_INFO));
             Assert.AreEqual(count, 1);
         }
@@ -126,7 +126,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         {
             const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_IS_VALID_PRODUCT_INFO = "NotifyObserverChangeIsValidProductInfo";
             int count = 0;
-            _productManagementPresentationModel.SubmitProductInfoButtonEnabledChanged += () => count++;
+            _productsManagementTabPagePresentationModel.SubmitProductInfoButtonEnabledChanged += () => count++;
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_IS_VALID_PRODUCT_INFO);
             Assert.AreEqual(count, 1);
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_IS_VALID_PRODUCT_INFO);
@@ -142,14 +142,14 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_PRODUCTS_MANAGEMENT_TAB_PAGE_STATE, ProductsManagementTabPageState.EditProduct);
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_SELECTED_PRODUCT, new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
             int count = 0;
-            _productManagementPresentationModel.IsEditedProductInfoChanged += () => count++;
+            _productsManagementTabPagePresentationModel.IsEditedProductInfoChanged += () => count++;
             var productInfo = new ProductInfo(TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING);
-            _productManagementPresentationModel.ClickSubmitProductInfoButton(productInfo);
+            _productsManagementTabPagePresentationModel.ClickSubmitProductInfoButton(productInfo);
             Assert.AreSame(( ( Product )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_SELECTED_PRODUCT) ).ProductInfo, productInfo);
             Assert.IsFalse(( bool )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_IS_EDITED_PRODUCT_INFO));
             Assert.AreEqual(count, 1);
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_PRODUCTS_MANAGEMENT_TAB_PAGE_STATE, ProductsManagementTabPageState.AddProduct);
-            _productManagementPresentationModel.ClickSubmitProductInfoButton(productInfo);
+            _productsManagementTabPagePresentationModel.ClickSubmitProductInfoButton(productInfo);
             Model model = ( Model )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_MODEL);
             Assert.AreSame(model.GetProduct(1).ProductInfo, productInfo);
         }
@@ -161,8 +161,8 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         public void TestSetIsEditedProductInfoAndNotifyObserver()
         {
             int count = 0;
-            _productManagementPresentationModel.IsEditedProductInfoChanged += () => count++;
-            _productManagementPresentationModel.SetIsEditedProductInfoAndNotifyObserver(true);
+            _productsManagementTabPagePresentationModel.IsEditedProductInfoChanged += () => count++;
+            _productsManagementTabPagePresentationModel.SetIsEditedProductInfoAndNotifyObserver(true);
             Assert.IsTrue(( bool )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_IS_EDITED_PRODUCT_INFO));
             Assert.AreEqual(count, 1);
         }
@@ -175,7 +175,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         {
             const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_IS_EDITED_PRODUCT_INFO = "NotifyObserverChangeIsEditedProductInfo";
             int count = 0;
-            _productManagementPresentationModel.SubmitProductInfoButtonEnabledChanged += () => count++;
+            _productsManagementTabPagePresentationModel.SubmitProductInfoButtonEnabledChanged += () => count++;
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_IS_EDITED_PRODUCT_INFO);
             Assert.AreEqual(count, 1);
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_IS_EDITED_PRODUCT_INFO);
@@ -189,8 +189,8 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         public void TestSetProductsManagementTabPageStateAndNotifyObserver()
         {
             int count = 0;
-            _productManagementPresentationModel.ProductsManagementTabPageStateChanged += () => count++;
-            _productManagementPresentationModel.SetProductsManagementTabPageStateAndNotifyObserver(ProductsManagementTabPageState.EditProduct);
+            _productsManagementTabPagePresentationModel.ProductsManagementTabPageStateChanged += () => count++;
+            _productsManagementTabPagePresentationModel.SetProductsManagementTabPageStateAndNotifyObserver(ProductsManagementTabPageState.EditProduct);
             Assert.AreEqual(_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_PRODUCTS_MANAGEMENT_TAB_PAGE_STATE), ProductsManagementTabPageState.EditProduct);
             Assert.AreEqual(count, 1);
         }
@@ -203,7 +203,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         {
             const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_PRODUCTS_MANAGEMENT_TAB_PAGE_STATE = "NotifyObserverChangeProductsManagementTabPageState";
             int count = 0;
-            _productManagementPresentationModel.ProductsManagementTabPageStateChanged += () => count++;
+            _productsManagementTabPagePresentationModel.ProductsManagementTabPageStateChanged += () => count++;
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_PRODUCTS_MANAGEMENT_TAB_PAGE_STATE);
             Assert.AreEqual(count, 1);
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_PRODUCTS_MANAGEMENT_TAB_PAGE_STATE);
@@ -217,9 +217,9 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         public void TestGetCurrentSelectedProductName()
         {
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_SELECTED_PRODUCT, null);
-            Assert.AreEqual(_productManagementPresentationModel.GetCurrentSelectedProductName(), "");
+            Assert.AreEqual(_productsManagementTabPagePresentationModel.GetCurrentSelectedProductName(), "");
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_SELECTED_PRODUCT, new Product(TestDefinition.DUMP_INTEGER, "John Cena", TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
-            Assert.AreEqual(_productManagementPresentationModel.GetCurrentSelectedProductName(), "John Cena");
+            Assert.AreEqual(_productsManagementTabPagePresentationModel.GetCurrentSelectedProductName(), "John Cena");
         }
 
         /// <summary>
@@ -229,9 +229,9 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         public void TestGetCurrentSelectedProductPrice()
         {
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_SELECTED_PRODUCT, null);
-            Assert.AreEqual(_productManagementPresentationModel.GetCurrentSelectedProductPrice(), "");
+            Assert.AreEqual(_productsManagementTabPagePresentationModel.GetCurrentSelectedProductPrice(), "");
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_SELECTED_PRODUCT, new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(1998), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
-            Assert.AreEqual(_productManagementPresentationModel.GetCurrentSelectedProductPrice(), "1998");
+            Assert.AreEqual(_productsManagementTabPagePresentationModel.GetCurrentSelectedProductPrice(), "1998");
         }
 
         /// <summary>
@@ -241,9 +241,9 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         public void TestGetCurrentSelectedProductType()
         {
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_SELECTED_PRODUCT, null);
-            Assert.AreEqual(_productManagementPresentationModel.GetCurrentSelectedProductType(), "");
+            Assert.AreEqual(_productsManagementTabPagePresentationModel.GetCurrentSelectedProductType(), "");
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_SELECTED_PRODUCT, new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, "Diaper", new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
-            Assert.AreEqual(_productManagementPresentationModel.GetCurrentSelectedProductType(), "Diaper");
+            Assert.AreEqual(_productsManagementTabPagePresentationModel.GetCurrentSelectedProductType(), "Diaper");
         }
 
         /// <summary>
@@ -253,9 +253,9 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         public void TestGetCurrentSelectedProductImagePath()
         {
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_SELECTED_PRODUCT, null);
-            Assert.AreEqual(_productManagementPresentationModel.GetCurrentSelectedProductImagePath(), "");
+            Assert.AreEqual(_productsManagementTabPagePresentationModel.GetCurrentSelectedProductImagePath(), "");
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_SELECTED_PRODUCT, new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, "未來.jpg"));
-            Assert.AreEqual(_productManagementPresentationModel.GetCurrentSelectedProductImagePath(), "未來.jpg");
+            Assert.AreEqual(_productsManagementTabPagePresentationModel.GetCurrentSelectedProductImagePath(), "未來.jpg");
         }
 
         /// <summary>
@@ -265,9 +265,9 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         public void TestGetCurrentSelectedProductDescription()
         {
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_SELECTED_PRODUCT, null);
-            Assert.AreEqual(_productManagementPresentationModel.GetCurrentSelectedProductDescription(), "");
+            Assert.AreEqual(_productsManagementTabPagePresentationModel.GetCurrentSelectedProductDescription(), "");
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_SELECTED_PRODUCT, new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, "Land of Love.", TestDefinition.DUMP_STRING));
-            Assert.AreEqual(_productManagementPresentationModel.GetCurrentSelectedProductDescription(), "Land of Love.");
+            Assert.AreEqual(_productsManagementTabPagePresentationModel.GetCurrentSelectedProductDescription(), "Land of Love.");
         }
     }
 }
