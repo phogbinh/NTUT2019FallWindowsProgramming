@@ -357,5 +357,15 @@ namespace OrderAndStorageManagementSystem.Models.Test
             Assert.AreEqual(_productTypesManager.ProductTypes.Count, 4);
             Assert.IsTrue(_productTypesManager.IsExisting("New Type"));
         }
+
+        /// <summary>
+        /// Tests the get product at.
+        /// </summary>
+        [TestMethod()]
+        public void TestGetProductAt()
+        {
+            Assert.AreSame(_model.GetProductAt(0), _productsManager.GetProductAt(0));
+            Assert.AreSame(_model.GetProductAt(1), _productsManager.GetProductAt(1));
+        }
     }
 }

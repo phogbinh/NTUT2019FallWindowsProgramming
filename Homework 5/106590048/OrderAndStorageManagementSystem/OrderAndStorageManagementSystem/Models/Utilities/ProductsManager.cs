@@ -34,6 +34,7 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
         private const string ERROR_PRODUCT_WITH_ORDER_QUANTITY_CONTAINERS_IS_NULL = "The given product-with-order-quantity-containers is null.";
         private const string ERROR_PRODUCT_IS_NULL = "The given product is null.";
         private const string ERROR_PRODUCT_ID_CANNOT_BE_CREATED = "A new unique product id cannot be created.";
+        private const string ERROR_PRODUCT_INDEX_IS_OUT_OF_RANGE = "The given product index is out of range.";
         private const int PRODUCT_ID_START_VALUE = 0;
         private const int PRODUCT_ID_MAX_VALUE = 1000;
         private List<Product> _products;
@@ -202,6 +203,18 @@ namespace OrderAndStorageManagementSystem.Models.Utilities
             {
                 ProductAdded(product);
             }
+        }
+
+        /// <summary>
+        /// Gets the product at.
+        /// </summary>
+        public Product GetProductAt(int productIndex)
+        {
+            if ( !AppDefinition.IsInIntervalRange(productIndex, 0, _products.Count - 1) )
+            {
+                throw new ArgumentOutOfRangeException(ERROR_PRODUCT_INDEX_IS_OUT_OF_RANGE);
+            }
+            return _products[ productIndex ];
         }
     }
 }

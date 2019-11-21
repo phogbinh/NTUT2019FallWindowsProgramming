@@ -237,5 +237,19 @@ namespace OrderAndStorageManagementSystem.Models.Utilities.Test
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_ADD_PRODUCT, arguments);
             Assert.AreEqual(count, 2);
         }
+
+        /// <summary>
+        /// Tests the get product at.
+        /// </summary>
+        [TestMethod()]
+        public void TestGetProductAt()
+        {
+            List<Product> products = CreateUniqueProductIdQualifiedProducts();
+            _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_PRODUCTS, products);
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => _productsManager.GetProductAt(-1));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => _productsManager.GetProductAt(3));
+            Assert.AreSame(_productsManager.GetProductAt(0), products[ 0 ]);
+            Assert.AreSame(_productsManager.GetProductAt(1), products[ 1 ]);
+        }
     }
 }

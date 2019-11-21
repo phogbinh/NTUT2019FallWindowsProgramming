@@ -296,5 +296,13 @@ namespace OrderAndStorageManagementSystem.Models
         {
             _productTypesManager.AddProductType(productType);
         }
+
+        /// <summary>
+        /// Gets the product at.
+        /// </summary>
+        public Product GetProductAt(int productIndex)
+        {
+            return _productsManager.GetProductAt(productIndex);
+        }
     }
 }
