@@ -97,6 +97,14 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void ResetViewOnProductInfoChangedOrOnProductAdded(Product product)
         {
+            ResetAllViewsButButtons();
+        }
+
+        /// <summary>
+        /// Resets all views but buttons.
+        /// </summary>
+        private void ResetAllViewsButButtons()
+        {
             ResetProductTypeFieldView();
             ResetProductsListBoxView();
             ResetProductTypesListBoxView();
@@ -159,11 +167,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void ResetViewOnProductTypeAdded(string productType)
         {
-            ResetProductTypeFieldView();
-            ResetProductsListBoxView();
-            ResetProductTypesListBoxView();
-            ResetProductInfoAndErrorProviderView();
-            ResetProductTypeInfoAndErrorProviderView();
+            ResetAllViewsButButtons();
         }
 
         /// <summary>
