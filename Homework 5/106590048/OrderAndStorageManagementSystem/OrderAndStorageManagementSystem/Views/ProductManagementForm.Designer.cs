@@ -61,6 +61,20 @@
             this._productsListBox = new System.Windows.Forms.ListBox();
             this._productTypesManagementTabPage = new System.Windows.Forms.TabPage();
             this._errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this._productTypesManagementTabPageLayout = new System.Windows.Forms.TableLayoutPanel();
+            this._productTypeInfoGroupBox = new System.Windows.Forms.GroupBox();
+            this._productTypesManagementTabPageLeftSectionLayout = new System.Windows.Forms.TableLayoutPanel();
+            this._addProductTypeButton = new System.Windows.Forms.Button();
+            this._productTypesListBox = new System.Windows.Forms.ListBox();
+            this._productTypeInfoGroupBoxLayout = new System.Windows.Forms.TableLayoutPanel();
+            this._productTypeNameLayout = new System.Windows.Forms.TableLayoutPanel();
+            this._productTypeProductsListLayout = new System.Windows.Forms.TableLayoutPanel();
+            this._productTypeInfoGroupBoxLastRowLayout = new System.Windows.Forms.TableLayoutPanel();
+            this._productTypeNameLabel = new System.Windows.Forms.Label();
+            this._productTypeNameField = new InputInspectingElements.InputInspectingControls.InputInspectingTextBox();
+            this._productTypeProductsListLabel = new System.Windows.Forms.Label();
+            this._productTypeProductsListField = new System.Windows.Forms.RichTextBox();
+            this._submitProductTypeInfoButton = new System.Windows.Forms.Button();
             this._productManagementFormLayout.SuspendLayout();
             this._tabControl.SuspendLayout();
             this._productsManagementTabPage.SuspendLayout();
@@ -75,7 +89,15 @@
             this._productInfoGroupBoxLastRowLayout.SuspendLayout();
             this._productImagePathLayout.SuspendLayout();
             this._productsManagementTabPageLeftSectionLayout.SuspendLayout();
+            this._productTypesManagementTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._errorProvider)).BeginInit();
+            this._productTypesManagementTabPageLayout.SuspendLayout();
+            this._productTypeInfoGroupBox.SuspendLayout();
+            this._productTypesManagementTabPageLeftSectionLayout.SuspendLayout();
+            this._productTypeInfoGroupBoxLayout.SuspendLayout();
+            this._productTypeNameLayout.SuspendLayout();
+            this._productTypeProductsListLayout.SuspendLayout();
+            this._productTypeInfoGroupBoxLastRowLayout.SuspendLayout();
             this.SuspendLayout();
             // 
             // _productManagementFormLayout
@@ -450,6 +472,7 @@
             // 
             // _productTypesManagementTabPage
             // 
+            this._productTypesManagementTabPage.Controls.Add(this._productTypesManagementTabPageLayout);
             this._productTypesManagementTabPage.Location = new System.Drawing.Point(4, 22);
             this._productTypesManagementTabPage.Name = "_productTypesManagementTabPage";
             this._productTypesManagementTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -461,6 +484,179 @@
             // _errorProvider
             // 
             this._errorProvider.ContainerControl = this;
+            // 
+            // _productTypesManagementTabPageLayout
+            // 
+            this._productTypesManagementTabPageLayout.ColumnCount = 2;
+            this._productTypesManagementTabPageLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this._productTypesManagementTabPageLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
+            this._productTypesManagementTabPageLayout.Controls.Add(this._productTypeInfoGroupBox, 1, 0);
+            this._productTypesManagementTabPageLayout.Controls.Add(this._productTypesManagementTabPageLeftSectionLayout, 0, 0);
+            this._productTypesManagementTabPageLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productTypesManagementTabPageLayout.Location = new System.Drawing.Point(3, 3);
+            this._productTypesManagementTabPageLayout.Name = "_productTypesManagementTabPageLayout";
+            this._productTypesManagementTabPageLayout.RowCount = 1;
+            this._productTypesManagementTabPageLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this._productTypesManagementTabPageLayout.Size = new System.Drawing.Size(817, 460);
+            this._productTypesManagementTabPageLayout.TabIndex = 1;
+            // 
+            // _productTypeInfoGroupBox
+            // 
+            this._productTypeInfoGroupBox.Controls.Add(this._productTypeInfoGroupBoxLayout);
+            this._productTypeInfoGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productTypeInfoGroupBox.Location = new System.Drawing.Point(288, 3);
+            this._productTypeInfoGroupBox.Name = "_productTypeInfoGroupBox";
+            this._productTypeInfoGroupBox.Size = new System.Drawing.Size(526, 454);
+            this._productTypeInfoGroupBox.TabIndex = 0;
+            this._productTypeInfoGroupBox.TabStop = false;
+            this._productTypeInfoGroupBox.Text = "類別";
+            // 
+            // _productTypesManagementTabPageLeftSectionLayout
+            // 
+            this._productTypesManagementTabPageLeftSectionLayout.ColumnCount = 1;
+            this._productTypesManagementTabPageLeftSectionLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this._productTypesManagementTabPageLeftSectionLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this._productTypesManagementTabPageLeftSectionLayout.Controls.Add(this._addProductTypeButton, 0, 1);
+            this._productTypesManagementTabPageLeftSectionLayout.Controls.Add(this._productTypesListBox, 0, 0);
+            this._productTypesManagementTabPageLeftSectionLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productTypesManagementTabPageLeftSectionLayout.Location = new System.Drawing.Point(3, 3);
+            this._productTypesManagementTabPageLeftSectionLayout.Name = "_productTypesManagementTabPageLeftSectionLayout";
+            this._productTypesManagementTabPageLeftSectionLayout.RowCount = 2;
+            this._productTypesManagementTabPageLeftSectionLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this._productTypesManagementTabPageLeftSectionLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this._productTypesManagementTabPageLeftSectionLayout.Size = new System.Drawing.Size(279, 454);
+            this._productTypesManagementTabPageLeftSectionLayout.TabIndex = 1;
+            // 
+            // _addProductTypeButton
+            // 
+            this._addProductTypeButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._addProductTypeButton.Location = new System.Drawing.Point(3, 411);
+            this._addProductTypeButton.Name = "_addProductTypeButton";
+            this._addProductTypeButton.Size = new System.Drawing.Size(273, 40);
+            this._addProductTypeButton.TabIndex = 0;
+            this._addProductTypeButton.Text = "新增類別";
+            this._addProductTypeButton.UseVisualStyleBackColor = true;
+            // 
+            // _productTypesListBox
+            // 
+            this._productTypesListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productTypesListBox.FormattingEnabled = true;
+            this._productTypesListBox.Location = new System.Drawing.Point(3, 3);
+            this._productTypesListBox.Name = "_productTypesListBox";
+            this._productTypesListBox.Size = new System.Drawing.Size(273, 402);
+            this._productTypesListBox.TabIndex = 1;
+            // 
+            // _productTypeInfoGroupBoxLayout
+            // 
+            this._productTypeInfoGroupBoxLayout.ColumnCount = 1;
+            this._productTypeInfoGroupBoxLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this._productTypeInfoGroupBoxLayout.Controls.Add(this._productTypeNameLayout, 0, 0);
+            this._productTypeInfoGroupBoxLayout.Controls.Add(this._productTypeProductsListLayout, 0, 1);
+            this._productTypeInfoGroupBoxLayout.Controls.Add(this._productTypeInfoGroupBoxLastRowLayout, 0, 2);
+            this._productTypeInfoGroupBoxLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productTypeInfoGroupBoxLayout.Location = new System.Drawing.Point(3, 16);
+            this._productTypeInfoGroupBoxLayout.Name = "_productTypeInfoGroupBoxLayout";
+            this._productTypeInfoGroupBoxLayout.RowCount = 3;
+            this._productTypeInfoGroupBoxLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this._productTypeInfoGroupBoxLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 68F));
+            this._productTypeInfoGroupBoxLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this._productTypeInfoGroupBoxLayout.Size = new System.Drawing.Size(520, 435);
+            this._productTypeInfoGroupBoxLayout.TabIndex = 0;
+            // 
+            // _productTypeNameLayout
+            // 
+            this._productTypeNameLayout.ColumnCount = 2;
+            this._productTypeNameLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.25F));
+            this._productTypeNameLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.75F));
+            this._productTypeNameLayout.Controls.Add(this._productTypeNameLabel, 0, 0);
+            this._productTypeNameLayout.Controls.Add(this._productTypeNameField, 1, 0);
+            this._productTypeNameLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productTypeNameLayout.Location = new System.Drawing.Point(3, 3);
+            this._productTypeNameLayout.Name = "_productTypeNameLayout";
+            this._productTypeNameLayout.RowCount = 1;
+            this._productTypeNameLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this._productTypeNameLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this._productTypeNameLayout.Size = new System.Drawing.Size(514, 81);
+            this._productTypeNameLayout.TabIndex = 0;
+            // 
+            // _productTypeProductsListLayout
+            // 
+            this._productTypeProductsListLayout.ColumnCount = 1;
+            this._productTypeProductsListLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this._productTypeProductsListLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this._productTypeProductsListLayout.Controls.Add(this._productTypeProductsListLabel, 0, 0);
+            this._productTypeProductsListLayout.Controls.Add(this._productTypeProductsListField, 0, 1);
+            this._productTypeProductsListLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productTypeProductsListLayout.Location = new System.Drawing.Point(3, 90);
+            this._productTypeProductsListLayout.Name = "_productTypeProductsListLayout";
+            this._productTypeProductsListLayout.RowCount = 2;
+            this._productTypeProductsListLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this._productTypeProductsListLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
+            this._productTypeProductsListLayout.Size = new System.Drawing.Size(514, 289);
+            this._productTypeProductsListLayout.TabIndex = 1;
+            // 
+            // _productTypeInfoGroupBoxLastRowLayout
+            // 
+            this._productTypeInfoGroupBoxLastRowLayout.ColumnCount = 2;
+            this._productTypeInfoGroupBoxLastRowLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this._productTypeInfoGroupBoxLastRowLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this._productTypeInfoGroupBoxLastRowLayout.Controls.Add(this._submitProductTypeInfoButton, 1, 0);
+            this._productTypeInfoGroupBoxLastRowLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productTypeInfoGroupBoxLastRowLayout.Location = new System.Drawing.Point(3, 385);
+            this._productTypeInfoGroupBoxLastRowLayout.Name = "_productTypeInfoGroupBoxLastRowLayout";
+            this._productTypeInfoGroupBoxLastRowLayout.RowCount = 1;
+            this._productTypeInfoGroupBoxLastRowLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this._productTypeInfoGroupBoxLastRowLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this._productTypeInfoGroupBoxLastRowLayout.Size = new System.Drawing.Size(514, 47);
+            this._productTypeInfoGroupBoxLastRowLayout.TabIndex = 2;
+            // 
+            // _productTypeNameLabel
+            // 
+            this._productTypeNameLabel.AutoSize = true;
+            this._productTypeNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productTypeNameLabel.Location = new System.Drawing.Point(3, 0);
+            this._productTypeNameLabel.Name = "_productTypeNameLabel";
+            this._productTypeNameLabel.Size = new System.Drawing.Size(72, 81);
+            this._productTypeNameLabel.TabIndex = 0;
+            this._productTypeNameLabel.Text = "類別名稱(*)";
+            // 
+            // _productTypeNameField
+            // 
+            this._productTypeNameField.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productTypeNameField.Location = new System.Drawing.Point(81, 3);
+            this._productTypeNameField.Name = "_productTypeNameField";
+            this._productTypeNameField.Size = new System.Drawing.Size(430, 20);
+            this._productTypeNameField.TabIndex = 1;
+            this._productTypeNameField.TextBoxInspectorsCollectionChanged = null;
+            // 
+            // _productTypeProductsListLabel
+            // 
+            this._productTypeProductsListLabel.AutoSize = true;
+            this._productTypeProductsListLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productTypeProductsListLabel.Location = new System.Drawing.Point(3, 0);
+            this._productTypeProductsListLabel.Name = "_productTypeProductsListLabel";
+            this._productTypeProductsListLabel.Size = new System.Drawing.Size(508, 43);
+            this._productTypeProductsListLabel.TabIndex = 0;
+            this._productTypeProductsListLabel.Text = "類別內產品";
+            // 
+            // _productTypeProductsListField
+            // 
+            this._productTypeProductsListField.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._productTypeProductsListField.Location = new System.Drawing.Point(3, 46);
+            this._productTypeProductsListField.Name = "_productTypeProductsListField";
+            this._productTypeProductsListField.Size = new System.Drawing.Size(508, 240);
+            this._productTypeProductsListField.TabIndex = 1;
+            this._productTypeProductsListField.Text = "";
+            // 
+            // _submitProductTypeInfoButton
+            // 
+            this._submitProductTypeInfoButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._submitProductTypeInfoButton.Location = new System.Drawing.Point(414, 3);
+            this._submitProductTypeInfoButton.Name = "_submitProductTypeInfoButton";
+            this._submitProductTypeInfoButton.Size = new System.Drawing.Size(97, 41);
+            this._submitProductTypeInfoButton.TabIndex = 0;
+            this._submitProductTypeInfoButton.Text = "新增";
+            this._submitProductTypeInfoButton.UseVisualStyleBackColor = true;
             // 
             // ProductManagementForm
             // 
@@ -490,7 +686,17 @@
             this._productImagePathLayout.ResumeLayout(false);
             this._productImagePathLayout.PerformLayout();
             this._productsManagementTabPageLeftSectionLayout.ResumeLayout(false);
+            this._productTypesManagementTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._errorProvider)).EndInit();
+            this._productTypesManagementTabPageLayout.ResumeLayout(false);
+            this._productTypeInfoGroupBox.ResumeLayout(false);
+            this._productTypesManagementTabPageLeftSectionLayout.ResumeLayout(false);
+            this._productTypeInfoGroupBoxLayout.ResumeLayout(false);
+            this._productTypeNameLayout.ResumeLayout(false);
+            this._productTypeNameLayout.PerformLayout();
+            this._productTypeProductsListLayout.ResumeLayout(false);
+            this._productTypeProductsListLayout.PerformLayout();
+            this._productTypeInfoGroupBoxLastRowLayout.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -529,5 +735,19 @@
         private InputInspectingElements.InputInspectingControls.InputInspectingTextBox _productImagePathField;
         private System.Windows.Forms.Button _productImageBrowseButton;
         private System.Windows.Forms.ErrorProvider _errorProvider;
+        private System.Windows.Forms.TableLayoutPanel _productTypesManagementTabPageLayout;
+        private System.Windows.Forms.GroupBox _productTypeInfoGroupBox;
+        private System.Windows.Forms.TableLayoutPanel _productTypesManagementTabPageLeftSectionLayout;
+        private System.Windows.Forms.Button _addProductTypeButton;
+        private System.Windows.Forms.ListBox _productTypesListBox;
+        private System.Windows.Forms.TableLayoutPanel _productTypeInfoGroupBoxLayout;
+        private System.Windows.Forms.TableLayoutPanel _productTypeNameLayout;
+        private System.Windows.Forms.Label _productTypeNameLabel;
+        private InputInspectingElements.InputInspectingControls.InputInspectingTextBox _productTypeNameField;
+        private System.Windows.Forms.TableLayoutPanel _productTypeProductsListLayout;
+        private System.Windows.Forms.Label _productTypeProductsListLabel;
+        private System.Windows.Forms.RichTextBox _productTypeProductsListField;
+        private System.Windows.Forms.TableLayoutPanel _productTypeInfoGroupBoxLastRowLayout;
+        private System.Windows.Forms.Button _submitProductTypeInfoButton;
     }
 }
