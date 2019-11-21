@@ -140,14 +140,18 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         public void TestSetCurrentProductPageIndexAndNotifyObserver()
         {
             const string MEMBER_FUNCTION_NAME_SET_CURRENT_PRODUCT_PAGE_INDEX_AND_NOTIFY_OBSERVER = "SetCurrentProductPageIndexAndNotifyObserver";
+            _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_TAB_PAGE_INDEX, 0);
             var arguments = new object[] { -1 };
             TargetInvocationException expectedException = Assert.ThrowsException<TargetInvocationException>(() => _target.Invoke(MEMBER_FUNCTION_NAME_SET_CURRENT_PRODUCT_PAGE_INDEX_AND_NOTIFY_OBSERVER, arguments));
-            Assert.IsInstanceOfType(expectedException.InnerException, typeof(ArgumentException));
+            Assert.IsInstanceOfType(expectedException.InnerException, typeof(ArgumentOutOfRangeException));
+            arguments = new object[] { 1 };
+            expectedException = Assert.ThrowsException<TargetInvocationException>(() => _target.Invoke(MEMBER_FUNCTION_NAME_SET_CURRENT_PRODUCT_PAGE_INDEX_AND_NOTIFY_OBSERVER, arguments));
+            Assert.IsInstanceOfType(expectedException.InnerException, typeof(ArgumentOutOfRangeException));
             int count = 0;
             _orderPresentationModel.CurrentProductPageIndexChanged += () => count++;
-            arguments = new object[] { 2 };
+            arguments = new object[] { 0 };
             _target.Invoke(MEMBER_FUNCTION_NAME_SET_CURRENT_PRODUCT_PAGE_INDEX_AND_NOTIFY_OBSERVER, arguments);
-            Assert.AreEqual(( int )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_PRODUCT_PAGE_INDEX), 2);
+            Assert.AreEqual(( int )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_PRODUCT_PAGE_INDEX), 0);
             Assert.AreEqual(count, 1);
         }
 
@@ -184,9 +188,9 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         [TestMethod()]
         public void TestGoToNextProductPage()
         {
-            _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_PRODUCT_PAGE_INDEX, 0);
+            _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_PRODUCT_PAGE_INDEX, -1);
             _orderPresentationModel.GoToNextProductPage();
-            Assert.AreEqual(( int )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_PRODUCT_PAGE_INDEX), 1);
+            Assert.AreEqual(( int )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_PRODUCT_PAGE_INDEX), 0);
             Assert.IsNull(_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_SELECTED_PRODUCT));
         }
 
