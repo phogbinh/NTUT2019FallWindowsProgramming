@@ -17,8 +17,8 @@ namespace OrderAndStorageManagementSystem.Views
         private const string PRODUCT_INFO_GROUP_BOX_TEXT_ADD_PRODUCT = "新增商品";
         private const string PRODUCT_TYPE_INFO_GROUP_BOX_TEXT_VIEW_PRODUCT_TYPE = "類別";
         private const string PRODUCT_TYPE_INFO_GROUP_BOX_TEXT_ADD_PRODUCT_TYPE = "新增類別";
-        private const string SAVE_BUTTON_TEXT_SAVE_PRODUCT = "儲存";
-        private const string SAVE_BUTTON_TEXT_ADD_PRODUCT = "新增";
+        private const string SUBMIT_PRODUCT_INFO_BUTTON_TEXT_SAVE_PRODUCT = "儲存";
+        private const string SUBMIT_PRODUCT_INFO_BUTTON_TEXT_ADD_PRODUCT = "新增";
         private ProductsManagementTabPagePresentationModel _productsManagementTabPagePresentationModel;
         private ProductTypesManagementTabPagePresentationModel _productTypesManagementTabPagePresentationModel;
         private Model _model;
@@ -222,7 +222,7 @@ namespace OrderAndStorageManagementSystem.Views
         {
             _addProductButton.Enabled = true;
             _productInfoGroupBox.Text = PRODUCT_INFO_GROUP_BOX_TEXT_EDIT_PRODUCT;
-            _submitProductInfoButton.Text = SAVE_BUTTON_TEXT_SAVE_PRODUCT;
+            _submitProductInfoButton.Text = SUBMIT_PRODUCT_INFO_BUTTON_TEXT_SAVE_PRODUCT;
         }
 
         /// <summary>
@@ -272,7 +272,7 @@ namespace OrderAndStorageManagementSystem.Views
         {
             _addProductButton.Enabled = false;
             _productInfoGroupBox.Text = PRODUCT_INFO_GROUP_BOX_TEXT_ADD_PRODUCT;
-            _submitProductInfoButton.Text = SAVE_BUTTON_TEXT_ADD_PRODUCT;
+            _submitProductInfoButton.Text = SUBMIT_PRODUCT_INFO_BUTTON_TEXT_ADD_PRODUCT;
             ResetProductInfoAndErrorProviderView();
         }
 
