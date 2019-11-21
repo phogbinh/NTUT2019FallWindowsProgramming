@@ -75,10 +75,10 @@ namespace OrderAndStorageManagementSystem.Models.OrderForm.Test
         {
             Assert.ThrowsException<ArgumentNullException>(() => new OrderItem(null));
             Product product = new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING);
-            _orderItem = new OrderItem(product);
-            _target = new PrivateObject(_orderItem);
-            Assert.AreSame(_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_PRODUCT), product);
-            Assert.AreEqual(_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_ORDER_QUANTITY), 1);
+            var orderItem = new OrderItem(product);
+            var target = new PrivateObject(orderItem);
+            Assert.AreSame(target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_PRODUCT), product);
+            Assert.AreEqual(target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_ORDER_QUANTITY), 1);
         }
 
         /// <summary>
