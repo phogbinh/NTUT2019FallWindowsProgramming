@@ -205,7 +205,6 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// <summary>
         /// Get the current product storage quantity.
         /// </summary>
-        /// <returns></returns>
         public string GetCurrentProductStorageQuantity()
         {
             return _currentSelectedProduct == null ? "" : AppDefinition.PRODUCT_STORAGE_QUANTITY_TEXT + _currentSelectedProduct.GetStorageQuantity();
