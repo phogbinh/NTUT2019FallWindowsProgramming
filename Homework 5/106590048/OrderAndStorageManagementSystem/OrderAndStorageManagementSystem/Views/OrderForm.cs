@@ -33,7 +33,6 @@ namespace OrderAndStorageManagementSystem.Views
             _creditCardPaymentForm = creditCardPaymentFormData;
             _orderPresentationModel = orderPresentationModelData;
             _model = modelData;
-            InitializeProductTabPageButtonsContainers();
             this.Disposed += RemoveEvents;
             // Observers
             _model.OrderChanged += UpdateCartSectionViewOnOrderChanged;
@@ -57,9 +56,10 @@ namespace OrderAndStorageManagementSystem.Views
             _addButton.Click += (sender, eventArguments) => _orderPresentationModel.AddCurrentSelectedProductToOrderIfProductIsNotInOrder();
             _orderButton.Click += ClickOrderButton;
             _productTabControl.SelectedIndexChanged += HandleSelectedIndexChanged;
+            // Initial UI States
+            InitializeProductTabPageButtonsContainers();
             InitializeTabPages();
             InitializeProductTabPages();
-            // Initial UI States
             SelectProductTabPage(FIRST_PRODUCT_TAB_PAGE_INDEX);
             InitializeCartDataGridView();
             UpdateCartSectionViewOnOrderChanged();
