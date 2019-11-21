@@ -71,38 +71,38 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         }
 
         /// <summary>
-        /// Tests the notify observer change save button enabled.
+        /// Tests the notify observer change submit product info button enabled.
         /// </summary>
         [TestMethod()]
-        public void TestNotifyObserverChangeSaveButtonEnabled()
+        public void TestNotifyObserverChangeSubmitProductInfoButtonEnabled()
         {
-            const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_SAVE_BUTTON_ENABLED = "NotifyObserverChangeSaveButtonEnabled";
+            const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_SUBMIT_PRODUCT_INFO_BUTTON_ENABLED = "NotifyObserverChangeSubmitProductInfoButtonEnabled";
             int count = 0;
-            _productManagementPresentationModel.SaveButtonEnabledChanged += () => count++;
-            _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_SAVE_BUTTON_ENABLED);
+            _productManagementPresentationModel.SubmitProductInfoButtonEnabledChanged += () => count++;
+            _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_SUBMIT_PRODUCT_INFO_BUTTON_ENABLED);
             Assert.AreEqual(count, 1);
-            _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_SAVE_BUTTON_ENABLED);
+            _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_SUBMIT_PRODUCT_INFO_BUTTON_ENABLED);
             Assert.AreEqual(count, 2);
         }
 
         /// <summary>
-        /// Tests the is save button enabled.
+        /// Tests the is submit product information button enabled.
         /// </summary>
         [TestMethod()]
-        public void TestIsSaveButtonEnabled()
+        public void TestIsSubmitProductInfoButtonEnabled()
         {
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_STATE, State.EditProduct);
-            Assert.IsFalse(_productManagementPresentationModel.IsSaveButtonEnabled());
+            Assert.IsFalse(_productManagementPresentationModel.IsSubmitProductInfoButtonEnabled());
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_SELECTED_PRODUCT, new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
-            Assert.IsFalse(_productManagementPresentationModel.IsSaveButtonEnabled());
+            Assert.IsFalse(_productManagementPresentationModel.IsSubmitProductInfoButtonEnabled());
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_IS_VALID_PRODUCT_INFO, true);
-            Assert.IsFalse(_productManagementPresentationModel.IsSaveButtonEnabled());
+            Assert.IsFalse(_productManagementPresentationModel.IsSubmitProductInfoButtonEnabled());
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_IS_EDITED_PRODUCT_INFO, true);
-            Assert.IsTrue(_productManagementPresentationModel.IsSaveButtonEnabled());
+            Assert.IsTrue(_productManagementPresentationModel.IsSubmitProductInfoButtonEnabled());
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_STATE, State.AddProduct);
-            Assert.IsTrue(_productManagementPresentationModel.IsSaveButtonEnabled());
+            Assert.IsTrue(_productManagementPresentationModel.IsSubmitProductInfoButtonEnabled());
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_IS_VALID_PRODUCT_INFO, false);
-            Assert.IsFalse(_productManagementPresentationModel.IsSaveButtonEnabled());
+            Assert.IsFalse(_productManagementPresentationModel.IsSubmitProductInfoButtonEnabled());
         }
 
         /// <summary>
@@ -126,7 +126,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         {
             const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_IS_VALID_PRODUCT_INFO = "NotifyObserverChangeIsValidProductInfo";
             int count = 0;
-            _productManagementPresentationModel.SaveButtonEnabledChanged += () => count++;
+            _productManagementPresentationModel.SubmitProductInfoButtonEnabledChanged += () => count++;
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_IS_VALID_PRODUCT_INFO);
             Assert.AreEqual(count, 1);
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_IS_VALID_PRODUCT_INFO);
@@ -134,22 +134,22 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         }
 
         /// <summary>
-        /// Tests the click save button.
+        /// Tests the click submit product information button.
         /// </summary>
         [TestMethod()]
-        public void TestClickSaveButton()
+        public void TestClickSubmitProductInfoButton()
         {
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_STATE, State.EditProduct);
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_SELECTED_PRODUCT, new Product(TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_INTEGER, TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING));
             int count = 0;
             _productManagementPresentationModel.IsEditedProductInfoChanged += () => count++;
             var productInfo = new ProductInfo(TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING, new Money(TestDefinition.DUMP_INTEGER), TestDefinition.DUMP_STRING, TestDefinition.DUMP_STRING);
-            _productManagementPresentationModel.ClickSaveButton(productInfo);
+            _productManagementPresentationModel.ClickSubmitProductInfoButton(productInfo);
             Assert.AreSame(( ( Product )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_SELECTED_PRODUCT) ).ProductInfo, productInfo);
             Assert.IsFalse(( bool )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_IS_EDITED_PRODUCT_INFO));
             Assert.AreEqual(count, 1);
             _target.SetFieldOrProperty(MEMBER_VARIABLE_NAME_STATE, State.AddProduct);
-            _productManagementPresentationModel.ClickSaveButton(productInfo);
+            _productManagementPresentationModel.ClickSubmitProductInfoButton(productInfo);
             Model model = ( Model )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_MODEL);
             Assert.AreSame(model.GetProduct(1).ProductInfo, productInfo);
         }
@@ -175,7 +175,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         {
             const string MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_IS_EDITED_PRODUCT_INFO = "NotifyObserverChangeIsEditedProductInfo";
             int count = 0;
-            _productManagementPresentationModel.SaveButtonEnabledChanged += () => count++;
+            _productManagementPresentationModel.SubmitProductInfoButtonEnabledChanged += () => count++;
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_IS_EDITED_PRODUCT_INFO);
             Assert.AreEqual(count, 1);
             _target.Invoke(MEMBER_FUNCTION_NAME_NOTIFY_OBSERVER_CHANGE_IS_EDITED_PRODUCT_INFO);

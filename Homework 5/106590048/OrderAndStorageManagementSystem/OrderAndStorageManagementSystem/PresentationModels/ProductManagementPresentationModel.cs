@@ -12,7 +12,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
     public class ProductManagementPresentationModel
     {
         public delegate void CurrentSelectedProductChangedEventHandler();
-        public delegate void SaveButtonEnabledChangedEventHandler();
+        public delegate void SubmitProductInfoButtonEnabledChangedEventHandler();
         public delegate void IsValidProductInfoChangedEventHandler();
         public delegate void IsEditedProductInfoChangedEventHandler();
         public delegate void StateChangedEventHandler();
@@ -20,7 +20,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         {
             get; set;
         }
-        public SaveButtonEnabledChangedEventHandler SaveButtonEnabledChanged
+        public SubmitProductInfoButtonEnabledChangedEventHandler SubmitProductInfoButtonEnabledChanged
         {
             get; set;
         }
@@ -50,10 +50,10 @@ namespace OrderAndStorageManagementSystem.PresentationModels
                 throw new ArgumentNullException(ERROR_MODEL_IS_NULL);
             }
             _model = modelData;
-            this.CurrentSelectedProductChanged += NotifyObserverChangeSaveButtonEnabled;
-            this.IsValidProductInfoChanged += NotifyObserverChangeSaveButtonEnabled;
-            this.IsEditedProductInfoChanged += NotifyObserverChangeSaveButtonEnabled;
-            this.StateChanged += NotifyObserverChangeSaveButtonEnabled;
+            this.CurrentSelectedProductChanged += NotifyObserverChangeSubmitProductInfoButtonEnabled;
+            this.IsValidProductInfoChanged += NotifyObserverChangeSubmitProductInfoButtonEnabled;
+            this.IsEditedProductInfoChanged += NotifyObserverChangeSubmitProductInfoButtonEnabled;
+            this.StateChanged += NotifyObserverChangeSubmitProductInfoButtonEnabled;
             // Initial states of all member variables of the presentation model is set by its view.
         }
 
@@ -78,20 +78,20 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         }
 
         /// <summary>
-        /// Notify observer change enabled state of save button.
+        /// Notify observer change enabled state of submit product info button.
         /// </summary>
-        private void NotifyObserverChangeSaveButtonEnabled()
+        private void NotifyObserverChangeSubmitProductInfoButtonEnabled()
         {
-            if ( SaveButtonEnabledChanged != null )
+            if ( SubmitProductInfoButtonEnabledChanged != null )
             {
-                SaveButtonEnabledChanged();
+                SubmitProductInfoButtonEnabledChanged();
             }
         }
 
         /// <summary>
-        /// Get the enabled state of the save button.
+        /// Get the enabled state of the submit product info button.
         /// </summary>
-        public bool IsSaveButtonEnabled()
+        public bool IsSubmitProductInfoButtonEnabled()
         {
             return ( _state == State.EditProduct && _currentSelectedProduct != null && _isValidProductInfo && _isEditedProductInfo ) || ( _state == State.AddProduct && _isValidProductInfo );
         }
@@ -117,9 +117,9 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         }
 
         /// <summary>
-        /// Click save button.
+        /// Click the submit product info button.
         /// </summary>
-        public void ClickSaveButton(ProductInfo newProductInfo)
+        public void ClickSubmitProductInfoButton(ProductInfo newProductInfo)
         {
             if ( _state == State.EditProduct )
             {

@@ -33,12 +33,12 @@ namespace OrderAndStorageManagementSystem.Views
             _model.ProductInfoChanged += ResetViewOnProductInfoChangedOrOnProductAdded;
             _model.ProductAdded += ResetViewOnProductInfoChangedOrOnProductAdded;
             _productManagementPresentationModel.CurrentSelectedProductChanged += UpdateProductInfoViewAndSetIsEditedProductInfo;
-            _productManagementPresentationModel.SaveButtonEnabledChanged += UpdateSaveButtonView;
+            _productManagementPresentationModel.SubmitProductInfoButtonEnabledChanged += UpdateSaveButtonView;
             // UI
             _productsListBox.SelectedIndexChanged += ChangeProductsListBoxSelectedIndex;
             _productPriceField.KeyPress += InputHelper.InputNumbersOrBackSpace;
             _productImageBrowseButton.Click += (sender, eventArguments) => BrowseImageAndSetProductImagePath();
-            _submitProductInfoButton.Click += (sender, eventArguments) => _productManagementPresentationModel.ClickSaveButton(new ProductInfo(_productNameField.Text, _productTypeField.Text, new Money(int.Parse(_productPriceField.Text)), _productDescriptionField.Text, _productImagePathField.Text));
+            _submitProductInfoButton.Click += (sender, eventArguments) => _productManagementPresentationModel.ClickSubmitProductInfoButton(new ProductInfo(_productNameField.Text, _productTypeField.Text, new Money(int.Parse(_productPriceField.Text)), _productDescriptionField.Text, _productImagePathField.Text));
             _addProductButton.Click += (sender, eventArguments) => SetStateAndUpdateViewOnAddProductButtonClicked();
             // Product info
             _productNameField.TextChanged += (sender, eventArguments) => _productManagementPresentationModel.SetIsEditedProductInfoAndNotifyObserver(true);
@@ -73,7 +73,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model.ProductInfoChanged -= ResetViewOnProductInfoChangedOrOnProductAdded;
             _model.ProductAdded -= ResetViewOnProductInfoChangedOrOnProductAdded;
             _productManagementPresentationModel.CurrentSelectedProductChanged -= UpdateProductInfoViewAndSetIsEditedProductInfo;
-            _productManagementPresentationModel.SaveButtonEnabledChanged -= UpdateSaveButtonView;
+            _productManagementPresentationModel.SubmitProductInfoButtonEnabledChanged -= UpdateSaveButtonView;
         }
 
         /// <summary>
@@ -125,7 +125,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void UpdateSaveButtonView()
         {
-            _submitProductInfoButton.Enabled = _productManagementPresentationModel.IsSaveButtonEnabled();
+            _submitProductInfoButton.Enabled = _productManagementPresentationModel.IsSubmitProductInfoButtonEnabled();
         }
 
         /// <summary>
