@@ -25,7 +25,7 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         private const string ERROR_MODEL_IS_NULL = "The given model is null.";
         private const string ERROR_ORDER_ITEM_IS_NULL = "The given order item is null.";
         private const string ERROR_CURRENT_PRODUCT_PAGE_INDEX_CANNOT_BE_SET_TO_NEGATIVE = "Current product page index cannot be set to negative.";
-        private const string ERROR_CURRENT_TAB_PAGE_INDEX_CANNOT_BE_SET_TO_NEGATIVE = "Current tab page index cannot be set to negative.";
+        private const string ERROR_TAB_PAGE_INDEX_IS_OUT_OF_RANGE = "The given tab page index is out of range.";
         private const int CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE = 0;
         private Model _model;
         private Product _currentSelectedProduct;
@@ -164,9 +164,9 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// </summary>
         public void SelectProductTabPage(int tabPageIndex)
         {
-            if ( tabPageIndex < 0 )
+            if ( !AppDefinition.IsInIntervalRange(tabPageIndex, 0, _model.GetProductTypesCount() - 1) )
             {
-                throw new ArgumentException(ERROR_CURRENT_TAB_PAGE_INDEX_CANNOT_BE_SET_TO_NEGATIVE);
+                throw new ArgumentOutOfRangeException(ERROR_TAB_PAGE_INDEX_IS_OUT_OF_RANGE);
             }
             _currentTabPageIndex = tabPageIndex;
             SetCurrentProductPageIndexAndNotifyObserver(CURRENT_PRODUCT_PAGE_INDEX_INITIAL_VALUE);

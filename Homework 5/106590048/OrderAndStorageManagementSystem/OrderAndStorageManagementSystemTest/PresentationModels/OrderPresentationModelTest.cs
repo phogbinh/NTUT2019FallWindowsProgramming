@@ -196,7 +196,8 @@ namespace OrderAndStorageManagementSystem.PresentationModels.Test
         [TestMethod()]
         public void TestSelectProductTabPage()
         {
-            Assert.ThrowsException<ArgumentException>(() => _orderPresentationModel.SelectProductTabPage(-1));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => _orderPresentationModel.SelectProductTabPage(-1));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => _orderPresentationModel.SelectProductTabPage(3));
             _orderPresentationModel.SelectProductTabPage(2);
             Assert.AreEqual(( int )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_TAB_PAGE_INDEX), 2);
             Assert.AreEqual(( int )_target.GetFieldOrProperty(MEMBER_VARIABLE_NAME_CURRENT_PRODUCT_PAGE_INDEX), 0);
