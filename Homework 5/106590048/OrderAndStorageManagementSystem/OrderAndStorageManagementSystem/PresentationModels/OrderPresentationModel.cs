@@ -120,13 +120,13 @@ namespace OrderAndStorageManagementSystem.PresentationModels
         /// <summary>
         /// Set current product page index.
         /// </summary>
-        private void SetCurrentProductPageIndexAndNotifyObserver(int value)
+        private void SetCurrentProductPageIndexAndNotifyObserver(int productPageIndex)
         {
-            if ( value < 0 )
+            if ( productPageIndex < 0 )
             {
                 throw new ArgumentException(ERROR_CURRENT_PRODUCT_PAGE_INDEX_CANNOT_BE_SET_TO_NEGATIVE);
             }
-            _currentProductPageIndex = value;
+            _currentProductPageIndex = productPageIndex;
             NotifyObserverChangeCurrentProductPageIndex();
         }
 
