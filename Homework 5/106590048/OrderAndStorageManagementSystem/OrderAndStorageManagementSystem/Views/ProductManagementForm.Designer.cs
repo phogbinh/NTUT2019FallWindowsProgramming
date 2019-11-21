@@ -51,7 +51,7 @@
             this._productDescriptionLabel = new System.Windows.Forms.Label();
             this._productDescriptionField = new System.Windows.Forms.RichTextBox();
             this._productInfoGroupBoxLastRowLayout = new System.Windows.Forms.TableLayoutPanel();
-            this._saveButton = new System.Windows.Forms.Button();
+            this._submitProductInfoButton = new System.Windows.Forms.Button();
             this._productImagePathLayout = new System.Windows.Forms.TableLayoutPanel();
             this._productImagePathLabel = new System.Windows.Forms.Label();
             this._productImagePathField = new InputInspectingElements.InputInspectingControls.InputInspectingTextBox();
@@ -75,7 +75,7 @@
             this._productInfoGroupBoxLastRowLayout.SuspendLayout();
             this._productImagePathLayout.SuspendLayout();
             this._productsManagementTabPageLeftSectionLayout.SuspendLayout();
-            ( ( System.ComponentModel.ISupportInitialize )( this._errorProvider ) ).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // _productManagementFormLayout
@@ -347,7 +347,7 @@
             this._productInfoGroupBoxLastRowLayout.ColumnCount = 2;
             this._productInfoGroupBoxLastRowLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this._productInfoGroupBoxLastRowLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this._productInfoGroupBoxLastRowLayout.Controls.Add(this._saveButton, 1, 0);
+            this._productInfoGroupBoxLastRowLayout.Controls.Add(this._submitProductInfoButton, 1, 0);
             this._productInfoGroupBoxLastRowLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this._productInfoGroupBoxLastRowLayout.Location = new System.Drawing.Point(3, 385);
             this._productInfoGroupBoxLastRowLayout.Name = "_productInfoGroupBoxLastRowLayout";
@@ -357,15 +357,15 @@
             this._productInfoGroupBoxLastRowLayout.Size = new System.Drawing.Size(514, 47);
             this._productInfoGroupBoxLastRowLayout.TabIndex = 4;
             // 
-            // _saveButton
+            // _submitProductInfoButton
             // 
-            this._saveButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._saveButton.Location = new System.Drawing.Point(414, 3);
-            this._saveButton.Name = "_saveButton";
-            this._saveButton.Size = new System.Drawing.Size(97, 41);
-            this._saveButton.TabIndex = 0;
-            this._saveButton.Text = "儲存";
-            this._saveButton.UseVisualStyleBackColor = true;
+            this._submitProductInfoButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._submitProductInfoButton.Location = new System.Drawing.Point(414, 3);
+            this._submitProductInfoButton.Name = "_submitProductInfoButton";
+            this._submitProductInfoButton.Size = new System.Drawing.Size(97, 41);
+            this._submitProductInfoButton.TabIndex = 0;
+            this._submitProductInfoButton.Text = "儲存";
+            this._submitProductInfoButton.UseVisualStyleBackColor = true;
             // 
             // _productImagePathLayout
             // 
@@ -490,7 +490,7 @@
             this._productImagePathLayout.ResumeLayout(false);
             this._productImagePathLayout.PerformLayout();
             this._productsManagementTabPageLeftSectionLayout.ResumeLayout(false);
-            ( ( System.ComponentModel.ISupportInitialize )( this._errorProvider ) ).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -523,7 +523,7 @@
         private System.Windows.Forms.Label _productDescriptionLabel;
         private System.Windows.Forms.RichTextBox _productDescriptionField;
         private System.Windows.Forms.TableLayoutPanel _productInfoGroupBoxLastRowLayout;
-        private System.Windows.Forms.Button _saveButton;
+        private System.Windows.Forms.Button _submitProductInfoButton;
         private System.Windows.Forms.TableLayoutPanel _productImagePathLayout;
         private System.Windows.Forms.Label _productImagePathLabel;
         private InputInspectingElements.InputInspectingControls.InputInspectingTextBox _productImagePathField;

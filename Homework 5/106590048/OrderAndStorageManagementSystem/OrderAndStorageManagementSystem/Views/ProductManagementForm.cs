@@ -38,7 +38,7 @@ namespace OrderAndStorageManagementSystem.Views
             _productsListBox.SelectedIndexChanged += ChangeProductsListBoxSelectedIndex;
             _productPriceField.KeyPress += InputHelper.InputNumbersOrBackSpace;
             _productImageBrowseButton.Click += (sender, eventArguments) => BrowseImageAndSetProductImagePath();
-            _saveButton.Click += (sender, eventArguments) => _productManagementPresentationModel.ClickSaveButton(new ProductInfo(_productNameField.Text, _productTypeField.Text, new Money(int.Parse(_productPriceField.Text)), _productDescriptionField.Text, _productImagePathField.Text));
+            _submitProductInfoButton.Click += (sender, eventArguments) => _productManagementPresentationModel.ClickSaveButton(new ProductInfo(_productNameField.Text, _productTypeField.Text, new Money(int.Parse(_productPriceField.Text)), _productDescriptionField.Text, _productImagePathField.Text));
             _addProductButton.Click += (sender, eventArguments) => SetStateAndUpdateViewOnAddProductButtonClicked();
             // Product info
             _productNameField.TextChanged += (sender, eventArguments) => _productManagementPresentationModel.SetIsEditedProductInfoAndNotifyObserver(true);
@@ -125,7 +125,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private void UpdateSaveButtonView()
         {
-            _saveButton.Enabled = _productManagementPresentationModel.IsSaveButtonEnabled();
+            _submitProductInfoButton.Enabled = _productManagementPresentationModel.IsSaveButtonEnabled();
         }
 
         /// <summary>
@@ -145,7 +145,7 @@ namespace OrderAndStorageManagementSystem.Views
         {
             _addProductButton.Enabled = true;
             _productInfoGroupBox.Text = PRODUCT_INFO_GROUP_BOX_TEXT_EDIT_PRODUCT;
-            _saveButton.Text = SAVE_BUTTON_TEXT_SAVE_PRODUCT;
+            _submitProductInfoButton.Text = SAVE_BUTTON_TEXT_SAVE_PRODUCT;
         }
 
         /// <summary>
@@ -176,7 +176,7 @@ namespace OrderAndStorageManagementSystem.Views
         {
             _addProductButton.Enabled = false;
             _productInfoGroupBox.Text = PRODUCT_INFO_GROUP_BOX_TEXT_ADD_PRODUCT;
-            _saveButton.Text = SAVE_BUTTON_TEXT_ADD_PRODUCT;
+            _submitProductInfoButton.Text = SAVE_BUTTON_TEXT_ADD_PRODUCT;
             ResetProductInfoAndErrorProviderView();
         }
 
