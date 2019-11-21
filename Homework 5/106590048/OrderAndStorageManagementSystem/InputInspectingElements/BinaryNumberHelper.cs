@@ -5,6 +5,7 @@ namespace InputInspectingElements
     public static class BinaryNumberHelper
     {
         private const string ERROR_FLAG_IS_NOT_ONE_BINARY_NUMBER_ON_FLAG = "The given flag is not an one-bit-on-flag.";
+        private const string ERROR_FLAG_IS_NOT_POSITIVE = "The given flag is not positive.";
 
         /// <summary>
         /// Return true if the given flag has the-one-and-only-on-bit of oneBitOnFlag on.
@@ -19,11 +20,15 @@ namespace InputInspectingElements
         }
 
         /// <summary>
-        /// Return true if the flag has only one bit on.
+        /// Return true if the positive flag has only one bit on.
         /// </summary>
-        private static bool IsOneBinaryNumberOnFlag(int flag)
+        private static bool IsOneBinaryNumberOnFlag(int positiveFlag)
         {
-            return ( flag & ( flag - 1 ) ) == 0;
+            if ( positiveFlag <= 0 )
+            {
+                throw new ArgumentException(ERROR_FLAG_IS_NOT_POSITIVE);
+            }
+            return ( positiveFlag & ( positiveFlag - 1 ) ) == 0;
         }
 
         /// <summary>
