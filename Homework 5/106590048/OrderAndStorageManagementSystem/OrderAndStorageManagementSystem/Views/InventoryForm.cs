@@ -9,6 +9,7 @@ namespace OrderAndStorageManagementSystem.Views
 {
     public partial class InventoryForm : Form
     {
+        private const string ERROR_PRODUCT_IS_NOT_FOUND = "The given product is not found.";
         private const int STORAGE_PRODUCT_QUANTITY_COLUMN_INDEX = 3;
         private const int STORAGE_SUPPLY_BUTTON_COLUMN_INDEX = 4;
         private Model _model;
@@ -54,7 +55,14 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private int GetProductRowIndexInStorageDataGridView(Product product)
         {
-            return product.Id - 1;
+            for ( int rowIndex = 0; rowIndex < _storageDataGridView.Rows.Count; rowIndex++ )
+            {
+                if ( _model.GetProductAt(rowIndex) == product )
+                {
+                    return rowIndex;
+                }
+            }
+            throw new ArgumentException(ERROR_PRODUCT_IS_NOT_FOUND);
         }
 
         /// <summary>
@@ -98,7 +106,7 @@ namespace OrderAndStorageManagementSystem.Views
         /// </summary>
         private Product GetCurrentSelectedProduct()
         {
-            return _model.GetProduct(AppDefinition.GetHumanIndex(_storageDataGridView.CurrentRow.Index));
+            return _model.GetProductAt(_storageDataGridView.CurrentRow.Index);
         }
 
         /// <summary>
