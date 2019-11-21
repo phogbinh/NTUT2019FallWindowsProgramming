@@ -44,6 +44,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model.OrderItemQuantityIsExceededStorageQuantity += ShowMessageBoxAndSetOrderItemQuantityToStorageQuantityOnOrderItemQuantityIsExceededStorageQuantity;
             _model.ProductInfoChanged += UpdateViewOnProductInfoChanged;
             _model.ProductAdded += UpdateViewOnProductAdded;
+            _model.ProductTypeAdded += UpdateViewOnProductTypeAdded;
             _orderPresentationModel.AddButtonEnabledChanged += UpdateAddButtonView;
             _orderPresentationModel.CurrentProductInfoChanged += UpdateProductInfoView;
             _orderPresentationModel.CurrentProductPageIndexChanged += UpdatePageLabelAndLeftRightArrowButtonsView;
@@ -55,7 +56,7 @@ namespace OrderAndStorageManagementSystem.Views
             _rightArrowButton.Click += (sender, eventArguments) => GoToNextProductPage();
             _addButton.Click += (sender, eventArguments) => _orderPresentationModel.AddCurrentSelectedProductToOrderIfProductIsNotInOrder();
             _orderButton.Click += ClickOrderButton;
-            _productTabControl.SelectedIndexChanged += (sender, eventArguments) => SelectProductTabPage(_productTabControl.SelectedIndex);
+            _productTabControl.SelectedIndexChanged += HandleSelectedIndexChanged;
             InitializeTabPages();
             InitializeProductTabPages();
             // Initial UI States
@@ -77,6 +78,7 @@ namespace OrderAndStorageManagementSystem.Views
             _model.OrderItemQuantityIsExceededStorageQuantity -= ShowMessageBoxAndSetOrderItemQuantityToStorageQuantityOnOrderItemQuantityIsExceededStorageQuantity;
             _model.ProductInfoChanged -= UpdateViewOnProductInfoChanged;
             _model.ProductAdded -= UpdateViewOnProductAdded;
+            _model.ProductTypeAdded -= UpdateViewOnProductTypeAdded;
             _orderPresentationModel.AddButtonEnabledChanged -= UpdateAddButtonView;
             _orderPresentationModel.CurrentProductInfoChanged -= UpdateProductInfoView;
             _orderPresentationModel.CurrentProductPageIndexChanged -= UpdatePageLabelAndLeftRightArrowButtonsView;
@@ -163,6 +165,20 @@ namespace OrderAndStorageManagementSystem.Views
         private void UpdateViewOnProductAdded(Product product)
         {
             SelectProductTabPage(_productTabControl.SelectedIndex); // Reselect the current page to update product type and image in the product tab page view.
+        }
+
+        /// <summary>
+        /// Updates the view on product type added.
+        /// </summary>
+        private void UpdateViewOnProductTypeAdded(string productType)
+        {
+            InitializeProductTabPageButtonsContainers();
+            _productTabControl.SelectedIndexChanged -= HandleSelectedIndexChanged;
+            _productTabControl.Controls.Clear();
+            _productTabControl.SelectedIndexChanged += HandleSelectedIndexChanged;
+            InitializeTabPages();
+            InitializeProductTabPages();
+            SelectProductTabPage(FIRST_PRODUCT_TAB_PAGE_INDEX);
         }
 
         /// <summary>
@@ -255,6 +271,14 @@ namespace OrderAndStorageManagementSystem.Views
         private void ClickOrderButton(object sender, System.EventArgs eventArguments)
         {
             _creditCardPaymentForm.ShowDialog();
+        }
+
+        /// <summary>
+        /// Handles the selected index changed.
+        /// </summary>
+        private void HandleSelectedIndexChanged(object sender, EventArgs eventArguments)
+        {
+            SelectProductTabPage(_productTabControl.SelectedIndex);
         }
 
         /// <summary>
