@@ -1,0 +1,883 @@
+<html>
+  <head>
+    <title>Code Review :: </title>
+    <style type="text/css">
+    .body{background-color:White;}
+    .summary{width:100%;font-weight:bold;background-color:White;border: thin solid #808000;color:#FAFCFE}
+    .outer{font-weight:normal;color:#6D5757;background-color:#FFDFBF}
+    .inner{font-weight:normal;color:black;}
+    .reviewTable{border: thin solid #C0C0C0; width:100%}
+    .headerRow{color:white;background-color: #800000;font-weight:bold;text-align: center}
+    .reviewRow{background-color:#FFDFBF;color:black;}
+    .rAligned{text-align:right;}
+    .data{visibility:hidden}
+  </style>
+  </head>
+  <body class="body">
+    <div class="summary">
+      <table>
+        <tr>
+          <td colspan="3" class="headerRow">Review Summary</td>
+        </tr>
+        <tr class="outer">
+          <td>Project Name : <label class="inner" /></td>
+          <td>Reviewed By : <label class="inner" /></td>
+        </tr>
+        <tr class="outer">
+          <td>Project Code : <label class="inner" /></td>
+          <td>Reviewed Date : <label class="inner" /></td>
+        </tr>
+        <tr class="outer">
+          <td>Work Product Name : <label class="inner" /></td>
+          <td>Status : <label class="inner" /></td>
+        </tr>
+        <tr class="outer">
+          <td>Work Product Version : <label class="inner" /></td>
+          <td>Review Preparation Effort : <label class="inner" /></td>
+        </tr>
+        <tr class="outer">
+          <td>Work Product Size (ekloc) : <label class="inner" /></td>
+          <td>Review effort : <label class="inner" /></td>
+        </tr>
+        <tr class="outer">
+          <td>Work Product Release Date for Review : <label class="inner" /></td>
+          <td>Rework effort : <label class="inner" /></td>
+        </tr>
+        <tr class="outer">
+          <td>Review Action Taken By : <label class="inner" /></td>
+          <td>Review Efficiency : <label class="inner">NaN</label></td>
+        </tr>
+        <tr class="outer">
+          <td>Review Action Taken Date : <label class="inner" /></td>
+          <td />
+        </tr>
+      </table>
+      <table>
+        <tr class="headerRow">
+          <td colspan="2">Review Details</td>
+          <td colspan="2">Defect Status Analysis</td>
+          <td colspan="2">Defect Type Analysis</td>
+          <td colspan="4">Defect Injected Phase Analysis</td>
+        </tr>
+        <tr class="outer">
+          <td />
+          <td />
+          <td />
+          <td />
+          <td />
+          <td />
+          <td />
+          <td>Major</td>
+          <td>Medium</td>
+          <td>Minor</td>
+        </tr>
+        <tr class="outer">
+          <td>Total No of Suggestions</td>
+          <td class="inner">0</td>
+          <td>Open</td>
+          <td class="inner">0</td>
+          <td>Logical</td>
+          <td class="inner">0</td>
+          <td>Initial Project Setup</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+        </tr>
+        <tr class="outer">
+          <td>Total No of Errors</td>
+          <td class="inner">0</td>
+          <td>On Hold</td>
+          <td class="inner">0</td>
+          <td>Incomplete</td>
+          <td class="inner">0</td>
+          <td>Project Initiation</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+        </tr>
+        <tr class="outer">
+          <td>Total</td>
+          <td class="inner">0</td>
+          <td>Closed</td>
+          <td class="inner">0</td>
+          <td>UI</td>
+          <td class="inner">0</td>
+          <td>Requirement Analysis</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+        </tr>
+        <tr class="outer">
+          <td />
+          <td />
+          <td>Rejected</td>
+          <td class="inner">0</td>
+          <td>Exception Handling</td>
+          <td class="inner">0</td>
+          <td>Architecture and Design</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+        </tr>
+        <tr class="outer">
+          <td />
+          <td />
+          <td />
+          <td />
+          <td>Documentation</td>
+          <td class="inner">0</td>
+          <td>Implementation</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+        </tr>
+        <tr class="outer">
+          <td />
+          <td />
+          <td />
+          <td />
+          <td />
+          <td class="inner" />
+          <td>QA Testing</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+        </tr>
+        <tr class="outer">
+          <td />
+          <td />
+          <td />
+          <td />
+          <td />
+          <td class="inner" />
+          <td>Transition Phase</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+        </tr>
+        <tr class="outer">
+          <td />
+          <td />
+          <td />
+          <td />
+          <td />
+          <td />
+          <td class="rAligned">Total</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+          <td class="inner">0</td>
+        </tr>
+      </table>
+    </div>
+    <br />
+    <table class="reviewTable">
+      <tr class="headerRow">
+        <td>#</td>
+        <td>Description</td>
+        <td>Status</td>
+        <td>DefectType</td>
+        <td>InjectedPhase</td>
+      </tr>
+    </table>
+    <div>
+      <br />
+    Created with <a href="http://visualstudiogallery.msdn.microsoft.com/d1e40c49-da36-42a5-8d5a-4ebe1feabbc9">ReviewPal</a></div>
+    <div class="data">
+      <Data id="ReviewPalData">
+        <CodeReview xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Reviews>
+            <Smell>
+              <Id>1</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>20 DualViewsDrawingWindowsUniversalApplication.Program.Main(string[])</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>DualViewsDrawingWindowsUniversalApplication</Project>
+              <File>App.g.i.cs</File>
+              <Line>20</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>DualViewsDrawingWindowsUniversalApplication.Program.Main(string[])</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>2</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>50 DualViewsDrawingWindowsUniversalApplication.Views.DrawingPage.UnloadObject(Windows.UI.Xaml.DependencyObject)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>DualViewsDrawingWindowsUniversalApplication</Project>
+              <File>DrawingPage.g.i.cs</File>
+              <Line>50</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>DualViewsDrawingWindowsUniversalApplication.Views.DrawingPage.UnloadObject(Windows.UI.Xaml.DependencyObject)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>3</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>129 DualViewsDrawingWindowsUniversalApplication.DualViewsDrawingWindowsUniversalApplication_XamlTypeInfo.XamlTypeInfoProvider.GetXamlTypeByType(System.Type)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>DualViewsDrawingWindowsUniversalApplication</Project>
+              <File>XamlTypeInfo.g.cs</File>
+              <Line>129</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>DualViewsDrawingWindowsUniversalApplication.DualViewsDrawingWindowsUniversalApplication_XamlTypeInfo.XamlTypeInfoProvider.GetXamlTypeByType(System.Type)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>4</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>134 DualViewsDrawingWindowsUniversalApplication.DualViewsDrawingWindowsUniversalApplication_XamlTypeInfo.XamlTypeInfoProvider.GetXamlTypeByName(string)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>DualViewsDrawingWindowsUniversalApplication</Project>
+              <File>XamlTypeInfo.g.cs</File>
+              <Line>134</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>DualViewsDrawingWindowsUniversalApplication.DualViewsDrawingWindowsUniversalApplication_XamlTypeInfo.XamlTypeInfoProvider.GetXamlTypeByName(string)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>5</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>72 目前物件 DualViewsDrawingModel.Shapes.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 DualViewsDrawingModel.Vector，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：DualViewsDrawingModel.Vector.DotProduct(DualViewsDrawingModel.Vector, DualViewsDrawingModel.Vector) 以及 DualViewsDrawingModel.Vector.LengthSquared</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>1</Weight>
+              <Project>DualViewsDrawingModel</Project>
+              <File>D:\Git\phogbinh\DualViewsDrawingApplication\DualViewsDrawingModel\Shapes\Line.cs</File>
+              <Line>72</Line>
+              <StartLine>72</StartLine>
+              <StartCol>19</StartCol>
+              <EndLine>72</EndLine>
+              <EndCol>142</EndCol>
+              <Comment>目前物件 DualViewsDrawingModel.Shapes.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 DualViewsDrawingModel.Vector，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：DualViewsDrawingModel.Vector.DotProduct(DualViewsDrawingModel.Vector, DualViewsDrawingModel.Vector) 以及 DualViewsDrawingModel.Vector.LengthSquared</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>6</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>74 目前物件 DualViewsDrawingModel.Shapes.Line，使用物件的方法或屬性次數：2次，Envy到對象物件 DualViewsDrawingModel.Vector，使用物件方法或屬性次數：6次，使用到的方法或屬性為以下：DualViewsDrawingModel.Vector.DotProduct(DualViewsDrawingModel.Vector, DualViewsDrawingModel.Vector) 以及 DualViewsDrawingModel.Vector.LengthSquared 以及 DualViewsDrawingModel.Vector.DotProduct(DualViewsDrawingModel.Vector, DualViewsDrawingModel.Vector) 以及 DualViewsDrawingModel.Vector.LengthSquared 以及 DualViewsDrawingModel.Vector.X 以及 DualViewsDrawingModel.Vector.Y</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>DualViewsDrawingModel</Project>
+              <File>D:\Git\phogbinh\DualViewsDrawingApplication\DualViewsDrawingModel\Shapes\Line.cs</File>
+              <Line>74</Line>
+              <StartLine>73</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>74</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 DualViewsDrawingModel.Shapes.Line，使用物件的方法或屬性次數：2次，Envy到對象物件 DualViewsDrawingModel.Vector，使用物件方法或屬性次數：6次，使用到的方法或屬性為以下：DualViewsDrawingModel.Vector.DotProduct(DualViewsDrawingModel.Vector, DualViewsDrawingModel.Vector) 以及 DualViewsDrawingModel.Vector.LengthSquared 以及 DualViewsDrawingModel.Vector.DotProduct(DualViewsDrawingModel.Vector, DualViewsDrawingModel.Vector) 以及 DualViewsDrawingModel.Vector.LengthSquared 以及 DualViewsDrawingModel.Vector.X 以及 DualViewsDrawingModel.Vector.Y</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>7</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>41 目前物件 DualViewsDrawingModel.Point，使用物件的方法或屬性次數：0次，Envy到對象物件 DualViewsDrawingModel.Definitions，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：DualViewsDrawingModel.Definitions.IsInclusiveInInterval(double, double, double) 以及 DualViewsDrawingModel.Definitions.IsInclusiveInInterval(double, double, double)</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>1</Weight>
+              <Project>DualViewsDrawingModel</Project>
+              <File>D:\Git\phogbinh\DualViewsDrawingApplication\DualViewsDrawingModel\Point.cs</File>
+              <Line>41</Line>
+              <StartLine>40</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>41</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 DualViewsDrawingModel.Point，使用物件的方法或屬性次數：0次，Envy到對象物件 DualViewsDrawingModel.Definitions，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：DualViewsDrawingModel.Definitions.IsInclusiveInInterval(double, double, double) 以及 DualViewsDrawingModel.Definitions.IsInclusiveInInterval(double, double, double)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>8</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>94 目前物件 DualViewsDrawingWindowsFormsApplication.Views.DrawingForm，使用物件的方法或屬性次數：0次，Envy到對象物件 DualViewsDrawingModel.Model，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：DualViewsDrawingModel.Model.GetCanvasCurrentShapeType() 以及 DualViewsDrawingModel.Model.GetCanvasCurrentShapeRectangle()</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>1</Weight>
+              <Project>DualViewsDrawingWindowsFormsApplication</Project>
+              <File>D:\Git\phogbinh\DualViewsDrawingApplication\DualViewsDrawingWindowsFormsApplication\Views\DrawingForm.cs</File>
+              <Line>94</Line>
+              <StartLine>94</StartLine>
+              <StartCol>17</StartCol>
+              <EndLine>94</EndLine>
+              <EndCol>91</EndCol>
+              <Comment>目前物件 DualViewsDrawingWindowsFormsApplication.Views.DrawingForm，使用物件的方法或屬性次數：0次，Envy到對象物件 DualViewsDrawingModel.Model，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：DualViewsDrawingModel.Model.GetCanvasCurrentShapeType() 以及 DualViewsDrawingModel.Model.GetCanvasCurrentShapeRectangle()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>9</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>101 目前物件 DualViewsDrawingWindowsFormsApplication.Views.DrawingForm，使用物件的方法或屬性次數：0次，Envy到對象物件 DualViewsDrawingModel.Model，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：DualViewsDrawingModel.Model.GetCanvasCurrentShapeType() 以及 DualViewsDrawingModel.Model.GetCanvasCurrentShapeType() 以及 DualViewsDrawingModel.Model.GetCanvasCurrentShapeRectangle()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>DualViewsDrawingWindowsFormsApplication</Project>
+              <File>D:\Git\phogbinh\DualViewsDrawingApplication\DualViewsDrawingWindowsFormsApplication\Views\DrawingForm.cs</File>
+              <Line>101</Line>
+              <StartLine>100</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>101</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 DualViewsDrawingWindowsFormsApplication.Views.DrawingForm，使用物件的方法或屬性次數：0次，Envy到對象物件 DualViewsDrawingModel.Model，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：DualViewsDrawingModel.Model.GetCanvasCurrentShapeType() 以及 DualViewsDrawingModel.Model.GetCanvasCurrentShapeType() 以及 DualViewsDrawingModel.Model.GetCanvasCurrentShapeRectangle()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>10</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>101 目前物件 DualViewsDrawingWindowsFormsApplication.Views.DrawingForm，使用物件的方法或屬性次數：0次，Envy到對象物件 DualViewsDrawingModel.Shapes.Rectangle，使用物件方法或屬性次數：5次，使用到的方法或屬性為以下：DualViewsDrawingModel.Shapes.Rectangle.X 以及 DualViewsDrawingModel.Shapes.Rectangle.Y 以及 DualViewsDrawingModel.Shapes.Rectangle.GetLowerRightX() 以及 DualViewsDrawingModel.Shapes.Rectangle.X 以及 DualViewsDrawingModel.Shapes.Rectangle.GetLowerRightY()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>DualViewsDrawingWindowsFormsApplication</Project>
+              <File>D:\Git\phogbinh\DualViewsDrawingApplication\DualViewsDrawingWindowsFormsApplication\Views\DrawingForm.cs</File>
+              <Line>101</Line>
+              <StartLine>100</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>101</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 DualViewsDrawingWindowsFormsApplication.Views.DrawingForm，使用物件的方法或屬性次數：0次，Envy到對象物件 DualViewsDrawingModel.Shapes.Rectangle，使用物件方法或屬性次數：5次，使用到的方法或屬性為以下：DualViewsDrawingModel.Shapes.Rectangle.X 以及 DualViewsDrawingModel.Shapes.Rectangle.Y 以及 DualViewsDrawingModel.Shapes.Rectangle.GetLowerRightX() 以及 DualViewsDrawingModel.Shapes.Rectangle.X 以及 DualViewsDrawingModel.Shapes.Rectangle.GetLowerRightY()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>11</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>75 目前物件 DualViewsDrawingWindowsFormsApplication.Views.Utilities.DrawingFormGraphicsAdapter，使用物件的方法或屬性次數：0次，Envy到對象物件 DualViewsDrawingModel.Point，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：DualViewsDrawingModel.Point.X 以及 DualViewsDrawingModel.Point.Y</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>1</Weight>
+              <Project>DualViewsDrawingWindowsFormsApplication</Project>
+              <File>D:\Git\phogbinh\DualViewsDrawingApplication\DualViewsDrawingWindowsFormsApplication\Views\Utilities\DrawingFormGraphicsAdapter.cs</File>
+              <Line>75</Line>
+              <StartLine>75</StartLine>
+              <StartCol>23</StartCol>
+              <EndLine>75</EndLine>
+              <EndCol>285</EndCol>
+              <Comment>目前物件 DualViewsDrawingWindowsFormsApplication.Views.Utilities.DrawingFormGraphicsAdapter，使用物件的方法或屬性次數：0次，Envy到對象物件 DualViewsDrawingModel.Point，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：DualViewsDrawingModel.Point.X 以及 DualViewsDrawingModel.Point.Y</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>12</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>123 目前物件 DualViewsDrawingWindowsUniversalApplication.Views.DrawingPage，使用物件的方法或屬性次數：0次，Envy到對象物件 DualViewsDrawingModel.Model，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：DualViewsDrawingModel.Model.GetCanvasCurrentShapeType() 以及 DualViewsDrawingModel.Model.GetCanvasCurrentShapeRectangle()</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>1</Weight>
+              <Project>DualViewsDrawingWindowsUniversalApplication</Project>
+              <File>D:\Git\phogbinh\DualViewsDrawingApplication\DualViewsDrawingWindowsUniversalApplication\Views\DrawingPage.xaml.cs</File>
+              <Line>123</Line>
+              <StartLine>123</StartLine>
+              <StartCol>17</StartCol>
+              <EndLine>123</EndLine>
+              <EndCol>91</EndCol>
+              <Comment>目前物件 DualViewsDrawingWindowsUniversalApplication.Views.DrawingPage，使用物件的方法或屬性次數：0次，Envy到對象物件 DualViewsDrawingModel.Model，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：DualViewsDrawingModel.Model.GetCanvasCurrentShapeType() 以及 DualViewsDrawingModel.Model.GetCanvasCurrentShapeRectangle()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>13</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>130 目前物件 DualViewsDrawingWindowsUniversalApplication.Views.DrawingPage，使用物件的方法或屬性次數：0次，Envy到對象物件 DualViewsDrawingModel.Model，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：DualViewsDrawingModel.Model.GetCanvasCurrentShapeType() 以及 DualViewsDrawingModel.Model.GetCanvasCurrentShapeType() 以及 DualViewsDrawingModel.Model.GetCanvasCurrentShapeRectangle()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>DualViewsDrawingWindowsUniversalApplication</Project>
+              <File>D:\Git\phogbinh\DualViewsDrawingApplication\DualViewsDrawingWindowsUniversalApplication\Views\DrawingPage.xaml.cs</File>
+              <Line>130</Line>
+              <StartLine>129</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>130</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 DualViewsDrawingWindowsUniversalApplication.Views.DrawingPage，使用物件的方法或屬性次數：0次，Envy到對象物件 DualViewsDrawingModel.Model，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：DualViewsDrawingModel.Model.GetCanvasCurrentShapeType() 以及 DualViewsDrawingModel.Model.GetCanvasCurrentShapeType() 以及 DualViewsDrawingModel.Model.GetCanvasCurrentShapeRectangle()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>14</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>130 目前物件 DualViewsDrawingWindowsUniversalApplication.Views.DrawingPage，使用物件的方法或屬性次數：0次，Envy到對象物件 DualViewsDrawingModel.Shapes.Rectangle，使用物件方法或屬性次數：5次，使用到的方法或屬性為以下：DualViewsDrawingModel.Shapes.Rectangle.X 以及 DualViewsDrawingModel.Shapes.Rectangle.Y 以及 DualViewsDrawingModel.Shapes.Rectangle.GetLowerRightX() 以及 DualViewsDrawingModel.Shapes.Rectangle.X 以及 DualViewsDrawingModel.Shapes.Rectangle.GetLowerRightY()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>DualViewsDrawingWindowsUniversalApplication</Project>
+              <File>D:\Git\phogbinh\DualViewsDrawingApplication\DualViewsDrawingWindowsUniversalApplication\Views\DrawingPage.xaml.cs</File>
+              <Line>130</Line>
+              <StartLine>129</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>130</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 DualViewsDrawingWindowsUniversalApplication.Views.DrawingPage，使用物件的方法或屬性次數：0次，Envy到對象物件 DualViewsDrawingModel.Shapes.Rectangle，使用物件方法或屬性次數：5次，使用到的方法或屬性為以下：DualViewsDrawingModel.Shapes.Rectangle.X 以及 DualViewsDrawingModel.Shapes.Rectangle.Y 以及 DualViewsDrawingModel.Shapes.Rectangle.GetLowerRightX() 以及 DualViewsDrawingModel.Shapes.Rectangle.X 以及 DualViewsDrawingModel.Shapes.Rectangle.GetLowerRightY()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>15</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>173 目前物件 DualViewsDrawingWindowsUniversalApplication.Views.DrawingPage，使用物件的方法或屬性次數：0次，Envy到對象物件 DualViewsDrawingModel.Model，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：DualViewsDrawingModel.Model.HandleCanvasLeftMouseReleased(DualViewsDrawingModel.Point) 以及 DualViewsDrawingModel.Model.CanvasWidth 以及 DualViewsDrawingModel.Model.CanvasHeight</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>DualViewsDrawingWindowsUniversalApplication</Project>
+              <File>D:\Git\phogbinh\DualViewsDrawingApplication\DualViewsDrawingWindowsUniversalApplication\Views\DrawingPage.xaml.cs</File>
+              <Line>173</Line>
+              <StartLine>172</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>173</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 DualViewsDrawingWindowsUniversalApplication.Views.DrawingPage，使用物件的方法或屬性次數：0次，Envy到對象物件 DualViewsDrawingModel.Model，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：DualViewsDrawingModel.Model.HandleCanvasLeftMouseReleased(DualViewsDrawingModel.Point) 以及 DualViewsDrawingModel.Model.CanvasWidth 以及 DualViewsDrawingModel.Model.CanvasHeight</Comment>
+              <Auto>false</Auto>
+            </Smell>
+          </Reviews>
+          <HashCodeIgnoreList />
+          <HashCodeRequestIgnoreList>
+            <string>173 目前物件 DualViewsDrawingWindowsUniversalApplication.Views.DrawingPage，使用物件的方法或屬性次數：0次，Envy到對象物件 DualViewsDrawingModel.Model，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：DualViewsDrawingModel.Model.HandleCanvasLeftMouseReleased(DualViewsDrawingModel.Point) 以及 DualViewsDrawingModel.Model.CanvasWidth 以及 DualViewsDrawingModel.Model.CanvasHeight</string>
+            <string>41 目前物件 DualViewsDrawingModel.Point，使用物件的方法或屬性次數：0次，Envy到對象物件 DualViewsDrawingModel.Definitions，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：DualViewsDrawingModel.Definitions.IsInclusiveInInterval(double, double, double) 以及 DualViewsDrawingModel.Definitions.IsInclusiveInInterval(double, double, double)</string>
+            <string>74 目前物件 DualViewsDrawingModel.Shapes.Line，使用物件的方法或屬性次數：2次，Envy到對象物件 DualViewsDrawingModel.Vector，使用物件方法或屬性次數：6次，使用到的方法或屬性為以下：DualViewsDrawingModel.Vector.DotProduct(DualViewsDrawingModel.Vector, DualViewsDrawingModel.Vector) 以及 DualViewsDrawingModel.Vector.LengthSquared 以及 DualViewsDrawingModel.Vector.DotProduct(DualViewsDrawingModel.Vector, DualViewsDrawingModel.Vector) 以及 DualViewsDrawingModel.Vector.LengthSquared 以及 DualViewsDrawingModel.Vector.X 以及 DualViewsDrawingModel.Vector.Y</string>
+            <string>72 目前物件 DualViewsDrawingModel.Shapes.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 DualViewsDrawingModel.Vector，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：DualViewsDrawingModel.Vector.DotProduct(DualViewsDrawingModel.Vector, DualViewsDrawingModel.Vector) 以及 DualViewsDrawingModel.Vector.LengthSquared</string>
+            <string>75 目前物件 DualViewsDrawingWindowsFormsApplication.Views.Utilities.DrawingFormGraphicsAdapter，使用物件的方法或屬性次數：0次，Envy到對象物件 DualViewsDrawingModel.Point，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：DualViewsDrawingModel.Point.X 以及 DualViewsDrawingModel.Point.Y</string>
+          </HashCodeRequestIgnoreList>
+          <AnalysisFileManager>
+            <AnalysisFiles>
+              <AnalysisFile>
+                <RelativePath>ButtonEnabledState.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>ButtonEnabledStatesManager.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>CanvasDrawer.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>CanvasDrawerStates\CanvasDrawerDrawingState.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>CanvasDrawerStates\CanvasDrawerPointerState.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>CanvasDrawerStates\CanvasDrawerResizingState.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>CanvasDrawerStates\ICanvasDrawerState.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>CanvasManager.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>CanvasShapeDrawersHelper.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Commands\DrawingCommand.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Commands\ICommand.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Commands\ResizingCommand.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>CommandsManager.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Definitions.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>DrawingPresentationModel.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>IClosePointDetector.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>IDrawingCommandAgent.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>IGraphics.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>IIncludingPointDetector.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>IResizingCommandAgent.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Model.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Point.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Properties\AssemblyInfo.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>ShapeDrawerFactory.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>ShapeDrawers\LineDrawer.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>ShapeDrawers\RectangleDrawer.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>ShapeDrawers\ShapeDrawer.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>ShapeDrawerTypeHelper.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Shapes\Line.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Shapes\Rectangle.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Vector.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModel</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Program.cs</RelativePath>
+                <ProjectName>DualViewsDrawingWindowsFormsApplication</ProjectName>
+                <AnalysisFileType>ViewOrController</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Properties\AssemblyInfo.cs</RelativePath>
+                <ProjectName>DualViewsDrawingWindowsFormsApplication</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Properties\Resources.Designer.cs</RelativePath>
+                <ProjectName>DualViewsDrawingWindowsFormsApplication</ProjectName>
+                <AnalysisFileType>Designer</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Properties\Settings.Designer.cs</RelativePath>
+                <ProjectName>DualViewsDrawingWindowsFormsApplication</ProjectName>
+                <AnalysisFileType>Designer</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Views\DrawingForm.cs</RelativePath>
+                <ProjectName>DualViewsDrawingWindowsFormsApplication</ProjectName>
+                <AnalysisFileType>ViewOrController</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Views\DrawingForm.Designer.cs</RelativePath>
+                <ProjectName>DualViewsDrawingWindowsFormsApplication</ProjectName>
+                <AnalysisFileType>Designer</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Views\Utilities\DrawingFormGraphicsAdapter.cs</RelativePath>
+                <ProjectName>DualViewsDrawingWindowsFormsApplication</ProjectName>
+                <AnalysisFileType>ViewOrController</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>DoubleBufferedPanel.cs</RelativePath>
+                <ProjectName>WindowsFormsCustomComponents</ProjectName>
+                <AnalysisFileType>ViewOrController</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Properties\AssemblyInfo.cs</RelativePath>
+                <ProjectName>WindowsFormsCustomComponents</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Properties\Resources.Designer.cs</RelativePath>
+                <ProjectName>WindowsFormsCustomComponents</ProjectName>
+                <AnalysisFileType>Designer</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Properties\Settings.Designer.cs</RelativePath>
+                <ProjectName>WindowsFormsCustomComponents</ProjectName>
+                <AnalysisFileType>Designer</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>App.xaml.cs</RelativePath>
+                <ProjectName>DualViewsDrawingWindowsUniversalApplication</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Properties\AssemblyInfo.cs</RelativePath>
+                <ProjectName>DualViewsDrawingWindowsUniversalApplication</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Views\DrawingPage.xaml.cs</RelativePath>
+                <ProjectName>DualViewsDrawingWindowsUniversalApplication</ProjectName>
+                <AnalysisFileType>ViewOrController</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Views\Utilities\DrawingPageGraphicsAdapter.cs</RelativePath>
+                <ProjectName>DualViewsDrawingWindowsUniversalApplication</ProjectName>
+                <AnalysisFileType>ViewOrController</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Views\Utilities\DrawingPageNavigationEventArgumentsParameter.cs</RelativePath>
+                <ProjectName>DualViewsDrawingWindowsUniversalApplication</ProjectName>
+                <AnalysisFileType>ViewOrController</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>ButtonEnabledStatesManagerTest.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>ButtonEnabledStateTest.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>CanvasDrawerStates\CanvasDrawerDrawingStateTest.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>CanvasDrawerStates\CanvasDrawerPointerStateTest.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>CanvasDrawerStates\CanvasDrawerResizingStateTest.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>CanvasDrawerTest.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>CanvasManagerTest.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>CanvasShapeDrawersHelperTest.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Commands\DrawingCommandTest.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Commands\ResizingCommandTest.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>CommandsManagerTest.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>DefinitionsTest.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>DrawingPresentationModelTest.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Mocks\ButtonEnabledStatesManagerMock.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Mocks\CanvasDrawerMock.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Mocks\CanvasDrawerStateMock.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Mocks\CanvasManagerMock.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Mocks\CanvasShapeDrawersHelperMock.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Mocks\CommandMock.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Mocks\CommandsManagerMock.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Mocks\DrawingCommandAgentMock.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Mocks\GraphicsMock.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Mocks\PointMock.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Mocks\ResizingCommandAgentMock.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Mocks\ShapeDrawerMock.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>ModelTest.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>PointTest.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Properties\AssemblyInfo.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>ShapeDrawerFactoryTest.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>ShapeDrawers\LineDrawerTest.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>ShapeDrawers\RectangleDrawerTest.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>ShapeDrawers\ShapeDrawerTest.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>ShapeDrawerTypeHelperTest.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Shapes\LineTest.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Shapes\RectangleTest.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>TestDefinitions.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>VectorTest.cs</RelativePath>
+                <ProjectName>DualViewsDrawingModelTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>DrawingFormTest.cs</RelativePath>
+                <ProjectName>DualViewsDrawingWindowsFormsApplicationTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Properties\AssemblyInfo.cs</RelativePath>
+                <ProjectName>DualViewsDrawingWindowsFormsApplicationTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Robot.cs</RelativePath>
+                <ProjectName>DualViewsDrawingWindowsFormsApplicationTest</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+            </AnalysisFiles>
+          </AnalysisFileManager>
+          <ProductionLoc>3378</ProductionLoc>
+          <TestLoc>4938</TestLoc>
+        </CodeReview>
+      </Data>
+    </div>
+  </body>
+</html>
